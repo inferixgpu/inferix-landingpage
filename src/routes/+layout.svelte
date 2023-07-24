@@ -4,6 +4,6 @@
 </script>
 
 
-<div class="container mx-auto">
+<div class="mx-auto">
     <slot/>
 </div>
