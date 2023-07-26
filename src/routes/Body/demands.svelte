@@ -1,10 +1,6 @@
 <script>
-	import InferixCircle from '$components/static/images/icons/inferixCircle.svg';
 	import arrowRight from '$components/static/videos/arrowRight.mp4';
-	import GpuFunction from './gpuFunction.svelte';
-	import InferixToken from '$components/static/images/icons/inferixToken.svg';
-	import RoadMap from './roadMap.svelte';
-	import Demands from './demands.svelte';
+
 	const growingDemand = [
 		{
 			title: 'Underutilized Resources',
@@ -42,17 +38,43 @@
 	];
 </script>
 
-<div class="container mx-auto">
-	<p class="text-center text-2xl font-suit font-normal mt-6 max-w-[1060px] mx-auto">
-		An innovated platform using the power of Blockchain and Web3 technologies to redefin how we use
-		and share GPU resoruce globally.
-	</p>
-	<img src={InferixCircle} class="mx-auto mt-[70px]" alt="inferix circle" />
-	<Demands />
-	<GpuFunction />
-	<img src={InferixToken} alt="Inferix token" class="mt-[200px] mx-auto" />
-	<RoadMap />
+<div class="flex justify-between gap-10 items-center text-black mx-auto mt-[193px]">
+	<div class="box-border p-10 bg-secondary rounded-3xl w-[660px] min-h-[600px]">
+		<p class="text-2xl font-bold">The Growing demand for GPU power</p>
+		<ul class="mt-8 flex flex-col gap-4">
+			{#each growingDemand as demand (demand.title)}
+				<li class="list-disc">
+					<h2 class="font-suit font-bold">{demand.title}</h2>
+					<p class="mt-4 font-suit font-normal">{demand.description}</p>
+				</li>
+			{/each}
+		</ul>
+	</div>
+	<div class="flex flex-col gap-6">
+		<p class="text-secondary text-[2.5rem] text-center font-bold font-outfit">Inferix</p>
+		<div class="w-[200px] h-[125px] relative">
+			<video controls width="200" height="125" autoplay muted loop Playsinline>
+				<source src={arrowRight} type="video/mp4" />
+				Your browser does not support the video tag.
+			</video>
+			<div class="absolute w-[200px] h-[125px] top-0 bottom-0 left-0 right-0 overlay" />
+		</div>
+	</div>
+	<div class="box-border p-10 bg-secondary rounded-3xl w-[660px] min-h-[600px]">
+		<p class="text-2xl font-bold">Cloud sourced GPU for on-demand</p>
+		<ul class="mt-8 flex flex-col gap-4">
+			{#each cloudSource as cloud (cloud.title)}
+				<li class="list-disc">
+					<h2 class="font-suit font-bold">{cloud.title}</h2>
+					<p class="mt-4 font-suit font-normal">{cloud.description}</p>
+				</li>
+			{/each}
+		</ul>
+	</div>
 </div>
 
 <style lang="postcss">
+	.overlay {
+		background: transparent;
+	}
 </style>

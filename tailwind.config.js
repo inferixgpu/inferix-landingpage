@@ -21,6 +21,10 @@ export default {
 					900: '#A5371B'
 				},
 				secondary: '#06ff61'
+			},
+			fontFamily: {
+				suit: ['SUIT', 'sans-serif'],
+				outfit: ['Outfit', 'sans-serif']
 			}
 		}
 	},
