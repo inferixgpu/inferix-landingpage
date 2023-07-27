@@ -15,7 +15,8 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$components: path.resolve('./src/components'),
-			$images: path.resolve('./static/images'),
+			$images: path.resolve('./src/assets/images'),
+			$videos: path.resolve('./src/assets/videos'),
 			$services: path.resolve('./src/services'),
 			$stores: path.resolve('./src/stores'),
 			$utils: path.resolve('./src/utils'),

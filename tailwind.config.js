@@ -20,7 +20,8 @@ export default {
 					800: '#CC4522',
 					900: '#A5371B'
 				},
-				secondary: '#06ff61'
+				secondary: '#06ff61',
+				bg: '#090f1b'
 			},
 			fontFamily: {
 				suit: ['SUIT', 'sans-serif'],

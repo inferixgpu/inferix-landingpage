@@ -1,17 +1,20 @@
-<script>
-	import Header from './Header/header.svelte';
-	import Body from './Body/body.svelte';
-	import Footer from './Footer/footer.svelte';
+<script lang="ts">
+	import Header from '$components/header/Header.svelte';
+	import Body from '$components/body/Body.svelte';
+	import Footer from '$components/footer/Footer.svelte';
+
+	let screenSize: number;
 </script>
 
-<div class="flex flex-col headerContainer">
+<svelte:window bind:innerWidth={screenSize} />
+
+<div class="h-screen px-5">
 	<Header />
 	<Body />
-	<Footer />
+	{#if screenSize > 768}
+		<Footer />
+	{/if}
 </div>
 
 <style lang="postcss">
-	.headerContainer {
-		height: 100vh;
-	}
 </style>
