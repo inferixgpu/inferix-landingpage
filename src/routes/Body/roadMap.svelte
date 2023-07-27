@@ -1,5 +1,6 @@
 <script>
-	import RoadMap from '$components/static/images/icons/roadMap.svg';
+	import Devider from '$components/static/images/icons/divider.svg';
+	import Dot from '$components/static/images/icons/dot.svg';
 	const roadMap = [
 		{
 			title: 'Inferix is born',
@@ -32,23 +33,28 @@
 
 <div class="mt-[200px] mx-auto">
 	<p class="text-secondary text-[2.5rem] text-center font-bold font-outfit">Roadmap</p>
-	<div class="relative w-[1319px] mx-auto">
-		<img src={RoadMap} alt="road map" class="mt-10 mx-auto" />
-		<div class="grid grid-cols-4 mx-auto w-[1319px] absolute top-0">
-			{#each roadMap as map (map.title)}
-				<div class="flex box-border">
-					<div class="flex flex-col ml-12 gap-[28px] text-base font-outfit">
-						<p class="font-bold">{map.title}</p>
-						<ul class="flex flex-col ml-7">
-							{#each map.description as desc (desc)}
-								<li class="list-disc">
-									<p class="font-outfit text-base font-normal">{desc}</p>
-								</li>
-							{/each}
-						</ul>
+	<div class=" w-[1319px] mx-auto">
+		<div class="w-[1319px] h-[1px] bg-secondary mt-[200px] relative mx-auto">
+			<div class="grid grid-cols-4 mx-auto w-[1319px] absolute bottom-[-11px]">
+				{#each roadMap as map (map.title)}
+					<div class="flex gap-4">
+						<img src={Devider} alt="devider" class="" />
+						<div class="flex box-border">
+							<div class="flex flex-col gap-[28px] text-base font-outfit">
+								<p class="font-bold">{map.title}</p>
+								<ul class="flex flex-col ml-7">
+									{#each map.description as desc (desc)}
+										<li class="list-disc">
+											<p class="font-outfit text-base font-normal">{desc}</p>
+										</li>
+									{/each}
+								</ul>
+							</div>
+						</div>
 					</div>
-				</div>
-			{/each}
+				{/each}
+			</div>
+			<img src={Dot} alt="dot" class="absolute right-[-6.5px] bottom-[-6.5px]" />
 		</div>
 	</div>
 </div>

@@ -38,8 +38,8 @@
 	];
 </script>
 
-<div class="flex justify-between gap-10 items-center text-black mx-auto mt-[193px]">
-	<div class="box-border p-10 bg-secondary rounded-3xl w-[660px] min-h-[600px]">
+<div class="grid grid-cols-[660px_200px_660px] items-center gap-10 text-black mx-auto mt-[193px]">
+	<div class="box-border p-10 bg-secondary rounded-3xl">
 		<p class="text-2xl font-bold">The Growing demand for GPU power</p>
 		<ul class="mt-8 flex flex-col gap-4">
 			{#each growingDemand as demand (demand.title)}
@@ -60,7 +60,7 @@
 			<div class="absolute w-[200px] h-[125px] top-0 bottom-0 left-0 right-0 overlay" />
 		</div>
 	</div>
-	<div class="box-border p-10 bg-secondary rounded-3xl w-[660px] min-h-[600px]">
+	<div class="box-border h-full p-10 bg-secondary rounded-3xl">
 		<p class="text-2xl font-bold">Cloud sourced GPU for on-demand</p>
 		<ul class="mt-8 flex flex-col gap-4">
 			{#each cloudSource as cloud (cloud.title)}
@@ -75,6 +75,7 @@
 
 <style lang="postcss">
 	.overlay {
-		background: transparent;
+		background: black;
+		opacity: 0;
 	}
 </style>
