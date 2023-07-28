@@ -69,7 +69,7 @@
 			<p class="text-2xl font-bold">Cloud sourced GPU for on-demand</p>
 			<ul class="mt-8 flex flex-col gap-4">
 				{#each cloudSource as cloud (cloud.title)}
-					<li class="list-disc">
+					<li>
 						<h2 class="font-suit font-bold">{cloud.title}</h2>
 						<p class="mt-4 font-suit font-normal">{cloud.description}</p>
 					</li>

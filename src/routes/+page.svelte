@@ -8,7 +8,7 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div class="h-screen px-5">
+<div class="md:px-0 px-5">
 	<Header />
 	<Body />
 	{#if screenSize > 768}

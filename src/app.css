@@ -3,128 +3,127 @@
 @tailwind utilities;
 
 body {
-    background-color: var(--bg);
-    color: var(--body-text);
-    height: 100vh;
-    font-family: 'Outfit', sans-serif;
-    overflow-y: hidden;
+	background-color: var(--bg);
+	color: var(--body-text);
+	height: 100vh;
+	font-family: 'Outfit', sans-serif;
+	/* overflow-y: hidden; */
 }
 
 a {
-    @apply hover:opacity-50;
+	@apply hover:opacity-50;
 }
 
 button {
-    @apply hover:opacity-50;
+	@apply hover:opacity-50;
 }
 
 /*==============form*/
 .default-input {
-    @apply bg-gray-100 p-2 rounded-md mb-3;
+	@apply bg-gray-100 p-2 rounded-md mb-3;
 }
 
 input {
-    outline: none !important;
+	outline: none !important;
 }
 
 input:focus {
-    outline: none !important;
+	outline: none !important;
 }
-
 
 /*==============text-class*/
 .text-small-bold {
-    font-weight: 700;
-    @apply text-sm;
+	font-weight: 700;
+	@apply text-sm;
 }
 
 .text-base-bold {
-    font-weight: 700;
-    @apply text-base;
+	font-weight: 700;
+	@apply text-base;
 }
 
 .text-tiny-light {
-    font-weight: 300;
-    color: var(--grey-2);
-    @apply text-xs;
+	font-weight: 300;
+	color: var(--grey-2);
+	@apply text-xs;
 }
 
 .text-mini-light {
-    font-weight: 300;
-    color: var(--grey-2);
-    @apply text-[10px];
+	font-weight: 300;
+	color: var(--grey-2);
+	@apply text-[10px];
 }
 
 .text-grey-2 {
-    color: var(--grey-2);
+	color: var(--grey-2);
 }
 
 .text-link {
-    color: var(--hyper-link);
+	color: var(--hyper-link);
 }
 
 .text-primary {
-    color: var(--primary) !important;
+	color: var(--primary) !important;
 }
 
 /*==============button-class*/
 .button-outlined {
-    border: 1px solid var(--grey-4);
-    border-radius: 6px;
-    @apply text-sm py-[8px] text-center font-normal flex gap-2 justify-center items-center;
+	border: 1px solid var(--grey-4);
+	border-radius: 6px;
+	@apply text-sm py-[8px] text-center font-normal flex gap-2 justify-center items-center;
 }
 
 .button-grey-5 {
-    background-color: var(--grey-5);
-    border-radius: 6px;
-    color: var(--body-text);
-    @apply text-sm py-[8px] text-center;
+	background-color: var(--grey-5);
+	border-radius: 6px;
+	color: var(--body-text);
+	@apply text-sm py-[8px] text-center;
 }
 
 .button-primary {
-    background-color: var(--primary);
-    border-radius: 6px;
-    color: white;
-    @apply text-sm py-[8px] text-center;
+	background-color: var(--primary);
+	border-radius: 6px;
+	color: white;
+	@apply text-sm py-[8px] text-center;
 }
 
 .button-text {
-    background-color: transparent;
-    color: var(--primary);
-    @apply text-sm py-[8px] text-center;
+	background-color: transparent;
+	color: var(--primary);
+	@apply text-sm py-[8px] text-center;
 }
 
 /*==============common-class*/
 .lime-clamp-3 {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 
 .lime-clamp-1 {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
 }
 
 .lime-clamp-2 {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
 
 .active-tab {
-    padding: 14px !important;
-    min-width: 126px;
-    border-bottom: 2px solid var(--primary);
+	padding: 14px !important;
+	min-width: 126px;
+	border-bottom: 2px solid var(--primary);
 }
 
 .inactive-tab {
-    padding: 14px !important;
-    min-width: 126px;
-    border-bottom: 2px solid transparent;
-    color: var(--grey-3);
+	padding: 14px !important;
+	min-width: 126px;
+	border-bottom: 2px solid transparent;
+	color: var(--grey-3);
 }

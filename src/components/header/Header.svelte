@@ -31,17 +31,21 @@
 	let screenSize: number;
 	let y: number;
 	$: {
-		console.log(y);
-		console.log(screenSize);
+		console.log(y > 50);
 	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 
 <div class="background">
-	<div id="header" class="h-[110px] flex items-end">
+	<div
+		id="header"
+		class={`${
+			y > 50 ? 'bg-bg' : 'bg-transparent'
+		} h-[110px] flex fixed top-0 w-full z-20 items-end`}
+	>
 		<div class="container mx-auto mb-5">
-			<nav class="flex justify-between w-full container mx-auto font-outfit font-normal">
+			<nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
 				<div class="flex gap-4">
 					<img src={screenSize > 768 ? InferixLogo : MobileLogo} alt="logo" />
 				</div>
@@ -57,12 +61,12 @@
 						{/each}
 					</div>
 				{:else}
-					<img src={MobileMenu} alt="menu" />
+					<img src={MobileMenu} alt="menu" class="pr-10" />
 				{/if}
 			</nav>
 		</div>
 	</div>
-	<div class="container mx-auto">
+	<div class="container mx-auto pt-[110px]">
 		<div
 			class="md:mt-5 mt-8 rounded-3xl overflow-hidden md:max-w-[1600px] md:max-h-[800px] mx-auto relative"
 		>
