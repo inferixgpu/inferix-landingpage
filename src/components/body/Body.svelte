@@ -1,11 +1,12 @@
 <script lang="ts">
 	import GpuFunction from './GpuFunction.svelte';
-	import RoadMap from './RoadMap.svelte';
+	import RoadMapDesktop from './RoadMapDesktop.svelte';
+	import RoadMapMobile from './RoadMapMobile.svelte';
 	import Demands from './Demands.svelte';
 	import InferixCircle from '$images/icons/InferixCircle.svg';
 	import InferixToken from '$images/icons/InferixToken.svg';
 	import InferixCicleMobile from '$images/icons/InferixCircleMobile.svg';
-
+	import InferixTokenMobile from '$images/icons/InferixTokenMobile.svg';
 	const growingDemand = [
 		{
 			title: 'Underutilized Resources',
@@ -60,9 +61,15 @@
 	/>
 	<Demands />
 	<GpuFunction />
-	<img src={InferixToken} alt="Inferix token" class="md:mt-[200px]!w-[800px] mt-[258px] mx-auto" />
+	<img
+		src={screenSize > 768 ? InferixToken : InferixTokenMobile}
+		alt="Inferix token"
+		class="md:mt-[200px]!w-[800px] mt-[115px] mx-auto"
+	/>
 	{#if screenSize > 768}
-		<RoadMap />
+		<RoadMapDesktop />
+	{:else}
+		<RoadMapMobile />
 	{/if}
 </div>
 

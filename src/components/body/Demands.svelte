@@ -57,7 +57,7 @@
 			<p class="text-secondary md:text-[2.5rem] text-[2rem] text-center font-bold font-outfit">
 				Inferix
 			</p>
-			<div class="w-[200px] h-[125px] relative">
+			<div class="w-[200px] h-[125px] relative md:rotate-0 md:mt-0 mt-6 rotate-90">
 				<video controls width="200" height="125" autoplay muted loop Playsinline>
 					<source src={arrowRight} type="video/mp4" />
 					Your browser does not support the video tag.
@@ -65,7 +65,7 @@
 				<div class="absolute w-[200px] h-[125px] top-0 bottom-0 left-0 right-0 overlay" />
 			</div>
 		</div>
-		<div class="box-border h-full p-10 bg-secondary rounded-3xl">
+		<div class="box-border h-full md:p-10 p-6 !py-10 bg-secondary rounded-3xl">
 			<p class="text-2xl font-bold">Cloud sourced GPU for on-demand</p>
 			<ul class="mt-8 flex flex-col gap-4">
 				{#each cloudSource as cloud (cloud.title)}
@@ -89,6 +89,6 @@
 		color: black; /* or any color you want */
 		font-weight: bold;
 		display: inline-block;
-		width: 1em;
+		width: 10px;
 	}
 </style>

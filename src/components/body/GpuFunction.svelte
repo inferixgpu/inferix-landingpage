@@ -15,10 +15,20 @@
 	<div
 		class="grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 grid-rows-2 md:mt-20 mt-[65.5px] md:gap-40 gap-[47px] w-full"
 	>
-		<img src={VFX} alt="VFX" class="ml-auto" />
-		<img src={AiInference} alt="AiInference" />
+		<img src={VFX} alt="VFX" class="mx-auto vfx" />
+		<img src={AiInference} alt="AiInference" class="mx-auto aiInference" />
 	</div>
 </div>
 
 <style lang="postcss">
+	@media screen and (min-width: 767px) {
+		.vfx {
+			margin-left: auto !important;
+			margin-right: 0;
+		}
+		.aiInference {
+			margin-right: auto !important;
+			margin-left: 0;
+		}
+	}
 </style>
