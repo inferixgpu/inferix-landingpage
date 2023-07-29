@@ -36,9 +36,9 @@
 	$: {
 		if (typeof window !== 'undefined') {
 			if (isOpen) {
-				document.body.style.overflowY = 'hidden';
+				document.documentElement.style.overflowY = 'hidden';
 			} else {
-				document.body.style.overflow = 'auto';
+				document.documentElement.style.overflow = 'auto';
 			}
 		}
 	}

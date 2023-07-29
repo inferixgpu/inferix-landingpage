@@ -13,23 +13,24 @@
 		{ id: 3, name: 'Discord', href: '#dc' },
 		{ id: 4, name: 'Lightpaper', href: '#lp' }
 	];
-	
 </script>
 
 <div class="container mx-auto pb-[41px] mt-[200px]">
-	<div class="h-[435px] overflow-hidden rounded-[32px] relative">
-		<video
-			width="1600"
-			height="435"
-			autoplay
-			muted
-			loop
-			Playsinline
-			class="absolute md:top-[-35%] top-[30%] md:scale-[1] scale-[2.5]"
-		>
-			<source src={footerVideo} type="video/mp4" />
-			Your browser does not support the video tag.
-		</video>
+	<div class="h-[435px] rounded-[32px] overflow-hidden relative overflow">
+		<div class="w-full h-full">
+			<video
+				width="1600"
+				height="435"
+				autoplay
+				muted
+				loop
+				Playsinline
+				class="absolute md:top-[-35%] top-[30%] md:scale-[1] scale-[2.5]"
+			>
+				<source src={footerVideo} type="video/mp4" />
+				Your browser does not support the video tag.
+			</video>
+		</div>
 		<div
 			class="h-[435px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center gap-8"
 		>
@@ -75,6 +76,7 @@
 	.active {
 		color: var(--green);
 	}
+
 	@media screen and (max-width: 767px) {
 		.mediaContainer {
 			margin-left: auto;
