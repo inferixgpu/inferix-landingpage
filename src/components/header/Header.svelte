@@ -143,7 +143,10 @@
 				</div>
 			{/each}
 		</div>
-		<div class="top-3 absolute right-5 cursor-pointer w-5 h-5 z-20" on:click={closeMenu}>
+		<div
+			class={`${isOpen ? 'block' : 'hidden'} top-3 absolute right-5 cursor-pointer w-5 h-5 z-20`}
+			on:click={closeMenu}
+		>
 			<svg
 				class="overflow-hidden"
 				width={20}
@@ -166,17 +169,18 @@
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 	}
 	.background {
-		background: url('$images/icons/HeaderBackground.svg') no-repeat center fixed;
+		background: url('$images/icons/headerBackground.svg') no-repeat center fixed;
 		background-size: cover;
 	}
 	.overlayMobile {
 		background-color: rgba(0, 0, 0, 0.5);
-		transition: width ease 0.5s;
+		transition: left 0.6s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 		overflow: hidden;
-		width: 0;
+		width: 100%;
+		left: -100%;
 	}
 	.overlayMobile.open {
-		width: 100%;
+		left: 0;
 	}
 
 	@media screen and (max-width: 767px) {
