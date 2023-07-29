@@ -1,5 +1,5 @@
 <script lang="ts">
-	import footerVideo from '$videos/footer.mp4';
+	import footerVideo from '$videos/Footer.mp4';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
 	let activeTab = 1;
 

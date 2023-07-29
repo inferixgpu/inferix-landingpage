@@ -1,7 +1,7 @@
 <script>
-	import Devider from '$images/icons/Divider.svg';
 	import DeviderMobile from '$images/icons/DividerMobile.svg';
 	import Dot from '$images/icons/dot.svg';
+
 	const roadMap = [
 		{
 			title: 'Inferix is born',

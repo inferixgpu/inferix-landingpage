@@ -1,5 +1,5 @@
 <script>
-	import arrowRight from '$videos/arrowRight.mp4';
+	import arrowRight from '$videos/ArrowRight.mp4';
 
 	const growingDemand = [
 		{
