@@ -1,7 +1,6 @@
 <script lang="ts">
 	import footerVideo from '$videos/footer.mp4';
-	import InferixLogo from '$images/icons/inferixLogo.svg';
-	import LogoMobileBottom from '$images/icons/LogomobileBottom.svg';
+	import HeaderLogo from '$images/icons/HeaderLogo.svg';
 	let activeTab = 1;
 
 	const setActiveTab = (tab: number) => {
@@ -14,22 +13,19 @@
 		{ id: 3, name: 'Discord', href: '#dc' },
 		{ id: 4, name: 'Lightpaper', href: '#lp' }
 	];
-	let screenSize: number;
+	
 </script>
-
-<svelte:window bind:innerWidth={screenSize} />
 
 <div class="container mx-auto pb-[41px] mt-[200px]">
 	<div class="h-[435px] overflow-hidden rounded-[32px] relative">
 		<video
-			controls
 			width="1600"
 			height="435"
 			autoplay
 			muted
 			loop
 			Playsinline
-			class="absolute md:top-[-35%] top-[30%] md:scale-0 scale-[2.5]"
+			class="absolute md:top-[-35%] top-[30%] md:scale-[1] scale-[2.5]"
 		>
 			<source src={footerVideo} type="video/mp4" />
 			Your browser does not support the video tag.
@@ -49,11 +45,14 @@
 		</div>
 	</div>
 	<div class="mt-10 flex md:flex-row flex-col justify-between">
-		<img
-			src={screenSize > 768 ? InferixLogo : LogoMobileBottom}
-			class="md:order-1 order-2 md:w-auto w-[200px] md:h-auto h-[56px] md:mt-0 mt-8 md:mx-0 mx-auto"
-			alt="Inferix logo"
-		/>
+		<div
+			class="flex md:gap-4 gap-2 md:order-1 order-2 md:flex-row flex-col items-center md:items-start mt-8 md:mt-0"
+		>
+			<img src={HeaderLogo} alt="logo" class="w-[100px]" />
+			<p class="font-base font-outfit font-normal text-white whitespace-nowrap">
+				Decentrazlied GPU Network
+			</p>
+		</div>
 		<div
 			class="flex md:gap-10 gap-8 font-bold w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
 		>

@@ -2,7 +2,6 @@
 	import Devider from '$images/icons/Divider.svg';
 	import DeviderMobile from '$images/icons/DividerMobile.svg';
 	import Dot from '$images/icons/dot.svg';
-	import { onMount, afterUpdate } from 'svelte';
 	const roadMap = [
 		{
 			title: 'Inferix is born',
@@ -35,15 +34,9 @@
 			mark: '24.2Q'
 		}
 	];
-
-	onMount(() => {
-		const dividers = document.querySelectorAll('.divider');
-		const lastDivider = dividers[dividers.length - 1];
-		lastDivider.classList.add('last-divider');
-	});
 </script>
 
-<div id="roadmap" class="mt-[200px] w-[90%] mx-auto">
+<div id="roadmap" class="mt-[200px] w-full mx-auto md:hidden block">
 	<p class="text-secondary text-[2.5rem] text-center font-bold font-outfit">Roadmap</p>
 	<div class="w-full mt-[41px] relative z-10 mx-auto">
 		<div class="flex flex-col justify-center items-center gap-10 mx-auto w-full">
