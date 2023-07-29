@@ -169,7 +169,7 @@
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 	}
 	.background {
-		background: url('$images/icons/headerBackground.svg') no-repeat center fixed;
+		background: url('$images/icons/HeaderBackground.svg') no-repeat center fixed;
 		background-size: cover;
 	}
 	.overlayMobile {
