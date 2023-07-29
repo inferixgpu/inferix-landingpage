@@ -54,17 +54,19 @@
 		An innovated platform using the power of Blockchain and Web3 technologies to redefin how we use
 		and share GPU resoruce globally.
 	</p>
-	<img
-		src={screenSize > 768 ? InferixCircle : InferixCicleMobile}
-		class="mx-auto md:mt-[70px] mt-[40px]"
-		alt="inferix circle"
-	/>
+	<img src={InferixCircle} class="mx-auto mt-[70px] md:flex hidden" alt="inferix circle" />
+	<img src={InferixCicleMobile} class="mx-auto mt-[40px] md:hidden flex" alt="inferix circle" />
 	<Demands />
 	<GpuFunction />
 	<img
-		src={screenSize > 768 ? InferixToken : InferixTokenMobile}
+		src={InferixToken}
 		alt="Inferix token"
-		class="md:mt-[200px]!w-[800px] mt-[115px] mx-auto"
+		class="mt-[200px] !w-[800px] mx-auto md:flex hidden"
+	/>
+	<img
+		src={InferixTokenMobile}
+		alt="Inferix token"
+		class="!w-[800px] mt-[115px] mx-auto md:hidden flex"
 	/>
 	{#if screenSize > 768}
 		<RoadMapDesktop />

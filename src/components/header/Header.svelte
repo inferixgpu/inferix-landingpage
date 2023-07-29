@@ -1,9 +1,8 @@
 <script lang="ts">
-	import InferixLogo from '$images/icons/inferixLogo.svg';
 	import BodyLogo from '$images/icons/BodyLogo.svg';
-	import MobileLogo from '$images/icons/mobileLogo.svg';
 	import HeaderVideo from '$videos/HeaderVideo.mp4';
 	import MobileMenu from '$images/icons/MobileMenu.svg';
+	import HeaderLogo from '$images/icons/HeaderLogo.svg';
 
 	let activeTab = 1;
 
@@ -75,28 +74,35 @@
 	<div
 		id="header"
 		class={`${
-			y > 50 ? 'bg-bg' : 'bg-transparent'
-		} h-[97.4px] flex fixed top-0 w-full z-20 items-end`}
+			y > 50 ? 'bg-bg' : 'md:bg-transparent bg-bg'
+		} md:h-[97.4px] h-[69px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-20 items-end`}
 	>
-		<div class="container mx-auto mb-5">
+		<div class="container mx-auto md:mb-5 mb-0">
 			<nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
-				<div class="flex gap-4">
-					<img src={screenSize > 768 ? InferixLogo : MobileLogo} alt="logo" />
+				<div class="flex md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
+					<img src={HeaderLogo} alt="logo" class="w-[100px]" />
+					<p
+						class="md:font-base text-[0.5625rem] font-outfit font-normal text-white whitespace-nowrap"
+					>
+						Decentrazlied GPU Network
+					</p>
 				</div>
-				{#if screenSize > 768}
-					<div class="flex gap-10 text-lg">
-						{#each tabs as tab (tab.id)}
-							<div
-								class="tab {activeTab === tab.id ? 'active' : ''}"
-								on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-							>
-								<a href={tab.href}>{tab.title}</a>
-							</div>
-						{/each}
-					</div>
-				{:else}
-					<img src={MobileMenu} on:click={toggleMenu} alt="menu" class="pr-10 cursor-pointer" />
-				{/if}
+				<div class="md:flex gap-10 text-lg hidden">
+					{#each tabs as tab (tab.id)}
+						<div
+							class="tab {activeTab === tab.id ? 'active' : ''}"
+							on:click={(e) => handleClickTab(e, tab.id, tab.href)}
+						>
+							<a href={tab.href}>{tab.title}</a>
+						</div>
+					{/each}
+				</div>
+				<img
+					src={MobileMenu}
+					on:click={toggleMenu}
+					alt="menu"
+					class="pr-10 md:mb-0 mb-4 cursor-pointer md:hidden flex"
+				/>
 			</nav>
 		</div>
 	</div>
@@ -104,17 +110,15 @@
 		<div
 			class="md:mt-5 mt-8 rounded-3xl overflow-hidden md:max-w-[1600px] md:max-h-[800px] mx-auto relative"
 		>
-			<video controls width="1600" height="800" autoplay muted loop Playsinline>
+			<video width="1600" height="800" autoplay muted loop Playsinline>
 				<source src={HeaderVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
 			<div
 				class="md:text-[5rem] text-[3rem] font-normal absolute rounded-3xl max-w-[1600px] max-h-[800px] font-outfit flex flex-col justify-center items-center top-0 bottom-0 left-0 right-0 overlay"
 			>
-				{#if screenSize > 768}
-					<p class="text-center">Fastest 3d redering by</p>
-					<p class="text-secondary text-center font-bold">interix decentralized GPU</p>
-				{/if}
+				<p class="text-center md:flex hidden">Fastest 3d redering by</p>
+				<p class="text-secondary text-center font-bold md:flex hidden">interix decentralized GPU</p>
 			</div>
 		</div>
 		<img
@@ -123,32 +127,35 @@
 			alt="logo"
 		/>
 	</div>
-	{#if isOpen}
-		<div class="overlayMobile fixed top-0 bottom-0 left-0 right-0 w-full h-screen z-30">
-			<div class="flex gap-10 flex-col text-lg w-[60%] h-full bg-bg box-border pt-5 pl-5">
-				{#each tabs as tab (tab.id)}
-					<div
-						class="tab {activeTab === tab.id ? 'active' : ''}"
+	<div
+		class={`${
+			isOpen ? 'open' : 'close'
+		} overlayMobile fixed top-0 bottom-0 left-0 right-0 h-screen z-30`}
+	>
+		<div class="flex gap-10 flex-col text-lg w-fit pr-20 h-full bg-bg box-border pt-5 pl-5">
+			{#each tabs as tab (tab.id)}
+				<div class="tab {activeTab === tab.id ? 'active' : ''}">
+					<a
+						href={tab.href}
 						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
+						class="whitespace-nowrap">{tab.title}</a
 					>
-						<a href={tab.href}>{tab.title}</a>
-					</div>
-				{/each}
-			</div>
-			<div class="top-5 absolute right-5 cursor-pointer w-5 h-5 z-20" on:click={closeMenu}>
-				<svg
-					class="overflow-hidden"
-					width={20}
-					height={20}
-					version="1.1"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<line x1="1" y1="20" x2="20" y2="1" stroke="white" stroke-width="2" />
-					<line x1="1" y1="1" x2="20" y2="20" stroke="white" stroke-width="2" />
-				</svg>
-			</div>
+				</div>
+			{/each}
 		</div>
-	{/if}
+		<div class="top-3 absolute right-5 cursor-pointer w-5 h-5 z-20" on:click={closeMenu}>
+			<svg
+				class="overflow-hidden"
+				width={20}
+				height={20}
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<line x1="1" y1="20" x2="20" y2="1" stroke="white" stroke-width="2" />
+				<line x1="1" y1="1" x2="20" y2="20" stroke="white" stroke-width="2" />
+			</svg>
+		</div>
+	</div>
 </div>
 
 <style lang="postcss">
@@ -164,7 +171,14 @@
 	}
 	.overlayMobile {
 		background-color: rgba(0, 0, 0, 0.5);
+		transition: width ease 0.5s;
+		overflow: hidden;
+		width: 0;
 	}
+	.overlayMobile.open {
+		width: 100%;
+	}
+
 	@media screen and (max-width: 767px) {
 		.background {
 			background-size: 600px;
