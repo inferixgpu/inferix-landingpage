@@ -25,7 +25,3 @@ docker-build:
   # Run this job in a branch where a Dockerfile exists
   only:
     - develop
-  rules:
-    - if: $CI_COMMIT_BRANCH
-      exists:
-        - Dockerfile
