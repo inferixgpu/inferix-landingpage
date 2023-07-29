@@ -1,6 +1,6 @@
 <script>
 	import DeviderMobile from '$images/icons/DividerMobile.svg';
-	import Dot from '$images/icons/dot.svg';
+	import Dot from '$images/icons/Dot.svg';
 
 	const roadMap = [
 		{
