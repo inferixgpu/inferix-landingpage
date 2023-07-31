@@ -18,8 +18,8 @@
 		},
 		{
 			id: 2,
-			title: 'GPU Neywork',
-			href: '#neywork'
+			title: 'GPU Network',
+			href: '#network'
 		},
 		{
 			id: 3,
@@ -120,12 +120,12 @@
 				<source src={HeaderVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
-			<div
-				class="md:text-[5rem] text-[3rem] font-normal absolute rounded-3xl max-w-[1600px] max-h-[800px] font-outfit flex flex-col justify-center items-center top-0 bottom-0 left-0 right-0 overlay"
-			>
-				<p class="text-center md:flex hidden">Fastest 3d redering by</p>
-				<p class="text-secondary text-center font-bold md:flex hidden">interix decentralized GPU</p>
-			</div>
+<!--			<div-->
+<!--				class="md:text-[5rem] text-[3rem] font-normal absolute rounded-3xl max-w-[1600px] max-h-[800px] font-outfit flex flex-col justify-center items-center top-0 bottom-0 left-0 right-0 overlay"-->
+<!--			>-->
+<!--				<p class="text-center md:flex hidden">Fastest 3d rendering by</p>-->
+<!--				<p class="text-secondary text-center font-bold md:flex hidden">inferix decentralized GPU</p>-->
+<!--			</div>-->
 		</div>
 		<img
 			class="md:w-[123px] w-[80px] md:h-[50px] h-8 md:mt-[127px] mt-[50px] mx-auto"

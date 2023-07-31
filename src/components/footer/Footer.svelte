@@ -8,10 +8,10 @@
 	};
 
 	const medias = [
-		{ id: 1, name: 'Twitter', href: '#tw' },
-		{ id: 2, name: 'Medium', href: '#md' },
-		{ id: 3, name: 'Discord', href: '#dc' },
-		{ id: 4, name: 'Lightpaper', href: '#lp' }
+		{ id: 1, name: 'Twitter', href: '#' },
+		{ id: 2, name: 'Medium', href: '#' },
+		{ id: 3, name: 'Discord', href: '#' },
+		{ id: 4, name: 'Lightpaper', href: '#' }
 	];
 </script>
 

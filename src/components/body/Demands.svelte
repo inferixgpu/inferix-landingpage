@@ -38,7 +38,7 @@
 	];
 </script>
 
-<div id="neywork" class="container">
+<div id="network" class="container">
 	<div
 		class="grid md:grid-cols-[auto_200px_auto] grid-cols-1 md:grid-rows-1 grid-rows-[auto_264px_auto] items-center gap-10 text-black mx-auto md:mt-[193px] mt-[100px]"
 	>
