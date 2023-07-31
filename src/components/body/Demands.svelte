@@ -58,7 +58,7 @@
 				Inferix
 			</p>
 			<div class="w-[200px] h-[125px] relative md:rotate-0 md:mt-0 mt-6 rotate-90">
-				<video width="200" height="125" autoplay muted loop Playsinline>
+				<video width="200" height="125" autoplay muted loop playsinline>
 					<source src={arrowRight} type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>

@@ -120,7 +120,7 @@
 		<div
 			class="md:mt-5 mt-8 rounded-3xl overflow-hidden md:max-w-[1600px] md:max-h-[800px] mx-auto relative"
 		>
-			<video width="1600" height="800" autoplay muted loop Playsinline>
+			<video width="1600" height="800" autoplay muted loop playsinline>
 				<source src={HeaderVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
