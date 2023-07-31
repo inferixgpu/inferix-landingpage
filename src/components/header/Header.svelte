@@ -3,7 +3,7 @@
 	import HeaderVideo from '$videos/HeaderVideo.mp4';
 	import MobileMenu from '$images/icons/MobileMenu.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
-
+	import { afterUpdate } from 'svelte';
 	let activeTab = 1;
 
 	const setActiveTab = (tab: number) => {
@@ -33,20 +33,24 @@
 
 	let isOpen = false;
 
-	$: {
+	afterUpdate(() => {
 		if (typeof window !== 'undefined') {
 			if (isOpen) {
+				// Prevent scrolling when the menu is open
 				document.documentElement.style.overflowY = 'hidden';
-				document.ontouchmove = function (e) {
-					e.preventDefault();
-				};
+				document.addEventListener('touchmove', preventDefaultScroll, {
+					passive: false
+				});
 			} else {
-				document.documentElement.style.overflow = 'auto';
-				document.ontouchmove = function (e) {
-					return true;
-				};
+				// Re-enable scrolling when the menu is closed
+				document.documentElement.style.overflowY = 'auto';
+				document.removeEventListener('touchmove', preventDefaultScroll);
 			}
 		}
+	});
+
+	function preventDefaultScroll(e: TouchEvent) {
+		e.preventDefault();
 	}
 	const toggleMenu = () => {
 		isOpen = true;
@@ -136,7 +140,7 @@
 	<div
 		class={`${
 			isOpen ? 'open' : 'close'
-		} overlayMobile fixed top-0 bottom-0 left-0 right-0 h-screen z-30`}
+		} overlayMobile fixed top-0 bottom-0 left-0 right-0 h-screen z-40`}
 	>
 		<div class="flex gap-10 flex-col text-lg w-fit pr-20 h-full bg-bg box-border pt-5 pl-5">
 			{#each tabs as tab (tab.id)}
