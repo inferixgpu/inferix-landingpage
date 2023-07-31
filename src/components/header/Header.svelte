@@ -37,8 +37,14 @@
 		if (typeof window !== 'undefined') {
 			if (isOpen) {
 				document.documentElement.style.overflowY = 'hidden';
+				document.ontouchmove = function (e) {
+					e.preventDefault();
+				};
 			} else {
 				document.documentElement.style.overflow = 'auto';
+				document.ontouchmove = function (e) {
+					return true;
+				};
 			}
 		}
 	}
@@ -75,7 +81,7 @@
 		id="header"
 		class={`${
 			y > 50 ? 'bg-bg' : 'md:bg-transparent bg-bg'
-		} md:h-[97.4px] h-[69px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-20 items-end`}
+		} md:h-[97.4px] h-[69px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
 	>
 		<div class="container mx-auto md:mb-5 mb-0">
 			<nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">

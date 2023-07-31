@@ -16,23 +16,15 @@
 </script>
 
 <div class="container mx-auto pb-[41px] mt-[200px]">
-	<div class="h-[435px] rounded-[32px] overflow-hidden relative overflow">
-		<div class="w-full h-full">
-			<video
-				width="1600"
-				height="435"
-				autoplay
-				muted
-				loop
-				Playsinline
-				class="absolute md:top-[-35%] top-[30%] md:scale-[1] scale-[2.5]"
-			>
+	<div class="h-[435px] overflow-hidden rounded-[32px] relative z-30">
+		<div class="md:top-[-35%] top-[30%] absolute z-10">
+			<video width="1600" height="435" autoplay muted loop Playsinline class="footerVideo">
 				<source src={footerVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
 		</div>
 		<div
-			class="h-[435px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center gap-8"
+			class="h-[435px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center gap-8 z-10"
 		>
 			<p
 				class="font-outfit md:text-[2rem] text-2xl box-border md:px-[140px] px-5 text-center font-medium text-black"
@@ -77,10 +69,22 @@
 		color: var(--green);
 	}
 
+	.footerVideo {
+		transform: scale(1);
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		z-index: 0;
+	}
 	@media screen and (max-width: 767px) {
 		.mediaContainer {
 			margin-left: auto;
 			margin-right: auto;
+		}
+		.footerVideo {
+			transform: scale(2.5);
+			-webkit-transform: scale(2.5);
+			-moz-transform: scale(2.5);
+			z-index: 0;
 		}
 	}
 </style>

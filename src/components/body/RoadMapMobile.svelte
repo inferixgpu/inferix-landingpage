@@ -91,4 +91,10 @@
 		margin-left: 7.5px;
 		margin-top: -5px;
 	}
+
+	@media screen and (max-width: 390px) {
+		.gridContainer {
+			width: 100%;
+		}
+	}
 </style>
