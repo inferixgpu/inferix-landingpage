@@ -69,13 +69,13 @@
 		color: var(--green);
 	}
 
-	<<<<<<< HEAD ======= .footerVideo {
+	.footerVideo {
 		transform: scale(1);
 		-webkit-transform: scale(1);
 		-moz-transform: scale(1);
 		z-index: 0;
 	}
-	>>>>>>>438360f (fix bug on IOS) @media screen and (max-width: 767px) {
+	@media screen and (max-width: 767px) {
 		.mediaContainer {
 			margin-left: auto;
 			margin-right: auto;
