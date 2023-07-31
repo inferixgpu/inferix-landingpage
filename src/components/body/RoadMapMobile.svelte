@@ -58,7 +58,7 @@
 								<ul class="flex flex-col">
 									{#each map.description as desc (desc)}
 										<li>
-											<p class="font-outfit font-normal">{desc}</p>
+											<p class="font-outfit font-normal box-border pr-5">{desc}</p>
 										</li>
 									{/each}
 								</ul>
@@ -68,9 +68,6 @@
 				</div>
 			{/each}
 		</div>
-		<!-- <div class="absolute h-[120%] divider top-[5px] z-1 flex items-end">
-			<img src={Dot} alt="dot" class=" w-[10px] h-[10px] mb-[-3.5px] ml-[-3.5px]" />
-		</div> -->
 	</div>
 </div>
 
@@ -79,6 +76,7 @@
 		grid-template-columns: 45px 105px 165px;
 		display: grid;
 		width: fit-content;
+		max-width: 100%;
 	}
 	li > p:before {
 		content: '\2022';
