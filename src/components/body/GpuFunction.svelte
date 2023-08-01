@@ -1,6 +1,6 @@
 <script>
-	import VFX from '$images/icons/VFX.svg';
-	import AiInference from '$images/icons/AiInference.svg';
+	import VFX from '$images/photos/VFX.png';
+	import AiInference from '$images/photos/AiInference.png';
 </script>
 
 <div class="container mx-auto md:mt-[171px] mt-[144px]">

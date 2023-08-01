@@ -3,10 +3,10 @@
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
 	import RoadMapMobile from './RoadMapMobile.svelte';
 	import Demands from './Demands.svelte';
-	import InferixCircle from '$images/icons/InferixCircle.svg';
-	import InferixToken from '$images/icons/InferixToken.svg';
-	import InferixCicleMobile from '$images/icons/InferixCircleMobile.svg';
-	import InferixTokenMobile from '$images/icons/InferixTokenMobile.svg';
+	import InferixCircle from '$images/photos/InferixCircle.png';
+	import InferixToken from '$images/photos/InferixToken.png';
+	import InferixCicleMobile from '$images/photos/InferixCircleMobile.png';
+	import InferixTokenMobile from '$images/photos/InferixTokenMobile.png';
 	const growingDemand = [
 		{
 			title: 'Underutilized Resources',

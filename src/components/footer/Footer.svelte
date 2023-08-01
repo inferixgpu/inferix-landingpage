@@ -17,7 +17,7 @@
 
 <div class="container mx-auto pb-[41px] mt-[200px]">
 	<div class="h-[435px] overflow-hidden rounded-[32px] relative z-30">
-		<div class="md:top-[-35%] top-[30%] absolute z-10">
+		<div class="lg:top-[-35%] md:top-[0] top-[30%] absolute z-10">
 			<video width="1600" height="435" autoplay muted loop playsinline class="footerVideo">
 				<source src={footerVideo} type="video/mp4" />
 				Your browser does not support the video tag.
