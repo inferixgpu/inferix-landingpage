@@ -33,7 +33,7 @@
 	const markers = ['23.3Q', '23.4Q', '24.1Q', '24.2Q'];
 </script>
 
-<div id="roadmap" class="md:block hidden mt-[200px] w-[90%] mx-auto">
+<div id="roadmap" class="md:block hidden mt-[220px] w-[90%] mx-auto">
 	<p class="text-secondary text-[2.5rem] text-center font-bold font-outfit">Roadmap</p>
 	<div class="w-full h-[1px] bg-secondary mt-[240px] relative mx-auto">
 		<div class="grid grid-cols-4 mx-auto absolute bottom-[-11px]">

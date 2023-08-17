@@ -1,6 +1,8 @@
 <script lang="ts">
 	import footerVideo from '$videos/Footer.mp4';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
+	import Download from '$images/icons/Download.svg';
+
 	let activeTab = 1;
 
 	const setActiveTab = (tab: number) => {
@@ -24,7 +26,7 @@
 			</video>
 		</div>
 		<div
-			class="h-[435px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center gap-8 z-10"
+			class="h-[435px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center z-10"
 		>
 			<p
 				class="font-outfit md:text-[2rem] text-2xl box-border md:px-[140px] px-5 text-center font-medium text-black"
@@ -32,9 +34,25 @@
 				"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
 				GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."
 			</p>
-			<button class="bg-black text-white text-lg py-4 px-8 rounded-2xl hover:opacity-[0.8]">
-				Join Inferix
-			</button>
+			<p class=" text-darkGreen text-lg text-center mt-[80px] uppercase">Join Inferix now</p>
+			<div class="flex gap-5 mt-5">
+				<div class="linear">
+					<div
+						class="flex items-center justify-center gap-4 py-[15.5px] text-[1.375rem] font-semibold font-outfit rounded-[28px] button cursor-pointer"
+					>
+						<img src={Download} alt="download icon" />
+						Windowns
+					</div>
+				</div>
+				<div class="linear">
+					<div
+						class="flex items-center gap-4 justify-center py-[15.5px] text-[1.375rem] font-semibold font-outfit rounded-[28px] button cursor-pointer"
+					>
+						<img src={Download} alt="download icon" />
+						MacOS
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="mt-10 flex md:flex-row flex-col justify-between">
@@ -75,6 +93,18 @@
 		-moz-transform: scale(1);
 		z-index: 0;
 	}
+
+	.button {
+		background: rgba(0, 0, 0, 0.49);
+		box-shadow: 0px 0px 33px 0px rgba(6, 255, 97, 0.08);
+	}
+	.linear {
+		width: 230px;
+		background: linear-gradient(90deg, rgba(6, 255, 97, 0.49) 100%, rgba(255, 255, 255, 0.49) 43%);
+		padding: 1px;
+		border-radius: 28px;
+	}
+
 	@media screen and (max-width: 767px) {
 		.mediaContainer {
 			margin-left: auto;

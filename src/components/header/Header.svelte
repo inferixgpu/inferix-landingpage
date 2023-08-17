@@ -3,6 +3,7 @@
 	import HeaderVideo from '$videos/HeaderVideo.mp4';
 	import MobileMenu from '$images/icons/MobileMenu.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
+	import TrialButton from '$images/png/TrialButton.png';
 	import { afterUpdate } from 'svelte';
 	let activeTab = 1;
 
@@ -80,7 +81,7 @@
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 
-<div class="background relative">
+<div class="bg-lightDark relative">
 	<div
 		id="header"
 		class={`${
@@ -117,25 +118,17 @@
 		</div>
 	</div>
 	<div class="container mx-auto pt-[110px]">
-		<div
-			class="md:mt-5 mt-8 rounded-3xl overflow-hidden md:max-w-[1600px] md:max-h-[800px] mx-auto relative"
-		>
+		<div class="md:mt-5 mt-8 rounded-3xl overflow-hidden mx-auto relative">
 			<video width="1600" height="800" autoplay muted loop playsinline>
 				<source src={HeaderVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
-<!--			<div-->
-<!--				class="md:text-[5rem] text-[3rem] font-normal absolute rounded-3xl max-w-[1600px] max-h-[800px] font-outfit flex flex-col justify-center items-center top-0 bottom-0 left-0 right-0 overlay"-->
-<!--			>-->
-<!--				<p class="text-center md:flex hidden">Fastest 3d rendering by</p>-->
-<!--				<p class="text-secondary text-center font-bold md:flex hidden">inferix decentralized GPU</p>-->
-<!--			</div>-->
+			<img
+				src={TrialButton}
+				alt=""
+				class="absolute lg:bottom-[20%] md:bottom-[15%] left-[50%] trialButton cursor-pointer"
+			/>
 		</div>
-		<img
-			class="md:w-[123px] w-[80px] md:h-[50px] h-8 md:mt-[127px] mt-[50px] mx-auto"
-			src={BodyLogo}
-			alt="logo"
-		/>
 	</div>
 	<div
 		class={`${
@@ -178,10 +171,7 @@
 	.overlay {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 	}
-	.background {
-		background: url('$images/icons/HeaderBackground.svg') no-repeat center fixed;
-		background-size: cover;
-	}
+
 	.overlayMobile {
 		background-color: rgba(0, 0, 0, 0.5);
 		transition: left 0.6s cubic-bezier(0.82, 0.085, 0.395, 0.895);
@@ -192,11 +182,7 @@
 	.overlayMobile.open {
 		left: 0;
 	}
-
-	@media screen and (max-width: 767px) {
-		.background {
-			background-size: 600px;
-			background-position-y: 19%;
-		}
+	.trialButton {
+		transform: translate(-50%);
 	}
 </style>
