@@ -123,11 +123,18 @@
 				<source src={HeaderVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
-			<img
+			<!-- <img
 				src={TrialButton}
 				alt=""
 				class="absolute lg:bottom-[20%] md:bottom-[15%] left-[50%] trialButton cursor-pointer"
-			/>
+			/> -->
+			<div class="linear absolute lg:bottom-[20%] md:bottom-[15%] left-[50%] trialButton">
+				<div
+					class="px-9 font-semibold font-outfit text text-white text-2xl py-[17px] md:mb-0 mb-4 flex cursor-pointer rounded-[28px]"
+				>
+					Start free trial
+				</div>
+			</div>
 		</div>
 	</div>
 	<div
@@ -183,6 +190,15 @@
 		left: 0;
 	}
 	.trialButton {
-		transform: translate(-50%);
+		transform: translateX(-50%);
+	}
+	.linear {
+		padding: 1px;
+		background: linear-gradient(90deg, rgba(6, 255, 97, 0.49) 100%, rgba(255, 255, 255, 0.49) 43%);
+		border-radius: 28px;
+	}
+	.text {
+		background: rgba(0, 0, 0, 0.49);
+		box-shadow: 0px 0px 33px 0px rgba(6, 255, 97, 0.08);
 	}
 </style>

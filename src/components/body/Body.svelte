@@ -6,6 +6,7 @@
 	import Inferix from '$images/icons/Inferix.svg';
 	import StraightDivider from '$images/icons/StraightDivider.svg';
 	import PartnerAndInvestor from '$images/png/PartnerAndInvestor.png';
+	import Industries from './Industries.svelte';
 
 	let screenSize: number;
 </script>
@@ -23,6 +24,7 @@
 	</div>
 	<img src={InferixCycle} class="mx-auto mt-[149px] md:flex hidden" alt="inferix circle" />
 	<img src={InferixCicleMobile} class="mx-auto mt-[40px] md:hidden flex" alt="inferix circle" />
+	<Industries />
 	<div class="mt-[155px] mx-auto">
 		<p class="text-center font-pre font-extrabold text-[2.5rem]">Partner / Investor</p>
 		<img src={PartnerAndInvestor} alt="Partner / Investor" class="mt-[60px]" />
