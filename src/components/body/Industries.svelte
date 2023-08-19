@@ -1,41 +1,31 @@
 <script lang="ts">
-	import Entertainment from '$images/png/Entertainment.png';
-	import Architecture from '$images/png/Architecture.png';
-	import ProductDevelopment from '$images/png/ProductDevelopment.png';
-	import Animation from '$images/png/Animation.png';
-	import Virtual from '$images/png/Virtual.png';
 	import ArrowDown from '$images/icons/ArrowDown.svg';
 
 	const industriesData = [
 		{
-			title: 'Entertainment and Media',
+			title: 'Entertainment <br> and Media',
 			description:
-				'From blockbuster movies to immersive gaming experiences, Inferix brings life to visuals that captivate audiences worldwide.',
-			url: '$images/png/Entertainment.png'
+				'From blockbuster movies to immersive gaming experiences, Inferix brings life to visuals that captivate audiences worldwide.'
 		},
 		{
-			title: 'Architecture and Design',
+			title: 'Architecture <br> and Design',
 			description:
-				'Create photorealistic architectural visualizations and design concepts, transforming ideas into tangible, visually stunning realities',
-			url: '$images/png/Architecture.png'
+				'Create photorealistic architectural visualizations and design concepts, transforming ideas into tangible, visually stunning realities'
 		},
 		{
 			title: 'Product Development',
 			description:
-				'Steamline the design process with accelerated 3D rendering and simulations, enabling efficient prototyping and iteration.',
-			url: '$images/png/ProductDevelopment.png'
+				'Steamline the design process with accelerated 3D rendering and simulations, enabling efficient prototyping and iteration.'
 		},
 		{
 			title: 'Animation and VFX',
 			description:
-				'Power visual effects and animation pipelines with Inferix, speeding up production and enabling seamless integration of visual elements.',
-			url: '$images/png/Animation.png'
+				'Power visual effects and animation pipelines with Inferix, speeding up production and enabling seamless integration of visual elements.'
 		},
 		{
-			title: 'Virtual and Augmented',
+			title: 'Virtual <br> and Augmented Reality',
 			description:
-				'Reality Build immersive virtual and agumented reality experiences that push the boundaries of interactive storytelling.',
-			url: '$images/png/Virtual.png'
+				'Reality Build immersive virtual and agumented reality experiences that push the boundaries of interactive storytelling.'
 		}
 	];
 
@@ -45,25 +35,36 @@
 <svelte:window bind:innerWidth={screenSize} />
 
 <div
-	class="pt-[397px] pb-[175px] bg-[url('$images/png/EllipseBackground.png')] background relative mt-[185px]"
+	class="md:pt-[307px] pt-[150px] pb-[175px] bg-[url('$images/png/EllipseBackground.png')] background relative md:mt-[185px] mt-[90px] md:px-0 px-5 box-border"
 >
 	<img src={ArrowDown} alt="arrow down icon" class="absolute left-[50%] top-[-105px]" />
-	<p class="font-pre text-[2.5rem] font-extrabold">Industries Empowered by Inferix</p>
-	<p class="text-grey text-2xl max-w-[1028px] font-normal mt-5">
-		Unlock the potential of Inferix across a diverse range of industries, where visual computing
-		plays a pivotal role in innovation and success. Our cutting - edge distributed GPU
-		infrastructure enhances productivity, acceierates creativity, and elevates results for the
-		following sectors
-	</p>
-	<div class="industryContainer flex gap-[25px] mt-[80px] hide-scroll overflow-auto">
-		{#each industriesData as industry}
-			<div
-				class="industry min-w-[519px] h-[392px] bg-[url('$images/png/Entertainment.png')] box-border pl-[55px] pr-[56px] pb-[44px] flex flex-col justify-end"
-			>
-				<p class="font-pre text-[2rem] font-extrabold text-secondary">{industry.title}</p>
-				<p class="text-lightGrey text-xl font-normal mt-5">{industry.description}</p>
-			</div>
-		{/each}
+	<div class="container mx-auto">
+		<p class="font-pre text-[2.5rem] font-extrabold">Industries Empowered by Inferix</p>
+		<p class="text-grey text-2xl max-w-[1028px] font-normal mt-5">
+			Unlock the potential of Inferix across a diverse range of industries, where visual computing
+			plays a pivotal role in innovation and success. Our cutting - edge distributed GPU
+			infrastructure enhances productivity, acceierates creativity, and elevates results for the
+			following sectors
+		</p>
+		<div class="industryContainer flex gap-[25px] mt-[80px] hide-scroll overflow-auto">
+			{#each industriesData as industry, index}
+				{#if index === 1}
+					<div
+						class="industry min-w-[519px] h-[392px] box-border pl-[55px] pr-[30px] pt-[161px] flex flex-col justify-start"
+					>
+						<p class="font-pre text-[2rem] font-extrabold text-secondary">{@html industry.title}</p>
+						<p class="text-lightGrey text-xl font-normal mt-5">{industry.description}</p>
+					</div>
+				{:else}
+					<div
+						class="industry min-w-[519px] h-[392px] box-border pl-[55px] pr-[56px] pt-[161px] flex flex-col justify-start"
+					>
+						<p class="font-pre text-[2rem] font-extrabold text-secondary">{@html industry.title}</p>
+						<p class="text-lightGrey text-xl font-normal mt-5">{industry.description}</p>
+					</div>
+				{/if}
+			{/each}
+		</div>
 	</div>
 	<div />
 </div>
@@ -79,6 +80,26 @@
 	.background {
 		background-repeat: no-repeat;
 		background-position: center;
+	}
+
+	.industryContainer > div {
+		background-repeat: no-repeat;
+		background-position: center;
 		background-size: cover;
+	}
+	.industryContainer > div:nth-child(1) {
+		background-image: url('$images/png/Entertainment.png');
+	}
+	.industryContainer > div:nth-child(2) {
+		background-image: url('$images/png/Architecture.png');
+	}
+	.industryContainer > div:nth-child(3) {
+		background-image: url('$images/png/ProductDevelopment.png');
+	}
+	.industryContainer > div:nth-child(4) {
+		background-image: url('$images/png/Animation.png');
+	}
+	.industryContainer > div:nth-child(5) {
+		background-image: url('$images/png/Virtual.png');
 	}
 </style>

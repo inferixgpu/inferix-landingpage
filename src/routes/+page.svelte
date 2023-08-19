@@ -4,7 +4,7 @@
 	import Footer from '$components/footer/Footer.svelte';
 </script>
 
-<div class="md:px-0 px-5">
+<div class="">
 	<Header />
 	<Body />
 	<Footer />

@@ -10,9 +10,11 @@ export default {
 				secondary: '#06ff61',
 				bg: '#090f1b',
 				lightDark: '#141414',
+				darkGrey: '#1C1C1C',
 				darkGreen: '#0F824A',
 				grey: '#ADADAD',
-				lightGrey: '#DCDCDC'
+				lightGrey: '#DCDCDC',
+				normalGrey: '#A9A9A9'
 			},
 			fontFamily: {
 				suit: ['SUIT', 'sans-serif'],

@@ -17,8 +17,8 @@
 	];
 </script>
 
-<div class="container mx-auto pb-[41px] mt-[200px]">
-	<div class="h-[435px] overflow-hidden rounded-[32px] relative z-30">
+<div class="bg-darkGrey pb-[41px] pt-[200px] md:px-0 px-5 box-border">
+	<div class="h-[435px] container mx-auto overflow-hidden rounded-[32px] relative z-30">
 		<div class="md:top-[-35%] top-[30%] absolute z-10">
 			<video width="1600" height="435" autoplay muted loop playsinline class="footerVideo">
 				<source src={footerVideo} type="video/mp4" />
@@ -34,11 +34,13 @@
 				"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
 				GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."
 			</p>
-			<p class=" text-darkGreen text-lg text-center mt-[80px] uppercase">Join Inferix now</p>
+			<p class=" text-darkGreen text-lg text-center md:mt-[80px] mt-[50px] uppercase">
+				Join Inferix now
+			</p>
 			<div class="flex gap-5 mt-5">
 				<div class="linear">
 					<div
-						class="flex items-center justify-center gap-4 py-[15.5px] text-[1.375rem] font-semibold font-outfit rounded-[28px] button cursor-pointer"
+						class="flex items-center justify-center md:gap-4 gap-2 md:py-[15.5px] py-2 md:text-[1.375rem] text-sm font-semibold font-outfit rounded-[28px] button cursor-pointer"
 					>
 						<img src={Download} alt="download icon" />
 						Windowns
@@ -46,7 +48,7 @@
 				</div>
 				<div class="linear">
 					<div
-						class="flex items-center gap-4 justify-center py-[15.5px] text-[1.375rem] font-semibold font-outfit rounded-[28px] button cursor-pointer"
+						class="flex items-center md:gap-4 gap-2 justify-center md:py-[15.5px] py-2 md:text-[1.375rem] text-sm font-semibold font-outfit rounded-[28px] button cursor-pointer"
 					>
 						<img src={Download} alt="download icon" />
 						MacOS
@@ -55,7 +57,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="mt-10 flex md:flex-row flex-col justify-between">
+	<div class=" container mx-auto mt-10 flex md:flex-row flex-col justify-between">
 		<div
 			class="flex md:gap-4 gap-2 md:order-1 order-2 md:flex-row flex-col items-center md:items-start mt-8 md:mt-0"
 		>
@@ -74,9 +76,11 @@
 			{/each}
 		</div>
 	</div>
-	<p class="font-outfit text-sm font-normal md:mt-[18px] mt-2 md:text-left text-center">
-		© 2023 Inferix. All rights reserved.
-	</p>
+	<div class="container mx-auto">
+		<p class="font-outfit text-sm font-normal md:mt-[18px] mt-2 md:text-left text-center">
+			© 2023 Inferix. All rights reserved.
+		</p>
+	</div>
 </div>
 
 <style>
@@ -98,6 +102,9 @@
 		background: rgba(0, 0, 0, 0.49);
 		box-shadow: 0px 0px 33px 0px rgba(6, 255, 97, 0.08);
 	}
+	.button:hover {
+		background: rgba(0, 0, 0, 0.69);
+	}
 	.linear {
 		width: 230px;
 		background: linear-gradient(90deg, rgba(6, 255, 97, 0.49) 100%, rgba(255, 255, 255, 0.49) 43%);
@@ -114,6 +121,21 @@
 			transform: scale(2.5);
 			-webkit-transform: scale(2.5);
 			-moz-transform: scale(2.5);
+			z-index: 0;
+		}
+		.linear {
+			width: 150px;
+		}
+	}
+	@media screen and (min-width: 768px) and (max-width: 1023px) {
+		.mediaContainer {
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.footerVideo {
+			transform: scale(2);
+			-webkit-transform: scale(2);
+			-moz-transform: scale(2);
 			z-index: 0;
 		}
 	}

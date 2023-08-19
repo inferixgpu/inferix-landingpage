@@ -1,9 +1,8 @@
 <script lang="ts">
-	import BodyLogo from '$images/icons/BodyLogo.svg';
+	import TrialButton from '$images/icons/TrialButton.svg';
 	import HeaderVideo from '$videos/HeaderVideo.mp4';
 	import MobileMenu from '$images/icons/MobileMenu.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
-	import TrialButton from '$images/png/TrialButton.png';
 	import { afterUpdate } from 'svelte';
 	let activeTab = 1;
 
@@ -85,10 +84,10 @@
 	<div
 		id="header"
 		class={`${
-			y > 50 ? 'bg-bg' : 'md:bg-transparent bg-bg'
+			y > 50 ? 'bg-lightDark' : 'md:bg-transparent bg-lightDark'
 		} md:h-[97.4px] h-[69px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
 	>
-		<div class="container mx-auto md:mb-5 mb-0">
+		<div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border">
 			<nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
 				<div class="flex md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
 					<img src={HeaderLogo} alt="logo" class="w-[100px]" />
@@ -112,28 +111,21 @@
 					src={MobileMenu}
 					on:click={toggleMenu}
 					alt="menu"
-					class="pr-10 md:mb-0 mb-4 cursor-pointer md:hidden flex"
+					class="md:mb-0 mb-4 cursor-pointer md:hidden flex"
 				/>
 			</nav>
 		</div>
 	</div>
-	<div class="container mx-auto pt-[110px]">
+	<div class="container mx-auto pt-[110px] md:px-0 px-5 box-border">
 		<div class="md:mt-5 mt-8 rounded-3xl overflow-hidden mx-auto relative">
 			<video width="1600" height="800" autoplay muted loop playsinline>
 				<source src={HeaderVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
-			<!-- <img
-				src={TrialButton}
-				alt=""
-				class="absolute lg:bottom-[20%] md:bottom-[15%] left-[50%] trialButton cursor-pointer"
-			/> -->
-			<div class="linear absolute lg:bottom-[20%] md:bottom-[15%] left-[50%] trialButton">
-				<div
-					class="px-9 font-semibold font-outfit text text-white text-2xl py-[17px] md:mb-0 mb-4 flex cursor-pointer rounded-[28px]"
-				>
-					Start free trial
-				</div>
+			<div
+				class="overflow-hidden rounded-[28px] absolute lg:bottom-[20%] md:bottom-[15%] left-[50%] trialButton cursor-pointer"
+			>
+				<img src={TrialButton} alt="trial button" />
 			</div>
 		</div>
 	</div>
@@ -192,13 +184,13 @@
 	.trialButton {
 		transform: translateX(-50%);
 	}
-	.linear {
-		padding: 1px;
-		background: linear-gradient(90deg, rgba(6, 255, 97, 0.49) 100%, rgba(255, 255, 255, 0.49) 43%);
-		border-radius: 28px;
+	.trialButton:hover {
+		background: rgba(0, 0, 0, 0.69);
 	}
 	.text {
 		background: rgba(0, 0, 0, 0.49);
 		box-shadow: 0px 0px 33px 0px rgba(6, 255, 97, 0.08);
+		border: 1px solid
+			linear-gradient(90deg, rgba(6, 255, 97, 0.49) 100%, rgba(255, 255, 255, 0.49) 43%);
 	}
 </style>
