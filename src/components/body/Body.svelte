@@ -16,13 +16,13 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div id="about" class="bg-lightDark">
+<div id="about" class="">
 	<div
 		class="flex md:flex-row flex-col items-center mx-auto md:pt-[133px] pt-[60px] container md:px-0 px-5 box-border"
 	>
 		<img src={Inferix} alt="Inferix" />
 		<img src={StraightDivider} alt="divider" class="ml-[54px] md:flex hidden mr-[74px]" />
-		<p class="md:text-left text-center md:text-2xl text-base font-suit font-normal md:mt-0 mt-5">
+		<p class="md:text-left text-center md:text-[1.75rem] text-base font-pre font-normal md:mt-0 mt-5 leading-normal">
 			An innovated platform using the power of Blockchain and Web3 technologies to redefin how we
 			use and share GPU resoruce globally.
 		</p>
