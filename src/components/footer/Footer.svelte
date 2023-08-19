@@ -17,7 +17,7 @@
 	];
 </script>
 
-<div class="bg-darkGrey pb-[41px] pt-[200px] md:px-0 px-5 box-border">
+<div class="bg-darkGrey pb-[41px] md:pt-[249px] pt-[150px] md:px-0 px-5 box-border">
 	<div class="h-[435px] container mx-auto overflow-hidden rounded-[32px] relative z-30">
 		<div class="md:top-[-35%] top-[30%] absolute z-10">
 			<video width="1600" height="435" autoplay muted loop playsinline class="footerVideo">
@@ -34,13 +34,13 @@
 				"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
 				GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."
 			</p>
-			<p class=" text-darkGreen text-lg text-center md:mt-[80px] mt-[50px] uppercase">
+			<p class="text-green font-kommon text-2xl text-center md:mt-[82px] mt-[50px] uppercase leading-[50%] tracking-[1.92px]">
 				Join Inferix now
 			</p>
-			<div class="flex gap-5 mt-5">
+			<div class="flex gap-5 mt-[22px]">
 				<div class="linear">
 					<div
-						class="flex items-center justify-center md:gap-4 gap-2 md:py-[15.5px] py-2 md:text-[1.375rem] text-sm font-semibold font-outfit rounded-[28px] button cursor-pointer"
+						class="flex items-center justify-center md:gap-4 gap-2 md:py-[15.5px] py-2 md:text-lg text-sm font-semibold font-outfit rounded-[28px] button cursor-pointer"
 					>
 						<img src={Download} alt="download icon" />
 						Windowns
@@ -48,7 +48,7 @@
 				</div>
 				<div class="linear">
 					<div
-						class="flex items-center md:gap-4 gap-2 justify-center md:py-[15.5px] py-2 md:text-[1.375rem] text-sm font-semibold font-outfit rounded-[28px] button cursor-pointer"
+						class="flex items-center md:gap-4 gap-2 justify-center md:py-[15.5px] py-2 md:text-lg text-sm font-semibold font-outfit rounded-[28px] button cursor-pointer"
 					>
 						<img src={Download} alt="download icon" />
 						MacOS
@@ -106,7 +106,7 @@
 		background: rgba(0, 0, 0, 0.69);
 	}
 	.linear {
-		width: 230px;
+		width: 160px;
 		background: linear-gradient(90deg, rgba(6, 255, 97, 0.49) 100%, rgba(255, 255, 255, 0.49) 43%);
 		padding: 1px;
 		border-radius: 28px;

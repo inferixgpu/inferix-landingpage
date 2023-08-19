@@ -14,12 +14,14 @@ export default {
 				darkGreen: '#0F824A',
 				grey: '#ADADAD',
 				lightGrey: '#DCDCDC',
-				normalGrey: '#A9A9A9'
+				normalGrey: '#A9A9A9',
+				green: '#123E29'
 			},
 			fontFamily: {
 				suit: ['SUIT', 'sans-serif'],
 				outfit: ['Outfit', 'sans-serif'],
-				pre: ['Pretendard Variable', 'sans-serif']
+				pre: ['Pretendard Variable', 'sans-serif'],
+				kommon: ["Kommon Grotesk", 'sans-serif']
 			}
 		}
 	},

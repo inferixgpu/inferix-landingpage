@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ArrowDown from '$images/icons/ArrowDown.svg';
-
+import EllipseBackground from "$images/png/EllipseBackground.png"
 	const industriesData = [
 		{
 			title: 'Entertainment <br> and Media',
@@ -33,20 +33,20 @@
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
-
 <div
-	class="md:pt-[307px] pt-[150px] pb-[175px] bg-[url('$images/png/EllipseBackground.png')] background relative md:mt-[185px] mt-[90px] md:px-0 px-5 box-border"
+	class="pb-[700px] background relative"
 >
+	<img src={EllipseBackground} alt="ellipse background" class="absolute inset-0 w-full h-full z-1">
 	<img src={ArrowDown} alt="arrow down icon" class="absolute left-[50%] top-[-105px]" />
-	<div class="container mx-auto">
+	<div class="container mx-auto md:pt-[307px] pt-[150px] md:px-0 px-5 box-border">
 		<p class="font-pre text-[2.5rem] font-extrabold">Industries Empowered by Inferix</p>
-		<p class="text-grey text-2xl max-w-[1028px] font-normal mt-5">
+		<p class="text-grey font-pre text-2xl max-w-[1028px] font-normal mt-5">
 			Unlock the potential of Inferix across a diverse range of industries, where visual computing
 			plays a pivotal role in innovation and success. Our cutting - edge distributed GPU
 			infrastructure enhances productivity, acceierates creativity, and elevates results for the
 			following sectors
 		</p>
-		<div class="industryContainer flex gap-[25px] mt-[80px] hide-scroll overflow-auto">
+		<div class="industryContainer flex gap-[25px] mt-[80px] hide-scroll overflow-auto absolute z-2 maxWidth w-full h-full">
 			{#each industriesData as industry, index}
 				{#if index === 1}
 					<div
@@ -78,8 +78,8 @@
 		scrollbar-width: none; /* Firefox */
 	}
 	.background {
-		background-repeat: no-repeat;
-		background-position: center;
+		background: linear-gradient(180deg, #101010 0%, #000 100%);
+
 	}
 
 	.industryContainer > div {
@@ -102,4 +102,7 @@
 	.industryContainer > div:nth-child(5) {
 		background-image: url('$images/png/Virtual.png');
 	}
+		.maxWidth {
+			max-width: calc(100% - 60px);
+		}
 </style>

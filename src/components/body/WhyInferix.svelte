@@ -28,7 +28,7 @@
 	];
 </script>
 
-<div id="network" class="md:pt-[142px] pt-[50px] whyInferixContainer md:px-0 px-5 box-border">
+<div id="network" class="md:pt-[142px] pt-[50px] pb-[185px] whyInferixContainer md:px-0 px-5 box-border">
 	<div class="container mx-auto">
 		<img src={WhyInferix} alt="why inferix" class="mx-auto" />
 		<div
