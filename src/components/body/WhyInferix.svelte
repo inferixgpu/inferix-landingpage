@@ -28,14 +28,17 @@
 	];
 </script>
 
-<div id="network" class="md:pt-[142px] pt-[50px] pb-[185px] whyInferixContainer md:px-0 px-5 box-border">
+<div
+	id="network"
+	class="md:pt-[142px] pt-[50px] pb-[185px] whyInferixContainer md:px-0 px-5 box-border"
+>
 	<div class="container mx-auto">
 		<img src={WhyInferix} alt="why inferix" class="mx-auto" />
 		<div
 			class="mt-[60px] grid lg:grid-cols-4 lg:grid-rows-1 md:grid-cols-2 md:grid-rows-2 grid-cols-1 grid-rows-4 gap-4 reasonContainer w-full"
 		>
 			{#each reasons as reason}
-				<div class="max-w-[390px] mx-auto">
+				<div class="">
 					<div
 						class="font-pre inset-0 flex flex-col items-center box-border text-center w-full h-full rounded-[28px] z-10"
 					>
@@ -79,22 +82,35 @@
 	.reasonContainer > div:nth-child(4) > .title {
 		margin-top: 6px;
 	}
+
 	.reasonContainer > div {
-		background-position: center;
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-		background-position: center top;
+		position: relative;
+		border-radius: 28px;
 	}
-	.reasonContainer > div:nth-child(1) {
-		background-image: url('$images/png/PerformanceBackground.png');
+
+	.reasonContainer > div::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		border-radius: 28px;
+		padding: 1.5px;
+		-webkit-mask: linear-gradient(#fff 0 0) content-box, /* [1] */ linear-gradient(#fff 0 0); /* [2] */
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
 	}
-	.reasonContainer > div:nth-child(2) {
-		background-image: url('$images/png/ScalabilityBackground.png');
+	.reasonContainer > div:nth-child(1)::before {
+		background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(255, 255, 255, 0.16) 100%);
 	}
-	.reasonContainer > div:nth-child(3) {
-		background-image: url('$images/png/UtilizationBackground.png');
+	.reasonContainer > div:nth-child(n + 2)::before {
+		background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(0, 0, 0, 0) 100%);
 	}
-	.reasonContainer > div:nth-child(4) {
-		background-image: url('$images/png/IntergrationBackground.png');
+	@media screen and (min-width: 1050px) and (max-width: 1280px) {
+		.reasonContainer {
+			display: flex;
+		}
+		.reasonContainer > div {
+			width: 24%;
+		}
 	}
 </style>

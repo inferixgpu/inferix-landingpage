@@ -117,15 +117,15 @@
 		</div>
 	</div>
 	<div class="container mx-auto pt-[110px] md:px-0 px-5 box-border">
-		<div class="md:mt-5 mt-8 rounded-3xl overflow-hidden mx-auto relative">
+		<div class="rounded-3xl overflow-hidden mx-auto relative">
 			<video width="1600" height="800" autoplay muted loop playsinline>
 				<source src={HeaderVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
 			<div
-				class="overflow-hidden rounded-[28px] absolute lg:bottom-[20%] md:bottom-[15%] left-[50%] trialButton cursor-pointer"
+				class="overflow-hidden rounded-[28px] absolute lg:bottom-[20%] md:bottom-[15%] bottom-[20px] left-[50%] trialButton cursor-pointer"
 			>
-				<img src={TrialButton} alt="trial button" />
+				<img src={TrialButton} alt="trial button" class="md:w-auto w-[150px]" />
 			</div>
 		</div>
 	</div>

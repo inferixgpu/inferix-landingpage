@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ArrowDown from '$images/icons/ArrowDown.svg';
-import EllipseBackground from "$images/png/EllipseBackground.png"
+	import EllipseBackground from '$images/png/EllipseBackground.png';
 	const industriesData = [
 		{
 			title: 'Entertainment <br> and Media',
@@ -30,13 +30,22 @@ import EllipseBackground from "$images/png/EllipseBackground.png"
 	];
 
 	let screenSize: number;
+
+	let scrollPosition = 0;
+
+	function handleScroll(event: UIEvent) {
+		const target = event.target as HTMLElement;
+		scrollPosition = target.scrollLeft;
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
-<div
-	class="pb-[700px] background relative"
->
-	<img src={EllipseBackground} alt="ellipse background" class="absolute inset-0 w-full h-full z-1">
+<div class="pb-[700px] background relative">
+	<img
+		src={EllipseBackground}
+		alt="ellipse background"
+		class="absolute inset-0 w-full h-full z-1"
+	/>
 	<img src={ArrowDown} alt="arrow down icon" class="absolute left-[50%] top-[-105px]" />
 	<div class="container mx-auto md:pt-[307px] pt-[150px] md:px-0 px-5 box-border">
 		<p class="font-pre text-[2.5rem] font-extrabold">Industries Empowered by Inferix</p>
@@ -46,21 +55,26 @@ import EllipseBackground from "$images/png/EllipseBackground.png"
 			infrastructure enhances productivity, acceierates creativity, and elevates results for the
 			following sectors
 		</p>
-		<div class="industryContainer flex gap-[25px] mt-[80px] hide-scroll overflow-auto absolute z-2 maxWidth w-full h-full">
+	</div>
+	<div class={`${scrollPosition > 0 ? '' : 'container mx-auto'}`}>
+		<div
+			class={` industryContainer flex gap-[25px] mt-[80px] hide-scroll overflow-auto absolute z-2 w-full h-full`}
+			on:scroll={handleScroll}
+		>
 			{#each industriesData as industry, index}
 				{#if index === 1}
 					<div
 						class="industry min-w-[519px] h-[392px] box-border pl-[55px] pr-[30px] pt-[161px] flex flex-col justify-start"
 					>
 						<p class="font-pre text-[2rem] font-extrabold text-secondary">{@html industry.title}</p>
-						<p class="text-lightGrey text-xl font-normal mt-5">{industry.description}</p>
+						<p class="text-lightGrey font-pre text-xl font-normal mt-5">{industry.description}</p>
 					</div>
 				{:else}
 					<div
 						class="industry min-w-[519px] h-[392px] box-border pl-[55px] pr-[56px] pt-[161px] flex flex-col justify-start"
 					>
 						<p class="font-pre text-[2rem] font-extrabold text-secondary">{@html industry.title}</p>
-						<p class="text-lightGrey text-xl font-normal mt-5">{industry.description}</p>
+						<p class="text-lightGrey font-pre text-xl font-normal mt-5">{industry.description}</p>
 					</div>
 				{/if}
 			{/each}
@@ -79,7 +93,6 @@ import EllipseBackground from "$images/png/EllipseBackground.png"
 	}
 	.background {
 		background: linear-gradient(180deg, #101010 0%, #000 100%);
-
 	}
 
 	.industryContainer > div {
@@ -102,7 +115,7 @@ import EllipseBackground from "$images/png/EllipseBackground.png"
 	.industryContainer > div:nth-child(5) {
 		background-image: url('$images/png/Virtual.png');
 	}
-		.maxWidth {
-			max-width: calc(100% - 60px);
-		}
+	.maxWidth {
+		max-width: calc(100% - 60px);
+	}
 </style>
