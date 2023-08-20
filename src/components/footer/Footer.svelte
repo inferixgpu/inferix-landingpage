@@ -34,23 +34,25 @@
 				"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
 				GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."
 			</p>
-			<p class="text-green font-kommon text-2xl text-center md:mt-[82px] mt-[50px] uppercase leading-[50%] tracking-[1.92px]">
+			<p
+				class="text-green font-kommon text-2xl text-center md:mt-[82px] mt-[50px] uppercase leading-[50%] tracking-[1.92px]"
+			>
 				Join Inferix now
 			</p>
 			<div class="flex gap-5 mt-[22px]">
 				<div class="linear">
 					<div
-						class="flex items-center justify-center md:gap-4 gap-2 md:py-[15.5px] py-2 md:text-lg text-sm font-semibold font-outfit rounded-[28px] button cursor-pointer"
+						class="flex items-center justify-center md:gap-3 gap-2 h-full md:text-lg text-sm font-semibold font-outfit rounded-[28px] button cursor-pointer"
 					>
-						<img src={Download} alt="download icon" />
+						<img src={Download} alt="download icon" class="w-[14px] h-[12px]" />
 						Windowns
 					</div>
 				</div>
 				<div class="linear">
 					<div
-						class="flex items-center md:gap-4 gap-2 justify-center md:py-[15.5px] py-2 md:text-lg text-sm font-semibold font-outfit rounded-[28px] button cursor-pointer"
+						class="flex items-center md:gap-3 gap-2 justify-center h-full md:text-lg text-sm font-semibold font-outfit rounded-[28px] button cursor-pointer"
 					>
-						<img src={Download} alt="download icon" />
+						<img src={Download} alt="download icon" class="w-[14px] h-[12px]" />
 						MacOS
 					</div>
 				</div>
@@ -107,8 +109,10 @@
 	}
 	.linear {
 		width: 160px;
+		height: 54.375px;
 		background: linear-gradient(90deg, rgba(6, 255, 97, 0.49) 100%, rgba(255, 255, 255, 0.49) 43%);
 		padding: 1px;
+		box-sizing: content-box;
 		border-radius: 28px;
 	}
 
