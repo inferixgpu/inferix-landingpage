@@ -10,9 +10,9 @@
 	};
 
 	const medias = [
-		{ id: 1, name: 'Twitter', href: '#' },
-		{ id: 2, name: 'Medium', href: '#' },
-		{ id: 3, name: 'Discord', href: '#' },
+		{ id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu' },
+		{ id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu' },
+		{ id: 3, name: 'Discord', href: 'https://discord.com/invite/dGF8ka68' },
 		{ id: 4, name: 'Lightpaper', href: '#' }
 	];
 </script>
@@ -73,7 +73,7 @@
 		>
 			{#each medias as media (media.id)}
 				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
-					<a href={media.href}>{media.name}</a>
+					<a target="_blank" href={media.href}>{media.name}</a>
 				</div>
 			{/each}
 		</div>
