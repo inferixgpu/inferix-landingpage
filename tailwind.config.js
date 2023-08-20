@@ -7,25 +7,21 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				// flowbite-svelte
-				primary: {
-					50: '#FFF5F2',
-					100: '#FFF1EE',
-					200: '#FFE4DE',
-					300: '#FFD5CC',
-					400: '#FFBCAD',
-					500: '#FE795D',
-					600: '#EF562F',
-					700: '#EB4F27',
-					800: '#CC4522',
-					900: '#A5371B'
-				},
 				secondary: '#06ff61',
-				bg: '#090f1b'
+				bg: '#090f1b',
+				lightDark: '#141414',
+				darkGrey: '#1C1C1C',
+				darkGreen: '#0F824A',
+				grey: '#ADADAD',
+				lightGrey: '#DCDCDC',
+				normalGrey: '#A9A9A9',
+				green: '#123E29'
 			},
 			fontFamily: {
 				suit: ['SUIT', 'sans-serif'],
-				outfit: ['Outfit', 'sans-serif']
+				outfit: ['Outfit', 'sans-serif'],
+				pre: ['Pretendard Variable', 'sans-serif'],
+				kommon: ["Kommon Grotesk", 'sans-serif']
 			}
 		}
 	},

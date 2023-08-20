@@ -1,73 +1,59 @@
 <script lang="ts">
-	import GpuFunction from './GpuFunction.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
 	import RoadMapMobile from './RoadMapMobile.svelte';
-	import Demands from './Demands.svelte';
-	import InferixCircle from '$images/photos/InferixCircle.png';
-	import InferixToken from '$images/photos/InferixToken.png';
-	import InferixCicleMobile from '$images/photos/InferixCircleMobile.png';
-	import InferixTokenMobile from '$images/photos/InferixTokenMobile.png';
-	const growingDemand = [
-		{
-			title: 'Underutilized Resources',
-			description:
-				'Many GPU owners do not fully utilize their GPUs, leading to underutilized resources and missed income opportunities.'
-		},
-		{
-			title: 'Complex Management & Maintenance ',
-			description:
-				'With traditional models like PaaS or laaS, users need to manage and maintain their platform or infrastructure, which can be time- consuming and technically challenging. High Access and Cost Barriers Businesses, researchers, and developers needing high-performance GPU processing often face prohibitive costs, both for initial investment and maintenance. The high financial barrier restricts access to necessary computational resources.'
-		},
-		{
-			title: 'High Access and Cost Barriers ',
-			description:
-				'Businesses, researchers, and developers needing high-performance GPU processing often face prohibitive costs, both for initial investment and maintenance. The high financial barrier restricts access to necessary computational resources.'
-		}
-	];
-
-	const cloudSource = [
-		{
-			title: 'Maximize utilizaton & Earning',
-			description:
-				'Inferix provides a platform for GPU owners to share their idle GPU power,allowing them to earn GOPU tokens, thereby creating a new revenue stream.'
-		},
-		{
-			title: 'Ease of Use & Management ',
-			description:
-				"With GOPU's FaaS model, users do not have to worry about setting up, managing, and maintaining their own GPU infrastructure. This drastically simplifies the process and allows users to focus on their core tasks."
-		},
-		{
-			title: 'Democratize Access & Lower Costs',
-			description:
-				'Inferix allows users needing GPU power to access these resources on a pay-as-you-go basis, significantly lowering the financial barriers to entry. This also means users only pay for the resources they actually use, leading to more efficient spending.'
-		}
-	];
+	import InferixCycle from '$images/png/InferixCycle.png';
+	import InferixCicleMobile from '$images/icons/InferixCircleMobile.svg';
+	import Inferix from '$images/icons/Inferix.svg';
+	import StraightDivider from '$images/icons/StraightDivider.svg';
+	import PartnerAndInvestor from '$images/png/PartnerAndInvestor.png';
+	import Industries from './Industries.svelte';
+	import WhyInferix from './WhyInferix.svelte';
+	import Colligence from '$images/icons/Colligence.svg';
+	import House3D from '$images/icons/House3D.svg';
+	import MetaCity from '$images/icons/MetaCity.svg';
 	let screenSize: number;
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div id="about" class="container mx-auto">
-	<p
-		class="text-center md:text-2xl text-base font-suit font-normal md:mt-6 mt-4 max-w-[1060px] mx-auto"
+<div id="about" class="">
+	<div
+		class="flex md:flex-row flex-col items-center mx-auto md:pt-[133px] pt-[60px] container md:px-0 px-5 box-border"
 	>
-		An innovated platform using the power of Blockchain and Web3 technologies to redefin how we use
-		and share GPU resoruce globally.
-	</p>
-	<img src={InferixCircle} class="mx-auto mt-[70px] md:flex hidden" alt="inferix circle" />
-	<img src={InferixCicleMobile} class="mx-auto mt-[40px] md:hidden flex" alt="inferix circle" />
-	<Demands />
-	<GpuFunction />
+		<img src={Inferix} alt="Inferix" />
+		<img src={StraightDivider} alt="divider" class="ml-[54px] md:flex hidden mr-[74px]" />
+		<p class="md:text-left text-center md:text-[1.75rem] text-base font-pre font-normal md:mt-0 mt-5">
+			An innovated platform using the power of Blockchain and Web3 technologies to redefin how we
+			use and share GPU resoruce globally.
+		</p>
+	</div>
 	<img
-		src={InferixToken}
-		alt="Inferix token"
-		class="mt-[200px] !w-[800px] mx-auto md:flex hidden"
+		src={InferixCycle}
+		class="mx-auto container mt-[149px] md:flex hidden pb-[132px]"
+		alt="inferix circle"
 	/>
 	<img
-		src={InferixTokenMobile}
-		alt="Inferix token"
-		class="!w-[800px] mt-[115px] mx-auto md:hidden flex"
+		src={InferixCicleMobile}
+		class="mx-auto mt-[40px] md:hidden flex md:px-0 px-5 box-border"
+		alt="inferix circle"
 	/>
+	<WhyInferix />
+	<Industries />
+	<div class="md:pt-[155px] pt-[55px] md:pb-0 pb-[50px] bg-darkGrey">
+		<div class="mx-auto container">
+			<p class="text-center font-pre font-extrabold text-[2.5rem]">Partner / Investor</p>
+			<img
+				src={PartnerAndInvestor}
+				alt="Partner / Investor"
+				class="mt-[60px] mx-auto md:flex hidden"
+			/>
+			<div class="flex flex-col gap-4 md:hidden items-center md:mt-0 mt-4">
+				<img src={Colligence} alt="Colligence logo" class="max-w-[300px]" />
+				<img src={House3D} alt="House3D logo" class="max-w-[300px]" />
+				<img src={MetaCity} alt="MetaCity logo" class="max-w-[300px]" />
+			</div>
+		</div>
+	</div>
 	{#if screenSize > 768}
 		<RoadMapDesktop />
 	{:else}

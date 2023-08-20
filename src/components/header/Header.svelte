@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BodyLogo from '$images/icons/BodyLogo.svg';
+	import TrialButton from '$images/icons/TrialButton.svg';
 	import HeaderVideo from '$videos/HeaderVideo.mp4';
 	import MobileMenu from '$images/icons/MobileMenu.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
@@ -80,19 +80,19 @@
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 
-<div class="background relative">
+<div class="bg-lightDark relative">
 	<div
 		id="header"
 		class={`${
-			y > 50 ? 'bg-bg' : 'md:bg-transparent bg-bg'
+			y > 50 ? 'bg-lightDark' : 'md:bg-transparent bg-lightDark'
 		} md:h-[97.4px] h-[69px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
 	>
-		<div class="container mx-auto md:mb-5 mb-0">
+		<div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border">
 			<nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
 				<div class="flex md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
 					<img src={HeaderLogo} alt="logo" class="w-[100px]" />
 					<p
-						class="md:text-base text-[0.5625rem] font-outfit font-normal text-white whitespace-nowrap"
+						class="md:font-base text-[0.5625rem] font-outfit font-normal text-white whitespace-nowrap"
 					>
 						Decentrazlied GPU Network
 					</p>
@@ -111,31 +111,23 @@
 					src={MobileMenu}
 					on:click={toggleMenu}
 					alt="menu"
-					class="pr-10 md:mb-0 mb-4 cursor-pointer md:hidden flex"
+					class="md:mb-0 mb-4 cursor-pointer md:hidden flex"
 				/>
 			</nav>
 		</div>
 	</div>
-	<div class="container mx-auto pt-[110px]">
-		<div
-			class="md:mt-5 mt-8 rounded-3xl overflow-hidden md:max-w-[1600px] md:max-h-[800px] mx-auto relative"
-		>
+	<div class="container mx-auto pt-[110px] md:px-0 px-5 box-border">
+		<div class="md:mt-5 mt-8 rounded-3xl overflow-hidden mx-auto relative">
 			<video width="1600" height="800" autoplay muted loop playsinline>
 				<source src={HeaderVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
-			<!--			<div-->
-			<!--				class="md:text-[5rem] text-[3rem] font-normal absolute rounded-3xl max-w-[1600px] max-h-[800px] font-outfit flex flex-col justify-center items-center top-0 bottom-0 left-0 right-0 overlay"-->
-			<!--			>-->
-			<!--				<p class="text-center md:flex hidden">Fastest 3d rendering by</p>-->
-			<!--				<p class="text-secondary text-center font-bold md:flex hidden">inferix decentralized GPU</p>-->
-			<!--			</div>-->
+			<div
+				class="overflow-hidden rounded-[28px] absolute lg:bottom-[20%] md:bottom-[15%] left-[50%] trialButton cursor-pointer"
+			>
+				<img src={TrialButton} alt="trial button" />
+			</div>
 		</div>
-		<img
-			class="md:w-[123px] w-[80px] md:h-[50px] h-8 md:mt-[127px] mt-[50px] mx-auto"
-			src={BodyLogo}
-			alt="logo"
-		/>
 	</div>
 	<div
 		class={`${
@@ -178,10 +170,7 @@
 	.overlay {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 	}
-	.background {
-		background: url('$images/icons/HeaderBackground.svg') no-repeat center fixed;
-		background-size: cover;
-	}
+
 	.overlayMobile {
 		background-color: rgba(0, 0, 0, 0.5);
 		transition: left 0.6s cubic-bezier(0.82, 0.085, 0.395, 0.895);
@@ -192,11 +181,16 @@
 	.overlayMobile.open {
 		left: 0;
 	}
-
-	@media screen and (max-width: 767px) {
-		.background {
-			background-size: 600px;
-			background-position-y: 19%;
-		}
+	.trialButton {
+		transform: translateX(-50%);
+	}
+	.trialButton:hover {
+		background: rgba(0, 0, 0, 0.69);
+	}
+	.text {
+		background: rgba(0, 0, 0, 0.49);
+		box-shadow: 0px 0px 33px 0px rgba(6, 255, 97, 0.08);
+		border: 1px solid
+			linear-gradient(90deg, rgba(6, 255, 97, 0.49) 100%, rgba(255, 255, 255, 0.49) 43%);
 	}
 </style>
