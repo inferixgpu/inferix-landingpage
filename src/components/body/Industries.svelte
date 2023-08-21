@@ -44,7 +44,7 @@
 	<img
 		src={EllipseBackground}
 		alt="ellipse background"
-		class="absolute inset-0 w-full h-full z-1"
+		class="absolute inset-0 w-full h-full z-1 md:object-cover object-none"
 	/>
 	<img src={ArrowDown} alt="arrow down icon" class="absolute left-[50%] top-[-105px]" />
 	<div class="container mx-auto md:pt-[307px] pt-[150px] md:px-0 px-5 box-border">
@@ -58,23 +58,31 @@
 	</div>
 	<div class={`${scrollPosition > 0 ? '' : 'container mx-auto'}`}>
 		<div
-			class={` industryContainer flex gap-[25px] mt-[80px] hide-scroll overflow-auto absolute z-2 w-full h-full`}
+			class={`industryContainer flex gap-[25px] mt-[80px] hide-scroll overflow-auto absolute z-2 w-full h-full`}
 			on:scroll={handleScroll}
 		>
 			{#each industriesData as industry, index}
 				{#if index === 1}
 					<div
-						class="industry min-w-[519px] h-[392px] box-border pl-[55px] pr-[30px] pt-[161px] flex flex-col justify-start"
+						class="industry md:min-w-[519px] min-w-[300px] md:h-[392px] h-[250px] box-border md:pl-[55px] pl-4 md:pr-[30px] pr-4 md:pt-[161px] pt-[30px] flex flex-col justify-start"
 					>
-						<p class="font-pre text-[2rem] font-extrabold text-secondary">{@html industry.title}</p>
-						<p class="text-lightGrey font-pre text-xl font-normal mt-5">{industry.description}</p>
+						<p class="font-pre md:text-[2rem] text-2xl font-extrabold text-secondary">
+							{@html industry.title}
+						</p>
+						<p class="text-lightGrey font-pre md:text-xl text-base font-normal mt-5">
+							{industry.description}
+						</p>
 					</div>
 				{:else}
 					<div
-						class="industry min-w-[519px] h-[392px] box-border pl-[55px] pr-[56px] pt-[161px] flex flex-col justify-start"
+						class="industry md:min-w-[519px] min-w-[300px] md:h-[392px] h-[250px] box-border md:pl-[55px] pl-4 md:pr-[56px] pr-4 md:pt-[161px] pt-[30px] flex flex-col justify-start"
 					>
-						<p class="font-pre text-[2rem] font-extrabold text-secondary">{@html industry.title}</p>
-						<p class="text-lightGrey font-pre text-xl font-normal mt-5">{industry.description}</p>
+						<p class="font-pre md:text-[2rem] text-2xl font-extrabold text-secondary">
+							{@html industry.title}
+						</p>
+						<p class="text-lightGrey font-pre md:text-xl text-base font-normal mt-5">
+							{industry.description}
+						</p>
 					</div>
 				{/if}
 			{/each}
@@ -98,7 +106,7 @@
 	.industryContainer > div {
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: cover;
+		background-size: 100% 100%;
 	}
 	.industryContainer > div:nth-child(1) {
 		background-image: url('$images/png/Entertainment.png');

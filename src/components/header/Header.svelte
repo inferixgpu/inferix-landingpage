@@ -87,7 +87,7 @@
 			y > 50 ? 'bg-lightDark' : 'md:bg-transparent bg-lightDark'
 		} md:h-[97.4px] h-[69px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
 	>
-		<div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border">
+		<div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[25.5px]">
 			<nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
 				<div class="flex md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
 					<img src={HeaderLogo} alt="logo" class="w-[100px]" />
