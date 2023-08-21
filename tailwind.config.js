@@ -20,8 +20,8 @@ export default {
 			fontFamily: {
 				suit: ['SUIT', 'sans-serif'],
 				outfit: ['Outfit', 'sans-serif'],
-				pre: ['Pretendard Variable', 'sans-serif'],
-				kommon: ["Kommon Grotesk", 'sans-serif']
+				pre: ['PretendardVariable', 'sans-serif'],
+				kommon: ['KommonGrotesk', 'sans-serif']
 			}
 		}
 	},

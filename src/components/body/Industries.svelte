@@ -30,7 +30,9 @@
 	];
 
 	let screenSize: number;
-
+	$: {
+		console.log(screenSize);
+	}
 	let scrollPosition = 0;
 
 	function handleScroll(event: UIEvent) {
@@ -40,16 +42,20 @@
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
-<div class="pb-[700px] background relative">
+<div class="md:pb-[700px] pb-[400px] background relative w-full">
 	<img
 		src={EllipseBackground}
 		alt="ellipse background"
-		class="absolute inset-0 w-full h-full z-1 md:object-cover object-none"
+		class="absolute inset-0 md:w-full md:h-full z-1 object-cover md:scale-[1]"
 	/>
-	<img src={ArrowDown} alt="arrow down icon" class="absolute left-[50%] top-[-105px]" />
-	<div class="container mx-auto md:pt-[307px] pt-[150px] md:px-0 px-5 box-border">
-		<p class="font-pre text-[2.5rem] font-extrabold">Industries Empowered by Inferix</p>
-		<p class="text-grey font-pre text-2xl max-w-[1028px] font-normal mt-5">
+	<img
+		src={ArrowDown}
+		alt="arrow down icon"
+		class="absolute left-[50%] md:top-[-105px] top-[-180px]"
+	/>
+	<div class="container mx-auto md:pt-[307px] pt-[100px] md:px-0 px-5 box-border">
+		<p class="font-pre md:text-[2.5rem] text-2xl font-extrabold">Industries Empowered by Inferix</p>
+		<p class="text-grey font-pre md:text-2xl text-xl max-w-[1028px] font-normal mt-5">
 			Unlock the potential of Inferix across a diverse range of industries, where visual computing
 			plays a pivotal role in innovation and success. Our cutting - edge distributed GPU
 			infrastructure enhances productivity, acceierates creativity, and elevates results for the
@@ -102,7 +108,9 @@
 	.background {
 		background: linear-gradient(180deg, #101010 0%, #000 100%);
 	}
-
+	.industryContainer {
+		width: -webkit-fill-available;
+	}
 	.industryContainer > div {
 		background-repeat: no-repeat;
 		background-position: center;
