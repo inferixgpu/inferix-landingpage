@@ -8,9 +8,6 @@
 	import PartnerAndInvestor from '$images/png/PartnerAndInvestor.png';
 	import Industries from './Industries.svelte';
 	import WhyInferix from './WhyInferix.svelte';
-	import Colligence from '$images/icons/Colligence.svg';
-	import House3D from '$images/icons/House3D.svg';
-	import MetaCity from '$images/icons/MetaCity.svg';
 	let screenSize: number;
 </script>
 
@@ -45,17 +42,10 @@
 	<Industries />
 	<div class="md:pt-[155px] pt-[55px] md:pb-0 pb-[50px] bg-darkGrey">
 		<div class="mx-auto container">
-			<p class="text-center font-pre font-extrabold text-[2.5rem]">Partner / Investor</p>
-			<img
-				src={PartnerAndInvestor}
-				alt="Partner / Investor"
-				class="mt-[60px] mx-auto md:flex hidden"
-			/>
-			<div class="flex flex-col gap-4 md:hidden items-center md:mt-0 mt-4">
-				<img src={Colligence} alt="Colligence logo" class="max-w-[300px]" />
-				<img src={House3D} alt="House3D logo" class="max-w-[300px]" />
-				<img src={MetaCity} alt="MetaCity logo" class="max-w-[300px]" />
-			</div>
+			<p class="text-center font-pre font-extrabold md:text-[2.5rem] text-2xl">
+				Partner / Investor
+			</p>
+			<img src={PartnerAndInvestor} alt="Partner / Investor" class="mt-[60px] mx-auto" />
 		</div>
 	</div>
 	{#if screenSize > 768}

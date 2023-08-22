@@ -2,12 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+	font-family: 'KommonGrotesk';
+	src: url('$fonts/KommonGrotesk/KommonGroteskNormal.otf');
+}
+
+@font-face {
+	font-family: 'PretendardVariable';
+	src: url('$fonts/Pretendard/public/variable/PretendardVariable.ttf');
+}
+
 body {
 	background-color: var(--bg);
 	color: var(--body-text);
 	height: 100vh;
 	font-family: 'Outfit', sans-serif;
-	/* overflow-y: hidden; */
 }
 
 a {

@@ -38,16 +38,14 @@
 			class="mt-[60px] grid lg:grid-cols-4 lg:grid-rows-1 md:grid-cols-2 md:grid-rows-2 grid-cols-1 grid-rows-4 gap-4 reasonContainer w-full"
 		>
 			{#each reasons as reason}
-				<div class="">
-					<div
-						class="font-pre inset-0 flex flex-col items-center box-border text-center w-full h-full rounded-[28px] z-10"
-					>
-						<img src={reason.icon} alt="performance icon" />
-						<p class="text-white text-[2rem] font-extrabold tilte">{reason.title}</p>
-						<p class="text-normalGrey font-normal text-lg mt-4">
-							{reason.des}
-						</p>
-					</div>
+				<div
+					class="font-pre inset-0 flex flex-col items-center box-border text-center w-full !h-full rounded-[28px] z-10"
+				>
+					<img src={reason.icon} alt="icon" class="icon" />
+					<p class="text-white text-[2rem] font-extrabold tilte">{reason.title}</p>
+					<p class="text-normalGrey font-normal text-lg mt-4">
+						{reason.des}
+					</p>
 				</div>
 			{/each}
 		</div>
@@ -55,28 +53,35 @@
 </div>
 
 <style lang="postcss">
+	.icon {
+		fill: radial-gradient(
+			84.78% 84.78% at 50% 50%,
+			rgba(6, 255, 97, 0.25) 0%,
+			rgba(0, 0, 0, 0) 100%
+		);
+	}
 	.whyInferixContainer {
 		background: linear-gradient(180deg, #000 0%, #101010 100%);
 	}
-	.reasonContainer > div:nth-child(1) > div {
+	.reasonContainer > div:nth-child(1) {
 		padding: 25px 32px 44px 33px;
 	}
 	.reasonContainer > div:nth-child(1) > .title {
 		margin-top: 5px;
 	}
-	.reasonContainer > div:nth-child(2) > div {
+	.reasonContainer > div:nth-child(2) {
 		padding: 38px 33px 63px 34px;
 	}
 	.reasonContainer > div:nth-child(2) > .title {
 		margin-top: 28px;
 	}
-	.reasonContainer > div:nth-child(3) > div {
+	.reasonContainer > div:nth-child(3) {
 		padding: 38px 35px 62px 32px;
 	}
 	.reasonContainer > div:nth-child(3) > .title {
 		margin-top: 18px;
 	}
-	.reasonContainer > div:nth-child(4) > div {
+	.reasonContainer > div:nth-child(4) {
 		padding: 32px 45px 39px 46px;
 	}
 	.reasonContainer > div:nth-child(4) > .title {
@@ -104,13 +109,5 @@
 	}
 	.reasonContainer > div:nth-child(n + 2)::before {
 		background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(0, 0, 0, 0) 100%);
-	}
-	@media screen and (min-width: 1050px) and (max-width: 1280px) {
-		.reasonContainer {
-			display: flex;
-		}
-		.reasonContainer > div {
-			width: 24%;
-		}
 	}
 </style>
