@@ -1,8 +1,12 @@
 <script lang="ts">
-	import TrialButton from '$images/icons/TrialButton.svg';
 	import HeaderVideo from '$videos/HeaderVideo.mp4';
 	import MobileMenu from '$images/icons/MobileMenu.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
+	import MacOSDown from '$images/png/MacOSDown.png';
+	import WindownDown from '$images/png/WindownDown.png';
+	import Close from '$images/icons/Close.svg';
+	import InferixMobile from '$images/icons/InferixMobile.svg';
+
 	import { afterUpdate } from 'svelte';
 	let activeTab = 1;
 
@@ -80,16 +84,16 @@
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 
-<div class="bg-lightDark relative">
+<div class="bg-lightDark relative headerBackground">
 	<div
 		id="header"
 		class={`${
-			y > 50 ? 'bg-lightDark' : 'md:bg-transparent bg-lightDark'
+			y > 50 ? 'bg-lightDark' : 'bg-transparent'
 		} md:h-[97.4px] h-[69px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
 	>
 		<div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[25.5px]">
 			<nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
-				<div class="flex md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
+				<div class="md:flex hidden md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
 					<img src={HeaderLogo} alt="logo" class="w-[100px]" />
 					<p
 						class="md:font-base text-[0.5625rem] font-outfit font-normal text-white whitespace-nowrap"
@@ -111,7 +115,7 @@
 					src={MobileMenu}
 					on:click={toggleMenu}
 					alt="menu"
-					class="md:mb-0 mb-4 cursor-pointer md:hidden flex"
+					class="md:mb-0 mb-4 cursor-pointer md:hidden flex ml-auto"
 				/>
 			</nav>
 		</div>
@@ -123,18 +127,33 @@
 				Your browser does not support the video tag.
 			</video>
 			<div
-				class="overflow-hidden rounded-[28px] absolute lg:bottom-[20%] md:bottom-[15%] bottom-[20px] left-[50%] trialButton cursor-pointer"
+				class="overflow-hidden md:block hidden rounded-[28px] absolute lg:bottom-[20%] md:bottom-[15%] bottom-[20px] centerPosition left-[50%] cursor-pointer"
 			>
-				<img src={TrialButton} alt="trial button" class="md:w-auto w-[150px]" />
+				<p class="font-outfit text-white text-center font-semibold text-2xl">Start free trial</p>
+				<div class="flex gap-3 mt-3">
+					<img
+						src={WindownDown}
+						alt="window download button"
+						class="md:w-auto w-[150px] trialButton"
+					/>
+					<img
+						src={MacOSDown}
+						alt="macos download button"
+						class="md:w-auto w-[150px] trialButton"
+					/>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div
-		class={`${
-			isOpen ? 'open' : 'close'
-		} overlayMobile fixed top-0 bottom-0 left-0 right-0 h-screen z-40`}
-	>
-		<div class="flex gap-10 flex-col text-lg w-fit pr-20 h-full bg-bg box-border pt-5 pl-5">
+	<img
+		src={InferixMobile}
+		alt="InferixMobile"
+		class="md:hidden flex w-[78px] h-[31px] mx-auto mt-[50px] pb-5 box-content"
+	/>
+	<div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-screen z-40`}>
+		<div
+			class="flex gap-[60px] flex-col text-2xl font-normal items-center w-full h-full bg-bg box-border pt-[86px]"
+		>
 			{#each tabs as tab (tab.id)}
 				<div class="tab {activeTab === tab.id ? 'active' : ''}">
 					<a
@@ -146,19 +165,10 @@
 			{/each}
 		</div>
 		<div
-			class={`${isOpen ? 'block' : 'hidden'} top-3 absolute right-5 cursor-pointer w-5 h-5 z-20`}
+			class={`${isOpen ? 'block' : 'hidden'} top-4 absolute right-5 cursor-pointer z-20`}
 			on:click={closeMenu}
 		>
-			<svg
-				class="overflow-hidden"
-				width={20}
-				height={20}
-				version="1.1"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<line x1="1" y1="20" x2="20" y2="1" stroke="white" stroke-width="2" />
-				<line x1="1" y1="1" x2="20" y2="20" stroke="white" stroke-width="2" />
-			</svg>
+			<img src={Close} alt="close icon" />
 		</div>
 	</div>
 </div>
@@ -172,7 +182,6 @@
 	}
 
 	.overlayMobile {
-		background-color: rgba(0, 0, 0, 0.5);
 		transition: left 0.6s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 		overflow: hidden;
 		width: 100%;
@@ -181,16 +190,25 @@
 	.overlayMobile.open {
 		left: 0;
 	}
-	.trialButton {
+	.centerPosition {
 		transform: translateX(-50%);
 	}
 	.trialButton:hover {
 		background: rgba(0, 0, 0, 0.69);
+		border-radius: 28px;
 	}
 	.text {
 		background: rgba(0, 0, 0, 0.49);
 		box-shadow: 0px 0px 33px 0px rgba(6, 255, 97, 0.08);
 		border: 1px solid
 			linear-gradient(90deg, rgba(6, 255, 97, 0.49) 100%, rgba(255, 255, 255, 0.49) 43%);
+	}
+	@media screen and (max-width: 768px) {
+		.headerBackground {
+			background-image: url('$images/icons/HeaderBackgroundMobile.svg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
 	}
 </style>

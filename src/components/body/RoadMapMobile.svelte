@@ -38,11 +38,11 @@
 
 <div
 	id="roadmap"
-	class="mt-[200px] w-full mx-auto md:hidden block md:px-0 px-5 box-border pb-[100px]"
+	class="pt-[51px] w-full bg-darkGrey mx-auto md:hidden block md:px-0 px-5 box-border pb-[100px]"
 >
-	<p class="text-secondary text-[2.5rem] text-center font-bold font-outfit">Roadmap</p>
-	<div class="w-full mt-[41px] relative z-10 mx-auto">
-		<div class="flex flex-col justify-center items-center gap-10 mx-auto w-full">
+	<p class="text-secondary text-base text-center font-bold font-outfit">Roadmap</p>
+	<div class="w-full mt-[39px] relative z-10 mx-auto">
+		<div class="flex flex-col justify-center items-center gap-10 mx-auto w-ful contentContainer">
 			{#each roadMap as map (map.title)}
 				<div class="gridContainer gap-4">
 					<p class="text-left text-base text-secondary font-outfit mt-[-2px]">{map.mark}</p>
@@ -55,13 +55,13 @@
 						</div>
 					</div>
 					<div class="flex flex-1 lg:gap-4 gap-2">
-						<div class="flex box-border">
-							<div class="flex flex-col lg:gap-[28px] gap-4 lg:text-base text-sm font-outfit">
-								<p class="font-bold">{map.title}</p>
-								<ul class="flex flex-col">
+						<div class="flex flex-1 box-border">
+							<div class="flex flex-col font-outfit box-border pl-4 linear">
+								<p class="font-bold text-sm">{map.title}</p>
+								<ul class="flex flex-col mt-2">
 									{#each map.description as desc (desc)}
 										<li>
-											<p class="font-outfit font-normal box-border pr-5">{desc}</p>
+											<p class="font-normal text-[0.625rem] leading-[17px]">{desc}</p>
 										</li>
 									{/each}
 								</ul>
@@ -93,6 +93,24 @@
 		height: calc(100% + 40px);
 		margin-left: 7.5px;
 		margin-top: -5px;
+	}
+
+	.linear {
+		flex: 1;
+		border-radius: 8px;
+		background: linear-gradient(106deg, #282d29 0%, #1c1c1c 100%);
+	}
+	.contentContainer > div:nth-child(1) .linear {
+		padding-top: 6px;
+	}
+	.contentContainer > div:nth-child(2) .linear {
+		padding-top: 14px;
+		padding-bottom: 13px;
+	}
+	.contentContainer > div:nth-child(3) .linear,
+	.contentContainer > div:nth-child(4) .linear {
+		padding-top: 17px;
+		padding-bottom: 17px;
 	}
 
 	@media screen and (max-width: 390px) {

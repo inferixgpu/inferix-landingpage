@@ -30,20 +30,26 @@
 
 <div
 	id="network"
-	class="md:pt-[142px] pt-[50px] pb-[185px] whyInferixContainer md:px-0 px-5 box-border"
+	class="md:pt-[142px] pt-[50px] md:pb-[185px] pb-[82px] whyInferixContainer md:px-0 px-5 box-border"
 >
 	<div class="container mx-auto">
-		<img src={WhyInferix} alt="why inferix" class="mx-auto" />
+		<img
+			src={WhyInferix}
+			alt="why inferix"
+			class="md:mx-auto md:w-[220px] w-[99px] md:h-[48px] h-[21px]"
+		/>
 		<div
-			class="mt-[60px] grid lg:grid-cols-4 lg:grid-rows-1 md:grid-cols-2 md:grid-rows-2 grid-cols-1 grid-rows-4 gap-4 reasonContainer w-full"
+			class="md:mt-[60px] mt-[15px] grid lg:grid-cols-4 lg:grid-rows-1 grid-cols-2 grid-rows-2 md:gap-x-4 md:gap-y-4 gap-x-[10px] gap-y-[12px] reasonContainer w-full"
 		>
 			{#each reasons as reason}
 				<div
-					class="font-pre inset-0 flex flex-col items-center box-border text-center w-full !h-full rounded-[28px] z-10"
+					class="font-pre inset-0 flex flex-col items-center box-border text-center w-full !h-full z-10"
 				>
-					<img src={reason.icon} alt="icon" class="icon" />
-					<p class="text-white text-[2rem] font-extrabold tilte">{reason.title}</p>
-					<p class="text-normalGrey font-normal text-lg mt-4">
+					<img src={reason.icon} alt="icon" class="icon md:w-auto md:h-auto w-[96px] h-[96px]" />
+					<p class="text-white md:text-[2rem] text-sm font-extrabold tilte leading-normal">
+						{reason.title}
+					</p>
+					<p class="text-normalGrey font-normal md:text-lg text-[0.5625rem] mt-4">
 						{reason.des}
 					</p>
 				</div>
@@ -90,7 +96,7 @@
 
 	.reasonContainer > div {
 		position: relative;
-		border-radius: 28px;
+		border-radius: 10px;
 	}
 
 	.reasonContainer > div::before {
@@ -109,5 +115,54 @@
 	}
 	.reasonContainer > div:nth-child(n + 2)::before {
 		background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(0, 0, 0, 0) 100%);
+	}
+	@media screen and (max-width: 768px) {
+		.reasonContainer > div:nth-child(1) {
+			padding: 11px 13px 10px 14px;
+		}
+		.reasonContainer > div:nth-child(1) > .title {
+			margin-top: 2px;
+		}
+		.reasonContainer > div:nth-child(2) {
+			padding: 12px 12px 17px 13px;
+		}
+		.reasonContainer > div:nth-child(2) > .title {
+			margin-top: 1px;
+		}
+		.reasonContainer > div:nth-child(3) {
+			padding: 17px 9px 10px 9px;
+		}
+		.reasonContainer > div:nth-child(3) > .title {
+			margin-top: 12px;
+		}
+		.reasonContainer > div:nth-child(4) {
+			padding: 14px 20px 10px 20px;
+		}
+		.reasonContainer > div:nth-child(4) > .title {
+			margin-top: 2px;
+		}
+
+		.reasonContainer > div {
+			position: relative;
+			border-radius: 10px;
+		}
+
+		.reasonContainer > div::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			border-radius: 10px;
+			padding: 1px;
+			-webkit-mask: linear-gradient(#fff 0 0) content-box, /* [1] */ linear-gradient(#fff 0 0); /* [2] */
+			-webkit-mask-composite: xor;
+			mask-composite: exclude;
+		}
+		.reasonContainer > div:nth-child(1)::before {
+			background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(255, 255, 255, 0.16) 100%);
+		}
+		.reasonContainer > div:nth-child(n + 2)::before {
+			background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(0, 0, 0, 0) 100%);
+		}
 	}
 </style>
