@@ -21,10 +21,9 @@
     .subs-btn {
         border-radius: 40px;
         background: linear-gradient(152deg, #1CFF6F 0%, #93FFBB 100%);
-        width: 140px;
         height: 54px;
         color: black;
-        @apply font-semibold w-full lg:w-auto;
+        @apply font-semibold w-full lg:w-[140px];
     }
 
     .email-input {
