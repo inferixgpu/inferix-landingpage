@@ -38,7 +38,7 @@
 
 <div
 	id="roadmap"
-	class="pt-[51px] w-full bg-darkGrey mx-auto md:hidden block md:px-0 px-5 box-border pb-[100px]"
+	class="pt-[48px] w-full bg-darkGrey mx-auto md:hidden block md:px-0 px-5 box-border pb-[100px]"
 >
 	<p class="text-secondary text-base text-center font-bold font-outfit">Roadmap</p>
 	<div class="w-full mt-[39px] relative z-10 mx-auto">

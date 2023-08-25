@@ -1,5 +1,6 @@
 <script lang="ts">
     import SignUpModal from "$components/inferix/SignUpModal/SignUpModal.svelte";
+
     import footerVideo from '$videos/Footer.mp4';
     import HeaderLogo from '$images/icons/HeaderLogo.svg';
     import {Modal} from "flowbite-svelte";
@@ -40,7 +41,7 @@
                 class="md:h-[435px] h-[350px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center z-10"
         >
             <p
-                    class="font-outfit md:text-[2rem] text-base box-border md:px-[146px] px-5 text-center font-medium text-black"
+                    class="font-outfit md:text-[2rem] leading-normal text-base box-border md:px-[146px] px-5 text-center font-medium text-black"
             >
                 "Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
                 GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."
@@ -77,6 +78,7 @@
             © 2023 Inferix. All rights reserved.
         </p>
     </div>
+
     <Modal bind:open={showModal} defaultClass="!rounded-[20px]">
         <SignUpModal/>
     </Modal>

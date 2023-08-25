@@ -89,9 +89,9 @@
 		id="header"
 		class={`${
 			y > 50 ? 'bg-lightDark' : 'bg-transparent'
-		} md:h-[97.4px] h-[69px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
+		} md:h-[97.4px] h-[58px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
 	>
-		<div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[25.5px]">
+		<div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[30px]">
 			<nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
 				<div class="md:flex hidden md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
 					<img src={HeaderLogo} alt="logo" class="w-[100px]" />
@@ -192,6 +192,11 @@
 	}
 	.centerPosition {
 		transform: translateX(-50%);
+	}
+	.trialButton {
+		filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+		width: 160px;
+		height: 54px;
 	}
 	.trialButton:hover {
 		background: rgba(0, 0, 0, 0.69);
