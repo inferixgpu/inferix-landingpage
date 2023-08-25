@@ -28,7 +28,7 @@
 	];
 </script>
 
-<div class="industryContainer mt-8 container mx-auto flex flex-col gap-3 items-center">
+<div class="industryContainer container mt-8 flex flex-col gap-3 items-start md:px-0 px-5">
 	{#each industriesData as industry}
 		<div class="industry max-w-[350px] h-[147px] box-border flex flex-col justify-end rounded-2xl">
 			<p class="font-pre text-base font-extrabold text-secondary">

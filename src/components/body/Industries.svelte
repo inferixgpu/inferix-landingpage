@@ -4,14 +4,12 @@
 	import EllipseBackground from '$images/png/EllipseBackground.png';
 	import IndustryListDesktop from './IndustryListDesktop.svelte';
 	import IndustryListMobile from './IndustryListMobile.svelte';
-	import PartnerAndInvestorMobile from '$images/png/PartnerAndInvestorMobile.png';
-
 	let screenSize: number;
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div class="md:pb-[700px] background relative w-full">
+<div class="md:pb-[700px] pb-[48px] background relative w-full">
 	<img
 		src={EllipseBackground}
 		alt="ellipse background"
@@ -43,10 +41,6 @@
 	{:else}
 		<IndustryListMobile />
 	{/if}
-	<div class="mx-auto container mt-[96px] md:hidden flex flex-col gap-5">
-		<p class="text-center font-pre font-extrabold md:text-[2.5rem] text-base">Partner / Investor</p>
-		<img src={PartnerAndInvestorMobile} alt="Partner / Investor" class="mx-auto mb-[-3px]" />
-	</div>
 </div>
 
 <style lang="postcss">

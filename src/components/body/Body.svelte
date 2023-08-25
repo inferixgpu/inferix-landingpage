@@ -6,6 +6,7 @@
 	import Inferix from '$images/icons/Inferix.svg';
 	import StraightDivider from '$images/icons/StraightDivider.svg';
 	import PartnerAndInvestor from '$images/png/PartnerAndInvestor.png';
+	import PartnerAndInvestorMobile from '$images/png/PartnerAndInvestorMobile.png';
 	import Industries from './Industries.svelte';
 	import WhyInferix from './WhyInferix.svelte';
 	let screenSize: number;
@@ -47,6 +48,10 @@
 			</p>
 			<img src={PartnerAndInvestor} alt="Partner / Investor" class="mt-[60px] mx-auto" />
 		</div>
+	</div>
+	<div class="mx-auto container pt-[48px] bg-darkGrey md:hidden flex flex-col gap-5">
+		<p class="text-center font-pre font-extrabold md:text-[2.5rem] text-base">Partner / Investor</p>
+		<img src={PartnerAndInvestorMobile} alt="Partner / Investor" class="mx-auto" />
 	</div>
 	{#if screenSize > 768}
 		<RoadMapDesktop />
