@@ -1,13 +1,24 @@
-FROM node:18-alpine
+FROM node:18-alpine AS build
+
 WORKDIR /app
 
-COPY package.json ./
-RUN ls -al
+COPY package.json .
 RUN yarn install
-COPY . ./
+COPY . .
 RUN yarn build
 
-EXPOSE 3016
-CMD ["yarn", "preview","--port","3016", "--host"]
+FROM node:18-alpine AS deploy-node
+
+WORKDIR /app
+COPY --from=build /app/build .
+COPY --from=build /app/package.json .
+COPY --from=build /app/.svelte-kit .
+
+ENV NODE_ENV=production
+RUN yarn install
+
+EXPOSE 3000
+CMD ["node", "index.js"]
+
 
 
