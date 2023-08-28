@@ -41,14 +41,14 @@
                 class="md:h-[435px] h-[350px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center z-10"
         >
             <p
-                    class="font-outfit md:text-[2rem] leading-normal text-base box-border md:px-[146px] px-5 text-center font-medium text-black"
+                    class="font-outfit md:text-[2rem] leading-default mx-[146px] text-base box-border text-center font-medium text-black"
             >
                 "Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
                 GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."
             </p>
             <button
                     on:click={showSignUpModal}
-                    class="text-white cursor-pointer hover:opacity-[0.8] font-outfit text-lg text-center font-medium md:mt-[50px] mt-[32px] capitalize px-8 py-4 rounded-2xl bg-black"
+                    class="text-white cursor-pointer hover:opacity-[0.8] font-outfit text-lg text-center font-medium mt-5 md:mt-[32px] capitalize px-8 py-4 rounded-2xl bg-black"
             >
                 Join Inferix now
             </button>

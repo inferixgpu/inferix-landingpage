@@ -26,9 +26,9 @@
 		class="absolute left-[50%] top-[-50px] md:hidden flex"
 	/>
 	<div class="container mx-auto md:pt-[307px] pt-[100px] md:px-0 px-5 box-border">
-		<p class="font-pre md:text-[2.5rem] text-lg font-extrabold">Industries Empowered by Inferix</p>
+		<p class="font-pre md:text-[2.5rem] leading-default text-lg font-extrabold">Industries Empowered by Inferix</p>
 		<p
-			class="md:text-grey text-textGrey font-pre md:text-2xl text-[0.5625rem] max-w-[1028px] font-normal md:mt-5 mt-[18px]"
+			class="md:text-grey text-textGrey font-pre text-[0.5625rem] leading-[0%] md:text-2xl max-w-[1028px] font-normal md:mt-5 mt-[18px]"
 		>
 			Unlock the potential of Inferix across a diverse range of industries, where visual computing
 			plays a pivotal role in innovation and success. Our cutting - edge distributed GPU

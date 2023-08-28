@@ -22,7 +22,7 @@
 			<img src={Inferix} alt="Inferix" class="md:flex hidden w-[196px] h-[76px]" />
 			<img src={StraightDivider} alt="divider" class="ml-[54px] md:flex hidden mr-[74px]" />
 			<p
-				class="md:text-left text-center md:text-[1.75rem] text-sm font-pre font-normal leading-normal md:text-white text-textMobile"
+				class="md:text-left text-center text-sm md:text-[1.75rem] font-pre font-normal leading-default md:text-white text-textMobile"
 			>
 				An innovated platform using the power of Blockchain and Web3 technologies to redefin how we
 				use and share GPU resoruce globally.

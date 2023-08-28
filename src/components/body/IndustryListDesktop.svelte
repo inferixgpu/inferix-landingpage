@@ -45,10 +45,10 @@
 				<div
 					class="industry md:min-w-[519px] min-w-[300px] md:h-[392px] h-[250px] box-border md:pl-[55px] pl-4 md:pr-[30px] pr-4 md:pt-[161px] pt-[30px] flex flex-col justify-start"
 				>
-					<p class="font-pre md:text-[2rem] text-2xl font-extrabold text-secondary">
+					<p class="font-pre md:text-[2rem] text-2xl leading-default font-extrabold text-secondary">
 						{@html industry.title}
 					</p>
-					<p class="text-lightGrey font-pre md:text-xl text-base font-normal mt-5">
+					<p class="text-lightGrey font-pre md:text-xl text-base font-normal mt-5 leading-desc">
 						{industry.description}
 					</p>
 				</div>

@@ -20,7 +20,7 @@ body {
 }
 
 a {
-	@apply hover:opacity-50;
+	@apply hover:brightness-50;
 }
 
 button {
@@ -135,4 +135,16 @@ input:focus {
 	min-width: 126px;
 	border-bottom: 2px solid transparent;
 	color: var(--grey-3);
+}
+
+.leading-91 {
+	@apply leading-[91%];
+}
+
+.leading-default {
+	line-height: normal;
+}
+
+.leading-desc {
+	line-height: 124.336%;
 }

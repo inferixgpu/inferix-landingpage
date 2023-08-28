@@ -46,10 +46,10 @@
 					class="font-pre inset-0 flex flex-col items-center box-border text-center w-full !h-full z-10"
 				>
 					<img src={reason.icon} alt="icon" class="icon md:w-auto md:h-auto w-[96px] h-[96px]" />
-					<p class="text-white md:text-[2rem] text-sm font-extrabold tilte leading-normal">
+					<p class="text-white text-sm md:text-[2rem] font-extrabold tilte leading-default">
 						{reason.title}
 					</p>
-					<p class="text-normalGrey font-normal md:text-lg text-[0.5625rem] mt-4">
+					<p class="text-normalGrey font-normal text-[0.5625rem] md:text-lg mt-4 leading-desc">
 						{reason.des}
 					</p>
 				</div>

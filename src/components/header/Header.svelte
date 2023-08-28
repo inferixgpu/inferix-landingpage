@@ -2,8 +2,8 @@
 	import HeaderVideo from '$videos/HeaderVideo.mp4';
 	import MobileMenu from '$images/icons/MobileMenu.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
-	import MacOSDown from '$images/png/MacOSDown.png';
-	import WindownDown from '$images/png/WindownDown.png';
+	import ButtonBg from '$images/png/ButtonBg.png';
+	import DownloadIcon from '$images/icons/Download.svg';
 	import Close from '$images/icons/Close.svg';
 	import InferixMobile from '$images/icons/InferixMobile.svg';
 
@@ -96,7 +96,7 @@
 				<div class="md:flex hidden md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
 					<img src={HeaderLogo} alt="logo" class="w-[100px]" />
 					<p
-						class="md:font-base text-[0.5625rem] font-outfit font-normal text-white whitespace-nowrap"
+						class="hidden md:block text-base font-outfit font-normal text-white whitespace-nowrap"
 					>
 						Decentrazlied GPU Network
 					</p>
@@ -127,20 +127,18 @@
 				Your browser does not support the video tag.
 			</video>
 			<div
-				class="overflow-hidden md:block hidden rounded-[28px] absolute lg:bottom-[20%] md:bottom-[15%] bottom-[20px] centerPosition left-[50%] cursor-pointer"
+				class="overflow-hidden md:block hidden rounded-[28px] absolute lg:bottom-[20%] md:bottom-[15%] bottom-[20px] centerPosition left-[50%]"
 			>
 				<p class="font-outfit text-white text-center font-semibold text-2xl">Start free trial</p>
-				<div class="flex gap-3 mt-3">
-					<img
-						src={WindownDown}
-						alt="window download button"
-						class="md:w-auto w-[150px] trialButton"
-					/>
-					<img
-						src={MacOSDown}
-						alt="macos download button"
-						class="md:w-auto w-[150px] trialButton"
-					/>
+				<div class="flex gap-4 mt-4">
+					<a class="download-btn" href="https://drive.google.com/file/d/15C9oxu5bhZj-na1UTpFxk_R4Y_Km7dm-/view?usp=sharing" target="_blank">
+						<div class="flex flex-row gap-[10px] leading-91"> <img src={DownloadIcon} alt="download"/>Windows</div>
+						<span class="text-[11px] leading-91">Blender Add - on</span>
+					</a>
+					<div class="download-btn">
+						<div class="flex flex-row gap-[10px] leading-91"> <img src={DownloadIcon} alt="download"/>MacOS  </div>
+						<span class="text-[11px] leading-91">coming soon</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -202,12 +200,18 @@
 		background: rgba(0, 0, 0, 0.69);
 		border-radius: 28px;
 	}
-	.text {
-		background: rgba(0, 0, 0, 0.49);
-		box-shadow: 0px 0px 33px 0px rgba(6, 255, 97, 0.08);
-		border: 1px solid
-			linear-gradient(90deg, rgba(6, 255, 97, 0.49) 100%, rgba(255, 255, 255, 0.49) 43%);
+
+	.download-btn {
+		background-image: url('$images/png/ButtonBg.png');
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		@apply flex flex-col justify-center items-center w-[171px] h-[58px] drop-shadow text-lg font-semibold;
 	}
+
+	.download-btn span {
+		@apply text-[11px] text-[#797979] mt-1;
+	}
+
 	@media screen and (max-width: 768px) {
 		.headerBackground {
 			background-image: url('$images/icons/HeaderBackgroundMobile.svg');
