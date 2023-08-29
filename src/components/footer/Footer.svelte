@@ -1,8 +1,8 @@
 <script lang="ts">
     import SignUpModal from "$components/inferix/SignUpModal/SignUpModal.svelte";
+    import HeaderLogo from '$images/icons/HeaderLogo.svg';
 
     import footerVideo from '$videos/Footer.mp4';
-    import HeaderLogo from '$images/icons/HeaderLogo.svg';
     import {Modal} from "flowbite-svelte";
 
     let activeTab = 1;
@@ -29,42 +29,41 @@
 
 <div class="bg-darkGrey pb-[41px] md:pt-[249px] pt-[120px] md:px-0 px-5 box-border">
     <div
-            class="md:h-[435px] h-[350px] container mx-auto overflow-hidden rounded-[32px] relative z-30"
+            class="md:h-[435px] h-[266px] container mx-auto overflow-hidden rounded-[32px] relative z-30"
     >
         <div class="md:top-[-35%] top-[30%] absolute z-10">
             <video width="1600" height="435" autoplay muted loop playsinline class="footerVideo">
                 <source src={footerVideo} type="video/mp4"/>
-                Your browser does not support the video tag.
             </video>
         </div>
         <div
-                class="md:h-[435px] h-[350px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center z-10"
+                class="md:h-[435px] h-[266px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center z-10"
         >
             <p
-                    class="font-outfit md:text-[2rem] leading-default mx-[146px] text-base box-border text-center font-medium text-black"
+                    class="font-outfit text-base md:text-[2rem] leading-default mx-5 md:mx-[9vw]  box-border text-center font-medium text-black"
             >
                 "Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
                 GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."
             </p>
             <button
                     on:click={showSignUpModal}
-                    class="text-white cursor-pointer hover:opacity-[0.8] font-outfit text-lg text-center font-medium mt-5 md:mt-[32px] capitalize px-8 py-4 rounded-2xl bg-black"
+                    class="text-white cursor-pointer hover:opacity-[0.8] font-outfit text-lg text-center font-medium mt-[32px] md:mt-[32px] capitalize px-8 py-4 rounded-2xl bg-black"
             >
                 Join Inferix now
             </button>
         </div>
     </div>
-    <div class=" container mx-auto mt-20 flex md:flex-row flex-col justify-between">
+    <div class=" container mx-auto mt-[39px] flex md:flex-row flex-col justify-between">
         <div
                 class="flex md:gap-4 gap-2 md:order-1 order-2 md:flex-row flex-col items-center md:items-start mt-8 md:mt-0"
         >
             <img src={HeaderLogo} alt="logo" class="w-[100px]"/>
-            <p class="font-base font-outfit font-normal text-white whitespace-nowrap">
-                Decentrazlied GPU Network
+            <p class="font-base font-outfit font-normal mt-4 md:mt-0 text-white whitespace-nowrap">
+                Decentralized GPU Network
             </p>
         </div>
         <div
-                class="flex md:gap-10 gap-8 font-bold w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
+                class="flex md:gap-10 gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
         >
             {#each medias as media (media.id)}
                 <div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
@@ -98,6 +97,7 @@
         -webkit-transform: scale(1);
         -moz-transform: scale(1);
         z-index: 0;
+        border-radius: 32px;
     }
 
     @media screen and (max-width: 767px) {

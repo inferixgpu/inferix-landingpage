@@ -5,6 +5,7 @@ export default {
 		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
 	],
 	theme: {
+		container: false,
 		extend: {
 			colors: {
 				secondary: '#06ff61',
@@ -25,13 +26,6 @@ export default {
 				pre: ['PretendardVariable', 'sans-serif'],
 				kommon: ['KommonGrotesk', 'sans-serif']
 			}
-		},
-		screens: {
-			sm: '640px',
-			md: '768px',
-			lg: '1024px',
-			xl: '1320px',
-			'2xl': '1600px'
 		}
 	},
 	darkMode: 'class',

@@ -1,168 +1,186 @@
 <script lang="ts">
-	import WhyInferix from '$images/icons/WhyInferix.svg';
-	import Performance from '$images/png/Performance.png';
-	import Scalability from '$images/png/Scalability.png';
-	import Utilization from '$images/png/Utilization.png';
-	import Intergration from '$images/png/Intergration.png';
-	const reasons = [
-		{
-			icon: Performance,
-			title: 'High - Performance Rendering',
-			des: 'Inferix harnesses the combined power of decentralized GPUs to deliver high - performance rendering, allowing for faster and more efficient processing of complex visual content'
-		},
-		{
-			icon: Scalability,
-			title: 'Seamless Scalability',
-			des: 'Scale your rendering tasks effortlessly by tapping into a distributed network of GPUs. Inferix ensures that as your project grows. You’ll have the computational resources you need'
-		},
-		{
-			icon: Utilization,
-			title: 'Cost - Efficient Resource Utilization',
-			des: 'Inferix’s decentralized approach optimizes usage, allowing you to use available GPUs without investing in costly hardware upgrades.'
-		},
-		{
-			icon: Intergration,
-			title: 'Secure Blockchain Integration',
-			des: 'Built on blockchain technology, Inferix ensures secure and transparent usage of GPU resources, providing a reliable and trusted environment.'
-		}
-	];
+    import WhyInferix from '$images/icons/WhyInferix.svg';
+    import Intergration from '$images/png/Intergration.png';
+    import Performance from '$images/png/Performance.png';
+    import Scalability from '$images/png/Scalability.png';
+    import Utilization from '$images/png/Utilization.png';
+
+    const reasons = [
+        {
+            icon: Performance,
+            title: 'High - Performance Rendering',
+            des: 'Inferix harnesses the combined power of decentralized GPUs to deliver high - performance rendering, allowing for faster and more efficient processing of complex visual content'
+        },
+        {
+            icon: Scalability,
+            title: 'Seamless Scalability',
+            des: 'Scale your rendering tasks effortlessly by tapping into a distributed network of GPUs. Inferix ensures that as your project grows. You’ll have the computational resources you need'
+        },
+        {
+            icon: Utilization,
+            title: 'Cost - Efficient Resource Utilization',
+            des: 'Inferix’s decentralized approach optimizes usage, allowing you to use available GPUs without investing in costly hardware upgrades.'
+        },
+        {
+            icon: Intergration,
+            title: 'Secure Blockchain Integration',
+            des: 'Built on blockchain technology, Inferix ensures secure and transparent usage of GPU resources, providing a reliable and trusted environment.'
+        }
+    ];
 </script>
 
 <div
-	id="network"
-	class="md:pt-[142px] pt-[50px] md:pb-[185px] pb-[82px] whyInferixContainer md:px-0 px-5 box-border"
+        id="network"
+        class="md:pt-[142px] pt-[50px] md:pb-[185px] pb-[82px] whyInferixContainer md:px-0 px-5 box-border"
 >
-	<div class="container mx-auto">
-		<img
-			src={WhyInferix}
-			alt="why inferix"
-			class="md:mx-auto md:w-[220px] w-[99px] md:h-[48px] h-[21px]"
-		/>
-		<div
-			class="md:mt-[60px] mt-[15px] grid lg:grid-cols-4 lg:grid-rows-1 grid-cols-2 grid-rows-2 md:gap-x-4 md:gap-y-4 gap-x-[10px] gap-y-[12px] reasonContainer w-full"
-		>
-			{#each reasons as reason}
-				<div
-					class="font-pre inset-0 flex flex-col items-center box-border text-center w-full !h-full z-10"
-				>
-					<img src={reason.icon} alt="icon" class="icon md:w-auto md:h-auto w-[96px] h-[96px]" />
-					<p class="text-white text-sm md:text-[2rem] font-extrabold tilte leading-default">
-						{reason.title}
-					</p>
-					<p class="text-normalGrey font-normal text-[0.5625rem] md:text-lg mt-4 leading-desc">
-						{reason.des}
-					</p>
-				</div>
-			{/each}
-		</div>
-	</div>
+    <div class="container mx-auto">
+        <img
+                src={WhyInferix}
+                alt="why inferix"
+                class="md:mx-auto md:w-[220px] w-[99px] md:h-[48px] h-[21px]"
+        />
+        <div
+                class="md:mt-[60px] mt-[15px] grid lg:grid-cols-4 lg:grid-rows-1 grid-cols-2 grid-rows-2 md:gap-x-4 md:gap-y-4 gap-x-[10px] gap-y-[12px] reasonContainer w-full"
+        >
+            {#each reasons as reason}
+                <div
+                        class="font-pre inset-0 flex flex-col items-center box-border text-center w-full !h-full z-10"
+                >
+                    <img src={reason.icon} alt="icon" class="icon"/>
+                    <p class="text-white text-sm md:text-[2rem] font-extrabold tilte leading-default">
+                        {reason.title}
+                    </p>
+                    <p class="text-normalGrey font-normal text-[0.5625rem] md:text-lg mt-4 leading-desc">
+                        {reason.des}
+                    </p>
+                </div>
+            {/each}
+        </div>
+    </div>
 </div>
 
 <style lang="postcss">
-	.icon {
-		fill: radial-gradient(
-			84.78% 84.78% at 50% 50%,
-			rgba(6, 255, 97, 0.25) 0%,
-			rgba(0, 0, 0, 0) 100%
-		);
-	}
-	.whyInferixContainer {
-		background: linear-gradient(180deg, #000 0%, #101010 100%);
-	}
-	.reasonContainer > div:nth-child(1) {
-		padding: 25px 32px 44px 33px;
-	}
-	.reasonContainer > div:nth-child(1) > .title {
-		margin-top: 5px;
-	}
-	.reasonContainer > div:nth-child(2) {
-		padding: 38px 33px 63px 34px;
-	}
-	.reasonContainer > div:nth-child(2) > .title {
-		margin-top: 28px;
-	}
-	.reasonContainer > div:nth-child(3) {
-		padding: 38px 35px 62px 32px;
-	}
-	.reasonContainer > div:nth-child(3) > .title {
-		margin-top: 18px;
-	}
-	.reasonContainer > div:nth-child(4) {
-		padding: 32px 45px 39px 46px;
-	}
-	.reasonContainer > div:nth-child(4) > .title {
-		margin-top: 6px;
-	}
+    .icon {
+        @apply rounded-full object-contain w-[96px] h-[96px] md:w-[220px] md:h-[220px];
+    }
 
-	.reasonContainer > div {
-		position: relative;
-		border-radius: 10px;
-	}
+    .whyInferixContainer {
+        background: linear-gradient(180deg, #000 0%, #101010 100%);
+    }
 
-	.reasonContainer > div::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		border-radius: 28px;
-		padding: 1.5px;
-		-webkit-mask: linear-gradient(#fff 0 0) content-box, /* [1] */ linear-gradient(#fff 0 0); /* [2] */
-		-webkit-mask-composite: xor;
-		mask-composite: exclude;
-	}
-	.reasonContainer > div:nth-child(1)::before {
-		background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(255, 255, 255, 0.16) 100%);
-	}
-	.reasonContainer > div:nth-child(n + 2)::before {
-		background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(0, 0, 0, 0) 100%);
-	}
-	@media screen and (max-width: 768px) {
-		.reasonContainer > div:nth-child(1) {
-			padding: 11px 13px 10px 14px;
-		}
-		.reasonContainer > div:nth-child(1) > .title {
-			margin-top: 2px;
-		}
-		.reasonContainer > div:nth-child(2) {
-			padding: 12px 12px 17px 13px;
-		}
-		.reasonContainer > div:nth-child(2) > .title {
-			margin-top: 1px;
-		}
-		.reasonContainer > div:nth-child(3) {
-			padding: 17px 9px 10px 9px;
-		}
-		.reasonContainer > div:nth-child(3) > .title {
-			margin-top: 12px;
-		}
-		.reasonContainer > div:nth-child(4) {
-			padding: 14px 20px 10px 20px;
-		}
-		.reasonContainer > div:nth-child(4) > .title {
-			margin-top: 2px;
-		}
+    .reasonContainer > div:nth-child(1) {
+        padding: 25px 32px 44px 33px;
+    }
 
-		.reasonContainer > div {
-			position: relative;
-			border-radius: 10px;
-		}
+    .reasonContainer > div:nth-child(1) > .title {
+        margin-top: 5px;
+    }
 
-		.reasonContainer > div::before {
-			content: '';
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			border-radius: 10px;
-			padding: 1px;
-			-webkit-mask: linear-gradient(#fff 0 0) content-box, /* [1] */ linear-gradient(#fff 0 0); /* [2] */
-			-webkit-mask-composite: xor;
-			mask-composite: exclude;
-		}
-		.reasonContainer > div:nth-child(1)::before {
-			background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(255, 255, 255, 0.16) 100%);
-		}
-		.reasonContainer > div:nth-child(n + 2)::before {
-			background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(0, 0, 0, 0) 100%);
-		}
-	}
+    .reasonContainer > div:nth-child(2) {
+        padding: 38px 33px 63px 34px;
+    }
+
+    .reasonContainer > div:nth-child(2) > .title {
+        margin-top: 28px;
+    }
+
+    .reasonContainer > div:nth-child(3) {
+        padding: 38px 35px 62px 32px;
+    }
+
+    .reasonContainer > div:nth-child(3) > .title {
+        margin-top: 18px;
+    }
+
+    .reasonContainer > div:nth-child(4) {
+        padding: 32px 45px 39px 46px;
+    }
+
+    .reasonContainer > div:nth-child(4) > .title {
+        margin-top: 6px;
+    }
+
+    .reasonContainer > div {
+        position: relative;
+        border-radius: 10px;
+    }
+
+    .reasonContainer > div::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        border-radius: 28px;
+        padding: 1.5px;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, /* [1] */ linear-gradient(#fff 0 0); /* [2] */
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+
+    .reasonContainer > div:nth-child(1)::before {
+        background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(255, 255, 255, 0.16) 100%);
+    }
+
+    .reasonContainer > div:nth-child(n + 2)::before {
+        background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    @media screen and (max-width: 768px) {
+        .reasonContainer > div:nth-child(1) {
+            padding: 11px 13px 10px 14px;
+        }
+
+        .reasonContainer > div:nth-child(1) > .title {
+            margin-top: 2px;
+        }
+
+        .reasonContainer > div:nth-child(2) {
+            padding: 12px 12px 17px 13px;
+        }
+
+        .reasonContainer > div:nth-child(2) > .title {
+            margin-top: 1px;
+        }
+
+        .reasonContainer > div:nth-child(3) {
+            padding: 17px 9px 10px 9px;
+        }
+
+        .reasonContainer > div:nth-child(3) > .title {
+            margin-top: 12px;
+        }
+
+        .reasonContainer > div:nth-child(4) {
+            padding: 14px 20px 10px 20px;
+        }
+
+        .reasonContainer > div:nth-child(4) > .title {
+            margin-top: 2px;
+        }
+
+        .reasonContainer > div {
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .reasonContainer > div::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            border-radius: 10px;
+            padding: 1px;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, /* [1] */ linear-gradient(#fff 0 0); /* [2] */
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .reasonContainer > div:nth-child(1)::before {
+            background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(255, 255, 255, 0.16) 100%);
+        }
+
+        .reasonContainer > div:nth-child(n + 2)::before {
+            background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+    }
 </style>
