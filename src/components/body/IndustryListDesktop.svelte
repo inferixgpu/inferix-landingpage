@@ -30,15 +30,15 @@
 </script>
 
 <div
-        class={`z-[2] relative industryContainer flex flex-col mx-[17.5px] md:mx-auto md:flex-row gap-[25px] mt-[80px] hide-scroll overflow-auto`}>
+        class={`z-[2] relative industryContainer flex flex-col mx-[17.5px] md:mx-auto md:flex-row gap-[25px] mt-[32px] md:mt-[80px] hide-scroll overflow-auto`}>
     {#each industriesData as industry, index}
         <div
-                class="industry min-w-full h-[147px] md:min-w-[519px] md:h-[392px] box-border  pl-4 md:pl-[55px] pr-4 md:pt-[161px] pt-[30px] flex flex-col justify-end"
+                class="industry min-w-full h-[147px] md:min-w-[519px] md:h-[392px] box-border  pl-4 md:pl-[55px] pr-4 md:pt-[161px] pt-[30px] flex flex-col items-start justify-end"
         >
-            <p class="font-pre text-base md:text-[2rem] font-extrabold text-secondary leading-default">
+            <p class="font-pre text-base md:text-[2rem] text-left font-extrabold text-secondary leading-default">
                 {@html industry.title}
             </p>
-            <p class="text-lightGrey font-pre text-[10px] md:text-xl font-normal mt-4 md:mt-5 leading-desc">
+            <p class="text-lightGrey text-left font-pre text-[10px] md:text-xl font-normal mt-4 md:mt-5 leading-desc">
                 {industry.description}
             </p>
         </div>
@@ -68,7 +68,7 @@
 
     .industryContainer > div:nth-child(1) {
         background-image: url('$images/png/industries/1.png');
-        @apply ml-0 md:ml-[80px] xl:ml-[160px]
+        @apply ml-[17.5] md:ml-[50px] xl:ml-[80px] 2xl:ml-[160px];
     }
 
     .industryContainer > div:nth-child(2) {
@@ -85,7 +85,7 @@
 
     .industryContainer > div:nth-child(5) {
         background-image: url('$images/png/industries/5.png');
-        margin-right: 160px;
+        @apply mr-[17.5] md:mr-[50px] xl:mr-[80px] 2xl:mr-[160px];
     }
 
     .maxWidth {

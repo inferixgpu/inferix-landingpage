@@ -158,4 +158,14 @@ input:focus {
     .container {
         @apply px-0 max-w-[calc(100vw-35px)] md:max-w-[calc(100vw-100px)] xl:max-w-[calc(100vw-160px)] 2xl:max-w-[calc(100vw-320px)]
     }
+
+
+}
+
+.container-ml {
+    @apply ml-[17.5] md:ml-[50px] xl:ml-[80px] 2xl:ml-[160px];
+}
+
+.container-mr {
+    @apply mr-[17.5] md:mr-[50px] xl:mr-[80px] 2xl:mr-[160px];
 }

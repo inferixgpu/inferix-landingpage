@@ -1,8 +1,9 @@
 <script>
-	import DeviderMobile from '$images/icons/DividerMobile.svg';
-	import Dot from '$images/icons/Dot.svg';
+    import DeviderMobile from '$images/icons/DividerMobile.svg';
+    import Dot from '$images/icons/Dot.svg';
+    import Saos from "saos";
 
-	const roadMap = [
+    const roadMap = [
         {
             title: 'Inferix is born',
             description: [],
@@ -40,38 +41,42 @@
         id="roadmap"
         class="pt-[48px] w-full bg-darkGrey mx-auto md:hidden block md:px-0 px-5 box-border pb-[100px]"
 >
-    <p class="text-secondary text-base text-center font-bold font-outfit">Roadmap</p>
-    <div class="container mt-[39px] relative z-10">
-        <div class="flex flex-col justify-center items-center gap-10 mx-auto w-ful contentContainer">
-            {#each roadMap as map (map.title)}
-                <div class="gridContainer gap-4">
-                    <p class="text-left text-base text-secondary font-outfit mt-[-2px]">{map.mark}</p>
-                    <div>
-                        <img src={DeviderMobile} alt="devider" class="h-5 ml-1 w-[105px]"/>
-                        <div class="divider w-full flex items-end">
-                            {#if map == roadMap[roadMap.length - 1]}
-                                <img src={Dot} alt="dot" class=" w-[7px] h-[7px] mb-[-3.5px] ml-[-4px]"/>
-                            {/if}
+    <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+        <p class="text-secondary text-base text-center font-bold font-outfit">Roadmap</p>
+    </Saos>
+    <Saos once top="300" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+        <div class="container mt-[39px] relative z-10">
+            <div class="flex flex-col justify-center items-center gap-10 mx-auto w-ful contentContainer">
+                {#each roadMap as map (map.title)}
+                    <div class="gridContainer gap-4">
+                        <p class="text-left text-sm font-bold text-secondary font-outfit mt-[-2px]">{map.mark}</p>
+                        <div>
+                            <img src={DeviderMobile} alt="devider" class="h-5 ml-1 w-[105px]"/>
+                            <div class="divider w-full flex items-end">
+                                {#if map == roadMap[roadMap.length - 1]}
+                                    <img src={Dot} alt="dot" class=" w-[7px] h-[7px] mb-[-3.5px] ml-[-4px]"/>
+                                {/if}
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex flex-1 lg:gap-4 gap-2">
-                        <div class="flex flex-1 box-border">
-                            <div class="flex flex-col font-outfit box-border pl-4 linear">
-                                <p class="font-bold text-sm">{map.title}</p>
-                                <ul class="flex flex-col mt-2 list-none text-[#B9B9B9]">
-                                    {#each map.description as desc (desc)}
-                                        <li>
-                                            <p class="font-normal text-[0.625rem] leading-[17px]">{desc}</p>
-                                        </li>
-                                    {/each}
-                                </ul>
+                        <div class="flex flex-1 lg:gap-4 gap-2">
+                            <div class="flex flex-1 box-border">
+                                <div class="flex flex-col font-outfit box-border pl-4 linear">
+                                    <p class="font-bold text-sm">{map.title}</p>
+                                    <ul class="flex flex-col mt-2 list-none text-[#B9B9B9]">
+                                        {#each map.description as desc (desc)}
+                                            <li>
+                                                <p class="font-normal text-[0.625rem] leading-[17px]">{desc}</p>
+                                            </li>
+                                        {/each}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            {/each}
+                {/each}
+            </div>
         </div>
-    </div>
+    </Saos>
 </div>
 
 <style lang="postcss">

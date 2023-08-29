@@ -4,6 +4,7 @@
 
     import footerVideo from '$videos/Footer.mp4';
     import {Modal} from "flowbite-svelte";
+    import Saos from "saos";
 
     let activeTab = 1;
     let showModal = false
@@ -27,7 +28,7 @@
 
 <svelte:window bind:innerWidth={screenSize}/>
 
-<div class="bg-darkGrey pb-[41px] md:pt-[249px] pt-[120px] md:px-0 px-5 box-border">
+<div class="bg-darkGrey pb-[41px] md:pt-[249px] pt-[100px] md:px-0 px-5 box-border">
     <div
             class="md:h-[435px] h-[266px] container mx-auto overflow-hidden rounded-[32px] relative z-30"
     >
@@ -39,18 +40,22 @@
         <div
                 class="md:h-[435px] h-[266px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center z-10"
         >
-            <p
-                    class="font-outfit text-base md:text-[2rem] leading-default mx-5 md:mx-[9vw]  box-border text-center font-medium text-black"
-            >
-                "Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
-                GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."
-            </p>
-            <button
-                    on:click={showSignUpModal}
-                    class="text-white cursor-pointer hover:opacity-[0.8] font-outfit text-lg text-center font-medium mt-[32px] md:mt-[32px] capitalize px-8 py-4 rounded-2xl bg-black"
-            >
-                Join Inferix now
-            </button>
+            <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                <p
+                        class="font-outfit text-base md:text-[2rem] leading-default mx-5 md:mx-[9vw]  box-border text-center font-medium text-black"
+                >
+                    "Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
+                    GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."
+                </p>
+            </Saos>
+            <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                <button
+                        on:click={showSignUpModal}
+                        class="text-white cursor-pointer hover:opacity-[0.8] font-outfit text-lg text-center font-medium mt-[32px] md:mt-[32px] capitalize px-8 py-4 rounded-2xl bg-black"
+                >
+                    Join Inferix now
+                </button>
+            </Saos>
         </div>
     </div>
     <div class=" container mx-auto mt-[39px] flex md:flex-row flex-col justify-between">

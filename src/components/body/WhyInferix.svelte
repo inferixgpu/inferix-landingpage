@@ -4,6 +4,7 @@
     import Performance from '$images/png/Performance.png';
     import Scalability from '$images/png/Scalability.png';
     import Utilization from '$images/png/Utilization.png';
+    import Saos from "saos";
 
     const reasons = [
         {
@@ -34,28 +35,31 @@
         class="md:pt-[142px] pt-[50px] md:pb-[185px] pb-[82px] whyInferixContainer md:px-0 px-5 box-border"
 >
     <div class="container mx-auto">
-        <img
-                src={WhyInferix}
-                alt="why inferix"
-                class="md:mx-auto md:w-[220px] w-[99px] md:h-[48px] h-[21px]"
-        />
-        <div
-                class="md:mt-[60px] mt-[15px] grid lg:grid-cols-4 lg:grid-rows-1 grid-cols-2 grid-rows-2 md:gap-x-4 md:gap-y-4 gap-x-[10px] gap-y-[12px] reasonContainer w-full"
-        >
-            {#each reasons as reason}
-                <div
-                        class="font-pre inset-0 flex flex-col items-center box-border text-center w-full !h-full z-10"
-                >
-                    <img src={reason.icon} alt="icon" class="icon"/>
-                    <p class="text-white text-sm md:text-[2rem] font-extrabold tilte leading-default">
-                        {reason.title}
-                    </p>
-                    <p class="text-normalGrey font-normal text-[0.5625rem] md:text-lg mt-4 leading-desc">
-                        {reason.des}
-                    </p>
-                </div>
-            {/each}
-        </div>
+        <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+            <img
+                    src={WhyInferix}
+                    alt="why inferix"
+                    class="md:mx-auto md:w-[220px] w-[99px] md:h-[48px] h-[21px]"
+            /></Saos>
+        <Saos once top="300" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+            <div
+                    class="md:mt-[60px] mt-[15px] grid lg:grid-cols-4 lg:grid-rows-1 grid-cols-2 grid-rows-2 md:gap-x-4 md:gap-y-4 gap-x-[10px] gap-y-[12px] reasonContainer w-full"
+            >
+                {#each reasons as reason}
+                    <div
+                            class="font-pre inset-0 flex flex-col items-center box-border text-center w-full !h-full z-10"
+                    >
+                        <img src={reason.icon} alt="icon" class="icon"/>
+                        <p class="text-white text-sm md:text-[2rem] min-h-[unset] md:min-h-[76px] font-extrabold tilte leading-default">
+                            {reason.title}
+                        </p>
+                        <p class="text-normalGrey font-normal text-[0.5625rem] md:text-lg mt-4 leading-desc">
+                            {reason.des}
+                        </p>
+                    </div>
+                {/each}
+            </div>
+        </Saos>
     </div>
 </div>
 
