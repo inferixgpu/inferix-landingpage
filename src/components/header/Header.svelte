@@ -102,7 +102,7 @@
 <div class="bg-lightDark relative headerBackground">
     <div
             id="header"
-            class={`bg-lightDark md:h-[97.4px] h-[58px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
+            class={`md:bg-[#141414] md:h-[97.4px] h-[58px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
     >
         <div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[30px]">
             <nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
@@ -142,23 +142,23 @@
                     class="video-overlay-container"
             >
                 {#if (textIndex === 0)}
-                    <Saos animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                        <h1 class="text-[4.625rem] font-outfit text-center shadow-text ">
+                    <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                        <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">
                             Decentralized GPU Infrastructure<br>for <strong>Visual Computing</strong>
                         </h1>
                     </Saos>
                 {/if}
                 {#if (textIndex === 1)}
-                    <Saos animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                        <h1 class="text-[4.625rem] font-outfit text-center shadow-text ">Fastest 3D rendering
+                    <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                        <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">Fastest 3D rendering
                             by<br><strong>Inferix decentralized GPU</strong></h1>
                     </Saos>
                 {/if}
                 <Saos top="200" once animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                    <p class="font-outfit text-white text-center font-semibold text-2xl shadow-text mt-[107px]">Start
-                        free
-                        trial</p>
-                    <div class="flex gap-4 mt-4">
+                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">
+                        Start
+                        free trial</p>
+                    <div class="flex gap-4 mt-2 md:mt-4">
                         <a class="download-btn"
                            href="https://drive.google.com/file/d/15C9oxu5bhZj-na1UTpFxk_R4Y_Km7dm-/view?usp=sharing"
                            target="_blank">
@@ -208,7 +208,7 @@
 
     .video-overlay-container {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);
-        @apply overflow-hidden rounded-[24px] absolute left-0 right-0 top-0 bottom-0 hidden md:flex justify-center items-center flex-col;
+        @apply overflow-hidden rounded-[8px] md:rounded-[24px] absolute left-0 right-0 top-0 bottom-0 flex justify-center items-center flex-col;
     }
 
     .shadow-text {
@@ -257,11 +257,19 @@
         background-image: url('$images/png/ButtonBg.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        @apply flex flex-col justify-center items-center w-[171px] h-[58px] drop-shadow text-lg font-semibold;
+        @apply flex flex-col justify-center items-center w-[102px] h-[35px] md:w-[171px] md:h-[58px] drop-shadow text-xs md:text-lg font-semibold;
     }
 
     .download-btn span {
-        @apply text-[11px] text-[#797979] mt-1;
+        @apply text-[8px] md:text-[11px] text-[#797979] mt-1;
+    }
+
+    .download-btn img {
+        @apply w-[12px] md:w-[14px] h-[12px] md:h-[14px];
+    }
+
+    h1 {
+        line-height: normal;
     }
 
     @media screen and (max-width: 768px) {

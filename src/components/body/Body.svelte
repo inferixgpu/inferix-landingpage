@@ -50,15 +50,17 @@
     </div>
     <WhyInferix/>
     <Industries/>
-    <div class="md:pt-[155px] pb-0 bg-[#1C1C1C] md:flex hidden mx-auto container">
-        <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-            <p class="text-center font-pre font-extrabold md:text-[2.5rem] text-2xl">
-                Partner / Investor
-            </p>
-        </Saos>
-        <Saos once top="300" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-            <img src={PartnerAndInvestor} alt="Partner / Investor" class="mt-[60px] mx-auto"/>
-        </Saos>
+    <div class="bg-darkGrey">
+        <div class="md:pt-[155px] pb-0 bg-darkGrey md:flex flex-col hidden mx-auto container ">
+            <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                <p class="text-center font-pre font-extrabold md:text-[2.5rem] text-2xl">
+                    Partner / Investor
+                </p>
+            </Saos>
+            <Saos once top="300" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                <img src={PartnerAndInvestor} alt="Partner / Investor" class="mt-[60px] mx-auto"/>
+            </Saos>
+        </div>
     </div>
 
     <div class="bg-darkGrey">
