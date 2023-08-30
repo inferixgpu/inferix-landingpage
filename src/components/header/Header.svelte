@@ -93,7 +93,10 @@
     }
 
     onMount(() => {
-        autoPlay();
+        if (screenSize > 768) {
+            autoPlay();
+        }
+
     })
 </script>
 
@@ -208,7 +211,7 @@
 
     .video-overlay-container {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);
-        @apply overflow-hidden rounded-[8px] md:rounded-[24px] absolute left-0 right-0 top-0 bottom-0 flex justify-center items-center flex-col;
+        @apply overflow-hidden rounded-[8px] md:rounded-[24px] absolute left-0 right-0 top-0 bottom-0 hidden md:flex justify-center items-center flex-col;
     }
 
     .shadow-text {
