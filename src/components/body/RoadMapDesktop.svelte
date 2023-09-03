@@ -6,32 +6,30 @@
     const roadMap = [
         {
             title: 'Inferix is born',
-            description: []
+            description: ['Research cloud GPU market for \n' +
+            '  shortage of GPU in AI & Media processing ', 'Engage with Blockchain experts for\n' +
+            '  Decentralized GPU solution \n', 'Talked with other founders about \n' +
+            '  forming the Inferix team ']
         },
         {
             title: 'MVP',
-            description: ['· Decentralized GPU farm', '· Cloud based 3D rendering']
+            description: ['Inferix Team is formed with MVP \nconcept', 'Finalize the MVP release date', 'Start the marketing & partnership \n' +
+            '  activities. \n', 'Start the seed phase of funding']
         },
         {
             title: 'Close beta & Blockchain',
             description: [
-                '· Close beta service',
-                '· Chain(TBD)<br/>integration(Testnet)',
-                '· GPU provider package',
-                '· TGE'
+                'Decentralized GPU MVP release', 'Cloud-based 3D rendering MVP', 'Increase the partners in rendering & AI'
             ]
         },
         {
             title: 'Official Launching',
             description: [
-                '· Ready to serve',
-                '· Chain integration(Mainnet)',
-                '· Al inference open market',
-                '· Payment & Reward'
+                'Beta service release', 'Chain integration(Mainnet)', 'GPU for AI inference', 'Payment & Reward system '
             ]
         }
     ];
-    const markers = ['23.3Q', '23.4Q', '24.1Q', '24.2Q'];
+    const markers = ['Q2, 2023', 'Q3, 2023', 'Q4, 2023', 'Q1, 2024'];
 </script>
 
 <div class="bg-darkGrey">
@@ -47,23 +45,20 @@
                     {#each roadMap as map (map.title)}
                         <div class="flex lg:gap-4 gap-2">
                             <img src={Devider} alt="devider" class="h-full"/>
-                            <div class="flex box-border">
-                                <div class="flex flex-col lg:gap-[28px] gap-4 lg:text-base text-sm font-outfit">
-                                    <p class="font-bold text-base">{map.title}</p>
-                                    <ul class="flex flex-col ml-7">
-                                        {#each map.description as desc (desc)}
-                                            <li class="list-none">
-                                                <p
-                                                        class={`${
+                            <div class="flex box-border mt-[24px] mr-[3px]">
+                                <ul class="flex flex-col font-outfit font-normal text-left text-base leading-default">
+                                    {#each map.description as desc (desc)}
+                                        <li class="">
+                                            <p
+                                                    class={`${
 													map == roadMap[roadMap.length - 1] ? 'whitespace-nowrap' : ''
-												} font-outfit font-normal text-base leading-default`}
-                                                >
-                                                    {@html desc}
-                                                </p>
-                                            </li>
-                                        {/each}
-                                    </ul>
-                                </div>
+												}`}
+                                            >
+                                                {@html desc}
+                                            </p>
+                                        </li>
+                                    {/each}
+                                </ul>
                             </div>
                         </div>
                     {/each}
@@ -80,4 +75,7 @@
 </div>
 
 <style lang="postcss">
+    ul {
+        list-style-type: '· ';
+    }
 </style>

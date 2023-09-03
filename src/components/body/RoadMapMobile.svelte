@@ -6,33 +6,31 @@
     const roadMap = [
         {
             title: 'Inferix is born',
-            description: [],
-            mark: '23.3Q'
+            description: ['Research cloud GPU market for \n' +
+            '  shortage of GPU in AI & Media processing ', 'Engage with Blockchain experts for\n' +
+            '  Decentralized GPU solution \n', 'Talked with other founders about \n' +
+            '  forming the Inferix team '],
+            mark: 'Q2, 2023'
         },
         {
             title: 'MVP',
-            description: ['Decentralized GPU farm', 'Cloud based 3D redering'],
-            mark: '23.4Q'
+            description: ['Inferix Team is formed with MVP \nconcept', 'Finalize the MVP release date', 'Start the marketing & partnership \n' +
+            '  activities. \n', 'Start the seed phase of funding'],
+            mark: 'Q3, 2023'
         },
         {
             title: 'Close beta & Blockchain',
             description: [
-                'Close beta service',
-                'Chain(TBD) integration(Testnet)',
-                'GPU provider package',
-                'TGE'
+                'Decentralized GPU MVP release', 'Cloud-based 3D rendering MVP', 'Increase the partners in rendering & AI'
             ],
-            mark: '24.1Q'
+            mark: 'Q4, 2023'
         },
         {
             title: 'Official Launching',
             description: [
-                'Ready to serve',
-                'Chain integration(Mainnet)',
-                'Al inference open market',
-                'Payment & Reward'
+                'Beta service release', 'Chain integration(Mainnet)', 'GPU for AI inference', 'Payment & Reward system '
             ],
-            mark: '24.2Q'
+            mark: 'Q1, 2024'
         }
     ];
 </script>
@@ -53,15 +51,15 @@
                         <div>
                             <img src={DeviderMobile} alt="devider" class="h-5 ml-1 w-[105px]"/>
                             <div class="divider w-full flex items-end">
-                                {#if map == roadMap[roadMap.length - 1]}
+                                {#if map === roadMap[roadMap.length - 1]}
                                     <img src={Dot} alt="dot" class=" w-[7px] h-[7px] mb-[-3.5px] ml-[-4px]"/>
                                 {/if}
                             </div>
                         </div>
                         <div class="flex flex-1 lg:gap-4 gap-2">
                             <div class="flex flex-1 box-border">
-                                <div class="flex flex-col font-outfit box-border pl-4 linear">
-                                    <p class="font-bold text-sm">{map.title}</p>
+                                <div class="flex flex-col items-start text-left font-outfit box-border pl-4 linear">
+                                    <p class="font-bold text-sm ">{map.title}</p>
                                     <ul class="flex flex-col mt-2 list-none text-[#B9B9B9]">
                                         {#each map.description as desc (desc)}
                                             <li>

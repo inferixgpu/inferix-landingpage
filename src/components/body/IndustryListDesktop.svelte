@@ -1,4 +1,7 @@
 <script lang="ts">
+    import ScrollArrow from '$images/icons/ScrollArrow.svg';
+
+    let scroller;
     const industriesData = [
         {
             title: 'Entertainment <br> and Media',
@@ -27,10 +30,34 @@
         }
     ];
 
+    function scrollRight() {
+        scroller.scrollBy({
+            left: 520,
+            behavior: 'smooth',
+            top: 0
+        })
+    }
+
+    function scrollLeft() {
+        scroller.scrollBy({
+            left: -520,
+            behavior: 'smooth',
+            top: 0
+        })
+    }
+
 </script>
 
+<button class="scroll-left" on:click={scrollLeft}>
+    <img src={ScrollArrow} alt="scroll left"/>
+</button>
+<button class="scroll-right" on:click={scrollRight}>
+    <img src={ScrollArrow} alt="scroll right"/>
+</button>
 <div
+        bind:this={scroller}
         class={`z-[2] relative industryContainer flex flex-col mx-[17.5px] md:mx-auto md:flex-row gap-[25px] mt-[32px] md:mt-[80px] hide-scroll overflow-auto`}>
+
     {#each industriesData as industry, index}
         <div
                 class="industry min-w-full h-[147px] md:min-w-[519px] md:h-[392px] box-border  pl-4 md:pl-[55px] pr-4 md:pt-[161px] pt-[30px] flex flex-col items-start justify-end"
@@ -90,5 +117,13 @@
 
     .maxWidth {
         max-width: calc(100% - 60px);
+    }
+
+    .scroll-left {
+        @apply hidden md:block absolute z-50 left-[17.5] md:left-[50px] xl:left-[80px] 2xl:left-[160px] top-[calc(50%-25px)] ml-[-25px];
+    }
+
+    .scroll-right {
+        @apply hidden md:block absolute z-50 right-[17.5] md:right-[50px] xl:right-[80px] 2xl:right-[160px] top-[calc(50%-25px)] mr-[-25px] rotate-180;
     }
 </style>
