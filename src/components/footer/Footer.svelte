@@ -16,7 +16,7 @@
     const medias = [
         {id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu'},
         {id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu'},
-        {id: 3, name: 'Discord', href: 'https://discord.com/invite/dGF8ka68'},
+        {id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W'},
         {id: 4, name: 'Lightpaper', href: '#'}
     ];
     let screenSize: number;
