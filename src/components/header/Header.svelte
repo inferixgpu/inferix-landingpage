@@ -26,7 +26,7 @@
         {
             id: 2,
             title: 'GPU Network',
-            href: '#network'
+            href: 'https://dash.inferix.io/'
         },
         {
             id: 3,
@@ -69,11 +69,13 @@
     };
 
     function handleClickTab(e: MouseEvent, id: number, href: string) {
+        if(id === 2) return;
         e.preventDefault();
         const idTab = href.replace('#', '');
         const tab = document.getElementById(idTab);
         setActiveTab(id);
         const space = screenSize > 768 ? 200 : 150;
+        
         if (tab) {
             window.scrollTo({
                 top: tab.offsetTop - space,
@@ -123,7 +125,7 @@
                                 class="tab {activeTab === tab.id ? 'active' : ''}"
                                 on:click={(e) => handleClickTab(e, tab.id, tab.href)}
                         >
-                            <a href={tab.href}>{tab.title}</a>
+                            <a target="_blank" href={tab.href}>{tab.title}</a>
                         </div>
                     {/each}
                 </div>
