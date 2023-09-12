@@ -12,6 +12,24 @@
     import WhyInferix from './WhyInferix.svelte';
 
     let screenSize: number;
+
+    const partners = [
+        {
+            id: 1,
+            title: 'Colligence',
+            href: 'https://colligence.io/'
+        },
+        {
+            id: 2,
+            title: 'House3D',
+            href: 'https://house3d.com/'
+        },
+        {
+            id: 3,
+            title: 'Metacity',
+            href: 'https://citiverse.io/'
+        }
+    ];
 </script>
 
 <svelte:window bind:innerWidth={screenSize}/>
@@ -58,7 +76,14 @@
                 </p>
             </Saos>
             <Saos once top="300" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                <img src={PartnerAndInvestor} alt="Partner / Investor" class="mt-[60px] mx-auto"/>
+                <div class="partnerDiv mt-[60px] mx-auto">
+                    <div class="partnerImg">
+                        {#each partners as partner (partner.id)}
+                                <a class="partnerLink" target="_blank" href={partner.href}></a>
+                        {/each}
+                    </div>
+                </div>
+                <!-- <img src={PartnerAndInvestor} alt="Partner / Investor" class="mt-[60px] mx-auto"/> -->
             </Saos>
         </div>
     </div>
@@ -67,8 +92,18 @@
         <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
             <div class="mx-auto container pt-[48px] bg-darkGrey md:hidden flex flex-col gap-5">
                 <p class="text-center font-pre font-extrabold md:text-[2.5rem] text-base">Partner / Investor</p>
-                <img src={PartnerAndInvestorMobile} alt="Partner / Investor" class="mx-auto"/>
+
+                <div class="partner-mobile-div mt-[60px] mx-auto">
+                    <div class="partner-mobile-img">
+                        {#each partners as partner (partner.id)}
+                                <a class="partner-mobile-link" target="_blank" href={partner.href}></a>
+                        {/each}
+                    </div>
+                </div>
+
+                <!-- <img src={PartnerAndInvestorMobile} alt="Partner / Investor" class="mx-auto"/> -->
             </div>
+            
         </Saos>
     </div>
     {#if screenSize > 768}
@@ -79,4 +114,48 @@
 </div>
 
 <style lang="postcss">
+    .partnerDiv {
+        padding: 0px 35px;
+        height:224px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .partnerImg {
+        background-image: url('$images/png/PartnerAndInvestor.png');
+        background-repeat: no-repeat;
+        width: 1524.980px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .partnerLink {
+        display: flex;
+        width: 33%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .partner-mobile-div {
+        height:50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .partner-mobile-img {
+        background-image: url('$images/png/PartnerAndInvestorMobile.png');
+        background-repeat: no-repeat;
+        width: 350px;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .partner-mobile-link{
+        display: flex;
+        width: 30%;
+        height: 100%;
+        cursor: pointer;
+    }
 </style>
