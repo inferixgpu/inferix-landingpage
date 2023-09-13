@@ -165,7 +165,7 @@
                         free trial</p>
                     <div class="flex gap-4 mt-2 md:mt-4">
                         <a class="download-btn"
-                           href="https://drive.google.com/file/d/15C9oxu5bhZj-na1UTpFxk_R4Y_Km7dm-/view?usp=sharing"
+                           href="http://h3d.me/ifxaddonblender"
                            target="_blank">
                             <div class="flex flex-row gap-[10px] leading-91"><img src={DownloadIcon} alt="download"/>Windows
                             </div>
