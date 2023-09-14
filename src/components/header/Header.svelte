@@ -165,8 +165,7 @@
                         free trial</p>
                     <div class="flex gap-4 mt-2 md:mt-4">
                         <a class="download-btn"
-                           href="http://h3d.me/ifxaddonblender"
-                           target="_blank">
+                           href="https://h3d.me/ifxaddonblender">
                             <div class="flex flex-row gap-[10px] leading-91"><img src={DownloadIcon} alt="download"/>Windows
                             </div>
                             <span class="text-[11px] leading-91">Blender Add - on</span>
