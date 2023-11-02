@@ -7,6 +7,9 @@
     import HeaderVideo from '$videos/HeaderVideo.mp4';
     import Saos from 'saos';
 
+    import SignUpModal from "$components/inferix/SignUpModal/SignUpModal.svelte";
+    import {Modal} from "flowbite-svelte";
+
     import {afterUpdate, onMount} from 'svelte';
 
     let textIndex = 0;
@@ -32,6 +35,11 @@
             id: 3,
             title: 'Roadmap',
             href: '#roadmap'
+        },
+        {
+            id: 4,
+            title: 'Register',
+            href: '#'
         }
     ];
 
@@ -39,6 +47,7 @@
     let y: number;
 
     let isOpen = false;
+    let showModal = false
 
     afterUpdate(() => {
         if (typeof window !== 'undefined') {
@@ -70,6 +79,11 @@
 
     function handleClickTab(e: MouseEvent, id: number, href: string) {
         if(id === 2) return;
+        if(id === 4) 
+        {
+            showModal = true;
+        }
+        
         e.preventDefault();
         const idTab = href.replace('#', '');
         const tab = document.getElementById(idTab);
@@ -206,6 +220,9 @@
             <img src={Close} alt="close icon"/>
         </div>
     </div>
+    <Modal bind:open={showModal} defaultClass="!rounded-[20px]">
+        <SignUpModal/>
+    </Modal>
 </div>
 
 <style lang="postcss">
