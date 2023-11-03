@@ -5,17 +5,17 @@
 		{
 			title: 'Underutilized Resources',
 			description:
-				'Many GPU owners do not fully utilize their GPUs, leading to underutilized resources and missed income opportunities.'
+				'Many GPU owners do not fully utilize their GPUs, leading to underutilized resources and missed income opportunities'
 		},
 		{
 			title: 'Complex Management & Maintenance ',
 			description:
-				'With traditional models like PaaS or laaS, users need to manage and maintain their platform or infrastructure, which can be time- consuming and technically challenging. High Access and Cost Barriers Businesses, researchers, and developers needing high-performance GPU processing often face prohibitive costs, both for initial investment and maintenance. The high financial barrier restricts access to necessary computational resources.'
+				'With traditional models like PaaS or laaS, users need to manage and maintain their platform or infrastructure, which can be time- consuming and technically challenging. High Access and Cost Barriers Businesses, researchers, and developers needing high-performance GPU processing often face prohibitive costs, both for initial investment and maintenance. The high financial barrier restricts access to necessary computational resources'
 		},
 		{
 			title: 'High Access and Cost Barriers ',
 			description:
-				'Businesses, researchers, and developers needing high-performance GPU processing often face prohibitive costs, both for initial investment and maintenance. The high financial barrier restricts access to necessary computational resources.'
+				'Businesses, researchers, and developers needing high-performance GPU processing often face prohibitive costs, both for initial investment and maintenance. The high financial barrier restricts access to necessary computational resources'
 		}
 	];
 
@@ -23,7 +23,7 @@
 		{
 			title: 'Maximize utilizaton & Earning',
 			description:
-				'Inferix provides a platform for GPU owners to share their idle GPU power,allowing them to earn GOPU tokens, thereby creating a new revenue stream.'
+				'Inferix provides a platform for GPU owners to share their idle GPU power,allowing them to earn GOPU tokens, thereby creating a new revenue stream'
 		},
 		{
 			title: 'Ease of Use & Management ',
@@ -33,7 +33,7 @@
 		{
 			title: 'Democratize Access & Lower Costs',
 			description:
-				'Inferix allows users needing GPU power to access these resources on a pay-as-you-go basis, significantly lowering the financial barriers to entry. This also means users only pay for the resources they actually use, leading to more efficient spending.'
+				'Inferix allows users needing GPU power to access these resources on a pay-as-you-go basis, significantly lowering the financial barriers to entry. This also means users only pay for the resources they actually use, leading to more efficient spending'
 		}
 	];
 </script>

@@ -20,12 +20,12 @@
         {
             icon: Utilization,
             title: 'Cost - Efficient Resource Utilization',
-            des: 'Inferix’s decentralized approach optimizes usage, allowing you to use available GPUs without investing in costly hardware upgrades.'
+            des: 'Inferix’s decentralized approach optimizes usage, allowing you to use available GPUs without investing in costly hardware upgrades'
         },
         {
             icon: Intergration,
             title: 'Secure Blockchain Integration',
-            des: 'Built on blockchain technology, Inferix ensures secure and transparent usage of GPU resources, providing a reliable and trusted environment.'
+            des: 'Built on blockchain technology, Inferix ensures secure and transparent usage of GPU resources, providing a reliable and trusted environment'
         }
     ];
 </script>
