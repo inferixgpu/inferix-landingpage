@@ -179,17 +179,16 @@
                         Start
                         free trial</p>
                     <div class="flex gap-4 mt-2 md:mt-4">
-                        <a class="download-btn"
-                           href="https://h3d.me/ifxaddonblender">
+                        <a class="download-btn" href="https://h3d.me/ifxaddonblender">
                             <div class="flex flex-row gap-[10px] leading-91"><img src={DownloadIcon} alt="download"/>Windows
                             </div>
                             <span class="text-[11px] leading-91">Blender Add - on</span>
                         </a>
-                        <div class="download-btn">
+                        <a class="download-btn" href="https://h3d.me/ifxaddonblender">
                             <div class="flex flex-row gap-[10px] leading-91"><img src={DownloadIcon} alt="download"/>MacOS
                             </div>
-                            <span class="text-[11px] leading-91">coming soon</span>
-                        </div>
+                            <span class="text-[11px] leading-91">Blender Add - on</span>
+                        </a>
                     </div>
                 </Saos>
             </div>

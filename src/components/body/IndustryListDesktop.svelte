@@ -6,7 +6,7 @@
         {
             title: 'Entertainment <br> and Media',
             description:
-                'From blockbuster movies to immersive gaming experiences, Inferix brings life to visuals that captivate audiences worldwide.'
+                'From blockbuster movies to immersive gaming experiences, Inferix brings life to visuals that captivate audiences worldwide'
         },
         {
             title: 'Architecture <br> and Design',
@@ -16,17 +16,17 @@
         {
             title: 'Product Development',
             description:
-                'Steamline the design process with accelerated 3D rendering and simulations, enabling efficient prototyping and iteration.'
+                'Steamline the design process with accelerated 3D rendering and simulations, enabling efficient prototyping and iteration'
         },
         {
             title: 'Animation and VFX',
             description:
-                'Power visual effects and animation pipelines with Inferix, speeding up production and enabling seamless integration of visual elements.'
+                'Power visual effects and animation pipelines with Inferix, speeding up production and enabling seamless integration of visual elements'
         },
         {
             title: 'Virtual <br> and Augmented Reality',
             description:
-                'Reality Build immersive virtual and agumented reality experiences that push the boundaries of interactive storytelling.'
+                'Reality Build immersive virtual and agumented reality experiences that push the boundaries of interactive storytelling'
         }
     ];
 

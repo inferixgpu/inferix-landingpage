@@ -54,7 +54,7 @@
                         class="md:text-left text-center text-xs md:text-[1.75rem] font-pre font-normal leading-default md:text-white text-textMobile"
                 >
                     An innovated platform using the power of Blockchain and Web3 technologies to redefine how we
-                    use and share GPU resource globally.
+                    use and share GPU resource globally
                 </p>
             </div>
         </Saos>

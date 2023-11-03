@@ -45,7 +45,7 @@
                         class="font-outfit text-base md:text-[2rem] leading-default mx-5 md:mx-[9vw]  box-border text-center font-medium text-black"
                 >
                     "Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
-                    GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."
+                    GPUs for seamless rendering, accelerated Al, and groundbreaking innovation"
                 </p>
             </Saos>
             <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
