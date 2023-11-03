@@ -36,8 +36,9 @@
             title: 'Roadmap',
             href: '#roadmap'
         },
+        {id: 4, title: 'Team', href: '#team'},
         {
-            id: 4,
+            id: 5,
             title: 'Register',
             href: '#'
         }
@@ -79,7 +80,7 @@
 
     function handleClickTab(e: MouseEvent, id: number, href: string) {
         if(id === 2) return;
-        if(id === 4) 
+        if(id === 5) 
         {
             showModal = true;
         }

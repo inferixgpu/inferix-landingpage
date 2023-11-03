@@ -9,7 +9,12 @@
     import Industries from './Industries.svelte';
     import RoadMapDesktop from './RoadMapDesktop.svelte';
     import RoadMapMobile from './RoadMapMobile.svelte';
+    import Teams from './Teams.svelte';
     import WhyInferix from './WhyInferix.svelte';
+
+    import Actif3D from '$images/png/actif3D.svg'
+    import House3D from '$images/png/house3d.svg'
+    import MetaCity from '$images/png/metacity.svg'
 
     let screenSize: number;
 
@@ -17,16 +22,19 @@
         {
             id: 1,
             title: 'Colligence',
+            img: {name: Actif3D, height: '85px'},
             href: 'https://colligence.io/'
         },
         {
             id: 2,
             title: 'House3D',
+            img: {name: House3D, height: '112px'},
             href: 'https://house3d.com/'
         },
         {
             id: 3,
             title: 'Metacity',
+            img: {name: MetaCity, height: '76px'},
             href: 'https://citiverse.io/'
         }
     ];
@@ -69,7 +77,7 @@
     <WhyInferix/>
     <Industries/>
     <div class="bg-darkGrey">
-        <div class="md:pt-[155px] pb-0 bg-darkGrey md:flex flex-col hidden mx-auto container ">
+        <div class="md:pt-[155px] pb-0 bg-darkGrey md:flex flex-col mx-auto container ">
             <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                 <p class="text-center font-pre font-extrabold md:text-[2.5rem] text-2xl">
                     Partner / Investor
@@ -77,40 +85,35 @@
             </Saos>
             <Saos once top="300" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                 <div class="partnerDiv mt-[60px] mx-auto">
+                    {#if screenSize > 900}
                     <div class="partnerImg">
                         {#each partners as partner (partner.id)}
-                                <a class="partnerLink" target="_blank" href={partner.href}></a>
+                                <a class="partnerLink" target="_blank" href={partner.href}>
+                                <img src={partner.img.name} alt={partner.img.name} style={`height: ${partner.img.height}`}/>
+                                </a>
                         {/each}
                     </div>
+                    {:else}
+                    {#each partners as partner (partner.id)}
+                        <div class="partnerImg">
+                            <a class="partnerLink" target="_blank" href={partner.href}>
+                            <img src={partner.img.name} alt={partner.img.name} />
+                            </a>
+                        </div>      
+                    {/each}
+                    {/if}                   
                 </div>
                 <!-- <img src={PartnerAndInvestor} alt="Partner / Investor" class="mt-[60px] mx-auto"/> -->
             </Saos>
         </div>
     </div>
 
-    <div class="bg-darkGrey">
-        <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-            <div class="mx-auto container pt-[48px] bg-darkGrey md:hidden flex flex-col gap-5">
-                <p class="text-center font-pre font-extrabold md:text-[2.5rem] text-base">Partner / Investor</p>
-
-                <div class="partner-mobile-div mt-[60px] mx-auto">
-                    <div class="partner-mobile-img">
-                        {#each partners as partner (partner.id)}
-                                <a class="partner-mobile-link" target="_blank" href={partner.href}></a>
-                        {/each}
-                    </div>
-                </div>
-
-                <!-- <img src={PartnerAndInvestorMobile} alt="Partner / Investor" class="mx-auto"/> -->
-            </div>
-            
-        </Saos>
-    </div>
     {#if screenSize > 768}
         <RoadMapDesktop/>
     {:else}
         <RoadMapMobile/>
     {/if}
+    <Teams/>
 </div>
 
 <style lang="postcss">
@@ -122,12 +125,17 @@
     }
 
     .partnerImg {
-        background-image: url('$images/png/PartnerAndInvestor.png');
-        background-repeat: no-repeat;
+        background-color: #131313;
         width: 1524.980px;
         height: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
+        border-radius: 24px;
+    }
+
+    .partnerImg > a > img {
+        margin: auto;
     }
 
     .partnerLink {
@@ -157,5 +165,25 @@
         width: 30%;
         height: 100%;
         cursor: pointer;
+    }
+
+    @media screen and (max-width: 900px) {
+        .partnerDiv {
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .partnerImg {
+            width: 350px;
+            height: 150px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .partnerImg > a {
+            width: 100%;
+        }
     }
 </style>
