@@ -21,9 +21,9 @@
     const partners = [
         {
             id: 1,
-            title: 'Colligence',
+            title: 'Actif3d',
             img: {name: Actif3D, height: '85px'},
-            href: 'https://colligence.io/'
+            href: 'https://actif3d.com/'
         },
         {
             id: 2,
