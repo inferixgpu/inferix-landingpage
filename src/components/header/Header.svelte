@@ -161,6 +161,7 @@
             <div
                     class="video-overlay-container"
             >
+            <div class="text">
                 {#if (textIndex === 0)}
                     <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                         <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">
@@ -174,11 +175,12 @@
                             by<br><strong>Inferix decentralized GPU</strong></h1>
                     </Saos>
                 {/if}
+            </div>
                 <Saos top="200" once animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                     <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">
                         Start
                         free trial</p>
-                    <div class="flex gap-4 mt-2 md:mt-4">
+                    <div class="flex gap-4 justify-center mt-2 md:mt-4">
                         <a class="download-btn" href="https://h3d.me/ifxaddonblender">
                             <div class="flex flex-row gap-[10px] leading-91"><img src={DownloadIcon} alt="download"/>Windows
                             </div>
@@ -229,7 +231,7 @@
 
     .video-overlay-container {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);
-        @apply overflow-hidden rounded-[8px] md:rounded-[24px] absolute left-0 right-0 top-0 bottom-0 hidden md:flex justify-center items-center flex-col;
+        @apply overflow-hidden rounded-[8px] md:rounded-[24px] absolute left-0 right-0 top-0 bottom-0 justify-center md:flex justify-center items-center flex-col;
     }
 
     .shadow-text {
@@ -299,6 +301,9 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+        }
+        .text{
+            margin-top: 20px;
         }
     }
 
