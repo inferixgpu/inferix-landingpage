@@ -1,5 +1,5 @@
 <script lang="ts">
-	import InferixMVP from '$videos/InferixMVP1080.mp4';
+	import InferixMVP from '$videos/InferixMVP2.mp4';
 	import MVPWalkthrough from '$images/icons/MVPWalkthrough.svg';
 	import Play from '$images/icons/Play.svg';
 
