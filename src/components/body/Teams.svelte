@@ -132,7 +132,7 @@
 			]
 		}
 	];
-	const number_desktop = [0, 1, 2,3];
+	const number_desktop = [0, 1, 2];
 	const number_tablet = [0, 1, 2, 3];
 	const number_tablet2 = [0, 1, 2, 3, 4, 5];
 	const number_mobile = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
