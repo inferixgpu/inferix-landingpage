@@ -2,10 +2,10 @@
 	import InferixMVP from '$videos/InferixMVP1080.mp4';
 	import MVPWalkthrough from '$images/icons/MVPWalkthrough.svg';
 	import Play from '$images/icons/Play.svg';
-    import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
-    let video;
-    let observer;
+  let video;
+  let observer;
 
 	let paused = true;
 	const playVideo = () => {
@@ -24,7 +24,12 @@
     });
   }
 
+  
   onMount(() => {
+    window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+},
+
     // Set up Intersection Observer
     observer = new IntersectionObserver(handleIntersection);
     observer.observe(video);
@@ -48,12 +53,10 @@
         </div>
       
 		<div class="video">
-           
-			<video autoplay controls loop bind:this={video} bind:paused = {paused} class="MVP object-cover">
+            
+		<video autoplay controls muted playsinline loop bind:this={video} bind:paused = {paused} class="MVP object-cover">
 				<source src={InferixMVP} type="video/mp4" />
-			</video>       
-        
-                <div class="btnPlay" on:click={playVideo}>    
+			</video>  <div class="btnPlay" on:click={playVideo}>    
                     {#if paused}
                      <img  src={Play}/>
                     {/if}
