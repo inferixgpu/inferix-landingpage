@@ -55,8 +55,7 @@
 				<p
 					class="md:text-left text-center text-xs md:text-[1.75rem] font-pre font-normal leading-default md:text-white text-textMobile"
 				>
-					An innovated platform using the power of Blockchain and Web3 technologies to redefine how
-					we use and share GPU resource globally
+					An innovated platform for 3D rendering and AI referencing using crowdsourced GPUs globally
 				</p>
 			</div>
 		</Saos>

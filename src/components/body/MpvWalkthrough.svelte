@@ -2,12 +2,39 @@
 	import InferixMVP from '$videos/InferixMVP1080.mp4';
 	import MVPWalkthrough from '$images/icons/MVPWalkthrough.svg';
 	import Play from '$images/icons/Play.svg';
+    import { onMount } from 'svelte';
+
+    let video;
+    let observer;
 
 	let paused = true;
 	const playVideo = () => {
 		paused = !paused;
 	};
-</script>
+
+    function handleIntersection(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Video is in view, play it
+        video.play();
+      } else {
+        // Video is out of view, pause it
+        video.pause();
+      }
+    });
+  }
+
+  onMount(() => {
+    // Set up Intersection Observer
+    observer = new IntersectionObserver(handleIntersection);
+    observer.observe(video);
+
+    // Clean up observer on component destruction
+    return () => {
+      observer.disconnect();
+    };
+  });
+</script> 
 
 <div class="bg-black mx-auto pt-[60px] box-border">
 	<div class="container rounded-[8px] md:rounded-[24px] overflow-hidden mx-auto relative">
@@ -19,11 +46,13 @@
                     
             />
         </div>
-        
+      
 		<div class="video">
-			<video controls bind:paused = {paused} class="MVP object-cover">
+           
+			<video autoplay controls loop bind:this={video} bind:paused = {paused} class="MVP object-cover">
 				<source src={InferixMVP} type="video/mp4" />
 			</video>       
+        
                 <div class="btnPlay" on:click={playVideo}>    
                     {#if paused}
                      <img  src={Play}/>
@@ -91,4 +120,4 @@
 	    }
 	}
 
-</style>
+</style>  
