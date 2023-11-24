@@ -13,6 +13,7 @@
 	import DavidNgo from '$images/avatars/david_ngo.svg';
 	import ThanhLe from '$images/avatars/thanh_le.svg';
 	import JennyHanhNguyen from '$images/avatars/jenny_hanh_nguyen.svg';
+	import DuongPa from '$images/avatars/DuongPa.svg';
 
 	let screenSize: number;
 
@@ -110,12 +111,15 @@
 			position: 'Application Programming Senior',
 			description: ['High work experience in app programing in FPT, Viettel corporations']
 		},
+	
 		{
-			title: 'Thanh Le',
-			avatar: ThanhLe,
-			name: 'Thanh Le',
-			position: 'DevOps Expert',
-			description: ['DevOps Expert, master in Python, Golang, Java and NodeJS Programming']
+			title: 'Duong PA',
+			avatar: DuongPa,
+			name: 'Duong PA',
+			position: 'Blockchain Dev Senior',
+			description: [
+				'High work experience in Blockchain and DApp development',
+			]
 		},
 		{
 			title: 'Jenny Hanh Nguyen',
@@ -128,7 +132,7 @@
 			]
 		}
 	];
-	const number_desktop = [0, 1, 2];
+	const number_desktop = [0, 1, 2,3];
 	const number_tablet = [0, 1, 2, 3];
 	const number_tablet2 = [0, 1, 2, 3, 4, 5];
 	const number_mobile = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];

@@ -84,6 +84,7 @@
 		}
 		.MVP {
 			margin-top: 15px;
+            width: 100%;
 		}
         .btnPlay {
             width: 35px;
