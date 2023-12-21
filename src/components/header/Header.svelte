@@ -4,9 +4,9 @@
     import HeaderLogo from '$images/icons/HeaderLogo.svg';
     import InferixMobile from '$images/icons/InferixMobile.svg';
     import MobileMenu from '$images/icons/MobileMenu.svg';
-    import HeaderVideo from '$videos/HeaderVideo.mp4';
+    import InferixHeader from '$images/photos/InferixHeader.png';
     import Saos from 'saos';
-
+    import HeaderVideo from '$videos/HeaderVideo.mp4';
     import SignUpModal from "$components/inferix/SignUpModal/SignUpModal.svelte";
     import {Modal} from "flowbite-svelte";
 
@@ -79,18 +79,17 @@
     };
 
     function handleClickTab(e: MouseEvent, id: number, href: string) {
-        if(id === 2) return;
-        if(id === 5) 
-        {
+        if (id === 2) return;
+        if (id === 5) {
             showModal = true;
         }
-        
+
         e.preventDefault();
         const idTab = href.replace('#', '');
         const tab = document.getElementById(idTab);
         setActiveTab(id);
         const space = screenSize > 768 ? 200 : 150;
-        
+
         if (tab) {
             window.scrollTo({
                 top: tab.offsetTop - space,
@@ -134,10 +133,10 @@
                         Decentralized GPU Network
                     </p>
                 </div>
-                <div class="md:flex gap-10 text-lg hidden">
+                <div class="md:flex gap-8 text-lg relative">
                     {#each tabs as tab (tab.id)}
                         <div
-                                class="tab {activeTab === tab.id ? 'active' : ''}"
+                                class="header-tab tab {activeTab === tab.id ? 'active' : ''}"
                                 on:click={(e) => handleClickTab(e, tab.id, tab.href)}
                         >
                             <a target="_blank" href={tab.href}>{tab.title}</a>
@@ -152,8 +151,9 @@
             </nav>
         </div>
     </div>
-    <div class="container mx-auto pt-[110px] box-border">
-        <div class="rounded-[8px] md:rounded-[24px] overflow-hidden mx-auto relative">
+    <div class=" mx-auto pt-[0px] box-border">
+        <div class="overflow-hidden mx-auto relative">
+<!--            <img src={InferixHeader} alt="logo" class="w-[1600px] h-[800px]"/>-->
             <video width="1600" height="800" autoplay muted loop playsinline
                    class="h-[175px] md:h-[800px] w-full object-cover">
                 <source src={HeaderVideo} type="video/mp4"/>
@@ -161,21 +161,22 @@
             <div
                     class="video-overlay-container"
             >
-            <div class="text">
-                {#if (textIndex === 0)}
-                    <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                        <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">
-                            Decentralized GPU Infrastructure<br>for <strong>Visual Computing</strong>
-                        </h1>
-                    </Saos>
-                {/if}
-                {#if (textIndex === 1)}
-                    <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                        <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">Fastest 3D rendering
-                            by<br><strong>Inferix decentralized GPU</strong></h1>
-                    </Saos>
-                {/if}
-            </div>
+                <div class="text">
+                    {#if (textIndex === 0)}
+                        <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">
+                                Decentralized GPU Infrastructure<br>for <strong>Visual Computing</strong>
+                            </h1>
+                        </Saos>
+                    {/if}
+                    {#if (textIndex === 1)}
+                        <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">Fastest 3D
+                                rendering
+                                by<br><strong>Inferix decentralized GPU</strong></h1>
+                        </Saos>
+                    {/if}
+                </div>
                 <Saos top="200" once animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                     <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">
                         Start
@@ -231,7 +232,7 @@
 
     .video-overlay-container {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);
-        @apply overflow-hidden rounded-[8px] md:rounded-[24px] absolute left-0 right-0 top-0 bottom-0 justify-center md:flex justify-center items-center flex-col;
+        @apply overflow-hidden absolute left-0 right-0 top-0 bottom-0 justify-center md:flex justify-center items-center flex-col;
     }
 
     .shadow-text {
@@ -239,7 +240,7 @@
     }
 
     .active {
-        color: var(--green);
+        color: #00D6D9;
     }
 
     .overlay {
@@ -258,7 +259,7 @@
     }
 
     :global(strong) {
-        color: #06FF61 !important;
+        color: #00D6D9 !important;
     }
 
     .centerPosition {
@@ -295,6 +296,27 @@
         line-height: normal;
     }
 
+    .header-tab {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        text-align: left;
+        padding: 12px 16px;
+    }
+
+    #header {
+        background-color: unset;
+    }
+
+    .header-tab.active {
+        display: flex;
+        padding: 12px 16px;
+        align-items: flex-start;
+        border-radius: 100px;
+        color: #08101D;
+        background-color: #00D6D9;
+    }
+
     @media screen and (max-width: 768px) {
         .headerBackground {
             background-image: url('$images/icons/HeaderBackgroundMobile.svg');
@@ -302,7 +324,8 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-        .text{
+
+        .text {
             margin-top: 20px;
         }
     }
