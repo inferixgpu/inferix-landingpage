@@ -127,13 +127,13 @@
             <nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
                 <div class="md:flex hidden md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
                     <img src={HeaderLogo} alt="logo" class="w-[100px]"/>
-                    <p
-                            class="hidden md:block text-base font-outfit font-normal text-white whitespace-nowrap"
-                    >
-                        Decentralized GPU Network
-                    </p>
+<!--                    <p-->
+<!--                            class="hidden md:block text-base font-outfit font-normal text-white whitespace-nowrap"-->
+<!--                    >-->
+<!--                        Decentralized GPU Network-->
+<!--                    </p>-->
                 </div>
-                <div class="md:flex gap-8 text-lg relative">
+                <div class="md:flex gap-8 text-lg">
                     {#each tabs as tab (tab.id)}
                         <div
                                 class="header-tab tab {activeTab === tab.id ? 'active' : ''}"
@@ -153,11 +153,7 @@
     </div>
     <div class=" mx-auto pt-[0px] box-border">
         <div class="overflow-hidden mx-auto relative">
-<!--            <img src={InferixHeader} alt="logo" class="w-[1600px] h-[800px]"/>-->
-            <video width="1600" height="800" autoplay muted loop playsinline
-                   class="h-[175px] md:h-[800px] w-full object-cover">
-                <source src={HeaderVideo} type="video/mp4"/>
-            </video>
+            <img src={InferixHeader} alt="logo" class="h-[175px] md:h-[800px] w-full object-cover"/>
             <div
                     class="video-overlay-container"
             >
@@ -296,27 +292,28 @@
         line-height: normal;
     }
 
-    .header-tab {
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 24px;
-        text-align: left;
-        padding: 12px 16px;
-    }
+    @media screen and (min-width: 768px) {
+        .header-tab {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+            text-align: left;
+            padding: 12px 16px;
+        }
 
-    #header {
-        background-color: unset;
-    }
+        #header {
+            background-color: unset;
+        }
 
-    .header-tab.active {
-        display: flex;
-        padding: 12px 16px;
-        align-items: flex-start;
-        border-radius: 100px;
-        color: #08101D;
-        background-color: #00D6D9;
+        .header-tab.active {
+            display: flex;
+            padding: 12px 16px;
+            align-items: flex-start;
+            border-radius: 100px;
+            color: #08101D;
+            background-color: #00D6D9;
+        }
     }
-
     @media screen and (max-width: 768px) {
         .headerBackground {
             background-image: url('$images/icons/HeaderBackgroundMobile.svg');
