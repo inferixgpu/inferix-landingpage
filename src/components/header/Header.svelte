@@ -4,9 +4,10 @@
     import HeaderLogo from '$images/icons/HeaderLogo.svg';
     import InferixMobile from '$images/icons/InferixMobile.svg';
     import MobileMenu from '$images/icons/MobileMenu.svg';
+    import IconScreen from '$images/icons/IconScreen.svg';
+    import IconGpu from '$images/icons/IconGpu.svg';
     import InferixHeader from '$images/photos/InferixHeader.png';
     import Saos from 'saos';
-    import HeaderVideo from '$videos/HeaderVideo.mp4';
     import SignUpModal from "$components/inferix/SignUpModal/SignUpModal.svelte";
     import {Modal} from "flowbite-svelte";
 
@@ -126,14 +127,14 @@
         <div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[30px]">
             <nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
                 <div class="md:flex hidden md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
-                    <img src={HeaderLogo} alt="logo" class="w-[100px]"/>
-<!--                    <p-->
-<!--                            class="hidden md:block text-base font-outfit font-normal text-white whitespace-nowrap"-->
-<!--                    >-->
-<!--                        Decentralized GPU Network-->
-<!--                    </p>-->
+                    <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px]"/>
+                    <!--                    <p-->
+                    <!--                            class="hidden md:block text-base font-outfit font-normal text-white whitespace-nowrap"-->
+                    <!--                    >-->
+                    <!--                        Decentralized GPU Network-->
+                    <!--                    </p>-->
                 </div>
-                <div class="md:flex gap-8 text-lg">
+                <div class="md:flex gap-8 text-lg hidden">
                     {#each tabs as tab (tab.id)}
                         <div
                                 class="header-tab tab {activeTab === tab.id ? 'active' : ''}"
@@ -174,20 +175,42 @@
                     {/if}
                 </div>
                 <Saos top="200" once animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">
-                        Start
-                        free trial</p>
+                    <!--                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">-->
+                    <!--                        Start-->
+                    <!--                        free trial</p>-->
                     <div class="flex gap-4 justify-center mt-2 md:mt-4">
-                        <a class="download-btn" href="https://h3d.me/ifxaddonblender">
-                            <div class="flex flex-row gap-[10px] leading-91"><img src={DownloadIcon} alt="download"/>Windows
+                        <div class="download-btn">
+                            <span><img src={IconScreen} alt="download"/></span>
+                            <div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
+                                <span >For Designer</span>
+                                <div class="flex flex-row gap-5">
+                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                        <img src={DownloadIcon} alt="download"/>
+                                        <span>Window</span>
+                                    </a>
+                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                        <img src={DownloadIcon} alt="download"/>
+                                        <span>MacOS</span>
+                                    </a>
+                                </div>
                             </div>
-                            <span class="text-[11px] leading-91">Blender Add - on</span>
-                        </a>
-                        <a class="download-btn" href="https://h3d.me/ifxaddonblender">
-                            <div class="flex flex-row gap-[10px] leading-91"><img src={DownloadIcon} alt="download"/>MacOS
+                        </div>
+                        <div class="download-btn">
+                            <span><img src={IconGpu} alt="download"/></span>
+                            <div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
+                                <span>For GPU Owner</span>
+                                <div class="flex flex-row gap-5">
+                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                        <img src={DownloadIcon} alt="download"/>
+                                        <span>Window</span>
+                                    </a>
+                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                        <img src={DownloadIcon} alt="download"/>
+                                        <span>MacOS</span>
+                                    </a>
+                                </div>
                             </div>
-                            <span class="text-[11px] leading-91">Blender Add - on</span>
-                        </a>
+                        </div>
                     </div>
                 </Saos>
             </div>
@@ -274,20 +297,40 @@
     }
 
     .download-btn {
-        background-image: url('$images/png/ButtonBg.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        @apply flex flex-col justify-center items-center w-[102px] h-[35px] md:w-[171px] md:h-[58px] drop-shadow text-xs md:text-lg font-semibold;
+        @apply flex flex-row justify-start items-center w-[102px] h-[35px] md:w-[265px] md:h-[75px] drop-shadow text-xs md:text-lg;
+        border-radius: 16px;
+        background: var(--3, #101319);
+        padding: 16px 24px;
+        gap: 24px;
     }
 
-    .download-btn span {
-        @apply text-[8px] md:text-[11px] text-[#797979] mt-1;
+    .download-btn > span > img {
+        @apply w-[30px] md:w-[40px] h-[30px] md:h-[40px];
     }
 
-    .download-btn img {
+    .download-btn > img {
         @apply w-[12px] md:w-[14px] h-[12px] md:h-[14px];
     }
 
+    .download-btn > div > span {
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 20px; /* 125% */
+    }
+
+    .download-options {
+        color: #FFF;
+        font-size: 12px ;
+        font-style: normal;
+        font-weight: 100;
+        line-height: normal;
+        opacity: 0.6;
+        @apply flex flex-row justify-center items-center gap-1;
+    }
     h1 {
         line-height: normal;
     }
@@ -314,6 +357,7 @@
             background-color: #00D6D9;
         }
     }
+
     @media screen and (max-width: 768px) {
         .headerBackground {
             background-image: url('$images/icons/HeaderBackgroundMobile.svg');

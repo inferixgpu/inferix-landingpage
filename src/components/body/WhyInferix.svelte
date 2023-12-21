@@ -32,7 +32,7 @@
 
 <div
         id="network"
-        class="md:pt-[142px] pt-[50px] md:pb-[185px] pb-[82px] whyInferixContainer md:px-0 px-5 box-border"
+        class="md:pt-[20px] pt-[50px] md:pb-[185px] pb-[82px] whyInferixContainer md:px-0 px-5 box-border"
 >
     <div class="container mx-auto">
         <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
@@ -129,6 +129,9 @@
         background: linear-gradient(120deg, rgba(95, 206, 93, 1) 0%, rgba(0, 0, 0, 0) 100%);
     }
 
+    #network {
+        background: #08101D;
+    }
     @media screen and (max-width: 768px) {
         .reasonContainer > div:nth-child(1) {
             padding: 11px 13px 10px 14px;

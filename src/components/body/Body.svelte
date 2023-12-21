@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Inferix from '$images/icons/Inferix.svg';
 	import StraightDivider from '$images/icons/StraightDivider.svg';
-	import InferixCycle from '$images/png/InferixCycle.png';
+	import InferixInnovated from '$images/png/InferixInnovated.png';
 	import InferixCycleMobile from '$images/png/InferixCycleMobile.png';
 	import PartnerAndInvestor from '$images/png/PartnerAndInvestor.png';
 	import PartnerAndInvestorMobile from '$images/png/PartnerAndInvestorMobile.png';
@@ -45,15 +45,13 @@
 <svelte:window bind:innerWidth={screenSize} />
 
 <div id="about" class="">
-	<div class="bg-lightDark">
+	<div class="Innovated-bg">
 		<Saos top="200" once animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 			<div
-				class="flex md:flex-row flex-col items-center mx-auto md:pt-[131px] pt-0 container box-border"
+				class="innovated-title "
 			>
-				<img src={Inferix} alt="Inferix" class="md:flex hidden w-[196px] h-[76px]" />
-				<img src={StraightDivider} alt="divider" class="ml-[54px] md:flex hidden mr-[74px]" />
 				<p
-					class="md:text-left text-center text-xs md:text-[1.75rem] font-pre font-normal leading-default md:text-white text-textMobile"
+					class="md:text-center text-center text-xs md:text-[1.75rem] font-pre font-bold leading-default md:text-white text-textMobile"
 				>
 					An innovated platform for 3D rendering and AI inference using crowdsourced GPUs globally
 				</p>
@@ -61,8 +59,8 @@
 		</Saos>
 		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 			<img
-				src={InferixCycle}
-				class="mx-auto container mt-[149px] md:flex hidden pb-[132px]"
+				src={InferixInnovated}
+				class="mx-auto mt-[44px] md:flex hidden pb-[60px]"
 				alt="inferix circle"
 			/>
 		</Saos>
@@ -180,6 +178,17 @@
 		cursor: pointer;
 	}
 
+	.innovated-title {
+		@apply flex md:flex-row flex-col items-center mx-auto md:pt-[131px] pt-0 container box-border w-[912px];
+		color: #FFF;
+		text-align: center;
+		font-size: 32px;
+		font-style: normal;
+		line-height: 48px; /* 150% */
+	}
+	.Innovated-bg {
+		background: #08101D;
+	}
 	@media screen and (max-width: 900px) {
 		.partnerDiv {
 			width: 100%;
