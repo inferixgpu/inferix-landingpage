@@ -204,7 +204,7 @@ input:focus {
 
 	text-align: center;
 	font-family: Outfit;
-	font-size: 24px;
+	font-size: 20px;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -215,9 +215,9 @@ input:focus {
 
 	text-align: center;
 	font-family: Outfit;
-	font-size: 20px;
+	font-size: 12px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 200;
 	line-height: normal;
 	line-break: auto;
 }
@@ -230,9 +230,9 @@ input:focus {
 	color: #fff;
 
 	font-family: Outfit;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
-	font-weight: 500;
-	line-height: 24px;
+	font-weight: 400;
+	line-height: 20px;
 	opacity: 0.6;
 }
