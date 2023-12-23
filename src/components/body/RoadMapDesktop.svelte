@@ -3,7 +3,7 @@
 
 </script>
 
-<div class="bg-[#08101D]">
+<div class="bg-[#212023]">
     <div id="roadmap" class="md:block hidden container mx-auto w-100%">
         <p class="text-center text-[48px] font-bold mb-[60px]">Roadmap</p>
         <div class="flex flex-row gap-[60px] justify-center relative">

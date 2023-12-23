@@ -148,13 +148,13 @@
                         src={MobileMenu}
                         on:click={toggleMenu}
                         alt="menu"
-                        class="md:mb-0 mb-4 cursor-pointer md:hidden flex ml-auto"/>
+                        class="md:mb-0 mb-4 cursor-pointer hidden flex ml-auto"/>
             </nav>
         </div>
     </div>
     <div class=" mx-auto pt-[0px] box-border">
         <div class="overflow-hidden mx-auto relative">
-            <img src={InferixHeader} alt="logo" class="h-[175px] md:h-[800px] w-full object-cover"/>
+            <img src={InferixHeader} alt="logo" class="h-[175px] md:h-[1000px] w-full object-cover"/>
             <div
                     class="video-overlay-container"
             >
@@ -301,7 +301,7 @@
         background-size: 100% 100%;
         @apply flex flex-row justify-start items-center w-[102px] h-[35px] md:w-[265px] md:h-[75px] drop-shadow text-xs md:text-lg;
         border-radius: 16px;
-        background: var(--3, #101319);
+        background: var(--3, #2D2C30);
         padding: 16px 24px;
         gap: 24px;
     }

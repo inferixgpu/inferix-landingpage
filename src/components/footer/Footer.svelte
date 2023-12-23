@@ -31,7 +31,7 @@
 
 <svelte:window bind:innerWidth={screenSize}/>
 
-<div class="bg-[#08101D] pb-[41px] md:pt-[100px] pt-[100px] md:px-0 px-5 box-border">
+<div class="bg-[#212023] pb-[41px] md:pt-[100px] pt-[100px] md:px-0 px-5 box-border">
     <div
             class="md:h-[435px] h-[266px] container mx-auto overflow-hidden relative z-30"
     >

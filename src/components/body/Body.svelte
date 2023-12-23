@@ -46,11 +46,11 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div id="about" class="">
+<div id="about" class="bg-[#212023]">
 	<div class="Innovated-bg">
 		<Saos top="200" once animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 			<div
-				class="innovated-title "
+				class="innovated-title"
 			>
 				<p
 					class="md:text-center text-center text-xs md:text-[1.75rem] font-pre font-bold leading-default md:text-white text-textMobile"
@@ -79,8 +79,8 @@
 	<SystemArchitecture />
 	<Technologies />
 	<Industries/>
-	<div class="bg-[#08101D]">
-		<div class="pb-0 bg-[#08101D] md:flex flex-col mx-auto container md:pb-[60px]">
+	<div class="bg-[#212023]">
+		<div class="pb-0 bg-[#212023] md:flex flex-col mx-auto container md:pb-[60px]">
 			<Saos
 				once
 				top="200"
@@ -139,7 +139,7 @@
 		justify-content: center;
 	}
 	.partnerImg {
-		background-color: #08101D;
+		background-color: #212023;
 		width: 1524.98px;
 		height: 100%;
 		display: flex;
@@ -190,7 +190,7 @@
 		line-height: 48px; /* 150% */
 	}
 	.Innovated-bg {
-		background: #08101D;
+		background: #212023;
 	}
 	@media screen and (max-width: 900px) {
 		.partnerDiv {

@@ -174,7 +174,7 @@
     }
 
     .wk-bg {
-        background: #08101D;
+        background: #212023;
     }
 
     .span-custom {

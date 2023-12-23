@@ -15,7 +15,7 @@
 
 <svelte:window bind:innerWidth={screenSize}/>
 
-<div class="pb-[48px] bg-[#08101D] flex justify-center relative w-full bg-cover bg-center bg-[url('$images/photos/Technologies.png')]">
+<div class="pb-[48px] bg-[#212023] flex justify-center relative w-full bg-cover bg-center bg-[url('$images/photos/Technologies.png')]">
     <div class="flex flex-row  m-[5%]">
         <div class="flex items-center">
             <p class="text-[48px] font-bold">Technologies</p>

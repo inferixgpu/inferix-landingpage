@@ -15,7 +15,7 @@
 
 <svelte:window bind:innerWidth={screenSize}/>
 
-<div class="pb-[48px] md:pb-[160px] mx-auto w-100% bg-[#08101D] container mt-[160px]">
+<div class="pb-[48px] md:pb-[160px] mx-auto w-100% bg-[#212023] container mt-[160px]">
     <div class="flex flex-col justify-center items-center">
         <p class="text-[48px] text-center font-bold mb-[40px]">Industries</p>
         <div class="flex flex-row gap-[56px] w-[100%] justify-between">

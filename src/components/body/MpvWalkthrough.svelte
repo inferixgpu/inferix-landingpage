@@ -105,7 +105,7 @@
     }
 
     .wk-bg {
-        background: #08101D;
+        background: #212023;
     }
 
     @media screen and (min-width: 740px) and (max-width: 1024px) {
