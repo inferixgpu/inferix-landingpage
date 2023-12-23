@@ -17,6 +17,8 @@
 	import Actif3D from '$images/png/actif3D.svg';
 	import House3D from '$images/png/house3d.svg';
 	import MetaCity from '$images/png/metacity.svg';
+	import SystemArchitecture from "$components/body/SystemArchitecture.svelte";
+	import Technologies from "$components/body/Technologies.svelte";
 
 	let screenSize: number;
 
@@ -74,10 +76,11 @@
 	</div>
 
     <MpvWalkthrough/>
-	<WhyInferix />
-	<Industries />
-	<div class="bg-darkGrey">
-		<div class="md:pt-[155px] pb-0 bg-darkGrey md:flex flex-col mx-auto container">
+	<SystemArchitecture />
+	<Technologies />
+	<Industries/>
+	<div class="bg-[#08101D]">
+		<div class="pb-0 bg-[#08101D] md:flex flex-col mx-auto container md:pb-[60px]">
 			<Saos
 				once
 				top="200"
@@ -136,7 +139,7 @@
 		justify-content: center;
 	}
 	.partnerImg {
-		background-color: #131313;
+		background-color: #08101D;
 		width: 1524.98px;
 		height: 100%;
 		display: flex;
