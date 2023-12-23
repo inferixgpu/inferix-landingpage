@@ -28,7 +28,7 @@
                     </ul>
                 </div>
                 <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-50px]">
-                    <p class="text-[32px] text-[#00D6D9]">Q3-2023</p>
+                    <p class="text-[32px] text-[#00D6D9]">Q4-2024</p>
                     <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
                         <li>Stable Diffusion worker beta release</li>
                         <li>Start R&D for LLM AI training & AI inference support</li>
@@ -67,7 +67,7 @@
                     </ul>
                 </div>
                 <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-60px]">
-                    <p class="text-[32px] text-[#00D6D9]">Q3-2023</p>
+                    <p class="text-[32px] text-[#00D6D9]">Q4-2024</p>
                     <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
                         <li>IDO/IEO campaign</li>
                         <li>Payment & Reward system</li>

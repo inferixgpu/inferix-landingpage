@@ -190,12 +190,10 @@
                                             and 10+
                                             members more
                                         </div>
-
                                     </div>
                                 {/if}
                             {/each}
                         </div>
-
                     {/each}
                 {:else if screenSize > 1280}
                     {#each number_tablet as n}
@@ -338,6 +336,7 @@
     .more-info {
         display: flex;
         width: 220px;
+        height: 194px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -351,8 +350,8 @@
         font-style: normal;
         font-weight: 700;
         line-height: 30px;
-        height: 194px;
-        padding: 10px;
+        padding: 20px;
+        margin-left: 40px;
     }
 
     @media screen and (max-width: 768px) {
