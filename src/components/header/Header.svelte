@@ -200,11 +200,11 @@
                             <div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
                                 <span>For GPU Owner</span>
                                 <div class="flex flex-row gap-5">
-                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                    <a class="download-options" href="https://h3d.me/ifxworkerwin">
                                         <img src={DownloadIcon} alt="download"/>
                                         <span>Window</span>
                                     </a>
-                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                    <a class="download-options" href="https://h3d.me/ifxworkerwin">
                                         <img src={DownloadIcon} alt="download"/>
                                         <span>MacOS</span>
                                     </a>
