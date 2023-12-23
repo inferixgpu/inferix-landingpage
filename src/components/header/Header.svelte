@@ -148,7 +148,7 @@
                         src={MobileMenu}
                         on:click={toggleMenu}
                         alt="menu"
-                        class="md:mb-0 mb-4 cursor-pointer hidden flex ml-auto"/>
+                        class="md:mb-0 mb-4 cursor-pointer hidden ml-auto"/>
             </nav>
         </div>
     </div>

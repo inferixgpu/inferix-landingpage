@@ -109,21 +109,21 @@
             title: 'Duong PA',
             avatar: DuongPa,
             name: 'Duong PA',
-            position: 'Blockchain developer',
+            position: 'BLOCKCHAIN DEVELOPER',
             description: []
         },
         {
             title: 'David Ngo',
             avatar: DavidNgo,
             name: 'David Ngo',
-            position: 'backend team lead',
+            position: 'BACKEND TEAM LEAD',
             description: []
         },
         {
             title: 'Jenny Hanh Nguyen',
             avatar: JennyHanhNguyen,
             name: 'Jenny Hanh Nguyen',
-            position: 'Marketing Team Lead',
+            position: 'MARKETING TEAM LEAD',
             description: []
         },
         {
@@ -158,7 +158,7 @@
                                     <img src={t.avatar} alt={t.avatar} class="h-full"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
+                                    <div class="flex box-border mt-[24px] ml-[20px] h-[200px] teammate-description">
                                         <ul
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
@@ -179,8 +179,8 @@
                                 {#if t.title}
                                     <div class="flex teammate">
                                         <img src={t.avatar} alt={t.avatar} class="h-full"/>
-                                        <div class="teammate-name">{t.name}</div>
-                                        <div class="teammate-position">{t.position}</div>
+                                        <div class="teammate-name font-bold">{t.name}</div>
+                                        <div class="teammate-position text-[12px]" style="font-weight: 100">{t.position}</div>
                                     </div>
                                 {:else}
                                     <div class="flex teammate">

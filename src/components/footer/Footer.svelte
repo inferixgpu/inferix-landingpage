@@ -64,7 +64,7 @@
         <div
                 class="flex md:gap-4 gap-2 md:order-1 order-2 md:flex-row flex-col items-center md:items-start mt-8 md:mt-0"
         >
-            <img src={HeaderLogo} alt="logo" class="w-[100px]"/>
+            <img src={HeaderLogo} alt="logo" class="w-[152px] h-[32px]"/>
             <p class="font-base font-outfit font-normal mt-4 md:mt-0 text-white whitespace-nowrap">
                 Decentralized GPU Network
             </p>
@@ -92,7 +92,7 @@
 
 <style>
     .overlay {
-        background: #00C291;
+        background: var(--4, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
     }
 
     .active {
