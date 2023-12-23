@@ -4,9 +4,10 @@
     import HeaderLogo from '$images/icons/HeaderLogo.svg';
     import InferixMobile from '$images/icons/InferixMobile.svg';
     import MobileMenu from '$images/icons/MobileMenu.svg';
-    import HeaderVideo from '$videos/HeaderVideo.mp4';
+    import IconScreen from '$images/icons/IconScreen.svg';
+    import IconGpu from '$images/icons/IconGpu.svg';
+    import InferixHeader from '$images/photos/InferixHeader.png';
     import Saos from 'saos';
-
     import SignUpModal from "$components/inferix/SignUpModal/SignUpModal.svelte";
     import {Modal} from "flowbite-svelte";
 
@@ -79,18 +80,17 @@
     };
 
     function handleClickTab(e: MouseEvent, id: number, href: string) {
-        if(id === 2) return;
-        if(id === 5) 
-        {
+        if (id === 2) return;
+        if (id === 5) {
             showModal = true;
         }
-        
+
         e.preventDefault();
         const idTab = href.replace('#', '');
         const tab = document.getElementById(idTab);
         setActiveTab(id);
         const space = screenSize > 768 ? 200 : 150;
-        
+
         if (tab) {
             window.scrollTo({
                 top: tab.offsetTop - space,
@@ -127,17 +127,17 @@
         <div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[30px]">
             <nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
                 <div class="md:flex hidden md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
-                    <img src={HeaderLogo} alt="logo" class="w-[100px]"/>
-                    <p
-                            class="hidden md:block text-base font-outfit font-normal text-white whitespace-nowrap"
-                    >
-                        Decentralized GPU Network
-                    </p>
+                    <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px]"/>
+                    <!--                    <p-->
+                    <!--                            class="hidden md:block text-base font-outfit font-normal text-white whitespace-nowrap"-->
+                    <!--                    >-->
+                    <!--                        Decentralized GPU Network-->
+                    <!--                    </p>-->
                 </div>
-                <div class="md:flex gap-10 text-lg hidden">
+                <div class="md:flex gap-8 text-lg hidden">
                     {#each tabs as tab (tab.id)}
                         <div
-                                class="tab {activeTab === tab.id ? 'active' : ''}"
+                                class="header-tab tab {activeTab === tab.id ? 'active' : ''}"
                                 on:click={(e) => handleClickTab(e, tab.id, tab.href)}
                         >
                             <a target="_blank" href={tab.href}>{tab.title}</a>
@@ -152,45 +152,65 @@
             </nav>
         </div>
     </div>
-    <div class="container mx-auto pt-[110px] box-border">
-        <div class="rounded-[8px] md:rounded-[24px] overflow-hidden mx-auto relative">
-            <video width="1600" height="800" autoplay muted loop playsinline
-                   class="h-[175px] md:h-[800px] w-full object-cover">
-                <source src={HeaderVideo} type="video/mp4"/>
-            </video>
+    <div class=" mx-auto pt-[0px] box-border">
+        <div class="overflow-hidden mx-auto relative">
+            <img src={InferixHeader} alt="logo" class="h-[175px] md:h-[800px] w-full object-cover"/>
             <div
                     class="video-overlay-container"
             >
-            <div class="text">
-                {#if (textIndex === 0)}
-                    <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                        <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">
-                            Decentralized GPU Infrastructure<br>for <strong>Visual Computing</strong>
-                        </h1>
-                    </Saos>
-                {/if}
-                {#if (textIndex === 1)}
-                    <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                        <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">Fastest 3D rendering
-                            by<br><strong>Inferix decentralized GPU</strong></h1>
-                    </Saos>
-                {/if}
-            </div>
+                <div class="text">
+                    {#if (textIndex === 0)}
+                        <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">
+                                Decentralized GPU Infrastructure<br>for <strong>Visual Computing</strong>
+                            </h1>
+                        </Saos>
+                    {/if}
+                    {#if (textIndex === 1)}
+                        <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">Fastest 3D
+                                rendering
+                                by<br><strong>Inferix decentralized GPU</strong></h1>
+                        </Saos>
+                    {/if}
+                </div>
                 <Saos top="200" once animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">
-                        Start
-                        free trial</p>
+                    <!--                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">-->
+                    <!--                        Start-->
+                    <!--                        free trial</p>-->
                     <div class="flex gap-4 justify-center mt-2 md:mt-4">
-                        <a class="download-btn" href="https://h3d.me/ifxaddonblender">
-                            <div class="flex flex-row gap-[10px] leading-91"><img src={DownloadIcon} alt="download"/>Windows
+                        <div class="download-btn">
+                            <span><img src={IconScreen} alt="download"/></span>
+                            <div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
+                                <span >For Designer</span>
+                                <div class="flex flex-row gap-5">
+                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                        <img src={DownloadIcon} alt="download"/>
+                                        <span>Window</span>
+                                    </a>
+                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                        <img src={DownloadIcon} alt="download"/>
+                                        <span>MacOS</span>
+                                    </a>
+                                </div>
                             </div>
-                            <span class="text-[11px] leading-91">Blender Add - on</span>
-                        </a>
-                        <a class="download-btn" href="https://h3d.me/ifxaddonblender">
-                            <div class="flex flex-row gap-[10px] leading-91"><img src={DownloadIcon} alt="download"/>MacOS
+                        </div>
+                        <div class="download-btn">
+                            <span><img src={IconGpu} alt="download"/></span>
+                            <div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
+                                <span>For GPU Owner</span>
+                                <div class="flex flex-row gap-5">
+                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                        <img src={DownloadIcon} alt="download"/>
+                                        <span>Window</span>
+                                    </a>
+                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                        <img src={DownloadIcon} alt="download"/>
+                                        <span>MacOS</span>
+                                    </a>
+                                </div>
                             </div>
-                            <span class="text-[11px] leading-91">Blender Add - on</span>
-                        </a>
+                        </div>
                     </div>
                 </Saos>
             </div>
@@ -231,7 +251,7 @@
 
     .video-overlay-container {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);
-        @apply overflow-hidden rounded-[8px] md:rounded-[24px] absolute left-0 right-0 top-0 bottom-0 justify-center md:flex justify-center items-center flex-col;
+        @apply overflow-hidden absolute left-0 right-0 top-0 bottom-0 justify-center md:flex justify-center items-center flex-col;
     }
 
     .shadow-text {
@@ -239,7 +259,7 @@
     }
 
     .active {
-        color: var(--green);
+        color: #00D6D9;
     }
 
     .overlay {
@@ -258,7 +278,7 @@
     }
 
     :global(strong) {
-        color: #06FF61 !important;
+        color: #00D6D9 !important;
     }
 
     .centerPosition {
@@ -277,22 +297,65 @@
     }
 
     .download-btn {
-        background-image: url('$images/png/ButtonBg.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        @apply flex flex-col justify-center items-center w-[102px] h-[35px] md:w-[171px] md:h-[58px] drop-shadow text-xs md:text-lg font-semibold;
+        @apply flex flex-row justify-start items-center w-[102px] h-[35px] md:w-[265px] md:h-[75px] drop-shadow text-xs md:text-lg;
+        border-radius: 16px;
+        background: var(--3, #101319);
+        padding: 16px 24px;
+        gap: 24px;
     }
 
-    .download-btn span {
-        @apply text-[8px] md:text-[11px] text-[#797979] mt-1;
+    .download-btn > span > img {
+        @apply w-[30px] md:w-[40px] h-[30px] md:h-[40px];
     }
 
-    .download-btn img {
+    .download-btn > img {
         @apply w-[12px] md:w-[14px] h-[12px] md:h-[14px];
     }
 
+    .download-btn > div > span {
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 20px; /* 125% */
+    }
+
+    .download-options {
+        color: #FFF;
+        font-size: 12px ;
+        font-style: normal;
+        font-weight: 100;
+        line-height: normal;
+        opacity: 0.6;
+        @apply flex flex-row justify-center items-center gap-1;
+    }
     h1 {
         line-height: normal;
+    }
+
+    @media screen and (min-width: 768px) {
+        .header-tab {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+            text-align: left;
+            padding: 12px 16px;
+        }
+
+        #header {
+            background-color: unset;
+        }
+
+        .header-tab.active {
+            display: flex;
+            padding: 12px 16px;
+            align-items: flex-start;
+            border-radius: 100px;
+            color: #08101D;
+            background-color: #00D6D9;
+        }
     }
 
     @media screen and (max-width: 768px) {
@@ -302,7 +365,8 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-        .text{
+
+        .text {
             margin-top: 20px;
         }
     }

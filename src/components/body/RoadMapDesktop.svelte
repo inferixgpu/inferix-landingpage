@@ -1,81 +1,97 @@
 <script>
-    import Devider from '$images/icons/Divider.svg';
     import Dot from '$images/icons/Dot.svg';
-    import Saos from "saos";
 
-    const roadMap = [
-        {
-            title: 'Inferix is born',
-            description: ['Research cloud GPU market for \n' +
-            '  shortage of GPU in AI & Media processing ', 'Engage with Blockchain experts for\n' +
-            '  Decentralized GPU solution \n', 'Talked with other founders about \n' +
-            '  forming the Inferix team ']
-        },
-        {
-            title: 'MVP',
-            description: ['Inferix Team is formed with MVP \nconcept', 'Finalize the MVP release date', 'Start the marketing & partnership \n' +
-            '  activities. \n', 'Start the seed phase of funding']
-        },
-        {
-            title: 'Close beta & Blockchain',
-            description: [
-                'Decentralized GPU MVP release', 'Cloud-based 3D rendering MVP', 'Increase the partners in rendering & AI'
-            ]
-        },
-        {
-            title: 'Official Launching',
-            description: [
-                'Beta service release', 'Chain integration(Mainnet)', 'GPU for AI inference', 'Payment & Reward system '
-            ]
-        }
-    ];
-    const markers = ['Q2, 2023', 'Q3, 2023', 'Q4, 2023', 'Q1, 2024'];
 </script>
 
-<div class="bg-darkGrey">
-    <div id="roadmap" class="md:block hidden pt-[220px] container mx-auto">
-        <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-            <p class="text-secondary text-[2.5rem] text-center font-bold font-outfit">Roadmap</p>
-        </Saos>
-        <Saos once top="250" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-            <div
-                    class="w-full lg:max-w-[1331px] max-w-full h-[1px] bg-secondary mt-[240px] relative mx-auto"
-            >
-                <div class="grid grid-cols-4 mx-auto absolute bottom-[-11px]">
-                    {#each roadMap as map (map.title)}
-                        <div class="flex lg:gap-4 gap-2">
-                            <img src={Devider} alt="devider" class="h-full"/>
-                            <div class="flex box-border mt-[24px] mr-[3px]">
-                                <ul class="flex flex-col font-outfit font-normal text-left text-base leading-default">
-                                    {#each map.description as desc (desc)}
-                                        <li class="">
-                                            <p
-                                                    class={`${
-													map == roadMap[roadMap.length - 1] ? 'whitespace-nowrap' : ''
-												}`}
-                                            >
-                                                {@html desc}
-                                            </p>
-                                        </li>
-                                    {/each}
-                                </ul>
-                            </div>
-                        </div>
-                    {/each}
-                    <div class="grid grid-cols-4 mx-auto absolute bottom-[-30px] w-full">
-                        {#each markers as marker (marker)}
-                            <p class="text-left text-base text-secondary font-outfit">{marker}</p>
-                        {/each}
-                    </div>
+<div class="bg-[#08101D]">
+    <div id="roadmap" class="md:block hidden container mx-auto w-100%">
+        <p class="text-center text-[48px] font-bold mb-[60px]">Roadmap</p>
+        <div class="flex flex-row gap-[60px] justify-center relative">
+            <div class="flex flex-col gap-[300px]  mt-[50px] h-[1600px]">
+                <div></div>
+                <div class="bg-[#2D2C30] w-[600px] p-[24px]  mt-[-20px]">
+                    <p class="text-[32px] text-[#00D6D9]">Q3-2023</p>
+                    <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
+                        <li>Inferix Team is formed with MVP concept</li>
+                        <li>Project planning</li>
+                        <li>Start the marketing & partnership activities</li>
+                        <li>Angel funding</li>
+                    </ul>
                 </div>
-                <img src={Dot} alt="dot" class="absolute right-[-6.5px] bottom-[-6.5px]"/>
+                <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-90px]">
+                    <p class="text-[32px] text-[#00D6D9]">Q1-2024 & Q2-2024</p>
+                    <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
+                        <li>Rendering Service beta release</li>
+                        <li>Proof-of-Rendering and BMW model</li>
+                        <li>Inferix Console Beta</li>
+                        <li>Strategic round funding</li>
+                    </ul>
+                </div>
+                <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-50px]">
+                    <p class="text-[32px] text-[#00D6D9]">Q4-2024</p>
+                    <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
+                        <li>Stable Diffusion worker beta release</li>
+                        <li>Start R&D for LLM AI training & AI inference support</li>
+                        <li>Start Decentralized R&D activities</li>
+                    </ul>
+                </div>
             </div>
-        </Saos>
+            <div class="vertical-line">
+                <div class="flex flex-col absolute gap-[200px] ml-[-10px]">
+                    <div></div>
+                    <img src="{Dot}">
+                    <img src="{Dot}">
+                    <img src="{Dot}">
+                    <img src="{Dot}">
+                    <img src="{Dot}">
+                    <img src="{Dot}">
+                    <div></div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-[300px] mt-[125px] h-[1600px]">
+                <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-20px]">
+                    <p class="text-[32px] text-[#00D6D9]">From 2018 to Q2-2023</p>
+                    <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
+                        <li>Build 3D/VR/AR core technologies</li>
+                        <li>Build House3D Cloud Rendering based on GPU</li>
+                        <li>100,000+ 3D design created and 1,000,000+ images rendered</li>
+                        <li>10,000+ active designers community built</li>
+                    </ul>
+                </div>
+                <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-60px]">
+                    <p class="text-[32px] text-[#00D6D9]">Q4-2023</p>
+                    <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
+                        <li>Decentralized GPU MVP release</li>
+                        <li>Partnership with rendering & AI business</li>
+                        <li>Seed round funding</li>
+                    </ul>
+                </div>
+                <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-60px]">
+                    <p class="text-[32px] text-[#00D6D9]">Q4-2024</p>
+                    <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
+                        <li>IDO/IEO campaign</li>
+                        <li>Payment & Reward system</li>
+                        <li>Actif3D and House3D integration</li>
+                        <li>Rendering Service official release</li>
+                    </ul>
+                </div>
+                <div></div>
+            </div>
+
+        </div>
     </div>
 </div>
 
 <style lang="postcss">
     ul {
         list-style-type: '· ';
+    }
+
+    .vertical-line {
+        width: 2px;
+        height: 1600px;
+        flex-shrink: 0;
+        opacity: 1;
+        background-color: #373639;
     }
 </style>
