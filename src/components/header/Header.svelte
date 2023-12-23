@@ -126,7 +126,7 @@
     >
         <div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[30px]">
             <nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
-                <div class="md:flex hidden md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
+                <div class="md:flex md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
                     <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px]"/>
                     <!--                    <p-->
                     <!--                            class="hidden md:block text-base font-outfit font-normal text-white whitespace-nowrap"-->
@@ -216,11 +216,11 @@
             </div>
         </div>
     </div>
-    <img
-            src={InferixMobile}
-            alt="InferixMobile"
-            class="md:hidden flex w-[78px] h-[31px] mx-auto mt-[50px] pb-5 box-content"
-    />
+<!--    <img-->
+<!--            src={InferixMobile}-->
+<!--            alt="InferixMobile"-->
+<!--            class="md:hidden flex w-[78px] h-[31px] mx-auto mt-[50px] pb-5 box-content"-->
+<!--    />-->
     <div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-screen z-40`}>
         <div
                 class="flex gap-[60px] flex-col text-2xl font-normal items-center w-full h-full bg-bg box-border pt-[86px]"

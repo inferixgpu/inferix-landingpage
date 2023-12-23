@@ -158,7 +158,7 @@
                                     <img src={t.avatar} alt={t.avatar} class="h-full"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] h-[200px] teammate-description">
+                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
                                         <ul
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >

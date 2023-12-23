@@ -227,8 +227,8 @@ input:focus {
 }
 
 .teammate > div > ul > li {
+	width: 250px;
 	color: #fff;
-
 	font-family: Outfit;
 	font-size: 14px;
 	font-style: normal;
