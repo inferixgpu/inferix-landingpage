@@ -62,17 +62,17 @@
 		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 			<img
 				src={InferixInnovated}
-				class="mx-auto mt-[44px] md:flex hidden pb-[60px]"
+				class="mx-auto mt-[44px] md:flex pb-[60px]"
 				alt="inferix circle"
 			/>
 		</Saos>
-		<Saos once top="100" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-			<img
-				src={InferixCycleMobile}
-				class="mx-auto mt-[57px] pb-[52px] md:hidden flex box-border"
-				alt="inferix circle"
-			/>
-		</Saos>
+<!--		<Saos once top="100" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>-->
+<!--			<img-->
+<!--					src={InferixInnovated}-->
+<!--					class="mx-auto mt-[44px] md:flex pb-[60px]"-->
+<!--					alt="inferix circle"-->
+<!--			/>-->
+<!--		</Saos>-->
 	</div>
 
     <MpvWalkthrough/>
@@ -122,12 +122,12 @@
 			</Saos>
 		</div>
 	</div>
-
-	{#if screenSize > 768}
-		<RoadMapDesktop />
-	{:else}
-		<RoadMapMobile />
-	{/if}
+	<RoadMapDesktop />
+	<!--{#if screenSize > 768}-->
+	<!--	<RoadMapDesktop />-->
+	<!--{:else}-->
+	<!--	<RoadMapMobile />-->
+	<!--{/if}-->
 	<Teams />
 </div>
 
