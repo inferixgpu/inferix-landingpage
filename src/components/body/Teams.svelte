@@ -79,7 +79,7 @@
             title: 'Harry Duong',
             avatar: HarryDuong,
             name: 'Harry Duong',
-            position: 'AI TEaM LEAD',
+            position: 'AI TEAM LEAD',
             description: [
                 ''
             ]
