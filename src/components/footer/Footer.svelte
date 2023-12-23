@@ -1,6 +1,9 @@
 <script lang="ts">
     import SignUpModal from "$components/inferix/SignUpModal/SignUpModal.svelte";
     import HeaderLogo from '$images/icons/HeaderLogo.svg';
+    import X from '$images/icons/X.svg';
+    import D from '$images/icons/D.svg';
+    import M from '$images/icons/M.svg';
 
     import footerVideo from '$videos/Footer.mp4';
     import {Modal} from "flowbite-svelte";
@@ -14,9 +17,9 @@
     };
 
     const medias = [
-        {id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu'},
-        {id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu'},
-        {id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W'},
+        {id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X},
+        {id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M},
+        {id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D},
         {id: 4, name: 'Lightpaper', href: '#'}
     ];
     let screenSize: number;
@@ -28,9 +31,9 @@
 
 <svelte:window bind:innerWidth={screenSize}/>
 
-<div class="bg-darkGrey pb-[41px] md:pt-[249px] pt-[100px] md:px-0 px-5 box-border">
+<div class="bg-[#08101D] pb-[41px] md:pt-[249px] pt-[100px] md:px-0 px-5 box-border">
     <div
-            class="md:h-[435px] h-[266px] container mx-auto overflow-hidden rounded-[32px] relative z-30"
+            class="md:h-[435px] h-[266px] container mx-auto overflow-hidden relative z-30"
     >
         <div class="md:top-[-35%] top-[30%] absolute z-10">
             <video width="1600" height="435" autoplay muted loop playsinline class="footerVideo">
@@ -38,20 +41,19 @@
             </video>
         </div>
         <div
-                class="md:h-[435px] h-[266px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center z-10"
+                class="md:h-[435px] h-[266px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-start z-10"
         >
             <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                 <p
-                        class="font-outfit text-base md:text-[2rem] leading-default mx-5 md:mx-[9vw]  box-border text-center font-medium text-black"
+                        class="font-outfit text-base md:text-[2rem] leading-default mx-5 md:mx-[9vw]  box-border text-left font-medium text-white"
                 >
-                    "Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
-                    GPUs for seamless rendering, accelerated Al, and groundbreaking innovation"
-                </p>
+                    "Join us as a GPU provider and let's build our ecosystem together, harnessing the power of GPUs for
+                    seamless rendering, accelerated Al, and groundbreaking innovation" </p>
             </Saos>
             <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                 <button
                         on:click={showSignUpModal}
-                        class="text-white cursor-pointer hover:opacity-[0.8] font-outfit text-lg text-center font-medium mt-[32px] md:mt-[32px] capitalize px-8 py-4 rounded-2xl bg-black"
+                        class="text-white cursor-pointer hover:opacity-[0.8] font-outfit mx-5 md:mx-[9vw] text-lg text-center font-medium mt-[32px] md:mt-[32px] capitalize px-8 py-4 rounded-2xl bg-black"
                 >
                     Join Inferix now
                 </button>
@@ -72,7 +74,7 @@
         >
             {#each medias as media (media.id)}
                 <div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
-                    <a target="_blank" href={media.href}>{media.name}</a>
+                    <a target="_blank" href={media.href}><img src="{media.icon}"></a>
                 </div>
             {/each}
         </div>
@@ -90,7 +92,7 @@
 
 <style>
     .overlay {
-        background: linear-gradient(0deg, rgba(6, 255, 97, 0.7) 0%, rgba(6, 255, 97, 0.7) 100%);
+        background: #00C291;
     }
 
     .active {

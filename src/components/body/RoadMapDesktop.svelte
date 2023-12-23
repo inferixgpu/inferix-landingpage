@@ -4,12 +4,12 @@
 </script>
 
 <div class="bg-[#08101D]">
-    <div id="roadmap" class="md:block hidden container mx-auto">
-        <p class="text-center text-[48px] font-bold">Roadmap</p>
-        <div class="flex flex-row justify-between relative">
-            <div class="flex flex-col gap-[300px] mt-[50px] h-[1600px]">
+    <div id="roadmap" class="md:block hidden container mx-auto w-100%">
+        <p class="text-center text-[48px] font-bold mb-[60px]">Roadmap</p>
+        <div class="flex flex-row gap-[60px] justify-center relative">
+            <div class="flex flex-col gap-[300px]  mt-[50px] h-[1600px]">
                 <div></div>
-                <div class="bg-[#2D2C30] w-[100%] p-[24px] mt-[-20px]">
+                <div class="bg-[#2D2C30] w-[600px] p-[24px]  mt-[-20px]">
                     <p class="text-[32px] text-[#00D6D9]">Q3-2023</p>
                     <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
                         <li>Inferix Team is formed with MVP concept</li>
@@ -18,7 +18,7 @@
                         <li>Angel funding</li>
                     </ul>
                 </div>
-                <div class="bg-[#2D2C30] w-[100%] p-[24px] mt-[-90px]">
+                <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-90px]">
                     <p class="text-[32px] text-[#00D6D9]">Q1-2024 & Q2-2024</p>
                     <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
                         <li>Rendering Service beta release</li>
@@ -27,7 +27,7 @@
                         <li>Strategic round funding</li>
                     </ul>
                 </div>
-                <div class="bg-[#2D2C30] w-[100%] p-[24px] mt-[-50px]">
+                <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-50px]">
                     <p class="text-[32px] text-[#00D6D9]">Q3-2023</p>
                     <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
                         <li>Stable Diffusion worker beta release</li>
@@ -37,19 +37,19 @@
                 </div>
             </div>
             <div class="vertical-line">
-            </div>
-            <div class="flex flex-col absolute gap-[200px] left-[47.7%]">
-                <div></div>
-                <img src="{Dot}">
-                <img src="{Dot}">
-                <img src="{Dot}">
-                <img src="{Dot}">
-                <img src="{Dot}">
-                <img src="{Dot}">
-                <div></div>
+                <div class="flex flex-col absolute gap-[200px] ml-[-10px]">
+                    <div></div>
+                    <img src="{Dot}">
+                    <img src="{Dot}">
+                    <img src="{Dot}">
+                    <img src="{Dot}">
+                    <img src="{Dot}">
+                    <img src="{Dot}">
+                    <div></div>
+                </div>
             </div>
             <div class="flex flex-col gap-[300px] mt-[125px] h-[1600px]">
-                <div class="bg-[#2D2C30] w-[100%] p-[24px] mt-[-20px]">
+                <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-20px]">
                     <p class="text-[32px] text-[#00D6D9]">From 2018 to Q2-2023</p>
                     <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
                         <li>Build 3D/VR/AR core technologies</li>
@@ -58,7 +58,7 @@
                         <li>10,000+ active designers community built</li>
                     </ul>
                 </div>
-                <div class="bg-[#2D2C30] w-[100%] p-[24px] mt-[-60px]">
+                <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-60px]">
                     <p class="text-[32px] text-[#00D6D9]">Q4-2023</p>
                     <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
                         <li>Decentralized GPU MVP release</li>
@@ -66,7 +66,7 @@
                         <li>Seed round funding</li>
                     </ul>
                 </div>
-                <div class="bg-[#2D2C30] w-[100%] p-[24px] mt-[-60px]">
+                <div class="bg-[#2D2C30] w-[600px] p-[24px] mt-[-60px]">
                     <p class="text-[32px] text-[#00D6D9]">Q3-2023</p>
                     <ul class="flex flex-col opacity-50 p-[10px] gap-[12px]">
                         <li>IDO/IEO campaign</li>
@@ -91,7 +91,7 @@
         width: 2px;
         height: 1600px;
         flex-shrink: 0;
-        opacity: 0.1;
-        background-color: #FFFFFF;
+        opacity: 1;
+        background-color: #373639;
     }
 </style>
