@@ -155,10 +155,10 @@
                         <div class="flex teams-table-row">
                             {#each teams.slice(n * 5, (n + 1) * 5) as t (t.title)}
                                 <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
+                                    <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
+                                    <div class="flex box-border !m-[20px] !p-[20px] teammate-description">
                                         <ul
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
@@ -178,7 +178,7 @@
                             {#each teams1.slice(n * 4, (n + 1) * 4) as t (t.title)}
                                 {#if t.title}
                                     <div class="flex teammate">
-                                        <img src={t.avatar} alt={t.avatar} class="h-full"/>
+                                        <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name font-bold">{t.name}</div>
                                         <div class="teammate-position text-[12px]" style="font-weight: 100">{t.position}</div>
                                     </div>
@@ -198,7 +198,7 @@
                         <div class="flex teams-table-row">
                             {#each teams.slice(n * 3, (n + 1) * 3) as t (t.title)}
                                 <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
+                                    <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
                                     <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
@@ -223,7 +223,7 @@
                             {#each teams1.slice(n * 4, (n + 1) * 4) as t (t.title)}
                                 {#if t.title}
                                     <div class="flex teammate">
-                                        <img src={t.avatar} alt={t.avatar} class="h-full"/>
+                                        <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name">{t.name}</div>
                                         <div class="teammate-position">{t.position}</div>
                                         <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
@@ -256,7 +256,7 @@
                         <div class="flex teams-table-row">
                             {#each teams.slice(n * 2, (n + 1) * 2) as t (t.title)}
                                 <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
+                                    <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
                                     <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
@@ -278,7 +278,7 @@
                         <div class="flex teams-table-row">
                             {#each teams1.slice(n * 2, (n + 1) * 2) as t (t.title)}
                                 <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
+                                    <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
                                     <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
@@ -303,7 +303,7 @@
                         <div class="flex teams-table-row">
                             {#each teams.slice(n, n + 1) as t (t.title)}
                                 <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
+                                    <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
                                     <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
@@ -327,7 +327,7 @@
                         <div class="flex teams-table-row">
                             {#each teams1.slice(n, n + 1) as t (t.title)}
                                 <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
+                                    <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
                                     <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
