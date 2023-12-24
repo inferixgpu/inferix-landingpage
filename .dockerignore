@@ -1,6 +1,6 @@
 # .dockerignore
-.svelte-kit
-build/
+<!-- .svelte-kit
+build/ -->
 node_modules/
 
 .eslintignore

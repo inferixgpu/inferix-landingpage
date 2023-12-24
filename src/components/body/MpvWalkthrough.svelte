@@ -3,6 +3,7 @@
     import MVPWalkthrough from '$images/icons/MVPWalkthrough.svg';
     import Play from '$images/icons/Play.svg';
     import {onMount} from 'svelte';
+    import Saos from 'saos';
 
     let video;
     let observer;
@@ -43,14 +44,15 @@
 
 <div class="wk-bg mx-auto pt-[60px] box-border container">
     <div class=" rounded-[8px] md:rounded-[24px] overflow-hidden mx-auto relative">
-        <div class="img">
-            <img
-                    class="img-1"
-                    src={MVPWalkthrough}
-                    alt="MVPWalkthrough"
-
-            />
-        </div>
+        <Saos
+				once
+				top="200"
+				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
+			>
+				<p class="text-center font-pre font-extrabold md:text-[2.5rem] text-2xl">
+					MVP Walkthrough
+				</p>
+			</Saos>
 
         <div class="video">
 

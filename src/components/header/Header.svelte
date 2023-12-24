@@ -139,7 +139,6 @@
                     <div class="md:flex gap-8 text-lg">
                         {#each tabs as tab (tab.id)}
                             <div
-                              style="background-color: #00D6D9"
                               class="header-tab {activeTab === tab.id ? 'active' : 'tab'}"
                               on:click={(e) => handleClickTab(e, tab.id, tab.href)}
                             >
@@ -245,7 +244,7 @@
                 class="flex gap-[60px] flex-col text-2xl font-normal items-center w-full h-full bg-bg box-border pt-[86px]"
         >
             {#each tabs as tab (tab.id)}
-                <div class="tab {activeTab === tab.id ? 'active' : ''}">
+                <div class="header-tab-mobile tab {activeTab === tab.id ? 'active' : ''}">
                     <a
                             href={tab.href}
                             on:click={(e) => handleClickTab(e, tab.id, tab.href)}
@@ -380,6 +379,12 @@
     }
 
     @media screen and (max-width: 768px) {
+        .header-tab-mobile{
+            padding: 12px 16px;
+        }
+        .header-tab-mobile.active {
+            color: #08101D;
+        }
         .headerBackground {
             background-image: url('$images/icons/HeaderBackgroundMobile.svg');
             background-position: center;
