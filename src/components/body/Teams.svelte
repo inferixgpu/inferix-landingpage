@@ -360,6 +360,7 @@
     }
 
     .more-info {
+
         display: flex;
         width: 220px;
         height: 194px;
