@@ -55,7 +55,7 @@
             title: 'Paven Do',
             avatar: PavenDo,
             name: 'Paven Do',
-            position: 'Blockchain Tech Advisor',
+            position: 'BLOCKCHAIN TECH ADVISOR',
             description: [
                 'Head of Development, FPT Blockchain Labs',
                 'PhD in Applied Mathematics, HKUST, Hong Kong',
@@ -66,7 +66,7 @@
             title: 'Eric Ta',
             avatar: EricTa,
             name: 'Eric Ta',
-            position: 'Principal Enginneer',
+            position: 'PRINCIPAL ENGINNEER',
             description: [
                 'PhD in Computer Science, University de Lorraine, France',
                 '8 years of LLVM & compiler programming experience',
@@ -277,24 +277,33 @@
                         </div>
                         <div class="flex teams-table-row">
                             {#each teams1.slice(n * 2, (n + 1) * 2) as t (t.title)}
-                                <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
-                                    <div class="teammate-name">{t.name}</div>
-                                    <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                        <ul
-                                                class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                        >
-                                            {#each t.description as desc (desc)}
-                                                <li>
-                                                    <p>
-                                                        {@html desc}
-                                                    </p>
-                                                </li>
-                                            {/each}
-                                        </ul>
+                                {#if t.title}
+                                    <div class="flex teammate">
+                                        <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
+                                        <div class="teammate-name">{t.name}</div>
+                                        <div class="teammate-position">{t.position}</div>
+                                        <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
+                                            <ul
+                                                    class="flex flex-col font-outfit font-normal text-left text-base leading-default"
+                                            >
+                                                {#each t.description as desc (desc)}
+                                                    <li>
+                                                        <p>
+                                                            {@html desc}
+                                                        </p>
+                                                    </li>
+                                                {/each}
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
+                                {:else}
+                                    <div class="flex teammate">
+                                        <div class="more-info">
+                                            and 10+
+                                            members more
+                                        </div>
+                                    </div>
+                                {/if}
                             {/each}
                         </div>
                     {/each}
