@@ -275,6 +275,8 @@
                                 </div>
                             {/each}
                         </div>
+                    {/each}
+                    {#each number_tablet2 as n}
                         <div class="flex teams-table-row">
                             {#each teams1.slice(n * 2, (n + 1) * 2) as t (t.title)}
                                 {#if t.title}
@@ -307,6 +309,7 @@
                             {/each}
                         </div>
                     {/each}
+
                 {:else}
                     {#each number_mobile as n}
                         <div class="flex teams-table-row">
@@ -335,24 +338,33 @@
                     {#each number_mobile as n}
                         <div class="flex teams-table-row">
                             {#each teams1.slice(n, n + 1) as t (t.title)}
-                                <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
-                                    <div class="teammate-name">{t.name}</div>
-                                    <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                        <ul
-                                                class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                        >
-                                            {#each t.description as desc (desc)}
-                                                <li>
-                                                    <p>
-                                                        {@html desc}
-                                                    </p>
-                                                </li>
-                                            {/each}
-                                        </ul>
+                                {#if t.title}
+                                    <div class="flex teammate">
+                                        <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
+                                        <div class="teammate-name">{t.name}</div>
+                                        <div class="teammate-position">{t.position}</div>
+                                        <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
+                                            <ul
+                                                    class="flex flex-col font-outfit font-normal text-left text-base leading-default"
+                                            >
+                                                {#each t.description as desc (desc)}
+                                                    <li>
+                                                        <p>
+                                                            {@html desc}
+                                                        </p>
+                                                    </li>
+                                                {/each}
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
+                                {:else}
+                                    <div class="flex teammate">
+                                        <div class="more-info">
+                                            and 10+
+                                            members more
+                                        </div>
+                                    </div>
+                                {/if}
                             {/each}
                         </div>
                     {/each}
@@ -369,7 +381,6 @@
     }
 
     .more-info {
-
         display: flex;
         width: 220px;
         height: 194px;
