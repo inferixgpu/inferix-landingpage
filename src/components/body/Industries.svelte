@@ -16,36 +16,73 @@
 <svelte:window bind:innerWidth={screenSize}/>
 
 <div class="pb-[48px] md:pb-[160px] mx-auto w-100% bg-[#212023] container mt-[160px]">
-    <div class="flex flex-col justify-center items-center">
-        <p class="text-[48px] text-center font-bold mb-[40px]">Industries</p>
-        <div class="flex flex-row gap-[30px] w-[100%] justify-between">
-            <div class="flex flex-col gap-[16px]">
-                <img class="h-[280px]" src="{In1}">
-                <p class="text-center">Entertainment & Media</p>
-            </div>
-            <div class="flex flex-col gap-[16px]">
-                <img class="h-[280px]" src="{In2}">
-                <p class="text-center">Architecture & Design</p>
-            </div>
-            <div class="flex flex-col gap-[16px]">
-                <img class="h-[280px]" src="{In3}">
-                <p class="text-center">Animation & VFX</p>
-            </div>
-            {#if (screenSize>900)}
-                <div class="flex flex-col gap-[16px]">
-                    <img class="h-[280px]" src="{In4}">
+    <div class="flex flex-col justify-center items-center font-bold">
+        <p class="text-[48px] text-center mb-[40px]">Industries</p>
+        {#if screenSize > 800}
+            <div class="flex flex-row gap-[30px] md:w-[100%] justify-between">
+                <div class="flex flex-col gap-[16px] w-[200px]">
+                    <img class="h-[280px]" src="{In1}" alt="Entertainment & Media">
+                    <p class="text-center">Entertainment & Media</p>
+                </div>
+                <div class="flex flex-col gap-[16px] w-[200px]">
+                    <img class="h-[280px]" src="{In2}" alt="Architecture & Design">
+                    <p class="text-center">Architecture & Design</p>
+                </div>
+                <div class="flex flex-col gap-[16px] w-[200px]">
+                    <img class="h-[280px]" src="{In3}" alt="Animation & VFX">
+                    <p class="text-center">Animation & VFX</p>
+                </div>
+                <div class="flex flex-col gap-[16px] w-[200px]">
+                    <img class="h-[280px]" src="{In4}" alt="AR & VR">
                     <p class="text-center">AR & VR</p>
                 </div>
-                {#if (screenSize>1000)}
-                    <div class="flex flex-col gap-[16px]">
-                        <img class="h-[280px]" src="{In5}">
-                        <p class="text-center">Game Content</p>
-                    </div>
-                {/if}
-            {/if}
-        </div>
+                <div class="flex flex-col gap-[16px] w-[200px]">
+                    <img class="h-[280px]" src="{In5}" alt="Game Content">
+                    <p class="text-center">Game Content</p>
+                </div>
+            </div>
+        {:else}
+            <div class="flex flex-row gap-[30px] justify-between">
+                <div class="flex flex-col gap-[16px] w-[200px] rooms">
+                    <img class="h-[280px]" src="{In1}" alt="Entertainment & Media">
+                    <p class="text-center">Entertainment & Media</p>
+                </div>
+                <div class="flex flex-col gap-[16px] w-[200px] rooms">
+                    <img class="h-[280px]" src="{In2}" alt="Architecture & Design">
+                    <p class="text-center">Architecture & Design</p>
+                </div>
+                <div class="flex flex-col gap-[16px] w-[200px] rooms">
+                    <img class="h-[280px]" src="{In3}" alt="Animation & VFX">
+                    <p class="text-center">Animation & VFX</p>
+                </div>
+                <div class="flex flex-col gap-[16px] w-[200px] rooms">
+                    <img class="h-[280px]" src="{In4}" alt="AR & VR">
+                    <p class="text-center">AR & VR</p>
+                </div>
+                <div class="flex flex-col gap-[16px] w-[200px] rooms">
+                    <img class="h-[280px]" src="{In5}" alt="Game Content">
+                    <p class="text-center">Game Content</p>
+                </div>
+            </div>
+        {/if}
+        
+        
     </div>
 </div>
 
 <style lang="postcss">
+.rooms{
+    animation: textMove 30s linear infinite;
+}
+@keyframes textMove {
+    0% {
+        /* left: 0; */
+        transform: translateX(0);
+    }
+    100% {
+        /* left: -100%; */
+        transform: translateX(-100%);
+    }
+}
+
 </style>
