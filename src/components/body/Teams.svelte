@@ -358,8 +358,8 @@
                                         </div>
                                     </div>
                                 {:else}
-                                    <div class="flex teammate">
-                                        <div class="more-info">
+                                    <div class="flex teammate ">
+                                        <div class="more-info ">
                                             and 10+
                                             members more
                                         </div>
@@ -381,9 +381,8 @@
     }
 
     .more-info {
+        @apply md:w-[220px] md:h-[194px] w-[156px] md:ml-[40px];
         display: flex;
-        width: 220px;
-        height: 194px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -398,7 +397,6 @@
         font-weight: 700;
         line-height: 30px;
         padding: 20px;
-        margin-left: 40px;
     }
 
     @media screen and (max-width: 768px) {
