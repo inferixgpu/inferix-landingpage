@@ -7,7 +7,6 @@
     import IconScreen from '$images/icons/IconScreen.svg';
     import IconGpu from '$images/icons/IconGpu.svg';
     import InferixHeader from '$images/photos/InferixHeader.png';
-    import InferixHeaderMobile from '$images/photos/bgMobile.svg';
     import Saos from 'saos';
     import SignUpModal from "$components/inferix/SignUpModal/SignUpModal.svelte";
     import {Modal} from "flowbite-svelte";
@@ -16,7 +15,7 @@
 
     let textIndex = 0;
 
-    let activeTab = 5;
+    let activeTab = 1;
 
     const setActiveTab = (tab: number) => {
         activeTab = tab;
@@ -94,7 +93,7 @@
 
         if (tab) {
             window.scrollTo({
-                top: tab.offsetTop - 100,
+                top: tab.offsetTop - space,
                 behavior: 'smooth'
             });
         }
@@ -126,7 +125,7 @@
             class={`md:bg-[#141414] md:h-[97.4px] h-[58px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
     >
         <div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[30px]">
-            <nav style="height: 50px" class="flex justify-between w-auto container mx-auto font-outfit font-normal">
+            <nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
                 <div class="md:flex md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
                     <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px]"/>
                     <!--                    <p-->
@@ -135,55 +134,37 @@
                     <!--                        Decentralized GPU Network-->
                     <!--                    </p>-->
                 </div>
-                {#if (screenSize>800)}
-                    <div class="md:flex gap-8 text-lg">
-                        {#each tabs as tab (tab.id)}
-                            <div
-                              style="background-color: #00D6D9"
-                              class="header-tab {activeTab === tab.id ? 'active' : 'tab'}"
-                              on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-                            >
-                                <a target="_blank" href={tab.href}>{tab.title}</a>
-                            </div>
-                        {/each}
-                    </div>
-                {/if}
-                {#if (screenSize<800)}
-                    <img
-                      src={MobileMenu}
-                      on:click={toggleMenu}
-                      alt="menu"
-                      class="md:mb-0 mb-4 cursor-pointer ml-auto"/>
-                {/if}
+                <div class="md:flex gap-8 text-lg hidden">
+                    {#each tabs as tab (tab.id)}
+                        <div
+                                class="header-tab tab {activeTab === tab.id ? 'active' : ''}"
+                                on:click={(e) => handleClickTab(e, tab.id, tab.href)}
+                        >
+                            <a target="_blank" href={tab.href}>{tab.title}</a>
+                        </div>
+                    {/each}
+                </div>
+                <img
+                        src={MobileMenu}
+                        on:click={toggleMenu}
+                        alt="menu"
+                        class="md:mb-0 mb-4 cursor-pointer hidden ml-auto"/>
             </nav>
         </div>
     </div>
-    <div class="    mx-auto pt-[0px] box-border">
+    <div class=" mx-auto pt-[0px] box-border">
         <div class="overflow-hidden mx-auto relative">
-            {#if (screenSize > 768)}
-                <img src={InferixHeader} alt="logo" class="h-[175px] md:h-[1000px] w-full object-cover"/>
-            {:else }
-                <img src={InferixHeaderMobile} alt="logo" style="height: 800px" class="w-full object-cover"/>
-            {/if}
-            <div    style="display: flex"
+            <img src={InferixHeader} alt="logo" class="h-[175px] md:h-[1000px] w-full object-cover"/>
+            <div
                     class="video-overlay-container"
             >
                 <div class="text">
                     {#if (textIndex === 0)}
-                        {#if (screenSize > 768)}
                         <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                             <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">
-                                Fastest 3D rendering by Inferix<br> <strong>decentralized GPU</strong>
+                                Decentralized GPU Infrastructure<br>for <strong>Visual Computing</strong>
                             </h1>
                         </Saos>
-                        {/if}
-                        {#if (screenSize < 768)}
-                            <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                                <h1 style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px" >
-                                    Fastest 3D rendering by Inferix<br> <strong>decentralized GPU</strong>
-                                </h1>
-                            </Saos>
-                        {/if}
                     {/if}
                     {#if (textIndex === 1)}
                         <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
@@ -197,7 +178,7 @@
                     <!--                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">-->
                     <!--                        Start-->
                     <!--                        free trial</p>-->
-                    <div class="flex gap-4 justify-center mt-2 md:mt-4 {screenSize >768 ? 'flex-row' : 'flex-col'}">
+                    <div class="flex gap-4 justify-center mt-2 md:mt-4">
                         <div class="download-btn">
                             <span><img src={IconScreen} alt="download"/></span>
                             <div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
@@ -278,8 +259,6 @@
     }
 
     .active {
-        border-radius: 100px;
-        background: var(--4, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
         color: #00D6D9;
     }
 
@@ -320,7 +299,7 @@
     .download-btn {
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        @apply flex flex-row justify-start items-center w-[265px] h-[75px] md:w-[265px] md:h-[75px] drop-shadow text-xs md:text-lg;
+        @apply flex flex-row justify-start items-center w-[102px] h-[35px] md:w-[265px] md:h-[75px] drop-shadow text-xs md:text-lg;
         border-radius: 16px;
         background: var(--3, #2D2C30);
         padding: 16px 24px;
