@@ -1,19 +1,12 @@
 <script lang="ts">
-	import Inferix from '$images/icons/Inferix.svg';
-	import StraightDivider from '$images/icons/StraightDivider.svg';
 	import InferixInnovated from '$images/png/InferixInnovated.png';
-	import InferixCycleMobile from '$images/png/InferixCycleMobile.png';
-	import PartnerAndInvestor from '$images/png/PartnerAndInvestor.png';
-	import PartnerAndInvestorMobile from '$images/png/PartnerAndInvestorMobile.png';
+	import InferixInnovatedMobile from '$images/png/InferixInovatedMobile.png';
 	import Saos from 'saos';
 	import Industries from './Industries.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
-	import RoadMapMobile from './RoadMapMobile.svelte';
 	import Teams from './Teams.svelte';
-	import WhyInferix from './WhyInferix.svelte';
 	import MpvWalkthrough from './MpvWalkthrough.svelte';
 
-    import Intergration from '$images/png/Intergration.png';
 	import Actif3D from '$images/png/actif3D.svg';
 	import House3D from '$images/png/house3d.svg';
 	import MetaCity from '$images/png/metacity.svg';
@@ -67,11 +60,20 @@
 			</div>
 		</Saos>
 		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-			<img
-				src={InferixInnovated}
-				class="mx-auto mt-[44px] md:flex pb-[60px]"
-				alt="inferix circle"
-			/>
+			{#if (screenSize>768)}
+				<img
+						src={InferixInnovated}
+						class="mx-auto mt-[44px] md:flex pb-[60px]"
+						alt="inferix circle"
+				/>
+			{/if}
+			{#if ((screenSize<768))}
+				<img
+						src={InferixInnovatedMobile}
+						class="mx-auto mt-[44px] md:flex pb-[60px]"
+						alt="inferix circle"
+				/>
+			{/if}
 		</Saos>
 <!--		<Saos once top="100" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>-->
 <!--			<img-->
