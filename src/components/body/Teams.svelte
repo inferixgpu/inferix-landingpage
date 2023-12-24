@@ -254,7 +254,7 @@
                 {:else if screenSize > 768}
                     {#each number_tablet2 as n}
                         <div class="flex teams-table-row">
-                            {#each teams.slice(n * 2, (n + 1) * 2) as t (t.title)}
+                            {#each teams.slice(n * 3, (n + 1) * 3) as t (t.title)}
                                 <div class="flex teammate">
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
@@ -278,7 +278,7 @@
                     {/each}
                     {#each number_tablet2 as n}
                         <div class="flex teams-table-row">
-                            {#each teams1.slice(n * 2, (n + 1) * 2) as t (t.title)}
+                            {#each teams1.slice(n * 3, (n + 1) * 3) as t (t.title)}
                                 {#if t.title}
                                     <div class="flex teammate">
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
