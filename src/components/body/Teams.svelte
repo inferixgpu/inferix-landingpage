@@ -177,7 +177,7 @@
                         <div class="flex teams-table-row">
                             {#each teams1.slice(n * 4, (n + 1) * 4) as t (t.title)}
                                 {#if t.title}
-                                    <div class="flex teammate">
+                                    <div class="flex w-[340px] teammate">
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name font-bold">{t.name}</div>
                                         <div class="teammate-position text-[12px]" style="font-weight: 100">{t.position}</div>
@@ -219,10 +219,10 @@
                         </div>
                     {/each}
                     {#each number_tablet as n}
-                        <div class="flex teams-table-row">
+                        <div class="flex teams-table-row ">
                             {#each teams1.slice(n * 4, (n + 1) * 4) as t (t.title)}
                                 {#if t.title}
-                                    <div class="flex teammate">
+                                    <div class="flex w-[280px] teammate">
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name">{t.name}</div>
                                         <div class="teammate-position">{t.position}</div>

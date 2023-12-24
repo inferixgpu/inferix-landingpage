@@ -183,7 +183,6 @@ input:focus {
 }
 
 .teammate {
-	@apply md:w-[340px];
 	height: 450px;
 	box-sizing: border-box;
 	padding: 40px 24px;
