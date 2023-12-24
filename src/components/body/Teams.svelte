@@ -158,7 +158,7 @@
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border !m-[20px] !p-[20px] teammate-description">
+                                    <div class="flex box-border !mt-[24px] !ml-[120px] teammate-description">
                                         <ul
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
@@ -201,9 +201,9 @@
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
+                                    <div class="flex box-border !mt-[24px] !ml-[120px] teammate-description">
                                         <ul
-                                                class="flex flex-col font-outfit font-normal text-left text-base leading-default"
+                                                class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
                                             {#each t.description as desc (desc)}
                                                 <li>
@@ -259,9 +259,9 @@
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
+                                    <div class="flex box-border !mt-[24px] !ml-[120px] teammate-description">
                                         <ul
-                                                class="flex flex-col font-outfit font-normal text-left text-base leading-default"
+                                                class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
                                             {#each t.description as desc (desc)}
                                                 <li>
@@ -318,9 +318,9 @@
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
+                                    <div class="flex box-border !mt-[24px] !ml-[120px] teammate-description">
                                         <ul
-                                                class="flex flex-col font-outfit font-normal text-left text-base leading-default"
+                                                class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
                                             {#each t.description as desc (desc)}
                                                 <li>
@@ -337,7 +337,7 @@
                     {/each}
                     {#each number_mobile as n}
                         <div class="flex teams-table-row">
-                            {#each teams1.slice(n, n + 1) as t (t.title)}
+                            {#each teams1.slice(n * 2, (n + 1) * 2) as t (t.title)}
                                 {#if t.title}
                                     <div class="flex teammate">
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>

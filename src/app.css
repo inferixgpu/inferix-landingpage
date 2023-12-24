@@ -227,12 +227,13 @@ input:focus {
 }
 
 .teammate > div > ul > li {
-	width: 250px;
+	width: 200px;
+	max-height: 222px;
 	color: #fff;
-	font-family: Outfit;
 	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
+	font-weight: 100;
 	line-height: 20px;
+	letter-spacing: 0em;
+	text-align: left;
 	opacity: 0.6;
 }
