@@ -241,10 +241,12 @@
 <!--    />-->
     <div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-screen z-40`}>
         <div
-                class="flex gap-[60px] flex-col text-2xl font-normal items-center w-full h-full bg-bg box-border pt-[86px]"
+                class="flex gap-[20px] flex-col text-2xl font-normal items-start w-full h-full bg-bg box-border pt-[86px] relative p-[30px]"
         >
+            <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px] absolute top-[20px]"/>
+
             {#each tabs as tab (tab.id)}
-                <div class="header-tab-mobile tab {activeTab === tab.id ? 'active' : ''}">
+                <div class="header-tab-mobile tab">
                     <a
                             href={tab.href}
                             on:click={(e) => handleClickTab(e, tab.id, tab.href)}
@@ -380,6 +382,7 @@
 
     @media screen and (max-width: 768px) {
         .header-tab-mobile{
+            font-weight: 700;
             padding: 12px 16px;
         }
         .header-tab-mobile.active {
