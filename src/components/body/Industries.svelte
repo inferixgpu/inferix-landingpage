@@ -18,7 +18,7 @@
 <div class="pb-[48px] md:pb-[160px] mx-auto w-100% bg-[#212023] container mt-[160px]">
     <div class="flex flex-col justify-center items-center">
         <p class="text-[48px] text-center font-bold mb-[40px]">Industries</p>
-        <div class="flex flex-row gap-[30px] w-[100%] justify-between">
+        <div class="flex flex-row gap-[56px] w-[100%] justify-between">
             <div class="flex flex-col gap-[16px]">
                 <img class="h-[280px]" src="{In1}">
                 <p class="text-center">Entertainment & Media</p>
@@ -31,18 +31,14 @@
                 <img class="h-[280px]" src="{In3}">
                 <p class="text-center">Animation & VFX</p>
             </div>
-            {#if (screenSize>900)}
-                <div class="flex flex-col gap-[16px]">
-                    <img class="h-[280px]" src="{In4}">
-                    <p class="text-center">AR & VR</p>
-                </div>
-                {#if (screenSize>1000)}
-                    <div class="flex flex-col gap-[16px]">
-                        <img class="h-[280px]" src="{In5}">
-                        <p class="text-center">Game Content</p>
-                    </div>
-                {/if}
-            {/if}
+            <div class="flex flex-col gap-[16px]">
+                <img class="h-[280px]" src="{In4}">
+                <p class="text-center">AR & VR</p>
+            </div>
+            <div class="flex flex-col gap-[16px]">
+                <img class="h-[280px]" src="{In5}">
+                <p class="text-center">Game Content</p>
+            </div>
         </div>
     </div>
 </div>
