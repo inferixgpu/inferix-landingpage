@@ -180,10 +180,9 @@
                                     <div class="flex w-[340px] teammate">
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name font-bold">{t.name}</div>
-                                        <div class="teammate-position text-[12px]" style="font-weight: 100">{t.position}</div>
                                     </div>
                                 {:else}
-                                    <div class="flex teammate">
+                                    <div class="fle teammate">
                                         <div class="more-info">
                                             and 10+
                                             members more
@@ -226,19 +225,6 @@
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name">{t.name}</div>
                                         <div class="teammate-position">{t.position}</div>
-                                        <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                            <ul
-                                                    class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                            >
-                                                {#each t.description as desc (desc)}
-                                                    <li>
-                                                        <p>
-                                                            {@html desc}
-                                                        </p>
-                                                    </li>
-                                                {/each}
-                                            </ul>
-                                        </div>
                                     </div>
                                 {:else}
                                     <div class="flex teammate">
@@ -284,19 +270,6 @@
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name">{t.name}</div>
                                         <div class="teammate-position">{t.position}</div>
-                                        <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                            <ul
-                                                    class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                            >
-                                                {#each t.description as desc (desc)}
-                                                    <li>
-                                                        <p>
-                                                            {@html desc}
-                                                        </p>
-                                                    </li>
-                                                {/each}
-                                            </ul>
-                                        </div>
                                     </div>
                                 {:else}
                                     <div class="flex teammate">
@@ -343,19 +316,6 @@
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name">{t.name}</div>
                                         <div class="teammate-position">{t.position}</div>
-                                        <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                            <ul
-                                                    class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                            >
-                                                {#each t.description as desc (desc)}
-                                                    <li>
-                                                        <p>
-                                                            {@html desc}
-                                                        </p>
-                                                    </li>
-                                                {/each}
-                                            </ul>
-                                        </div>
                                     </div>
                                 {:else}
                                     <div class="flex teammate ">

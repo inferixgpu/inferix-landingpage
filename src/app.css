@@ -183,7 +183,6 @@ input:focus {
 }
 
 .teammate {
-	height: 450px;
 	box-sizing: border-box;
 	padding: 40px 24px;
 	flex-direction: column;
