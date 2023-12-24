@@ -144,7 +144,7 @@
 <svelte:window bind:innerWidth={screenSize}/>
 
 <div class="bg-[#212023]">
-    <div id="team" class="md:block container  mx-auto">
+    <div id="team" class="md:block container overflow-hidden mx-auto">
         <Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
             <p class="text-left font-pre font-extrabold md:text-[2.5rem] text-2xl">Team</p>
         </Saos>
@@ -158,7 +158,7 @@
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border !mt-[24px] !ml-[120px] teammate-description">
+                                    <div class="flex box-border !mt-[24px]  teammate-description">
                                         <ul
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
@@ -196,12 +196,12 @@
                 {:else if screenSize > 1280}
                     {#each number_tablet as n}
                         <div class="flex teams-table-row">
-                            {#each teams.slice(n * 3, (n + 1) * 3) as t (t.title)}
+                            {#each teams.slice(n * 5, (n + 1) * 5) as t (t.title)}
                                 <div class="flex teammate">
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border !mt-[24px] !ml-[120px] teammate-description">
+                                    <div class="flex box-border !mt-[24px]  teammate-description">
                                         <ul
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
@@ -259,7 +259,7 @@
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border !mt-[24px] !ml-[120px] teammate-description">
+                                    <div class="flex box-border !mt-[24px]  teammate-description">
                                         <ul
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
@@ -318,7 +318,7 @@
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border !mt-[24px] !ml-[120px] teammate-description">
+                                    <div class="flex box-border !mt-[24px]  teammate-description">
                                         <ul
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >

@@ -177,12 +177,13 @@ input:focus {
 }
 
 .teams-table-row {
-    width: 100%;
+	display: flex;
+	width: 100%;
 	justify-content: space-between;
-}
+	align-items: flex-start;}
 
 .teammate {
-	width: 340px;
+	width: auto;
 	height: 450px;
 	box-sizing: border-box;
 	padding: 40px 24px;
@@ -225,7 +226,9 @@ input:focus {
 .teammate-description {
 	width: 100%;
 }
-
+.teammate > div > ul {
+	padding-left: 5%;
+}
 .teammate > div > ul > li {
 	width: 200px;
 	max-height: 222px;
