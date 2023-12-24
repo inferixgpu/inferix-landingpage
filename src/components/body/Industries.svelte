@@ -15,7 +15,7 @@
 
 <svelte:window bind:innerWidth={screenSize}/>
 
-<div class="pb-[48px] md:pb-[160px] mx-auto w-100% bg-[#212023] container mt-[160px]">
+<div class="pb-[48px] md:pb-[160px] mx-auto w-100% bg-[#212023] container mt-[160px] div-room">
     <div class="flex flex-col justify-center items-center font-bold">
         <p class="text-[48px] text-center mb-[40px]">Industries</p>
         {#if screenSize > 800}
@@ -73,6 +73,9 @@
 <style lang="postcss">
 .rooms{
     animation: textMove 30s linear infinite;
+}
+.div-room{
+    overflow: hidden;
 }
 @keyframes textMove {
     0% {
