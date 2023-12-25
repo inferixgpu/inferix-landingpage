@@ -246,7 +246,7 @@
             <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px] absolute top-[20px]"/>
 
             {#each tabs as tab (tab.id)}
-                <div class="header-tab-mobile tab">
+                <div class="header-tab-mobile tab opacity-60">
                     <a
                             href={tab.href}
                             on:click={(e) => handleClickTab(e, tab.id, tab.href)}
@@ -382,7 +382,7 @@
 
     @media screen and (max-width: 768px) {
         .header-tab-mobile{
-            font-weight: 700;
+            font-weight: 600;
             padding: 12px 16px;
         }
         .header-tab-mobile.active {

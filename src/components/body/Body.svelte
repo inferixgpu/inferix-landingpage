@@ -1,6 +1,6 @@
 <script lang="ts">
 	import InferixInnovated from '$images/png/InferixInnovated.png';
-	import InferixInnovatedMobile from '$images/png/InferixInovatedMobile.png';
+	import InferixInnovatedMobile from '$images/photos/InferixInnovatedMobile.png';
 	import Saos from 'saos';
 	import Industries from './Industries.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
@@ -70,7 +70,7 @@
 			{#if ((screenSize<768))}
 				<img
 						src={InferixInnovatedMobile}
-						class="mx-auto mt-[44px] md:flex pb-[60px]"
+						class="w-[100%] md:flex pb-[60px] object-cover"
 						alt="inferix circle"
 				/>
 			{/if}

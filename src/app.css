@@ -202,10 +202,9 @@ input:focus {
 	color: #FFFFFF;
 
 	text-align: center;
-	font-family: Outfit;
-	font-size: 28px;
+	font-size: 20px;
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 600;
 	line-height: normal;
 }
 
@@ -229,7 +228,7 @@ input:focus {
 	width: 200px;
 	max-height: 222px;
 	color: #fff;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
 	letter-spacing: 0em;
