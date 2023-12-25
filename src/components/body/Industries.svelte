@@ -63,6 +63,7 @@
                     <img class="h-[280px]" src="{In5}" alt="Game Content">
                     <p class="text-center">Game Content</p>
                 </div>
+
             </div>
         {/if}
         
@@ -80,11 +81,11 @@
 @keyframes textMove {
     0% {
         /* left: 0; */
-        transform: translateX(0);
+        transform: translateX(200%);
     }
     100% {
         /* left: -100%; */
-        transform: translateX(-100%);
+        transform: translateX(-200%);
     }
 }
 
