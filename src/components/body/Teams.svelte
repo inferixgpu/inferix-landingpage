@@ -146,7 +146,7 @@
 <div class="bg-[#212023]">
     <div id="team" class="md:block container overflow-hidden mx-auto">
         <Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-            <p class="text-left font-pre font-extrabold md:text-[2.5rem] text-2xl">Team</p>
+            <p class="md:text-left text-center font-pre font-extrabold md:text-[48px] text-[32px]">Team</p>
         </Saos>
         <Saos once top="350" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
             <div class="flex mx-auto teams-table">
@@ -177,12 +177,13 @@
                         <div class="flex teams-table-row">
                             {#each teams1.slice(n * 4, (n + 1) * 4) as t (t.title)}
                                 {#if t.title}
-                                    <div class="flex w-[340px] teammate">
+                                    <div class="flex teammate-member">
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name font-bold">{t.name}</div>
+                                        <div class="teammate-position">{t.position}</div>
                                     </div>
                                 {:else}
-                                    <div class="fle teammate">
+                                    <div class="fle teammate-member">
                                         <div class="more-info">
                                             and 10+
                                             members more
@@ -221,13 +222,13 @@
                         <div class="flex teams-table-row ">
                             {#each teams1.slice(n * 4, (n + 1) * 4) as t (t.title)}
                                 {#if t.title}
-                                    <div class="flex w-[280px] teammate">
+                                    <div class="flex w-[280px] teammate-member">
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name">{t.name}</div>
                                         <div class="teammate-position">{t.position}</div>
                                     </div>
                                 {:else}
-                                    <div class="flex teammate">
+                                    <div class="flex teammate-member">
                                         <div class="more-info">
                                             and 10+
                                             members more
@@ -266,13 +267,13 @@
                         <div class="flex teams-table-row">
                             {#each teams1.slice(n * 3, (n + 1) * 3) as t (t.title)}
                                 {#if t.title}
-                                    <div class="flex teammate">
+                                    <div class="flex teammate-member">
                                         <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
                                         <div class="teammate-name">{t.name}</div>
                                         <div class="teammate-position">{t.position}</div>
                                     </div>
                                 {:else}
-                                    <div class="flex teammate">
+                                    <div class="flex teammate-member">
                                         <div class="more-info">
                                             and 10+
                                             members more
@@ -287,11 +288,11 @@
                     {#each number_mobile as n}
                         <div class="flex teams-table-row">
                             {#each teams.slice(n, n + 1) as t (t.title)}
-                                <div class="flex teammate">
+                                <div class="flex teammate-mobile">
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
-                                    <div class="teammate-name">{t.name}</div>
+                                    <div class="teammate-name-mobile">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border !mt-[24px]  teammate-description">
+                                    <div class="flex box-border !mt-[16px] teammate-description">
                                         <ul
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
@@ -312,13 +313,13 @@
                         <div class="flex teams-table-row">
                             {#each teams1.slice(n * 2, (n + 1) * 2) as t (t.title)}
                                 {#if t.title}
-                                    <div class="flex teammate">
-                                        <img src={t.avatar} alt={t.avatar} class="h-full w-[120px]"/>
+                                    <div class="flex teammate-mobile-member">
+                                        <img src={t.avatar} alt={t.avatar} class="h-full w-[120px] mb-[20px]"/>
                                         <div class="teammate-name">{t.name}</div>
-                                        <div class="teammate-position">{t.position}</div>
+                                        <div class="teammate-position-mobile">{t.position}</div>
                                     </div>
                                 {:else}
-                                    <div class="flex teammate ">
+                                    <div class="flex teammate-mobile-member">
                                         <div class="more-info ">
                                             and 10+
                                             members more
@@ -341,7 +342,7 @@
     }
 
     .more-info {
-        @apply md:w-[220px] md:h-[194px] w-[156px] md:ml-[40px];
+        @apply md:w-[200px] md:h-[194px] w-[156px];
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -357,11 +358,74 @@
         font-weight: 700;
         line-height: 30px;
         padding: 20px;
+        margin-left: 20px;
     }
 
     @media screen and (max-width: 768px) {
         .teams-table > .teams-table-row {
             justify-content: center;
         }
+    }
+    .teammate-mobile {
+        @apply md:pt-[40px] pb-[40px] md:pl-[24px] md:pr-[24px] px-[20px];
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 24px;
+        background: none;
+        margin-top: 20px;
+    }
+    .teammate-mobile-member {
+        @apply md:pt-[40px] pb-[40px] md:pl-[24px] md:pr-[24px] px-[20px];
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 24px;
+        background: none;
+        margin-top: 20px;
+        width: 180px;
+    }
+
+    .teammate-mobile > div > ul > li {
+        width: 300px;
+        max-height: 222px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 20px;
+        letter-spacing: 0em;
+        text-align: left;
+        opacity: 0.6;
+        margin-bottom: 5px;
+    }
+    .teammate-name-mobile {
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-top: 28px;
+    }
+    .teammate-position-mobile {
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+        white-space: nowrap;
+    }
+    .teammate-member {
+        @apply md:pt-[40px] pb-[40px] md:pl-[24px] md:pr-[24px] px-[20px];
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 24px;
+        background: none;
+        width: 280px;
     }
 </style>

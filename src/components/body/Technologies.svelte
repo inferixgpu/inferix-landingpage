@@ -12,7 +12,7 @@
 <div class="pt-[87px] pb-[87px] bg-[#212023] flex justify-center relative w-full bg-cover bg-[url('$images/photos/Technologies.png')]">
     <div class="flex flex-col md:flex-row m-[14px] gap-[24px] ">
         <div class="flex items-center">
-            <p class="text-[48px] font-bold">Technologies</p>
+            <p class="md:text-[48px] text-[32px] font-bold">Technologies</p>
         </div>
 
         <div class="flex flex-col gap-[100px] md:ml-[136px]">
