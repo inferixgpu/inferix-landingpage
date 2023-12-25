@@ -13,6 +13,10 @@
     import {Modal} from "flowbite-svelte";
 
     import {afterUpdate, onMount} from 'svelte';
+    import X from "$images/icons/X.svg";
+    import M from "$images/icons/M.svg";
+    import D from "$images/icons/D.svg";
+    import T from "$images/icons/T.svg";
 
     let textIndex = 0;
 
@@ -39,11 +43,12 @@
             href: '#roadmap'
         },
         {id: 4, title: 'Team', href: '#team'},
-        {
-            id: 5,
-            title: 'Register',
-            href: '#'
-        }
+    ];
+    const medias = [
+        {id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X},
+        {id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M},
+        {id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D},
+        {id: 4, name: 'Telegram', href: 'https://t.me/inferixgpu', icon: T},
     ];
 
     let screenSize: number;
@@ -241,12 +246,12 @@
 <!--    />-->
     <div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-screen z-40`}>
         <div
-                class="flex gap-[20px] flex-col text-2xl font-normal items-start w-full h-full bg-bg box-border pt-[86px] relative p-[30px]"
+                class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full bg-bg box-border pt-[86px] relative p-[30px]"
         >
             <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px] absolute top-[20px]"/>
 
             {#each tabs as tab (tab.id)}
-                <div class="header-tab-mobile tab opacity-60">
+                <div class="header-tab-mobile tab opacity-60 ">
                     <a
                             href={tab.href}
                             on:click={(e) => handleClickTab(e, tab.id, tab.href)}
@@ -254,7 +259,17 @@
                     >
                 </div>
             {/each}
+            <div class="flex justify-center opacity-60 gap-[20px] w-[100%] mt-[40px]">
+                {#each medias as media (media.id)}
+                    <div>
+                        <a target="_blank" href={media.href}><img src="{media.icon}"  class="h-[34px] w-[34px]"></a>
+                    </div>
+                {/each}
+
+            </div>
+
         </div>
+
         <div
                 class={`${isOpen ? 'block' : 'hidden'} top-4 absolute right-5 cursor-pointer z-20`}
                 on:click={closeMenu}
@@ -383,7 +398,8 @@
     @media screen and (max-width: 768px) {
         .header-tab-mobile{
             font-weight: 600;
-            padding: 12px 16px;
+            padding-top: 12px;
+            /*padding: 12px 16px;*/
         }
         .header-tab-mobile.active {
             color: #08101D;
