@@ -43,6 +43,11 @@
             href: '#roadmap'
         },
         {id: 4, title: 'Team', href: '#team'},
+        {
+            id: 5,
+            title: 'Register',
+            href: '#'
+        }
     ];
     const medias = [
         {id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X},
@@ -176,24 +181,24 @@
                     {#if (textIndex === 0)}
                         {#if (screenSize > 768)}
                         <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">
-                                Fastest 3D rendering by Inferix<br> <strong>decentralized GPU</strong>
+                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold">
+                                Fastest 3D rendering by <br> <strong>Inferix decentralized GPU</strong>
                             </h1>
                         </Saos>
                         {/if}
                         {#if (screenSize < 768)}
                             <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                                 <h1 style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px" >
-                                    Fastest 3D rendering by Inferix<br> <strong>decentralized GPU</strong>
+                                    Fastest 3D rendering by<br> <strong>Inferix decentralized GPU</strong>
                                 </h1>
                             </Saos>
                         {/if}
                     {/if}
                     {#if (textIndex === 1)}
                         <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">Fastest 3D
-                                rendering
-                                by<br><strong>Inferix decentralized GPU</strong></h1>
+                            <h1 style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px" >
+                                Fastest 3D rendering by<br> <strong>Inferix decentralized GPU</strong>
+                            </h1>
                         </Saos>
                     {/if}
                 </div>
@@ -201,7 +206,7 @@
                     <!--                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">-->
                     <!--                        Start-->
                     <!--                        free trial</p>-->
-                    <div class="flex gap-4 justify-center mt-2 md:mt-4 {screenSize >768 ? 'flex-row' : 'flex-col'}">
+                    <div class="flex gap-4 justify-center mt-[40px] md:mt-4 {screenSize >768 ? 'flex-row' : 'flex-col'}">
                         <div class="download-btn">
                             <span><img src={IconScreen} alt="download"/></span>
                             <div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
