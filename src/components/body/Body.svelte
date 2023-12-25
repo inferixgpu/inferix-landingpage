@@ -1,4 +1,6 @@
 <script lang="ts">
+	// import InferixInnovated from '$images/png/InferixInnovated.png';
+	// import InferixInnovatedMobile from '$images/photos/InferixInnovatedMobile.png';
 	import InferixInnovated from '$images/png/InferixInnovated.png';
 	import InferixInnovatedMobile from '$images/photos/InferixInnovatedMobile.png';
 	import Saos from 'saos';
@@ -12,6 +14,7 @@
 	import MetaCity from '$images/png/metacity.svg';
 	import SystemArchitecture from "$components/body/SystemArchitecture.svelte";
 	import Technologies from "$components/body/Technologies.svelte";
+	import RoadMapMobile from "$components/body/RoadMapMobile.svelte";
 
 	let screenSize: number;
 
@@ -131,12 +134,11 @@
 			</Saos>
 		</div>
 	</div>
-	<RoadMapDesktop />
-	<!--{#if screenSize > 768}-->
-	<!--	<RoadMapDesktop />-->
-	<!--{:else}-->
-	<!--	<RoadMapMobile />-->
-	<!--{/if}-->
+	{#if screenSize > 768}
+		<RoadMapDesktop />
+	{:else}
+		<RoadMapMobile />
+	{/if}
 	<Teams />
 </div>
 
