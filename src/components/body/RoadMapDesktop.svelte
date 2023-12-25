@@ -12,7 +12,7 @@
 
 
 <div class="bg-[#212023]">
-    <div id="roadmap" class="md:block container mx-auto w-100%">
+    <div id="roadmap" class="md:block container mx-auto w-100% mt-[60px]">
 <!--        <p class="text-center text-[48px] font-bold mb-[60px]">Roadmap</p>-->
 <!--        <div class="flex flex-row gap-[60px] justify-center relative">-->
 <!--            <div class="flex flex-col gap-[300px]  mt-[50px] h-[1600px]">-->

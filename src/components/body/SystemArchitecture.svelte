@@ -23,7 +23,7 @@
 
 <div class="wk-bg mx-auto box-border container mt-[80px]">
     <div class="rounded-[8px] md:rounded-[24px] overflow-hidden mx-auto relative">
-        <div class="font-bold mb-[20px] md:text-[48px] text-[32px]">
+        <div class="flex md:justify-start justify-center font-bold mb-[20px] md:text-[48px] text-[32px]">
             <p>How Inferix Works</p>
         </div>
         <img style="width: 100%;margin-bottom: 160px" src="{WorksGroup}">

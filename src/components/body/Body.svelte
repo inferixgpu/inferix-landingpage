@@ -89,7 +89,7 @@
 	<Technologies />
 	<Industries/>
 	<div class="bg-[#212023]">
-		<div class="pb-0 bg-[#212023] md:flex flex-col mx-auto container md:pb-[60px]">
+		<div class="pb-0 bg-[#212023] md:flex flex-col mx-auto container md:pb-[60px] mt-[60px]">
 			<Saos
 				once
 				top="200"
