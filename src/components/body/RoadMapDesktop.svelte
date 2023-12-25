@@ -1,8 +1,9 @@
 <script lang="ts">
     import Dot from '$images/icons/Dot.svg';
     import In1 from '$images/png/industries/1.png';
-    import RoadmapWorkaround from '$images/icons/RoadmapWorkaround.svg';
-    import RoadmapMobileWorkaround from '$images/icons/RoadmapMobileWorkaround.svg';
+    import RoadmapWorkaround from '$images/icons/Roadmap.svg';
+    import RoadmapMobileWorkaround from '$images/icons/RoadmapMobile.svg';
+    import Saos from "saos";
 
     let screenSize: number;
 </script>
@@ -86,7 +87,11 @@
 <!--            </div>-->
 
 <!--        </div>-->
-          {#if (screenSize>800)}
+        <Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
+            <p class="md:text-center text-center font-pre font-extrabold md:text-[48px] text-[32px] mb-[60px]">Roadmap</p>
+        </Saos>
+
+        {#if (screenSize>800)}
             <img style="width: 100%;margin-bottom: 160px" src="{RoadmapWorkaround}">
           {:else}
             <img style="width: 100%;margin-bottom: 160px" src="{RoadmapMobileWorkaround}">

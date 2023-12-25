@@ -95,7 +95,7 @@
 				top="200"
 				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
 			>
-				<p class="text-center font-pre font-extrabold md:text-[2.5rem] text-2xl">
+				<p class="text-center font-pre font-extrabold md:text-[48px] text-[32px]">
 					Partner / Investor
 				</p>
 			</Saos>

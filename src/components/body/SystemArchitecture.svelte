@@ -23,7 +23,7 @@
 
 <div class="wk-bg mx-auto box-border container mt-[80px]">
     <div class="rounded-[8px] md:rounded-[24px] overflow-hidden mx-auto relative">
-        <div class="title-system-architecture mb-[20px] md:text-[48px] text-[32px]">
+        <div class="font-bold mb-[20px] md:text-[48px] text-[32px]">
             <p>How Inferix Works</p>
         </div>
         <img style="width: 100%;margin-bottom: 160px" src="{WorksGroup}">
@@ -151,16 +151,6 @@
 </div>
 
 <style>
-
-    .title-system-architecture {
-        display: flex;
-        justify-content: start;
-        color: #FFF;
-        font-size: 48px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 72px;
-    }
 
     .layout {
         justify-content: center;
