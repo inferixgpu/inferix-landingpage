@@ -342,7 +342,7 @@
     }
 
     .more-info {
-        @apply md:w-[200px] md:h-[194px] w-[156px];
+        @apply md:w-[200px] md:h-[194px] w-[120px];
         display: flex;
         flex-direction: column;
         justify-content: center;
