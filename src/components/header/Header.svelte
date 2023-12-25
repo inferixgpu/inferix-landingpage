@@ -180,11 +180,11 @@
                 <div class="text">
                     {#if (textIndex === 0)}
                         {#if (screenSize > 768)}
-                        <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold">
-                                Fastest 3D rendering by <br> <strong>Inferix decentralized GPU</strong>
-                            </h1>
-                        </Saos>
+                            <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                                <h1 style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px" >
+                                    Fastest 3D rendering by<br> <strong>Inferix decentralized GPU</strong>
+                                </h1>
+                            </Saos>
                         {/if}
                         {#if (screenSize < 768)}
                             <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
