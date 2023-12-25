@@ -181,26 +181,37 @@
                     {#if (textIndex === 0)}
                         {#if (screenSize > 768)}
                         <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold">
+                            <h1 class="text-xl text-[4.625rem] font-outfit text-center shadow-text font-bold">
                                 Fastest 3D rendering by <br> <strong>Inferix decentralized GPU</strong>
                             </h1>
                         </Saos>
                         {/if}
                         {#if (screenSize < 768)}
                             <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                                <h1  style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px" >
+                                    Fastest 3D rendering by<br> <strong>Inferix decentralized GPU</strong>
+                                </h1>
+                            </Saos>
+                        {/if}
+
+                    {/if}
+                    {#if (textIndex === 1)}
+                        {#if (screenSize > 768)}
+                            <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                                 <h1 class="text-xl text-[4.625rem] font-outfit text-center shadow-text font-bold">
                                     Fastest 3D rendering by <br> <strong>Inferix decentralized GPU</strong>
                                 </h1>
                             </Saos>
                         {/if}
+                        {#if (screenSize < 768)}
+                            <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                                <h1  style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px" >
+                                    Fastest 3D rendering by<br> <strong>Inferix decentralized GPU</strong>
+                                </h1>
+                            </Saos>
+                        {/if}
                     {/if}
-                    {#if (textIndex === 1)}
-                        <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold">
-                                Fastest 3D rendering by <br> <strong>Inferix decentralized GPU</strong>
-                            </h1>
-                        </Saos>
-                    {/if}
+
                 </div>
                 <Saos top="200" once animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                     <!--                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">-->
