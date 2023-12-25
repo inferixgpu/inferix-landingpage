@@ -225,7 +225,7 @@
                                 <div class="flex flex-row gap-5">
                                     <a class="download-options" href="http://h3d.me/ifxaddonblenderwin">
                                         <img src={DownloadIcon} alt="download"/>
-                                        <span>Window</span>
+                                        <span>Windows</span>
                                     </a>
                                     <a class="download-options" href="http://h3d.me/ifxaddonblendermac">
                                         <img src={DownloadIcon} alt="download"/>
@@ -241,7 +241,7 @@
                                 <div class="flex flex-row gap-5">
                                     <a class="download-options" href="http://h3d.me/ifxworkerwin">
                                         <img src={DownloadIcon} alt="download"/>
-                                        <span>Window</span>
+                                        <span>Windows</span>
                                     </a>
                                     <a class="download-options" href="http://h3d.me/ifxworkermac">
                                         <img src={DownloadIcon} alt="download"/>

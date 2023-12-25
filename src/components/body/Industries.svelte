@@ -72,7 +72,7 @@
 
 <style lang="postcss">
 .rooms{
-    animation: textMove 30s linear infinite;
+    animation: textMove 5s linear infinite;
 }
 .div-room{
     overflow: hidden;

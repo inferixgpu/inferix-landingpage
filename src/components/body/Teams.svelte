@@ -146,7 +146,7 @@
 <div class="bg-[#212023]">
     <div id="team" class="md:block container overflow-hidden mx-auto">
         <Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-            <p class="md:text-left text-center font-pre font-extrabold md:text-[48px] text-[32px]">Team</p>
+            <p class="md:text-center text-center font-pre font-extrabold md:text-[48px] text-[32px]">Team</p>
         </Saos>
         <Saos once top="350" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
             <div class="flex mx-auto teams-table">
