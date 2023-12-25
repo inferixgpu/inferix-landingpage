@@ -21,7 +21,7 @@
     });
 </script>
 
-<div class="wk-bg mx-auto box-border container mt-[80px]">
+<div class="wk-bg mx-auto box-border container md:mt-[160px] mt-[80px]">
     <div class="rounded-[8px] md:rounded-[24px] overflow-hidden mx-auto relative">
         <div class="flex md:justify-center justify-center font-bold mb-[20px] md:text-[48px] text-[32px]">
             <p>How Inferix Works</p>

@@ -89,7 +89,7 @@
 	<Technologies />
 	<Industries/>
 	<div class="bg-[#212023]">
-		<div class="pb-0 bg-[#212023] md:flex flex-col mx-auto container md:pb-[60px] mt-[60px]">
+		<div class="pb-0 bg-[#212023] md:flex flex-col mx-auto container md:pb-[60px] mt-[80px] md:mt-[160px]">
 			<Saos
 				once
 				top="200"
@@ -104,7 +104,7 @@
 				top="300"
 				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
 			>
-				<div class="partnerDiv mt-[60px] mx-auto">
+				<div class="partnerDiv mx-auto">
 					{#if screenSize > 900}
 						<div class="partnerImg">
 							{#each partners as partner (partner.id)}

@@ -169,9 +169,9 @@ input:focus {
 }
 
 .teams-table {
+	@apply md:mt-[100px] mt-[30px];
 	width: 100%;
 	flex-direction: column;
-    margin-top: 100px;
     align-items: center;
     justify-content: space-evenly;
 }

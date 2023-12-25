@@ -11,8 +11,8 @@
 <svelte:window bind:innerWidth={screenSize}/>
 
 
-<div class="bg-[#212023]">
-    <div id="roadmap" class="md:block container mx-auto w-100% mt-[60px]">
+<div class="bg-[#212023] md:mt-[80px] mt-[80px]">
+    <div id="roadmap" class="md:block container mx-auto w-100%">
 <!--        <p class="text-center text-[48px] font-bold mb-[60px]">Roadmap</p>-->
 <!--        <div class="flex flex-row gap-[60px] justify-center relative">-->
 <!--            <div class="flex flex-col gap-[300px]  mt-[50px] h-[1600px]">-->
@@ -88,7 +88,7 @@
 
 <!--        </div>-->
         <Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-            <p class="md:text-center text-center font-pre font-extrabold md:text-[48px] text-[32px] mb-[60px]">Roadmap</p>
+            <p class="md:text-center text-center font-pre font-extrabold md:text-[48px] text-[32px] mb-[50px]">Roadmap</p>
         </Saos>
 
         {#if (screenSize>800)}
