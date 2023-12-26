@@ -387,7 +387,7 @@
     }
 
     .more-info {
-        @apply md:w-[200px] md:h-[194px] w-[80%] h-[200px];
+        @apply md:w-[200px] md:h-[194px] w-[180px] h-[200px];
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -403,7 +403,6 @@
         font-weight: 700;
         line-height: 30px;
         padding: 20px;
-        margin-left: 20px;
     }
 
     @media screen and (max-width: 768px) {
