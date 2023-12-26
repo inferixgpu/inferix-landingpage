@@ -184,7 +184,7 @@
                                     </div>
                                 {:else}
                                     <div class="fle teammate-member">
-                                        <div class="more-info">
+                                        <div class="flex flex-col w-[180px] h-[200px] mx-[30px] border-2 rounded-[40px] border-[#2D2C30] text-center leading-6 p-5 text-2xl font-bold justify-center items-center">
                                             and 10+
                                             members more
                                         </div>
@@ -229,7 +229,7 @@
                                     </div>
                                 {:else}
                                     <div class="flex teammate-member">
-                                        <div class="more-info">
+                                        <div class="flex flex-col w-[150px] h-[200px] mx-[20px] border-2 rounded-[40px] border-[#2D2C30] text-center leading-6 p-5 text-2xl font-bold justify-center items-center">
                                             and 10+
                                             members more
                                         </div>
@@ -274,7 +274,7 @@
                                     </div>
                                 {:else}
                                     <div class="flex teammate-member">
-                                        <div class="more-info">
+                                        <div class="flex flex-col w-[150px] h-[200px] mx-[20px] border-2 rounded-[40px] border-[#2D2C30] text-center leading-6 p-5 text-2xl font-bold justify-center items-center">
                                             and 10+
                                             members more
                                         </div>
@@ -319,7 +319,7 @@
                                     </div>
                                 {:else}
                                     <div class="flex teammate-mobile-member">
-                                        <div class="more-info ">
+                                        <div class="flex flex-col w-[100%] h-[200px] mx-[20px] border-2 rounded-[40px] border-[#2D2C30] text-center leading-6 p-5 text-2xl font-bold justify-center items-center">
                                             and 10+
                                             members more
                                         </div>
@@ -365,7 +365,7 @@
                                     </div>
                                 {:else}
                                     <div class="flex teammate-mobile-member">
-                                        <div class="more-info ">
+                                        <div class="flex flex-col w-[150px] h-[200px] mx-[20px] border-2 rounded-[40px] border-[#2D2C30] text-center leading-6 p-5 text-2xl font-bold justify-center items-center">
                                             and 10+
                                             members more
                                         </div>
@@ -384,25 +384,6 @@
 <style lang="postcss">
     ul {
         list-style-type: '· ';
-    }
-
-    .more-info {
-        @apply md:w-[200px] md:h-[194px] w-[180px] h-[200px];
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        align-self: stretch;
-        border-radius: 40px;
-        border: 2px solid #2D2C30;
-        color: #FFF;
-        text-align: center;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 30px;
-        padding: 20px;
     }
 
     @media screen and (max-width: 768px) {
