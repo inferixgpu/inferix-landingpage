@@ -283,6 +283,51 @@
                             {/each}
                         </div>
                     {/each}
+                {:else if screenSize < 321}
+                    {#each number_mobile as n}
+                        <div class="flex teams-table-row">
+                            {#each teams.slice(n, n + 1) as t (t.title)}
+                                <div class="flex teammate-mobile">
+                                    <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
+                                    <div class="teammate-name-mobile">{t.name}</div>
+                                    <div class="teammate-position">{t.position}</div>
+                                    <div class="flex box-border mt-[20px]">
+                                        <ul
+                                                class="flex flex-col font-light text-left"
+                                        >
+                                            {#each t.description as desc (desc)}
+                                                <li class="w-[200px] text-[14px] leading-[20px] text-left opacity-60 mb-[5px]">
+                                                    <p>
+                                                        {@html desc}
+                                                    </p>
+                                                </li>
+                                            {/each}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {/each}
+                        </div>
+                    {/each}
+                    {#each number_mobile as n}
+                        <div class="flex teams-table-row">
+                            {#each teams1.slice(n * 1, (n + 1) * 1) as t (t.title)}
+                                {#if t.title}
+                                    <div class="flex box-border flex-col justify-center mb-[60px] w-[180px]">
+                                        <img src={t.avatar} alt={t.avatar} class="h-full w-[120px] mb-[20px] mx-auto"/>
+                                        <div class="teammate-name">{t.name}</div>
+                                        <div class="teammate-position-mobile">{t.position}</div>
+                                    </div>
+                                {:else}
+                                    <div class="flex teammate-mobile-member">
+                                        <div class="more-info ">
+                                            and 10+
+                                            members more
+                                        </div>
+                                    </div>
+                                {/if}
+                            {/each}
+                        </div>
+                    {/each}
 
                 {:else}
                     {#each number_mobile as n}
@@ -292,12 +337,12 @@
                                     <img src={t.avatar} alt={t.avatar} class="h-full w-[160px]"/>
                                     <div class="teammate-name-mobile">{t.name}</div>
                                     <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border !mt-[16px] teammate-description">
+                                    <div class="flex box-border !mt-[16px]">
                                         <ul
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
                                             {#each t.description as desc (desc)}
-                                                <li>
+                                                <li class="max-w-[300px] text-[14px] leading-[20px] text-left opacity-60 mb-[5px]">
                                                     <p>
                                                         {@html desc}
                                                     </p>
@@ -313,8 +358,8 @@
                         <div class="flex teams-table-row">
                             {#each teams1.slice(n * 2, (n + 1) * 2) as t (t.title)}
                                 {#if t.title}
-                                    <div class="flex teammate-mobile-member">
-                                        <img src={t.avatar} alt={t.avatar} class="h-full w-[120px] mb-[20px]"/>
+                                    <div class="flex box-border flex-col justify-center mb-[60px] w-[180px]">
+                                        <img src={t.avatar} alt={t.avatar} class="h-full w-[120px] mb-[20px] mx-auto"/>
                                         <div class="teammate-name">{t.name}</div>
                                         <div class="teammate-position-mobile">{t.position}</div>
                                     </div>
@@ -342,7 +387,7 @@
     }
 
     .more-info {
-        @apply md:w-[200px] md:h-[194px] w-[120px];
+        @apply md:w-[200px] md:h-[194px] w-[80%] h-[200px];
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -367,38 +412,13 @@
         }
     }
     .teammate-mobile {
-        @apply md:pt-[40px] pb-[40px] md:pl-[24px] md:pr-[24px] px-[20px];
         box-sizing: border-box;
         flex-direction: column;
         align-items: center;
         flex-shrink: 0;
         border-radius: 24px;
         background: none;
-        margin-top: 20px;
-    }
-    .teammate-mobile-member {
-        @apply md:pt-[40px] pb-[40px] md:pl-[24px] md:pr-[24px] px-[20px];
-        box-sizing: border-box;
-        flex-direction: column;
-        align-items: center;
-        flex-shrink: 0;
-        border-radius: 24px;
-        background: none;
-        margin-top: 20px;
-        width: 180px;
-    }
-
-    .teammate-mobile > div > ul > li {
-        width: 300px;
-        max-height: 222px;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 100;
-        line-height: 20px;
-        letter-spacing: 0em;
-        text-align: left;
-        opacity: 0.6;
-        margin-bottom: 5px;
+        margin-bottom: 60px;
     }
     .teammate-name-mobile {
         color: #FFFFFF;
