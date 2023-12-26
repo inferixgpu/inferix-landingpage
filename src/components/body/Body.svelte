@@ -151,7 +151,7 @@
 	}
 	.partnerImg {
 		background-color: #212023;
-		width: 1524.98px;
+		width: 100%;
 		height: 100%;
 		display: flex;
 		justify-content: center;
@@ -212,7 +212,7 @@
 		}
 
 		.partnerImg {
-			width: 350px;
+			width: 280px;
 			height: 150px;
 			padding: 20px;
 			margin-bottom: 15px;
