@@ -342,7 +342,7 @@
                                                 class="flex flex-col font-outfit font-light text-left text-base leading-default"
                                         >
                                             {#each t.description as desc (desc)}
-                                                <li class="max-w-[300px] text-[14px] leading-[20px] text-left opacity-60 mb-[5px]">
+                                                <li class="w-[256px] text-[14px] leading-[20px] text-left opacity-60 mb-[5px]">
                                                     <p>
                                                         {@html desc}
                                                     </p>
