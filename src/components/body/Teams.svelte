@@ -145,15 +145,15 @@
             <p class="md:text-center text-center font-pre font-extrabold md:text-[48px] text-[32px]">Team</p>
         </Saos>
         <div class="w-full h-full mt-[80px]">
-            <div class="team-leader lg:flex lg:flex-row lg:justify-between md:grid md:grid-cols-3 gap-y-20 flex flex-col mb-20">
+            <div class="team-leader lg:flex lg:flex-row lg:justify-between md:grid md:grid-cols-3 items-center gap-y-20 flex flex-col mb-20">
                 {#each teamLeaders as tl}
-                    <div class="flex items-center flex-col gap-6">
+                    <div class="flex items-center flex-col gap-6 md:w-[200px] max-w-[328px]">
                         <img src="{tl.avatar}" class="w-[160px] h-[160px]">
                         <div class="flex flex-col gap-1">
                             <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
                             <p class="text-center font-normal text-[12px] leading-[20px]">{tl.position}</p>
                         </div>
-                        <ul class="flex flex-col lg:w-3/5 w-9/12 gap-2">
+                        <ul class="flex flex-col gap-2">
                             {#each tl.description as des}
                                 <li>{des}</li>
                             {/each}
