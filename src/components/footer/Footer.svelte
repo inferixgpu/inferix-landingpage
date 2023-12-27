@@ -20,7 +20,6 @@
         {id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X},
         {id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M},
         {id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D},
-        {id: 4, name: 'Lightpaper', href: '#'}
     ];
     let screenSize: number;
 
@@ -70,7 +69,7 @@
             </p>
         </div>
         <div
-                class="flex md:gap-10 gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
+                class="flex flex-row md:gap-10 justify-center items-center gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
         >
             {#each medias as media (media.id)}
                 <div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>

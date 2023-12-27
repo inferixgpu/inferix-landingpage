@@ -30,7 +30,7 @@
         <div class="flex md:justify-center justify-center font-bold mb-[20px] md:text-[48px] text-[32px]">
             <p>How Inferix Works</p>
         </div>
-        {#if screenSize > 1100}
+        {#if screenSize > 1280}
             <div class="flex flex-col gap-y-[72px]">
                 <div class="flex flex-row gap-[42px] w-full mx-auto relative">
                     <div class="flex flex-col basis-3/12 px-6 py-10 gap-8 bg-[#2D2C30] min-w-[300px]">
@@ -114,7 +114,7 @@
                                             <p class="span-network">...</p>
                                         </div>
                                     </div>
-                                    <img src="{Worker}" class="basis-5/12 max-h-[219px] w-full p-5 object-contain">
+                                    <img src="{Worker}" class="basis-5/12 max-h-[219px] w-fullS object-contain">
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                                     <p>BMW Reward</p>
                                 </div>
                             </div>
-                            <div class="flex flex-row justify-center 2xl:gap-24 xl:gap-12 lg:gap-6 md:gap-3 p-6">
+                            <div class="flex flex-row justify-center 2xl:gap-24 xl:gap-12 lg:gap-4 md:gap-3 p-6">
                                 <span class="span-block text-center">Crypto Payment</span>
                                 <span class="flex text-center font-bold justify-center items-center text-[32px] leading-[40px]"><p>Blockchain</p></span>
                                 <span class="span-block text-center">Proof-of-Rendering</span>
