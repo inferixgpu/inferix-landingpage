@@ -161,7 +161,7 @@
                     </div>
                 {/each}
             </div>
-            <div class="team-member grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 gap-y-20">
+            <div class="team-member grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 xl:gap-y-15 md:gap-y-5 ">
                 {#each teamMembers as tm}
                     {#if tm.title}
                         {#if screenSize > 380}
