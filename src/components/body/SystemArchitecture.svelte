@@ -35,10 +35,10 @@
                 <div class="flex flex-row gap-[42px] w-full mx-auto relative">
                     <div class="flex flex-col basis-3/12 px-6 py-10 gap-8 bg-[#2D2C30] min-w-[280px]">
                         <p class="title-item-architect whitespace-nowrap">Client Apps</p>
-                        <div class="flex flex-col max-w-[200px] justify-start gap-6 p-6 border-[2px] border-dashed border-[#67656A] relative">
-                        <span class="absolute-span right-[-40px] top-[60px]">
-                            <p class="absolute-text">Plugin</p>
-                        </span>
+                        <div class="flex flex-col max-w-[200px] max-h-[218px] justify-start gap-6 p-6 border-[2px] border-dashed border-[#67656A] relative">
+                            <span class="absolute-span right-[-40px] top-[60px]">
+                                <p class="absolute-text">Plugin</p>
+                            </span>
                             <span class="font-bold text-[20px] leading-[30px]">Design Apps</span>
                             <div class="grid grid-cols-2 gap-6 max-w-[110px]">
                                 <img src="{Blender}">
@@ -48,12 +48,12 @@
                             </div>
                         </div>
                         <div class="flex flex-col justify-start gap-6 p-6 border-[2px] border-dashed border-[#67656A] max-w-[200px] relative">
-                        <span class="absolute-span right-[-40px] top-[40px]">
-                            <span class="absolute-text flex-col">
-                                <p>Plugin</p>
-                                <p>/ SDK</p>
+                            <span class="absolute-span right-[-40px] top-[20px]">
+                                <span class="absolute-text flex-col">
+                                    <p>Plugin</p>
+                                    <p>/ SDK</p>
+                                </span>
                             </span>
-                        </span>
                             <span class="font-bold text-[20px] leading-[30px] max-w-[153px] whitespace-nowrap">
                             <p>3D/VR Realtime</p>
                             <p>Renderers/</p>
@@ -72,7 +72,7 @@
                     <div class="flex flex-col basis-9/12 px-6 py-10 bg-[#2D2C30]">
                         <p class="title-item-architect">Inferix Rendering Network</p>
                         <div class="flex flex-row gap-6 mt-[2rem]">
-                            <div class="flex flex-col gap-4 p-6 bg-[#413F45] rounded-2xl basis-3/5">
+                            <div class="flex flex-col gap-4 p-6 bg-[#413F45] rounded-2xl basis-3/5 h-[322px]">
 
                                 <p class="text-center text-[20px] leading-[40px] font-bold not-italic">Manager Node</p>
                                 <div class="flex flex-row gap-4 h-full">
@@ -92,7 +92,7 @@
                                         </span>
                                         </div>
                                     </div>
-                                    <div class="flex flex-col basis-5/12 gap-4 p-4 border-[2px] border-dashed border-[#67656A] ">
+                                    <div class="flex flex-col basis-5/12 gap-4 p-4 border-[2px] border-dashed border-[#67656A]">
                                         <p class="text-center">Job Controller</p>
                                         <div class="flex flex-col gap-2">
                                             <p class="span-network">Job 1</p>
@@ -102,19 +102,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col gap-4 p-6 bg-[#413F45] rounded-2xl basis-2/5">
+                            <div class="flex flex-col gap-4 p-6 bg-[#413F45] rounded-2xl basis-2/5 max-h-[322px]">
 
                                 <p class="text-center text-[20px] leading-[40px] font-bold not-italic">Worker Node</p>
                                 <div class="flex flex-row gap-4 h-full">
-                                    <div class="flex flex-col basis-7/12 gap-4 p-4 border-[2px] border-dashed border-[#67656A]">
-                                        <p class="text-center">Render Engine Controller</p>
+                                    <div class="flex flex-col basis-7/12 gap-4 p-4 border-[2px] border-dashed border-[#67656A] max-h-[220px]">
+                                        <span class="text-center whitespace-nowrap">
+                                            <p>Render Engine</p>
+                                            <p>Controller</p>
+                                        </span>
                                         <div class="flex flex-col gap-2">
                                             <p class="span-network">Cycles</p>
                                             <p class="span-network">Vray</p>
                                             <p class="span-network">...</p>
                                         </div>
                                     </div>
-                                    <img src="{Worker}" class="basis-5/12 w-full object-contain">
+                                    <img src="{Worker}" class="basis-5/12 w-full max-h-[219px] object-contain">
                                 </div>
                             </div>
                         </div>
