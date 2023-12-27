@@ -153,7 +153,7 @@
                             <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
                             <p class="text-center font-normal text-[12px] leading-[20px]">{tl.position}</p>
                         </div>
-                        <ul class="flex flex-col w-8/12 gap-2">
+                        <ul class="flex flex-col lg:w-3/5 w-9/12 gap-2">
                             {#each tl.description as des}
                                 <li>{des}</li>
                             {/each}
@@ -164,13 +164,23 @@
             <div class="team-member grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 gap-y-20">
                 {#each teamMembers as tm}
                     {#if tm.title}
-                        <div class="flex flex-col items-center gap-6 p-6">
-                            <img src="{tm.avatar}" class="h-[120px] w-[120px]"/>
-                            <div class="flex flex-col gap-1">
-                                <p class="text-center text-[20px] leading-[30px] font-bold">{tm.name}</p>
-                                <p class="text-center font-normal text-[12px] leading-[20px]">{tm.position}</p>
+                        {#if screenSize > 380}
+                            <div class="flex flex-col items-center gap-6 p-6">
+                                <img src="{tm.avatar}" class="h-[120px] w-[120px]"/>
+                                <div class="flex flex-col gap-1">
+                                    <p class="text-center text-[20px] leading-[30px] font-bold whitespace-nowrap">{tm.name}</p>
+                                    <p class="text-center font-normal text-[12px] leading-[20px] whitespace-nowrap">{tm.position}</p>
+                                </div>
                             </div>
-                        </div>
+                        {:else }
+                            <div class="flex flex-col items-center gap-6 p-6">
+                                <img src="{tm.avatar}" class="h-[80px] w-[100px]"/>
+                                <div class="flex flex-col gap-1">
+                                    <p class="text-center text-[20px] leading-[30px] font-bold ">{tm.name}</p>
+                                    <p class="text-center font-normal text-[12px] leading-[20px]">{tm.position}</p>
+                                </div>
+                            </div>
+                        {/if}
                     {:else }
                         {#if screenSize > 380}
                             <div class="flex justify-center p-6">
