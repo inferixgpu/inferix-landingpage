@@ -122,8 +122,7 @@
 
     @media screen and (min-width: 768px) and (max-width: 1023px) {
         .mediaContainer {
-            margin-left: auto;
-            margin-right: auto;
+            right: 0;
         }
 
         .footerVideo {
