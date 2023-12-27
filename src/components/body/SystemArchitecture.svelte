@@ -30,7 +30,7 @@
         <div class="flex md:justify-center justify-center font-bold mb-[20px] md:text-[48px] text-[32px]">
             <p>How Inferix Works</p>
         </div>
-        {#if screenSize > 1024}
+        {#if screenSize > 1280}
             <div class="flex flex-col gap-y-[72px]">
                 <div class="flex flex-row gap-[42px] w-full mx-auto relative">
                     <div class="flex flex-col basis-3/12 px-6 py-10 gap-8 bg-[#2D2C30] min-w-[280px]">
