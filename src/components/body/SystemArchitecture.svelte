@@ -1,18 +1,21 @@
 <script lang="ts">
     import WorksGroup from '$images/icons/WorksGroup.svg';
-    import Blender from '$images/icons/Blender.svg';
-    import House3d from '$images/icons/House3d.svg';
-    import ThreeDMax from '$images/icons/3DMax.svg';
-    import SketchUp from '$images/icons/SketchUp.svg';
-    import Babylon from '$images/icons/Babylon.svg';
-    import ThreeJs from '$images/icons/ThreeJs.svg';
-    import Unreal from '$images/icons/Unreal.svg';
-    import Unity from '$images/icons/Unity.svg';
+    import WorksGroupMobile from '$images/png/WorkgroupMobile.png';
+    import Blender from '$images/photos/applications/blender.png';
+    import House3d from '$images/photos/applications/house3d.png';
+    import ThreeDMax from '$images/photos/applications/3dmax.png';
+    import SketchUp from '$images/photos/applications/sketchup.png';
+    import Babylon from '$images//photos/applications/babylon.png';
+    import ThreeJs from '$images/photos/applications/threejs.png';
+    import Unreal from '$images/photos/applications/unreal.png';
+    import Unity from '$images/photos/applications/unity.png';
     import Worker from '$images/icons/Worker.svg';
     import Arrow1 from '$images/icons/Arrow1.svg';
     import Arrow2 from '$images/icons/Arrow2.svg';
     import Arrow3 from '$images/icons/Arrow3.svg';
     import {onMount} from 'svelte';
+
+    let screenSize: number;
 
     onMount(() => {
         window.onbeforeunload = function () {
@@ -21,185 +24,251 @@
     });
 </script>
 
-<div class="wk-bg mx-auto box-border container md:mt-[160px] mt-[80px]">
-    <div class="rounded-[8px] md:rounded-[24px] overflow-hidden mx-auto relative">
+<svelte:window bind:innerWidth={screenSize}/>
+<div class="wk-bg mx-auto box-border container md:mt-[160px] mt-[80px] md:mb-[160px] mb-[80px]">
+    <div class="overflow-hidden mx-auto relative">
         <div class="flex md:justify-center justify-center font-bold mb-[20px] md:text-[48px] text-[32px]">
             <p>How Inferix Works</p>
         </div>
-        <img style="width: 100%;margin-bottom: 160px" src="{WorksGroup}">
-<!--        <div class="layout">-->
-<!--            <div class="grid grid-rows-1 grid-flow-col gap-4 w-[100%]">-->
-<!--                <div class="row-span-3 items-start h-[716px] gray-bg p-[24px]">-->
-<!--                    <p class="font-bold text-center text-[32px]">Client Apps</p>-->
-<!--                    <div class="items-start w-[80%] h-[218px] p-[24px] border-2 border-dashed mt-[32px]"-->
-<!--                         style="border-color: rgba(255, 255, 255, 0.20)">-->
-<!--                        <p class="justify-start font-bold text-left">Design Apps</p>-->
-<!--                        <div class="grid gap-4 grid-cols-2 w-[153px] h-[124px] mt-[16px]">-->
-<!--                            <img src="{Blender}">-->
-<!--                            <img src="{House3d}">-->
-<!--                            <img src="{ThreeDMax}">-->
-<!--                            <img src="{SketchUp}">-->
-<!--                        </div>-->
-<!--                        <div class="absolute flex flex-row top-[19.5%] left-[18%] w-[20%]">-->
-<!--                            <span class="span-custom p-[12px] w-[67px]" >Plugin</span>-->
-<!--                            <img class="opacity-50 ml-[10%] w-[28%]" src="{Arrow2}">-->
-<!--                        </div>-->
-<!--                    </div>-->
+        {#if screenSize > 1100}
+            <div class="flex flex-col gap-y-[72px]">
+                <div class="flex flex-row gap-[42px] w-full mx-auto relative">
+                    <div class="flex flex-col basis-3/12 px-6 py-10 gap-8 bg-[#2D2C30] min-w-[300px]">
+                        <p class="title-item-architect whitespace-nowrap">Client Apps</p>
+                        <div class="flex flex-col max-w-[200px] justify-start gap-6 p-6 border-[2px] border-dashed border-[#67656A] relative">
+                        <span class="absolute-span right-[-40px] top-[60px]">
+                            <p class="absolute-text">Plugin</p>
+                        </span>
+                            <span class="font-bold text-[20px] leading-[30px]">Design Apps</span>
+                            <div class="grid grid-cols-2 gap-6 max-w-[110px]">
+                                <img src="{Blender}">
+                                <img src="{House3d}">
+                                <img src="{ThreeDMax}">
+                                <img src="{SketchUp}">
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-start gap-6 p-6 border-[2px] border-dashed border-[#67656A] max-w-[200px] relative">
+                        <span class="absolute-span right-[-40px] top-[40px]">
+                            <span class="absolute-text flex-col">
+                                <p>Plugin</p>
+                                <p>/ SDK</p>
+                            </span>
+                        </span>
+                            <span class="font-bold text-[20px] leading-[30px] max-w-[153px] whitespace-nowrap">
+                            <p>3D/VR Realtime</p>
+                            <p>Renderers/</p>
+                            <p>Game Engines</p>
+                        </span>
+                            <div class="flex flex-col gap-6 max-w-[153px]">
+                                <img src="{Babylon}">
+                                <div class="flex flex-row gap-6">
+                                    <img src="{ThreeJs}">
+                                    <img src="{Unreal}">
+                                </div>
+                                <img src="{Unity}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col basis-9/12 px-6 py-10 bg-[#2D2C30]">
+                        <p class="title-item-architect">Inferix Rendering Network</p>
+                        <div class="flex flex-row gap-6 mt-[2rem]">
+                            <div class="flex flex-col gap-4 p-6 bg-[#413F45] rounded-2xl basis-3/5">
 
-<!--                    <div class="items-start w-[80%] h-[322px] p-[24px] mt-[24px] border-2 border-dashed"-->
-<!--                         style="border-color: rgba(255, 255, 255, 0.20)">-->
-<!--                        <div class="absolute flex flex-row top-[34.6%] left-[18%] w-[20%]">-->
-<!--                            <span class="span-custom p-[12px] w-[67px]">Plugin / SDK</span>-->
-<!--                            <img class="opacity-50 ml-[10%] w-[28%]" src="{Arrow2}">-->
-<!--                        </div>-->
-<!--                        <div class="flex flex-col">-->
-<!--                            <p>3d/VR Realtime</p>-->
-<!--                            <p>Renderers/</p>-->
-<!--                            <p>Game Engines</p>-->
-<!--                        </div>-->
-<!--                        <div class="w-[153px] h-[168px] mt-[16px] gap-[24px] self-stretch">-->
-<!--                            <img src="{Babylon}">-->
-<!--                            <div class="flex flex-row mt-[24px]">-->
-<!--                                <img class="mr-[24px]" src="{ThreeJs}">-->
-<!--                                <img src="{Unreal}">-->
-<!--                            </div>-->
-<!--                            <img class="mt-[24px]" src="{Unity}">-->
+                                <p class="text-center text-[20px] leading-[40px] font-bold not-italic">Manager Node</p>
+                                <div class="flex flex-row gap-4 h-full">
+                                    <div class="flex flex-col basis-7/12 gap-4 p-4 border-[2px] border-dashed border-[#67656A] relative">
+                                        <div class="absolute -left-[60px] -top-[9px] -translate-x-1/2">
+                                            <img src="{Arrow2}" class="opacity-50"/>
+                                        </div>
+                                        <div class="absolute -left-[60px] -bottom-[7px] -translate-x-1/2">
+                                            <img src="{Arrow2}" class="opacity-50"/>
+                                        </div>
+                                        <p class="text-center">Service Locator</p>
+                                        <div class="flex flex-col gap-2">
+                                            <p class="span-network text-center">Image/Video Rendering</p>
+                                            <span class="flex flex-col span-network">
+                                            <p class="text-center">Lightmap/</p>
+                                            <p class="text-center">Pre rendered contents</p>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col basis-5/12 gap-4 p-4 border-[2px] border-dashed border-[#67656A] ">
+                                        <p class="text-center">Job Controller</p>
+                                        <div class="flex flex-col gap-2">
+                                            <p class="span-network">Job 1</p>
+                                            <p class="span-network">Job 2</p>
+                                            <p class="span-network">...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4 p-6 bg-[#413F45] rounded-2xl basis-2/5">
 
-<!--                        </div>-->
+                                <p class="text-center text-[20px] leading-[40px] font-bold not-italic">Worker Node</p>
+                                <div class="flex flex-row gap-4">
+                                    <div class="flex flex-col basis-7/12 gap-4 p-4 border-[2px] border-dashed border-[#67656A]">
+                                        <p class="text-center">Render Engine Controller</p>
+                                        <div class="flex flex-col gap-2">
+                                            <p class="span-network">Cycles</p>
+                                            <p class="span-network">Vray</p>
+                                            <p class="span-network">...</p>
+                                        </div>
+                                    </div>
+                                    <img src="{Worker}" class="basis-5/12 max-h-[219px] w-full p-5 object-contain">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-12 mt-[120px] bg-[#413F45] rounded-2xl relative">
+                            <img src="{Arrow3}"
+                                 class="absolute max-h-[150px] opacity-50 -top-[135px] left-[26%] -translate-x-1/3">
+                            <div class="flex flex-row items-center gap-4 absolute -top-[135px] right-[8%] xl:right-[14%] -translate-x-[5%]">
+                                <img src="{Arrow3}" class="max-h-[150px] opacity-50">
+                                <div class="flex flex-col font-normal text-[16px] leading-5">
+                                    <p>PoR Task Execute</p>
+                                    <p>PoR verify</p>
+                                    <p>BMW Reward</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-center 2xl:gap-24 xl:gap-12 lg:gap-6 md:gap-3 p-6">
+                                <span class="span-block text-center">Crypto Payment</span>
+                                <span class="flex text-center font-bold justify-center items-center text-[32px] leading-[40px]"><p>Blockchain</p></span>
+                                <span class="span-block text-center">Proof-of-Rendering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-8 bg-[#2D2C30] p-20 pb-10 relative ">
+                    <img src="{Arrow3}"
+                         class="absolute max-h-[150px] opacity-50 -top-[100px] left-[20%] -translate-x-1/2">
+                    <img src="{Arrow3}"
+                         class="absolute max-h-[150px] opacity-50 -top-[100px] right-[20%] -translate-x-1/2">
 
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-span-2 items-center h-[716px] gray-bg pt-[40px] pb-[40px] pl-[24px] pr-[24px]">-->
-<!--                    <p class="text-[32px] font-bold text-center">Inferix Rendering Network</p>-->
-<!--                    <div class="flex flex-row mt-[50px]">-->
-<!--                        <div class="items-center p-[24px] w-[60%] h-[322px] bg-[#413F45] rounded-lg">-->
-<!--                            <p class="text-[20px] text-center font-normal">Manager Node</p>-->
-<!--                            <div class="flex flex-row mt-[16px] p-[16px]">-->
-<!--                                <div class="p-[16px] items-center border-2 border-dashed w-[60%] h-[219px]"-->
-<!--                                     style="border-color: rgba(255, 255, 255, 0.20)">-->
-<!--                                    <p class="text-center mb-[16px] text-[16px]">Service Locator</p>-->
-<!--                                    <span class="span-custom mb-[16px]">Image/Video Rendering</span>-->
-<!--                                    <span class="flex flex-col span-custom">-->
-<!--                                        <p>Lightmap /</p>-->
-<!--                                        <p>Pre rendered contents</p>-->
-<!--                                    </span>-->
-<!--                                </div>-->
-<!--                                <div class="ml-[16px] p-[16px] items-center flex flex-col border-2 border-dashed w-[40%] h-[219px]"-->
-<!--                                     style="border-color: rgba(255, 255, 255, 0.20)">-->
-<!--                                    <p class="text-center mb-[16px] text-[16px]">Job controller</p>-->
-<!--                                    <span class="span-custom mb-[9px] w-[96px]">Job 1</span>-->
-<!--                                    <span class="span-custom mb-[9px] w-[96px]">Job 2</span>-->
-<!--                                    <span class="span-custom w-[96px]">...</span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="row-span-4 bg-[#413F45] p-[24px] ml-[24px] rounded-lg h-[322px] w-[40%] ">-->
+                    <div class="flex flex-row 2xl:gap-40 xl:gap-30 lg:gap-20 md:gap-10 justify-center items-center relative">
+                    <span class="span-decentralized">
+                        Decentralized 3D Models Hub
+                        <div class="absolute-span top-[-40px] right-[-60px] ">
+                            <p class="absolute-text w-[59px]">Polygon Digester</p>
+                        </div>
 
-<!--                            <p class="text-[20px] text-center font-normal">Worker Node</p>-->
-<!--                            <div class="flex flex-row p-[16px] mt-[16px] gap-4">-->
-<!--                                <div class="flex flex-col row-span-4 items-center p-[16px] border-2 border-dashed w-[70%] h-[219px]"-->
-<!--                                     style="border-color: rgba(255, 255, 255, 0.20)">-->
-<!--                                    <p class="text-center mb-[10px] w-[114px]">Render Engine Controller</p>-->
-<!--                                    <span class="span-custom w-[98px] mb-[8px]">Cycles</span>-->
-<!--                                    <span class="span-custom w-[98px] mb-[8px]">Vray</span>-->
-<!--                                    <span class="span-custom w-[98px]">...</span>-->
-<!--                                </div>-->
-<!--                                <div class="row-span-2">-->
-<!--                                    <img src="{Worker}">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="flex flex-row w-[100%] flex gap-[5%] p-[24px] justify-center items-center mt-[120px] bg-[#413F45] rounded-lg">-->
-<!--                        <div class="absolute flex flex-row top-[38%] left-[48%] w-[20%]">-->
-<!--                            <img class="opacity-50 ml-[10%] h-1/3" src="{Arrow3}">-->
-<!--                        </div>-->
-<!--                        <div class="absolute flex flex-row top-[38%] left-[73%] w-[20%]">-->
-<!--                            <img class="opacity-50 ml-[10%] h-1/3" src="{Arrow3}">-->
-<!--                        </div>-->
+                    </span>
+                        <span class="flex flex-col gap-4">
+                        <p class="w-[235px] text-center">Muti-resolution 3D data</p>
+                        <div class="flex relative flex-row justify-between opacity-50">
+                            <div class="absolute left-[-8px] top-[-6px] text-[20px] ">{"<"}</div>
+                            <div class="border-t-[2px] border-dashed w-full absolute top-[7px]"></div>
+                            <div class="absolute right-[-8px] top-[-6px] text-[20px]">{">"}</div>
+                        </div>
+                    </span>
+                        <span class="span-decentralized">Cache/CDN</span>
+                    </div>
+                    <p class="text-[32px] text-center font-normal leading-10">Decentralized Storage (IPFS)</p>
+                </div>
+            </div>
+        {:else if screenSize > 768}
+            <img src="{WorksGroup}" class="w-full h-full">
+        {:else }
+            <img src="{WorksGroup}" class="w-full h-full">
+        {/if}
 
-<!--                        <span class="span-custom">Crypto Payment</span>-->
-<!--                        <p class="text-[32px] font-normal">Blockchain</p>-->
-<!--                        <span class="span-custom">Proof-of-Rendering</span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="w-[100%] p-[40px] bg-[#2D2C30] mt-[40px] relative">-->
-<!--                <div class="flex flex-row justify-center gap-[10%] text-[20px] pt-[40px]">-->
-<!--                    <div class="absolute flex flex-row top-[-30%] left-[20%] w-[20%]">-->
-<!--                        <img class="opacity-50 ml-[10%] h-1/2" src="{Arrow3}">-->
-<!--                    </div>-->
-<!--                    <div class="absolute flex flex-row top-[-30%] left-[70%] w-[20%]">-->
-<!--                        <img class="opacity-50 ml-[10%] h-1/2" src="{Arrow3}">-->
-<!--                    </div>-->
-
-<!--                    <span class="span-custom p-[24px] h-[108px] w-[220px]">-->
-<!--                        Decentralized 3D Models Hub-->
-<!--                    </span>-->
-<!--                    <div class="flex flex-col justify-center items-center h-[108px] w-[220px]">-->
-<!--                        <p class="text-[16px] text-center mb-[16px]">Muti-resolution 3D data</p>-->
-<!--                        <img src="{Arrow1}">-->
-<!--                    </div>-->
-<!--                    <span class="span-custom p-[24px] h-[108px] w-[220px]">-->
-<!--                        Proof-of-Rendering-->
-<!--                    </span>-->
-<!--                </div>-->
-<!--                <p class="text-center text-[32px] mt-[32px]">Decentralized Storage (IPFS)</p>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
+
 </div>
 
 <style>
-
-    .layout {
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 200px;
-    }
-
-    .gray-bg {
-        background: #2D2C30;
-    }
 
     .wk-bg {
         background: #212023;
     }
 
-    .span-custom {
+    .span-network {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 20px; /* 142.857% */
+        background: var(--4, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border-radius: 8px;
+        border: 1px solid var(--4, #00D6D9);
         display: flex;
         padding: 8px;
         justify-content: center;
         align-items: center;
         gap: 8px;
-        border-radius: 8px;
+        align-self: stretch;
+    }
+
+    .span-block {
+        display: flex;
+        padding: 16px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 16px;
         border: 1px solid var(--4, #00D6D9);
-        color: #00D6D9;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px; /* 150% */
+        background: var(--4, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .span-decentralized {
+        display: flex;
+        position: relative;
+        width: 220px;
+        height: 108px;
+        padding: 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 16px;
+        border: 1px solid var(--4, #00D6D9);
         text-align: center;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30px; /* 150% */
+        background: var(--4, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
-    @media screen and (min-width: 740px) and (max-width: 1024px) {
-        .btnPlay {
-            width: 45px;
-        }
+    .absolute-text {
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 20px; /* 142.857% */
+        background: linear-gradient(267deg, #00D6D9 2.37%, #00C085 104.79%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
-    @media screen and (max-width: 740px) {
-
-        .title {
-            font-size: 18px;
-        }
-
-        .MVP {
-            margin-top: 15px;
-            width: 100%;
-        }
-
-        .btnPlay {
-            width: 35px;
-        }
+    .absolute-span {
+        display: flex;
+        padding: 12px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        border-radius: 16px;
+        border: 1px solid #00D6D9;
+        background: #413F45;
     }
 
+    .title-item-architect {
+        color: #FFF;
+        text-align: center;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 40px; /* 125% */
+    }
 </style>

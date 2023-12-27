@@ -92,7 +92,7 @@
                             </ul>
                         </div>
                 </div>
-                <div class="p-6 flex flex-row justify-between relative mt-[300px]">
+                <div class="p-6 flex flex-row justify-between relative mt-[300px] ">
                     <div class="absolute flex justify-start items-start left-[-13px] bottom-1/2">
                             <img src="{Dot}" class="max-w-[24px] max-h-[24px]"/>
                         </div>
