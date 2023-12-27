@@ -145,7 +145,7 @@
             <p class="md:text-center text-center font-pre font-extrabold md:text-[48px] text-[32px]">Team</p>
         </Saos>
         <div class="w-full h-full mt-[80px]">
-            <div class="team-leader lg:flex lg:flex-row lg:justify-between md:grid md:grid-cols-3 items-center gap-y-20 flex flex-col mb-20">
+            <div class="team-leader lg:flex lg:flex-row lg:justify-between md:grid md:grid-cols-3 gap-y-20 md:items-start items-center flex flex-col mb-20">
                 {#each teamLeaders as tl}
                     <div class="flex items-center flex-col gap-6 md:w-[200px] max-w-[328px]">
                         <img src="{tl.avatar}" class="w-[160px] h-[160px]">
