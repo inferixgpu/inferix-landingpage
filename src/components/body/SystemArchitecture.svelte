@@ -30,10 +30,10 @@
         <div class="flex md:justify-center justify-center font-bold mb-[20px] md:text-[48px] text-[32px]">
             <p>How Inferix Works</p>
         </div>
-        {#if screenSize > 1280}
+        {#if screenSize > 1024}
             <div class="flex flex-col gap-y-[72px]">
                 <div class="flex flex-row gap-[42px] w-full mx-auto relative">
-                    <div class="flex flex-col basis-3/12 px-6 py-10 gap-8 bg-[#2D2C30] min-w-[300px]">
+                    <div class="flex flex-col basis-3/12 px-6 py-10 gap-8 bg-[#2D2C30] min-w-[280px]">
                         <p class="title-item-architect whitespace-nowrap">Client Apps</p>
                         <div class="flex flex-col max-w-[200px] justify-start gap-6 p-6 border-[2px] border-dashed border-[#67656A] relative">
                         <span class="absolute-span right-[-40px] top-[60px]">
@@ -105,7 +105,7 @@
                             <div class="flex flex-col gap-4 p-6 bg-[#413F45] rounded-2xl basis-2/5">
 
                                 <p class="text-center text-[20px] leading-[40px] font-bold not-italic">Worker Node</p>
-                                <div class="flex flex-row gap-4">
+                                <div class="flex flex-row gap-4 h-full">
                                     <div class="flex flex-col basis-7/12 gap-4 p-4 border-[2px] border-dashed border-[#67656A]">
                                         <p class="text-center">Render Engine Controller</p>
                                         <div class="flex flex-col gap-2">
@@ -114,14 +114,14 @@
                                             <p class="span-network">...</p>
                                         </div>
                                     </div>
-                                    <img src="{Worker}" class="basis-5/12 max-h-[219px] w-fullS object-contain">
+                                    <img src="{Worker}" class="basis-5/12 w-full object-contain">
                                 </div>
                             </div>
                         </div>
                         <div class="px-12 mt-[120px] bg-[#413F45] rounded-2xl relative">
                             <img src="{Arrow3}"
                                  class="absolute max-h-[150px] opacity-50 -top-[135px] left-[26%] -translate-x-1/3">
-                            <div class="flex flex-row items-center gap-4 absolute -top-[135px] right-[8%] xl:right-[14%] -translate-x-[5%]">
+                            <div class="flex flex-row items-center gap-4 absolute -top-[135px] 2xl:right-[14%] xl:right-[10%] lg:right-[5%] md:right-[0%] right-[8%]   -translate-x-[5%]">
                                 <img src="{Arrow3}" class="max-h-[150px] opacity-50">
                                 <div class="flex flex-col font-normal text-[16px] leading-5">
                                     <p>PoR Task Execute</p>
@@ -164,8 +164,8 @@
                     <p class="text-[32px] text-center font-normal leading-10">Decentralized Storage (IPFS)</p>
                 </div>
             </div>
-        {:else if screenSize > 768}
-            <img src="{WorksGroup}" class="w-full h-full">
+        <!--{:else if screenSize > 768}-->
+        <!--    <img src="{WorksGroup}" class="w-full h-full">-->
         {:else }
             <img src="{WorksGroup}" class="w-full h-full">
         {/if}
