@@ -138,8 +138,8 @@
         <div class="container mx-auto md:mb-5 md:px-0  box-border md:pt-0">
             <nav class="flex justify-between w-auto font-outfit font-normal">
                 <div class="flex md:gap-4 gap-2 md:items-center items-start">
-                    <a href="/">
-                        <img src={HeaderLogo} alt="logo" class="lg:w-[158px] lg:h-[32px] h-[24px]"/>
+                    <a href="https://inferix.io/">
+                        <img src={HeaderLogo} alt="Inferix" class="lg:w-[158px] lg:h-[32px] h-[24px]"/>
                     </a>
                 </div>
                 {#if (screenSize>800)}
@@ -167,9 +167,9 @@
     <div class="    mx-auto pt-[0px] box-border">
         <div class="overflow-hidden mx-auto relative">
             {#if (screenSize > 768)}
-                <img src={InferixHeader} alt="logo" class="h-[175px] md:h-[1000px] w-full object-cover"/>
+                <img src={InferixHeader} alt="Inferix" class="h-[175px] md:h-[1000px] w-full object-cover"/>
             {:else }
-                <img src={InferixHeaderMobile} alt="logo" style="height: 800px" class="w-full object-cover"/>
+                <img src={InferixHeaderMobile} alt="Inferix" style="height: 800px" class="w-full object-cover"/>
             {/if}
             <div    style="display: flex"
                     class="video-overlay-container"
@@ -261,8 +261,8 @@
         <div
                 class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full bg-bg box-border pt-[86px] relative p-[30px]"
         >
-            <a href="/" class="absolute top-[20px]" on:click={closeMenu}>
-                <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px] "/>
+            <a href="https://inferix.io/" class="absolute top-[20px]" on:click={closeMenu}>
+                <img src={HeaderLogo} alt="Inferix" class="w-[158px] h-[32px] "/>
             </a>
             {#each tabs as tab (tab.id)}
                 <div class="header-tab-mobile tab opacity-60 ">
