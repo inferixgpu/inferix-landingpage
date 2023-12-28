@@ -135,18 +135,13 @@
             id="header"
             class={`md:bg-[#141414] md:h-[97.4px] h-[58px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
     >
-        <div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[30px]">
-            <nav style="height: 50px" class="flex justify-between w-auto container mx-auto font-outfit font-normal">
-                <div class="md:flex md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
-                    <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px]"/>
-                    <!--                    <p-->
-                    <!--                            class="hidden md:block text-base font-outfit font-normal text-white whitespace-nowrap"-->
-                    <!--                    >-->
-                    <!--                        Decentralized GPU Network-->
-                    <!--                    </p>-->
+        <div class="container mx-auto md:mb-5 md:px-0  box-border md:pt-0">
+            <nav class="flex justify-between w-auto font-outfit font-normal">
+                <div class="flex md:gap-4 gap-2 md:items-center items-start">
+                    <img src={HeaderLogo} alt="logo" class="lg:w-[158px] lg:h-[32px] h-[24px]"/>
                 </div>
                 {#if (screenSize>800)}
-                    <div class="md:flex gap-8 text-lg">
+                    <div class="md:flex lg:gap-8 md:gap-4 text-lg">
                         {#each tabs as tab (tab.id)}
                             <div
                               class="header-tab {activeTab === tab.id ? 'active' : 'tab'}"
@@ -162,7 +157,7 @@
                       src={MobileMenu}
                       on:click={toggleMenu}
                       alt="menu"
-                      class="md:mb-0 mb-4 cursor-pointer ml-auto"/>
+                      class="md:mb-0 mb-4 cursor-pointer ml-auto w-[24px] h-[24px]"/>
                 {/if}
             </nav>
         </div>

@@ -145,9 +145,9 @@
             <p class="md:text-center text-center font-pre font-extrabold md:text-[48px] text-[32px]">Team</p>
         </Saos>
         <div class="w-full h-full mt-[80px]">
-            <div class="team-leader lg:flex lg:flex-row lg:justify-between md:grid md:grid-cols-3 gap-y-20 md:items-start items-center flex flex-col mb-20">
+            <div class="team-leader grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-y-20 mb-20">
                 {#each teamLeaders as tl}
-                    <div class="flex items-center flex-col gap-6 md:w-[200px] max-w-[328px]">
+                    <div class="col-span-1 flex flex-col items-center gap-6 md:w-[200px] max-w-[328px] mx-auto">
                         <img src="{tl.avatar}" class="w-[160px] h-[160px]">
                         <div class="flex flex-col gap-1">
                             <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
@@ -161,7 +161,7 @@
                     </div>
                 {/each}
             </div>
-            <div class="team-member grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 xl:gap-y-15 md:gap-y-5 ">
+            <div class="team-member grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 xl:gap-y-15 md:gap-y-5">
                 {#each teamMembers as tm}
                     {#if tm.title}
                         {#if screenSize > 380}
