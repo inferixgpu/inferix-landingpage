@@ -145,20 +145,51 @@
             <p class="md:text-center text-center font-pre font-extrabold md:text-[48px] text-[32px]">Team</p>
         </Saos>
         <div class="w-full h-full mt-[80px]">
-            <div class="team-leader grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-y-20 mb-20">
-                {#each teamLeaders as tl}
-                    <div class="col-span-1 flex flex-col items-center gap-6 md:w-[180px] xl:w-[200px] max-w-[328px] mx-auto">
-                        <img src="{tl.avatar}" class="w-[160px] h-[160px]">
-                        <div class="flex flex-col gap-1">
-                            <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
-                            <p class="text-center font-normal text-[12px] leading-[20px]">{tl.position}</p>
+            <div class="team-leader grid lg:grid-cols-5 md:grid-cols-6 grid-cols-1 gap-y-20 mb-20">
+                {#each teamLeaders as tl, index (index)}
+                    {#if screenSize < 1024 && screenSize > 768}
+                        {#if index < 3}
+                            <div class="col-span-2 flex flex-col items-center gap-6 md:w-[180px] xl:w-[200px] max-w-[328px] mx-auto">
+                                <img src="{tl.avatar}" class="w-[160px] h-[160px]">
+                                <div class="flex flex-col gap-1">
+                                    <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
+                                    <p class="text-center font-normal text-[12px] leading-[20px]">{tl.position}</p>
+                                </div>
+                                <ul class="flex flex-col gap-2">
+                                    {#each tl.description as des}
+                                        <li>{des}</li>
+                                    {/each}
+                                </ul>
+                            </div>
+                        {:else }
+                            <div class="col-span-3 flex flex-col items-center gap-6 md:w-[180px] xl:w-[200px] max-w-[328px] mx-auto">
+                                <img src="{tl.avatar}" class="w-[160px] h-[160px]">
+                                <div class="flex flex-col gap-1">
+                                    <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
+                                    <p class="text-center font-normal text-[12px] leading-[20px]">{tl.position}</p>
+                                </div>
+                                <ul class="flex flex-col gap-2">
+                                    {#each tl.description as des}
+                                        <li>{des}</li>
+                                    {/each}
+                                </ul>
+                            </div>
+
+                        {/if}
+                    {:else }
+                        <div class="col-span-1 flex flex-col items-center gap-6 md:w-[180px] xl:w-[200px] max-w-[328px] mx-auto">
+                            <img src="{tl.avatar}" class="w-[160px] h-[160px]">
+                            <div class="flex flex-col gap-1">
+                                <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
+                                <p class="text-center font-normal text-[12px] leading-[20px]">{tl.position}</p>
+                            </div>
+                            <ul class="flex flex-col gap-2">
+                                {#each tl.description as des}
+                                    <li>{des}</li>
+                                {/each}
+                            </ul>
                         </div>
-                        <ul class="flex flex-col gap-2">
-                            {#each tl.description as des}
-                                <li>{des}</li>
-                            {/each}
-                        </ul>
-                    </div>
+                    {/if}
                 {/each}
             </div>
             <div class="team-member grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 xl:gap-y-15 md:gap-y-5">
