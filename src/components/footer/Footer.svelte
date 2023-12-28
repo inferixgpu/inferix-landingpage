@@ -63,7 +63,9 @@
         <div
                 class="flex md:gap-4 gap-2 md:order-1 order-2 md:flex-row flex-col items-center md:items-start mt-8 md:mt-0"
         >
-            <img src={HeaderLogo} alt="logo" class="w-[152px] h-[32px]"/>
+            <a href="https://inferix.io/">
+                <img src={HeaderLogo} alt="logo" class="w-[152px] h-[32px]"/>
+            </a>
             <p class="font-base font-outfit font-normal mt-4 md:mt-0 text-white whitespace-nowrap">
                 Decentralized GPU Network
             </p>

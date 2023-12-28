@@ -138,7 +138,9 @@
         <div class="container mx-auto md:mb-5 md:px-0  box-border md:pt-0">
             <nav class="flex justify-between w-auto font-outfit font-normal">
                 <div class="flex md:gap-4 gap-2 md:items-center items-start">
-                    <img src={HeaderLogo} alt="logo" class="lg:w-[158px] lg:h-[32px] h-[24px]"/>
+                    <a href="https://inferix.io/">
+                        <img src={HeaderLogo} alt="logo" class="lg:w-[158px] lg:h-[32px] h-[24px]"/>
+                    </a>
                 </div>
                 {#if (screenSize>800)}
                     <div class="md:flex lg:gap-8 md:gap-4 text-lg">
@@ -259,8 +261,9 @@
         <div
                 class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full bg-bg box-border pt-[86px] relative p-[30px]"
         >
-            <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px] absolute top-[20px]"/>
-
+            <a href="https://inferix.io/" class="absolute top-[20px]">
+                <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px] "/>
+            </a>
             {#each tabs as tab (tab.id)}
                 <div class="header-tab-mobile tab opacity-60 ">
                     <a
