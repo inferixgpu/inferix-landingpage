@@ -147,7 +147,7 @@
         <div class="w-full h-full mt-[80px]">
             <div class="team-leader grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-y-20 mb-20">
                 {#each teamLeaders as tl}
-                    <div class="col-span-1 flex flex-col items-center gap-6 md:w-[200px] max-w-[328px] mx-auto">
+                    <div class="col-span-1 flex flex-col items-center gap-6 md:w-[180px] xl:w-[200px] max-w-[328px] mx-auto">
                         <img src="{tl.avatar}" class="w-[160px] h-[160px]">
                         <div class="flex flex-col gap-1">
                             <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
@@ -164,7 +164,7 @@
             <div class="team-member grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 xl:gap-y-15 md:gap-y-5">
                 {#each teamMembers as tm}
                     {#if tm.title}
-                        {#if screenSize > 380}
+                        {#if screenSize > 350}
                             <div class="flex flex-col items-center gap-6 p-6">
                                 <img src="{tm.avatar}" class="h-[120px] w-[120px]"/>
                                 <div class="flex flex-col gap-1">
@@ -174,7 +174,7 @@
                             </div>
                         {:else }
                             <div class="flex flex-col items-center gap-6 p-6">
-                                <img src="{tm.avatar}" class="h-[80px] w-[100px]"/>
+                                <img src="{tm.avatar}" class="h-[80px] w-[80px]"/>
                                 <div class="flex flex-col gap-1">
                                     <p class="text-center text-[20px] leading-[30px] font-bold ">{tm.name}</p>
                                     <p class="text-center font-normal text-[12px] leading-[20px]">{tm.position}</p>
