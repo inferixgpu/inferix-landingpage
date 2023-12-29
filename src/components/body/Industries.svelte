@@ -15,7 +15,6 @@
 
 <svelte:window bind:innerWidth={screenSize}/>
 
-
 <div class="pb-[48px] mx-auto w-100% bg-[#212023] container mt-[160px] div-room">
     <div class="flex flex-col justify-center items-center font-bold">
         <p class="md:text-[48px] text-[32px] text-center mb-[40px]">Industries</p>
@@ -67,6 +66,7 @@
 
             </div>
         {/if}
+        
         
     </div>
 </div>
