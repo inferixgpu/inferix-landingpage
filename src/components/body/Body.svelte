@@ -48,11 +48,18 @@
 			<div
 				class="innovated-title"
 			>
-				<p
-					class="md:text-center text-center text-xs md:text-[1.75rem] font-pre font-bold leading-default md:text-white text-textMobile"
-				>
-					An innovated platform for 3D rendering and AI inference using crowdsourced GPUs globally
-				</p>
+				{#if (screenSize>768)}
+					<p
+						class="md:text-center text-center text-xs md:text-[1.75rem] font-pre font-bold leading-default md:text-white text-textMobile"
+					>
+						An innovated platform for 3D rendering and AI inference using crowdsourced GPUs globally
+					</p>
+				{/if}
+				{#if ((screenSize<768))}
+					<p style="color: #FFF;text-align: center;font-size: 20px;font-style: normal;font-weight: 700;line-height: 30px;margin-top: 80px">
+						An innovated platform for 3D rendering and AI inference using crowdsourced GPUs globally
+					</p>
+				{/if}
 			</div>
 		</Saos>
 		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
