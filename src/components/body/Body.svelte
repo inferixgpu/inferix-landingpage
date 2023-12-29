@@ -1,24 +1,20 @@
 <script lang="ts">
-	import Inferix from '$images/icons/Inferix.svg';
-	import StraightDivider from '$images/icons/StraightDivider.svg';
+	// import InferixInnovated from '$images/png/InferixInnovated.png';
+	// import InferixInnovatedMobile from '$images/photos/InferixInnovatedMobile.png';
 	import InferixInnovated from '$images/png/InferixInnovated.png';
-	import InferixCycleMobile from '$images/png/InferixCycleMobile.png';
-	import PartnerAndInvestor from '$images/png/PartnerAndInvestor.png';
-	import PartnerAndInvestorMobile from '$images/png/PartnerAndInvestorMobile.png';
+	import InferixInnovatedMobile from '$images/photos/InferixInnovatedMobile.png';
 	import Saos from 'saos';
 	import Industries from './Industries.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
-	import RoadMapMobile from './RoadMapMobile.svelte';
 	import Teams from './Teams.svelte';
-	import WhyInferix from './WhyInferix.svelte';
 	import MpvWalkthrough from './MpvWalkthrough.svelte';
 
-    import Intergration from '$images/png/Intergration.png';
 	import Actif3D from '$images/png/actif3D.svg';
 	import House3D from '$images/png/house3d.svg';
 	import MetaCity from '$images/png/metacity.svg';
 	import SystemArchitecture from "$components/body/SystemArchitecture.svelte";
 	import Technologies from "$components/body/Technologies.svelte";
+	import RoadMapMobile from "$components/body/RoadMapMobile.svelte";
 
 	let screenSize: number;
 
@@ -60,11 +56,20 @@
 			</div>
 		</Saos>
 		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-			<img
-				src={InferixInnovated}
-				class="mx-auto mt-[44px] md:flex pb-[60px]"
-				alt="inferix circle"
-			/>
+			{#if (screenSize>768)}
+				<img
+						src={InferixInnovated}
+						class="mx-auto mt-[44px] md:flex pb-[60px]"
+						alt="inferix circle"
+				/>
+			{/if}
+			{#if ((screenSize<768))}
+				<img
+						src={InferixInnovatedMobile}
+						class="w-[100%] md:flex pb-[60px] object-cover"
+						alt="inferix circle"
+				/>
+			{/if}
 		</Saos>
 <!--		<Saos once top="100" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>-->
 <!--			<img-->
@@ -80,13 +85,13 @@
 	<Technologies />
 	<Industries/>
 	<div class="bg-[#212023]">
-		<div class="pb-0 bg-[#212023] md:flex flex-col mx-auto container md:pb-[60px]">
+		<div class="pb-0 bg-[#212023] md:flex flex-col mx-auto container md:pb-[60px] mt-[80px] md:mt-[160px]">
 			<Saos
 				once
 				top="200"
 				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
 			>
-				<p class="text-center font-pre font-extrabold md:text-[2.5rem] text-2xl">
+				<p class="text-center font-pre font-extrabold md:text-[48px] text-[32px]">
 					Partner / Investor
 				</p>
 			</Saos>
@@ -95,7 +100,7 @@
 				top="300"
 				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
 			>
-				<div class="partnerDiv mt-[60px] mx-auto">
+				<div class="partnerDiv mx-auto">
 					{#if screenSize > 900}
 						<div class="partnerImg">
 							{#each partners as partner (partner.id)}
@@ -122,12 +127,11 @@
 			</Saos>
 		</div>
 	</div>
-	<RoadMapDesktop />
-	<!--{#if screenSize > 768}-->
-	<!--	<RoadMapDesktop />-->
-	<!--{:else}-->
-	<!--	<RoadMapMobile />-->
-	<!--{/if}-->
+	{#if screenSize > 768}
+		<RoadMapDesktop />
+	{:else}
+		<RoadMapMobile />
+	{/if}
 	<Teams />
 </div>
 
@@ -140,7 +144,7 @@
 	}
 	.partnerImg {
 		background-color: #212023;
-		width: 1524.98px;
+		width: 100%;
 		height: 100%;
 		display: flex;
 		justify-content: center;
@@ -201,7 +205,7 @@
 		}
 
 		.partnerImg {
-			width: 350px;
+			width: 280px;
 			height: 150px;
 			padding: 20px;
 			margin-bottom: 15px;

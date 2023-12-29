@@ -1,23 +1,23 @@
 <script lang="ts">
     import Saos from 'saos';
 
-    import FreddieNguyen from '$images/avatars/freddie_nguyen.svg';
-    import NguyenBui from '$images/avatars/nguyen_bui.svg';
-    import LeMinh from '$images/avatars/le_minh.svg';
-    import PavenDo from '$images/avatars/paven_do.svg';
-    import EricTa from '$images/avatars/eric_ta.svg';
-    import HarryDuong from '$images/avatars/harry_duong.svg';
-    import AntheaNguyen from '$images/avatars/anthea_nguyen.svg';
-    import JayDo from '$images/avatars/yay_do.svg';
-    import SteveVu from '$images/avatars/steve_vu.svg';
-    import DavidNgo from '$images/avatars/david_ngo.svg';
+    import FreddieNguyen from '$images/avatars/freddie_nguyen.png';
+    import NguyenBui from '$images/avatars/nguyen_bui.png';
+    import LeMinh from '$images/avatars/le_minh.png';
+    import PavenDo from '$images/avatars/paven_do.png';
+    import EricTa from '$images/avatars/eric_ta.png';
+    import HarryDuong from '$images/avatars/harry_duong.png';
+    import AntheaNguyen from '$images/avatars/athena_nguyen.png';
+    import JayDo from '$images/avatars/yay_do.png';
+    import SteveVu from '$images/avatars/steve_vu.png';
+    import DavidNgo from '$images/avatars/david_ngo.png';
     import ThanhLe from '$images/avatars/thanh_le.svg';
-    import JennyHanhNguyen from '$images/avatars/jenny_hanh_nguyen.svg';
-    import DuongPa from '$images/avatars/DuongPa.svg';
+    import JennyHanhNguyen from '$images/avatars/jenny_hanh_nguyen.png';
+    import DuongPa from '$images/avatars/DuongPa.png';
 
     let screenSize: number;
 
-    const teams = [
+    const teamLeaders = [
         {
             title: 'Freddie Nguyen',
             avatar: FreddieNguyen,
@@ -55,7 +55,7 @@
             title: 'Paven Do',
             avatar: PavenDo,
             name: 'Paven Do',
-            position: 'Blockchain Tech Advisor',
+            position: 'BLOCKCHAIN TECH ADVISOR',
             description: [
                 'Head of Development, FPT Blockchain Labs',
                 'PhD in Applied Mathematics, HKUST, Hong Kong',
@@ -66,7 +66,7 @@
             title: 'Eric Ta',
             avatar: EricTa,
             name: 'Eric Ta',
-            position: 'Principal Enginneer',
+            position: 'PRINCIPAL ENGINNEER',
             description: [
                 'PhD in Computer Science, University de Lorraine, France',
                 '8 years of LLVM & compiler programming experience',
@@ -74,7 +74,7 @@
             ]
         },
     ];
-    const teams1 = [
+    const teamMembers = [
         {
             title: 'Harry Duong',
             avatar: HarryDuong,
@@ -132,257 +132,132 @@
             name: '',
             position: '',
             description: []
-        },
 
+        }
     ];
-    const number_desktop = [0, 1, 2];
-    const number_tablet = [0, 1, 2, 3];
-    const number_tablet2 = [0, 1, 2, 3, 4, 5];
-    const number_mobile = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 </script>
 
 <svelte:window bind:innerWidth={screenSize}/>
 
 <div class="bg-[#212023]">
-    <div id="team" class="md:block container  mx-auto">
+    <div id="team" class="md:block container overflow-hidden mx-auto">
         <Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-            <p class="text-left font-pre font-extrabold md:text-[2.5rem] text-2xl">Team</p>
+            <p class="md:text-center text-center font-pre font-extrabold md:text-[48px] text-[32px]">Team</p>
         </Saos>
-        <Saos once top="350" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-            <div class="flex mx-auto teams-table">
-                {#if screenSize > 1800}
-                    {#each number_desktop as n}
-                        <div class="flex teams-table-row">
-                            {#each teams.slice(n * 5, (n + 1) * 5) as t (t.title)}
-                                <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
-                                    <div class="teammate-name">{t.name}</div>
-                                    <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                        <ul
-                                                class="flex flex-col font-outfit font-light text-left text-base leading-default"
-                                        >
-                                            {#each t.description as desc (desc)}
-                                                <li>
-                                                    <p>
-                                                        {@html desc}
-                                                    </p>
-                                                </li>
-                                            {/each}
-                                        </ul>
-                                    </div>
+        <div class="w-full h-full mt-[80px]">
+            <div class="team-leader grid lg:grid-cols-5 md:grid-cols-6 grid-cols-1 gap-y-20 mb-20">
+                {#each teamLeaders as tl, index (index)}
+                    {#if screenSize < 1024 && screenSize > 768}
+                        {#if index < 3}
+                            <div class="col-span-2 flex flex-col items-center gap-6 md:w-[180px] xl:w-[200px] max-w-[328px] mx-auto">
+                                <img src="{tl.avatar}" class="w-[160px] h-[160px]">
+                                <div class="flex flex-col gap-1">
+                                    <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
+                                    <p class="text-center font-normal text-[12px] leading-[20px]">{tl.position}</p>
                                 </div>
-                            {/each}
-                        </div>
-                        <div class="flex teams-table-row">
-                            {#each teams1.slice(n * 4, (n + 1) * 4) as t (t.title)}
-                                {#if t.title}
-                                    <div class="flex teammate">
-                                        <img src={t.avatar} alt={t.avatar} class="h-full"/>
-                                        <div class="teammate-name font-bold">{t.name}</div>
-                                        <div class="teammate-position text-[12px]" style="font-weight: 100">{t.position}</div>
-                                    </div>
-                                {:else}
-                                    <div class="flex teammate">
-                                        <div class="more-info">
-                                            and 10+
-                                            members more
-                                        </div>
-                                    </div>
-                                {/if}
-                            {/each}
-                        </div>
-                    {/each}
-                {:else if screenSize > 1280}
-                    {#each number_tablet as n}
-                        <div class="flex teams-table-row">
-                            {#each teams.slice(n * 3, (n + 1) * 3) as t (t.title)}
-                                <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
-                                    <div class="teammate-name">{t.name}</div>
-                                    <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                        <ul
-                                                class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                        >
-                                            {#each t.description as desc (desc)}
-                                                <li>
-                                                    <p>
-                                                        {@html desc}
-                                                    </p>
-                                                </li>
-                                            {/each}
-                                        </ul>
-                                    </div>
+                                <ul class="flex flex-col gap-2">
+                                    {#each tl.description as des}
+                                        <li>{des}</li>
+                                    {/each}
+                                </ul>
+                            </div>
+                        {:else }
+                            <div class="col-span-3 flex flex-col items-center gap-6 md:w-[180px] xl:w-[200px] max-w-[328px] mx-auto">
+                                <img src="{tl.avatar}" class="w-[160px] h-[160px]">
+                                <div class="flex flex-col gap-1">
+                                    <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
+                                    <p class="text-center font-normal text-[12px] leading-[20px]">{tl.position}</p>
                                 </div>
-                            {/each}
-                        </div>
-                    {/each}
-                    {#each number_tablet as n}
-                        <div class="flex teams-table-row">
-                            {#each teams1.slice(n * 4, (n + 1) * 4) as t (t.title)}
-                                {#if t.title}
-                                    <div class="flex teammate">
-                                        <img src={t.avatar} alt={t.avatar} class="h-full"/>
-                                        <div class="teammate-name">{t.name}</div>
-                                        <div class="teammate-position">{t.position}</div>
-                                        <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                            <ul
-                                                    class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                            >
-                                                {#each t.description as desc (desc)}
-                                                    <li>
-                                                        <p>
-                                                            {@html desc}
-                                                        </p>
-                                                    </li>
-                                                {/each}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                {:else}
-                                    <div class="flex teammate">
-                                        <div class="more-info">
-                                            and 10+
-                                            members more
-                                        </div>
-                                    </div>
-                                {/if}
-                            {/each}
-                        </div>
-                    {/each}
-                {:else if screenSize > 768}
-                    {#each number_tablet2 as n}
-                        <div class="flex teams-table-row">
-                            {#each teams.slice(n * 2, (n + 1) * 2) as t (t.title)}
-                                <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
-                                    <div class="teammate-name">{t.name}</div>
-                                    <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                        <ul
-                                                class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                        >
-                                            {#each t.description as desc (desc)}
-                                                <li>
-                                                    <p>
-                                                        {@html desc}
-                                                    </p>
-                                                </li>
-                                            {/each}
-                                        </ul>
-                                    </div>
-                                </div>
-                            {/each}
-                        </div>
-                        <div class="flex teams-table-row">
-                            {#each teams1.slice(n * 2, (n + 1) * 2) as t (t.title)}
-                                <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
-                                    <div class="teammate-name">{t.name}</div>
-                                    <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                        <ul
-                                                class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                        >
-                                            {#each t.description as desc (desc)}
-                                                <li>
-                                                    <p>
-                                                        {@html desc}
-                                                    </p>
-                                                </li>
-                                            {/each}
-                                        </ul>
-                                    </div>
-                                </div>
-                            {/each}
-                        </div>
-                    {/each}
-                {:else}
-                    {#each number_mobile as n}
-                        <div class="flex teams-table-row">
-                            {#each teams.slice(n, n + 1) as t (t.title)}
-                                <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
-                                    <div class="teammate-name">{t.name}</div>
-                                    <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                        <ul
-                                                class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                        >
-                                            {#each t.description as desc (desc)}
-                                                <li>
-                                                    <p>
-                                                        {@html desc}
-                                                    </p>
-                                                </li>
-                                            {/each}
-                                        </ul>
-                                    </div>
-                                </div>
-                            {/each}
-                        </div>
-                    {/each}
-                    {#each number_mobile as n}
-                        <div class="flex teams-table-row">
-                            {#each teams1.slice(n, n + 1) as t (t.title)}
-                                <div class="flex teammate">
-                                    <img src={t.avatar} alt={t.avatar} class="h-full"/>
-                                    <div class="teammate-name">{t.name}</div>
-                                    <div class="teammate-position">{t.position}</div>
-                                    <div class="flex box-border mt-[24px] ml-[20px] teammate-description">
-                                        <ul
-                                                class="flex flex-col font-outfit font-normal text-left text-base leading-default"
-                                        >
-                                            {#each t.description as desc (desc)}
-                                                <li>
-                                                    <p>
-                                                        {@html desc}
-                                                    </p>
-                                                </li>
-                                            {/each}
-                                        </ul>
-                                    </div>
-                                </div>
-                            {/each}
-                        </div>
-                    {/each}
+                                <ul class="flex flex-col gap-2">
+                                    {#each tl.description as des}
+                                        <li>{des}</li>
+                                    {/each}
+                                </ul>
+                            </div>
 
-                {/if}
+                        {/if}
+                    {:else }
+                        <div class="col-span-1 flex flex-col items-center gap-6 md:w-[180px] xl:w-[200px] max-w-[328px] mx-auto">
+                            <img src="{tl.avatar}" class="w-[160px] h-[160px]">
+                            <div class="flex flex-col gap-1">
+                                <p class="text-center text-[20px] leading-[30px] font-bold">{tl.name}</p>
+                                <p class="text-center font-normal text-[12px] leading-[20px]">{tl.position}</p>
+                            </div>
+                            <ul class="flex flex-col gap-2">
+                                {#each tl.description as des}
+                                    <li>{des}</li>
+                                {/each}
+                            </ul>
+                        </div>
+                    {/if}
+                {/each}
             </div>
-        </Saos>
+            <div class="team-member grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 xl:gap-y-15 md:gap-y-5">
+                {#each teamMembers as tm}
+                    {#if tm.title}
+                        {#if screenSize > 350}
+                            <div class="flex flex-col items-center gap-6 p-6">
+                                <img src="{tm.avatar}" class="h-[120px] w-[120px]"/>
+                                <div class="flex flex-col gap-1">
+                                    <p class="text-center text-[20px] leading-[30px] font-bold whitespace-nowrap">{tm.name}</p>
+                                    <p class="text-center font-normal text-[12px] leading-[20px] whitespace-nowrap">{tm.position}</p>
+                                </div>
+                            </div>
+                        {:else }
+                            <div class="flex flex-col items-center gap-6 p-6">
+                                <img src="{tm.avatar}" class="h-[80px] w-[80px]"/>
+                                <div class="flex flex-col gap-1">
+                                    <p class="text-center text-[20px] leading-[30px] font-bold ">{tm.name}</p>
+                                    <p class="text-center font-normal text-[12px] leading-[20px]">{tm.position}</p>
+                                </div>
+                            </div>
+                        {/if}
+                    {:else }
+                        {#if screenSize > 380}
+                            <div class="flex justify-center p-6">
+                                <div class="flex lg:w-[220px] md:w-full flex-col justify-center lg:items-center border-[2px] border-[#2D2C30] rounded-[40px]">
+                                    <p class="text-[20px] text-center font-bold leading-[30px] self-stretch p-7">and 10+
+                                        members more</p>
+                                </div>
+                            </div>
+                        {:else }
+                            <div class="flex justify-center p-6">
+                                <div class="flex w-[100px] md:w-full flex-col justify-center lg:items-center border-[2px] border-[#2D2C30] rounded-[40px]">
+                                    <p class="text-[20px] text-center font-bold leading-[30px] self-stretch p-1">and 10+
+                                        members more</p>
+                                </div>
+                            </div>
+                        {/if}
+                    {/if}
+                {/each}
+            </div>
+        </div>
+
     </div>
 </div>
 
 <style lang="postcss">
     ul {
-        list-style-type: '· ';
+        list-style-type: none;
     }
 
-    .more-info {
+    li {
+        position: relative;
         display: flex;
-        width: 220px;
-        height: 194px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        align-self: stretch;
-        border-radius: 40px;
-        border: 2px solid #2D2C30;
+        padding-left: 1rem;
         color: #FFF;
-        text-align: center;
-        font-size: 20px;
+        font-size: 14px;
+        opacity: 0.6;
         font-style: normal;
-        font-weight: 700;
-        line-height: 30px;
-        padding: 20px;
-        margin-left: 40px;
+        font-weight: 100;
+        line-height: 20px;
     }
 
-    @media screen and (max-width: 768px) {
-        .teams-table > .teams-table-row {
-            justify-content: center;
-        }
+    li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        font-size: 1.5rem;
+        margin-right: 0.5rem; /* Adjust the spacing between the marker and text */
     }
 </style>

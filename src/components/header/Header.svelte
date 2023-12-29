@@ -12,6 +12,10 @@
     import {Modal} from "flowbite-svelte";
 
     import {afterUpdate, onMount} from 'svelte';
+    import X from "$images/icons/X.svg";
+    import M from "$images/icons/M.svg";
+    import D from "$images/icons/D.svg";
+    import T from "$images/icons/T.svg";
 
     let textIndex = 0;
 
@@ -43,6 +47,12 @@
             title: 'Register',
             href: '#'
         }
+    ];
+    const medias = [
+        {id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X},
+        {id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M},
+        {id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D},
+        {id: 4, name: 'Telegram', href: 'https://t.me/inferixgpu', icon: T},
     ];
 
     let screenSize: number;
@@ -124,71 +134,102 @@
             id="header"
             class={`md:bg-[#141414] md:h-[97.4px] h-[58px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
     >
-        <div class="container mx-auto md:mb-5 mb-0 md:px-0 px-5 box-border md:pt-0 pt-[30px]">
-            <nav class="flex justify-between w-auto container mx-auto font-outfit font-normal">
-                <div class="md:flex md:gap-4 gap-2 md:flex-row flex-col md:items-center items-start">
-                    <img src={HeaderLogo} alt="logo" class="w-[158px] h-[32px]"/>
-                    <!--                    <p-->
-                    <!--                            class="hidden md:block text-base font-outfit font-normal text-white whitespace-nowrap"-->
-                    <!--                    >-->
-                    <!--                        Decentralized GPU Network-->
-                    <!--                    </p>-->
+        <div class="container mx-auto md:mb-5 md:px-0  box-border md:pt-0">
+            <nav class="flex justify-between w-auto font-outfit font-normal">
+                <div class="flex md:gap-4 gap-2 md:items-center items-start">
+                    <a href="https://inferix.io/">
+                        <img src={HeaderLogo} alt="Inferix" class="lg:w-[158px] lg:h-[32px] h-[24px]"/>
+                    </a>
                 </div>
-                <div class="md:flex gap-8 text-lg hidden">
-                    {#each tabs as tab (tab.id)}
-                        <div
-                                class="header-tab tab {activeTab === tab.id ? 'active' : ''}"
-                                on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-                        >
-                            <a target="_blank" href={tab.href}>{tab.title}</a>
-                        </div>
-                    {/each}
-                </div>
-                <img
-                        src={MobileMenu}
-                        on:click={toggleMenu}
-                        alt="menu"
-                        class="md:mb-0 mb-4 cursor-pointer hidden ml-auto"/>
+                {#if (screenSize>800)}
+                    <div class="md:flex lg:gap-8 md:gap-4 text-lg">
+                        {#each tabs as tab (tab.id)}
+                            <div
+                              class="header-tab {activeTab === tab.id ? 'active' : 'tab'}"
+                              on:click={(e) => handleClickTab(e, tab.id, tab.href)}
+                            >
+                                <a target="_blank" href={tab.href}>{tab.title}</a>
+                            </div>
+                        {/each}
+                    </div>
+                {/if}
+                {#if (screenSize<800)}
+                    <img
+                      src={MobileMenu}
+                      on:click={toggleMenu}
+                      alt="menu"
+                      class="md:mb-0 mb-4 cursor-pointer ml-auto w-[24px] h-[24px]"/>
+                {/if}
+
             </nav>
         </div>
     </div>
     <div class=" mx-auto pt-[0px] box-border">
         <div class="overflow-hidden mx-auto relative">
-            <img src={InferixHeader} alt="logo" class="h-[175px] md:h-[1000px] w-full object-cover"/>
-            <div
+
+            {#if (screenSize > 768)}
+                <img src={InferixHeader} alt="Inferix" class="h-[175px] md:h-[1000px] w-full object-cover"/>
+            {:else }
+                <img src={InferixHeaderMobile} alt="Inferix" style="height: 800px" class="w-full object-cover"/>
+            {/if}
+            <div    style="display: flex"
+
                     class="video-overlay-container"
             >
                 <div class="text">
                     {#if (textIndex === 0)}
                         <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">
-                                Decentralized GPU Infrastructure<br>for <strong>Visual Computing</strong>
+
+                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold">
+                                Fastest 3D rendering by <br> <strong>Inferix decentralized GPU</strong>
                             </h1>
                         </Saos>
+                        {/if}
+                        {#if (screenSize < 768)}
+                            <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                                <h1  style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px" >
+                                    Fastest 3D rendering by<br> <strong>Inferix decentralized GPU</strong>
+                                </h1>
+                            </Saos>
+                        {/if}
+
+
                     {/if}
                     {#if (textIndex === 1)}
-                        <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                            <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text ">Fastest 3D
-                                rendering
-                                by<br><strong>Inferix decentralized GPU</strong></h1>
-                        </Saos>
+                        {#if (screenSize > 768)}
+                            <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                                <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold">
+                                    Fastest 3D rendering by <br> <strong>Inferix decentralized GPU</strong>
+                                </h1>
+                            </Saos>
+                        {/if}
+                        {#if (screenSize < 768)}
+                            <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+                                <h1  style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px" >
+                                    Fastest 3D rendering by<br> <strong>Inferix decentralized GPU</strong>
+                                </h1>
+                            </Saos>
+                        {/if}
                     {/if}
+
                 </div>
                 <Saos top="200" once animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
                     <!--                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">-->
                     <!--                        Start-->
                     <!--                        free trial</p>-->
-                    <div class="flex gap-4 justify-center mt-2 md:mt-4">
+
+                    <div class="flex gap-4 justify-center mt-[40px] md:mt-4 {screenSize >768 ? 'flex-row' : 'flex-col'}">
+
                         <div class="download-btn">
                             <span><img src={IconScreen} alt="download"/></span>
                             <div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
                                 <span >For Designer</span>
                                 <div class="flex flex-row gap-5">
-                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                    <a class="download-options" href="https://h3d.me/ifxaddonblenderwin">
                                         <img src={DownloadIcon} alt="download"/>
-                                        <span>Window</span>
+                                        <span>Windows</span>
                                     </a>
-                                    <a class="download-options" href="https://h3d.me/ifxaddonblender">
+                                    <a class="download-options" href="https://h3d.me/ifxaddonblendermac">
                                         <img src={DownloadIcon} alt="download"/>
                                         <span>MacOS</span>
                                     </a>
@@ -202,9 +243,9 @@
                                 <div class="flex flex-row gap-5">
                                     <a class="download-options" href="https://h3d.me/ifxworkerwin">
                                         <img src={DownloadIcon} alt="download"/>
-                                        <span>Window</span>
+                                        <span>Windows</span>
                                     </a>
-                                    <a class="download-options" href="https://h3d.me/ifxworkerwin">
+                                    <a class="download-options" href="https://h3d.me/ifxworkermac">
                                         <img src={DownloadIcon} alt="download"/>
                                         <span>MacOS</span>
                                     </a>
@@ -223,10 +264,13 @@
 <!--    />-->
     <div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-screen z-40`}>
         <div
-                class="flex gap-[60px] flex-col text-2xl font-normal items-center w-full h-full bg-bg box-border pt-[86px]"
+                class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full bg-bg box-border pt-[86px] relative p-[30px]"
         >
+            <a href="https://inferix.io/" class="absolute top-[20px]" on:click={closeMenu}>
+                <img src={HeaderLogo} alt="Inferix" class="w-[158px] h-[32px] "/>
+            </a>
             {#each tabs as tab (tab.id)}
-                <div class="tab {activeTab === tab.id ? 'active' : ''}">
+                <div class="header-tab-mobile tab opacity-60 ">
                     <a
                             href={tab.href}
                             on:click={(e) => handleClickTab(e, tab.id, tab.href)}
@@ -234,7 +278,17 @@
                     >
                 </div>
             {/each}
+            <div class="flex justify-center opacity-60 gap-[20px] w-[100%] mt-[40px]">
+                {#each medias as media (media.id)}
+                    <div>
+                        <a target="_blank" href={media.href}><img src="{media.icon}"  class="h-[34px] w-[34px]"></a>
+                    </div>
+                {/each}
+
+            </div>
+
         </div>
+
         <div
                 class={`${isOpen ? 'block' : 'hidden'} top-4 absolute right-5 cursor-pointer z-20`}
                 on:click={closeMenu}
@@ -359,6 +413,14 @@
     }
 
     @media screen and (max-width: 768px) {
+        .header-tab-mobile{
+            font-weight: 600;
+            padding-top: 12px;
+            /*padding: 12px 16px;*/
+        }
+        .header-tab-mobile.active {
+            color: #08101D;
+        }
         .headerBackground {
             background-image: url('$images/icons/HeaderBackgroundMobile.svg');
             background-position: center;

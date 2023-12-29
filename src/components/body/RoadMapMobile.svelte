@@ -1,128 +1,112 @@
-<script>
-    import DeviderMobile from '$images/icons/DividerMobile.svg';
-    import Dot from '$images/icons/Dot.svg';
+<script lang="ts">
     import Saos from "saos";
+    import Dot from "$images/icons/Dot.svg";
 
-    const roadMap = [
+    let screenSize: number;
+
+    let roadmap = [
         {
-            title: 'Inferix is born',
-            description: ['Research cloud GPU market for \n' +
-            '  shortage of GPU in AI & Media processing ', 'Engage with Blockchain experts for\n' +
-            '  Decentralized GPU solution \n', 'Talked with other founders about \n' +
-            '  forming the Inferix team '],
-            mark: 'Q2, 2023'
+            title: 'From 2018 to Q2-2023',
+            contents: [
+                'Build 3D/VR/AR core technologies',
+                'Build House3D Cloud Rendering based on GPU',
+                '100,000+ 3D design created and 1,000,000+ images rendered',
+                '10,000+ active designers community built'
+            ]
         },
         {
-            title: 'MVP',
-            description: ['Inferix Team is formed with MVP \nconcept', 'Finalize the MVP release date', 'Start the marketing & partnership \n' +
-            '  activities. \n', 'Start the seed phase of funding'],
-            mark: 'Q3, 2023'
+            title: 'Q3-2023',
+            contents: [
+                'Inferix Team is formed with MVP concept',
+                'Project planning',
+                'Start the marketing & partnership activities',
+                'Angel funding'
+            ]
         },
         {
-            title: 'Close beta & Blockchain',
-            description: [
-                'Decentralized GPU MVP release', 'Cloud-based 3D rendering MVP', 'Increase the partners in rendering & AI'
-            ],
-            mark: 'Q4, 2023'
+            title: "Q4-2023",
+            contents: [
+                'Decentralized GPU MVP release',
+                'Partnership with rendering & AI business',
+                'Seed round funding'
+            ]
         },
         {
-            title: 'Official Launching',
-            description: [
-                'Beta service release', 'Chain integration(Mainnet)', 'GPU for AI inference', 'Payment & Reward system '
-            ],
-            mark: 'Q1, 2024'
+            title: 'Q1-2024 & Q2-2024',
+            contents: [
+                'Rendering Service beta release',
+                'Proof-of-Rendering and BMW model',
+                'Inferix Console Beta',
+                'Strategic round funding'
+            ]
+        },
+        {
+            title: "Q3-2024",
+            contents: [
+                'IDO/IEO campaign',
+                'Rendering Service official release',
+                'Actif3D and House3D integration',
+                'Rendering Service official release'
+            ]
+        },
+        {
+            title: 'Q4-2024',
+            contents: [
+                'Stable Diffusion worker beta release',
+                'Start R&D for LLM AI training & AI inference support',
+                'Start Decentralized R&D activities'
+            ]
         }
-    ];
+    ]
 </script>
 
-<div
-        id="roadmap"
-        class="pt-[48px] w-full bg-darkGrey mx-auto md:hidden block md:px-0 px-5 box-border pb-[100px]"
->
-    <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-        <p class="text-secondary text-base text-center font-bold font-outfit">Roadmap</p>
-    </Saos>
-    <Saos once top="300" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-        <div class="container mt-[39px] relative z-10">
-            <div class="flex flex-col justify-center items-center gap-10 mx-auto w-ful contentContainer">
-                {#each roadMap as map (map.title)}
-                    <div class="gridContainer gap-4">
-                        <p class="text-left text-sm font-bold text-secondary font-outfit mt-[-2px]">{map.mark}</p>
-                        <div>
-                            <img src={DeviderMobile} alt="devider" class="h-5 ml-1 w-[105px]"/>
-                            <div class="divider w-full flex items-end">
-                                {#if map === roadMap[roadMap.length - 1]}
-                                    <img src={Dot} alt="dot" class=" w-[7px] h-[7px] mb-[-3.5px] ml-[-4px]"/>
-                                {/if}
-                            </div>
+<svelte:window bind:innerWidth={screenSize}/>
+
+
+<div class="bg-[#212023] md:mt-[80px] mt-[80px] mb-[80px]">
+    <div id="roadmap" class="md:block container mx-auto w-100%">
+        <Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
+            <p class="md:text-center text-center font-pre font-extrabold md:text-[48px] text-[32px] mb-[80px]">
+                Roadmap</p>
+        </Saos>
+
+        <div class="flex flex-col mb-[80px]  border-l-[2px] border-[#373639]">
+            {#each roadmap as rm}
+                <div class="flex flex-row p-4 relative gap-10">
+                    <div class="bg-[#2D2C30] p-4 w-full">
+                        <div class="absolute flex justify-start items-start left-[-13px] top-[16px]">
+                            <img src="{Dot}" class="max-w-[24px] max-h-[24px]"/>
                         </div>
-                        <div class="flex flex-1 lg:gap-4 gap-2">
-                            <div class="flex flex-1 box-border">
-                                <div class="flex flex-col items-start text-left font-outfit box-border pl-4 linear">
-                                    <p class="font-bold text-sm ">{map.title}</p>
-                                    <ul class="flex flex-col mt-2 list-none text-[#B9B9B9]">
-                                        {#each map.description as desc (desc)}
-                                            <li>
-                                                <p class="font-normal text-[0.625rem] leading-[17px]">{desc}</p>
-                                            </li>
-                                        {/each}
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="basis-1/12"></div>
+                        <div class="basis-11/12">
+                            <p class="title-timeline-item">{rm.title}</p>
+                            <ul class="flex flex-col gap-3 opacity-60 text-[#FFF] text-[16px] font-normal leading-6 p-2">
+                                {#each rm.contents as content}
+                                    <li>{content}</li>
+                                {/each}
+                            </ul>
                         </div>
                     </div>
-                {/each}
-            </div>
+
+                </div>
+            {/each  }
         </div>
-    </Saos>
+    </div>
 </div>
 
 <style lang="postcss">
-    .gridContainer {
-        grid-template-columns: 45px 20% 165px;
-        display: grid;
-        width: fit-content;
-        max-width: 100%;
+    ul {
+        list-style-type: '· ';
     }
 
-    li > p:before {
-        content: '·';
-        font-weight: bold;
-        display: inline-block;
-        width: 10px;
-    }
-
-    .divider {
-        border-left: 1px solid var(--green);
-        height: calc(100% + 40px);
-        margin-left: 7.5px;
-        margin-top: -5px;
-    }
-
-    .linear {
-        flex: 1;
-        border-radius: 8px;
-        background: linear-gradient(106deg, #282d29 0%, #1c1c1c 100%);
-    }
-
-    .contentContainer > div:nth-child(1) .linear {
-        padding-top: 6px;
-    }
-
-    .contentContainer > div:nth-child(2) .linear {
-        padding-top: 14px;
-        padding-bottom: 13px;
-    }
-
-    .contentContainer > div:nth-child(3) .linear,
-    .contentContainer > div:nth-child(4) .linear {
-        padding-top: 17px;
-        padding-bottom: 17px;
-    }
-
-    @media screen and (max-width: 390px) {
-        .gridContainer {
-            width: 100%;
-        }
+    .title-timeline-item {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 40px; /* 166.667% */
+        background: var(--4, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 </style>
