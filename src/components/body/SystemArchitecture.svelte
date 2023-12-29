@@ -1,4 +1,5 @@
 <script lang="ts">
+
     import WorksGroup from '$images/icons/WorksGroup.svg';
     import WorksGroupMobile from '$images/png/WorkgroupMobile.png';
     import Blender from '$images/photos/applications/blender.png';
@@ -9,6 +10,7 @@
     import ThreeJs from '$images/photos/applications/threejs.png';
     import Unreal from '$images/photos/applications/unreal.png';
     import Unity from '$images/photos/applications/unity.png';
+
     import Worker from '$images/icons/Worker.svg';
     import Arrow1 from '$images/icons/Arrow1.svg';
     import Arrow2 from '$images/icons/Arrow2.svg';
@@ -30,6 +32,7 @@
         <div class="flex md:justify-center justify-center font-bold mb-[20px] md:text-[48px] text-[32px]">
             <p>How Inferix Works</p>
         </div>
+
         {#if screenSize > 1280}
             <div class="flex flex-col gap-y-[72px]">
                 <div class="flex flex-row gap-[42px] w-full mx-auto relative">

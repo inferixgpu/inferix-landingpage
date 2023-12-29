@@ -7,7 +7,6 @@
     import IconScreen from '$images/icons/IconScreen.svg';
     import IconGpu from '$images/icons/IconGpu.svg';
     import InferixHeader from '$images/photos/InferixHeader.png';
-    import InferixHeaderMobile from '$images/photos/bgMobile.svg';
     import Saos from 'saos';
     import SignUpModal from "$components/inferix/SignUpModal/SignUpModal.svelte";
     import {Modal} from "flowbite-svelte";
@@ -20,7 +19,7 @@
 
     let textIndex = 0;
 
-    let activeTab = 5;
+    let activeTab = 1;
 
     const setActiveTab = (tab: number) => {
         activeTab = tab;
@@ -104,7 +103,7 @@
 
         if (tab) {
             window.scrollTo({
-                top: tab.offsetTop - 100,
+                top: tab.offsetTop - space,
                 behavior: 'smooth'
             });
         }
@@ -161,23 +160,26 @@
                       alt="menu"
                       class="md:mb-0 mb-4 cursor-pointer ml-auto w-[24px] h-[24px]"/>
                 {/if}
+
             </nav>
         </div>
     </div>
-    <div class="    mx-auto pt-[0px] box-border">
+    <div class=" mx-auto pt-[0px] box-border">
         <div class="overflow-hidden mx-auto relative">
+
             {#if (screenSize > 768)}
                 <img src={InferixHeader} alt="Inferix" class="h-[175px] md:h-[1000px] w-full object-cover"/>
             {:else }
                 <img src={InferixHeaderMobile} alt="Inferix" style="height: 800px" class="w-full object-cover"/>
             {/if}
             <div    style="display: flex"
+
                     class="video-overlay-container"
             >
                 <div class="text">
                     {#if (textIndex === 0)}
-                        {#if (screenSize > 768)}
                         <Saos once animation={"h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
+
                             <h1 class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold">
                                 Fastest 3D rendering by <br> <strong>Inferix decentralized GPU</strong>
                             </h1>
@@ -190,6 +192,7 @@
                                 </h1>
                             </Saos>
                         {/if}
+
 
                     {/if}
                     {#if (textIndex === 1)}
@@ -214,7 +217,9 @@
                     <!--                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">-->
                     <!--                        Start-->
                     <!--                        free trial</p>-->
+
                     <div class="flex gap-4 justify-center mt-[40px] md:mt-4 {screenSize >768 ? 'flex-row' : 'flex-col'}">
+
                         <div class="download-btn">
                             <span><img src={IconScreen} alt="download"/></span>
                             <div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
@@ -308,8 +313,6 @@
     }
 
     .active {
-        border-radius: 100px;
-        background: var(--4, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
         color: #00D6D9;
     }
 
@@ -350,7 +353,7 @@
     .download-btn {
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        @apply flex flex-row justify-start items-center w-[265px] h-[75px] md:w-[265px] md:h-[75px] drop-shadow text-xs md:text-lg;
+        @apply flex flex-row justify-start items-center w-[102px] h-[35px] md:w-[265px] md:h-[75px] drop-shadow text-xs md:text-lg;
         border-radius: 16px;
         background: var(--3, #2D2C30);
         padding: 16px 24px;
