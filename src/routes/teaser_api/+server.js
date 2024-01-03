@@ -5,7 +5,7 @@ export async function GET(params) {
 		const data = JSON.stringify({
 			Messages: [
 				{
-					From: { Email: 'dev@inferix.io', Name: 'Inferix Supporter' },
+					From: { Email: 'dev@inferix.io', Name: 'Inferix Dev' },
 					To: [{ Email: 'contact@inferix.io', Name: email }],
 					Subject: 'Sign up for Exclusive Early Access',
 					TextPart: email
