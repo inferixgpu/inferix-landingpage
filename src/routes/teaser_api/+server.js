@@ -6,7 +6,7 @@ export async function GET(params) {
 			Messages: [
 				{
 					From: { Email: 'dev@inferix.io', Name: 'Inferix Supporter' },
-					To: [{ Email: 'dev@inferix.io', Name: email }],
+					To: [{ Email: 'contact@inferix.io', Name: email }],
 					Subject: 'Sign up for Exclusive Early Access',
 					TextPart: email
 				}
