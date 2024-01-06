@@ -1,6 +1,4 @@
 <script lang="ts">
-	// import InferixInnovated from '$images/png/InferixInnovated.png';
-	// import InferixInnovatedMobile from '$images/photos/InferixInnovatedMobile.png';
 	import InferixInnovated from '$images/png/InferixInnovated.png';
 	import InferixInnovatedMobile from '$images/photos/InferixInnovatedMobile.png';
 	import Saos from 'saos';
@@ -12,6 +10,7 @@
 	import Actif3D from '$images/png/actif3D.svg';
 	import House3D from '$images/png/house3d.svg';
 	import MetaCity from '$images/png/metacity.svg';
+	import ZoneNine from '$images/png/ZoneNine.png';
 	import SystemArchitecture from "$components/body/SystemArchitecture.svelte";
 	import Technologies from "$components/body/Technologies.svelte";
 	import RoadMapMobile from "$components/body/RoadMapMobile.svelte";
@@ -36,6 +35,12 @@
 			title: 'Metacity',
 			img: { name: MetaCity, height: '76px' },
 			href: 'https://citiverse.io/'
+		},
+		{
+			id: 4,
+			title: 'ZoneNine',
+			img: { name: ZoneNine, height: '76px' },
+			href: 'https://zone9survival.com/'
 		}
 	];
 </script>
@@ -72,7 +77,7 @@
 			{/if}
 			{#if ((screenSize<768))}
 				<img
-						src={InferixInnovatedMobile}
+						src={InferixInnovated}
 						class="w-[100%] md:flex pb-[60px] object-cover"
 						alt="inferix circle"
 				/>
@@ -154,7 +159,8 @@
 		width: 100%;
 		height: 100%;
 		display: flex;
-		justify-content: center;
+		flex-direction: row;
+		justify-content: space-between;
 		align-items: center;
 		border-radius: 24px;
 	}
@@ -201,7 +207,10 @@
 		line-height: 48px; /* 150% */
 	}
 	.Innovated-bg {
+		display: flex;
+		flex-direction: column;
 		background: #212023;
+		gap: 50px;
 	}
 	@media screen and (max-width: 900px) {
 		.partnerDiv {
@@ -209,12 +218,12 @@
 			height: auto;
 			flex-direction: column;
 			align-items: center;
+			padding: 0px 10px;
 		}
 
 		.partnerImg {
-			width: 280px;
+			width: 100%;
 			height: 150px;
-			padding: 20px;
 			margin-bottom: 15px;
 		}
 
