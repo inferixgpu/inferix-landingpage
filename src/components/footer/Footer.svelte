@@ -4,6 +4,7 @@
     import X from '$images/icons/X.svg';
     import D from '$images/icons/D.svg';
     import M from '$images/icons/M.svg';
+    import Y from '$images/icons/Ytb.svg';
 
     import footerVideo from '$videos/Footer.mp4';
     import {Modal} from "flowbite-svelte";
@@ -20,6 +21,8 @@
         {id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X},
         {id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M},
         {id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D},
+        {id: 4, name: 'Youtube', href: 'https://Youtube.com/inferixgpu', icon: Y},
+        
     ];
     let screenSize: number;
 
