@@ -169,11 +169,11 @@
 	<div class="    mx-auto pt-[0px] box-border">
 		<div class="overflow-hidden mx-auto relative">
 			{#if screenSize > 768}
-				<video autoplay muted loop playsinline class="h-[175px] md:h-[1000px] w-full object-cover">
+				<video autoplay muted loop playsinline class="h-[175px] md:h-[800px] w-full object-cover">
 					<source src={InferixIntro} type="video/mp4" />
 				</video>
 			{:else}
-				<video autoplay muted loop playsinline style="height: 800px" class="w-full object-cover">
+				<video autoplay muted loop playsinline style="height: 700px" class="w-full object-cover">
 					<source src={InferixIntro} type="video/mp4" />
 				</video>
 			{/if}
