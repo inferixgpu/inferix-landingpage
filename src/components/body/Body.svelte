@@ -1,6 +1,5 @@
 <script lang="ts">
-	import InferixInnovated from '$images/png/InferixInnovated.png';
-	import InferixInnovatedMobile from '$images/photos/InferixInnovatedMobile.png';
+	import Frame from '$images/png/Frame.png';
 	import Saos from 'saos';
 	import Industries from './Industries.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
@@ -68,20 +67,14 @@
 			</div>
 		</Saos>
 		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-			{#if (screenSize>768)}
+
 				<img
-						src={InferixInnovated}
+						src={Frame}
 						class="mx-auto mt-[44px] md:flex pb-[60px]"
 						alt="inferix circle"
 				/>
-			{/if}
-			{#if ((screenSize<768))}
-				<img
-						src={InferixInnovated}
-						class="w-[100%] md:flex pb-[60px] object-cover"
-						alt="inferix circle"
-				/>
-			{/if}
+
+			
 		</Saos>
 <!--		<Saos once top="100" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>-->
 <!--			<img-->
