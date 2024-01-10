@@ -21,7 +21,7 @@
         {id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X},
         {id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M},
         {id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D},
-        {id: 4, name: 'Youtube', href: 'https://Youtube.com/inferixgpu', icon: Y},
+        {id: 4, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y},
         
     ];
     let screenSize: number;
