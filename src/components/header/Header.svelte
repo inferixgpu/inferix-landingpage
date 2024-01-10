@@ -55,8 +55,8 @@
 	const medias = [
 		{ id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X },
 		{ id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M },
-		{id: 3, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y},
-		{ id: 4, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D },
+		{ id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D },
+		{ id: 4, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y },
 		{ id: 5, name: 'Telegram', href: 'https://t.me/inferixgpu', icon: T }
 	];
 
@@ -170,9 +170,9 @@
 	</div>
 	<div class="    mx-auto pt-[0px] box-border">
 		<div class="overflow-hidden mx-auto relative">
-				<video autoplay muted loop playsinline class="h-[700px] md:h-full w-full object-cover">
-					<source src={InferixIntro} type="video/mp4" />
-				</video>		
+			<video autoplay muted loop playsinline class="h-[700px] md:h-full w-full object-cover">
+				<source src={InferixIntro} type="video/mp4" />
+			</video>
 			<div style="display: flex" class="video-overlay-container">
 				<div class="text">
 					{#if textIndex === 0}
