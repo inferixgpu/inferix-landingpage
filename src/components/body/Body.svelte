@@ -115,7 +115,7 @@
 									<img
 										src={partner.img.name}
 										alt={partner.img.name}
-										style={`height: ${partner.img.height}`}
+										style={`height: ${partner.img.height};object-fit:scale-down`}
 									/>
 								</a>
 							{/each}
@@ -126,7 +126,7 @@
 									<img
 										src={partner.img.name}
 										alt={partner.img.name}
-										style={`height: ${partner.img.height}`}
+										style={`height: ${partner.img.height}; object-fit:scale-down`}
 									/>
 								</a>
 							{/each}
@@ -135,7 +135,7 @@
 						{#each partners as partner (partner.id)}
 							<div class="partnerImg">
 								<a class="partnerLink" target="_blank" href={partner.href}>
-									<img src={partner.img.name} alt={partner.img.name} style={`height: ${partner.img.height}`}/>
+									<img src={partner.img.name} alt={partner.img.name} style={`height: ${partner.img.height};object-fit:scale-down`}/>
 								</a>
 							</div>
 						{/each}
