@@ -14,6 +14,7 @@
     import ThanhLe from '$images/avatars/thanh_le.svg';
     import JennyHanhNguyen from '$images/avatars/jenny_hanh_nguyen.png';
     import DuongPa from '$images/avatars/DuongPa.png';
+    import ThomasPham from '$images/avatars/thomas_pham.png';
 
     let screenSize: number;
 
@@ -106,9 +107,9 @@
 
 
         {
-            title: 'Duong PA',
-            avatar: DuongPa,
-            name: 'Duong PA',
+            title: 'Thomas Pham',
+            avatar: ThomasPham,
+            name: 'Thomas Pham',
             position: 'BLOCKCHAIN DEVELOPER',
             description: []
         },
