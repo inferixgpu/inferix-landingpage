@@ -2,12 +2,9 @@
 	import Close from '$images/icons/Close.svg';
 	import DownloadIcon from '$images/icons/Download.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
-	import InferixMobile from '$images/icons/InferixMobile.svg';
 	import MobileMenu from '$images/icons/MobileMenu.svg';
 	import IconScreen from '$images/icons/IconScreen.svg';
 	import IconGpu from '$images/icons/IconGpu.svg';
-	import InferixHeader from '$images/photos/InferixHeader.png';
-	import InferixHeaderMobile from '$images/photos/bgMobile.svg';
 	import InferixIntro from '$videos/InferixIntroLandingPage.mp4';
 
 	import Saos from 'saos';
