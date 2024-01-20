@@ -122,9 +122,7 @@
 	}
 
 	onMount(() => {
-		if (screenSize > 768) {
-			autoPlay();
-		}
+		autoPlay();
 	});
 </script>
 
