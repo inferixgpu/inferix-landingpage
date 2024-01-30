@@ -52,7 +52,7 @@
 				<div class="flex-col ml-[24px]">
 					<span class="text-[24px] font-bold">WebVR Auto-content</span>
 					<p class="text-[14px] font-light opacity-50">
-						Automated WebVR content creation from any kind of 3D datausing Inferix GPU lightmap
+						Automated WebVR content creation from any kind of 3D data using Inferix GPU lightmap
 						baking solution
 					</p>
 				</div>
