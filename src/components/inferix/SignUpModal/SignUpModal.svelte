@@ -13,7 +13,6 @@
             email = '';
             success = true;
         }
-        console.log({res})
     }
 
 </script>
