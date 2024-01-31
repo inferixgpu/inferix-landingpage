@@ -28,7 +28,7 @@
             contents: [
                 'Decentralized GPU MVP release',
                 'Partnership with rendering & AI business',
-                'Seed round funding'
+                'Inferix Worker MVP'
             ]
         },
         {
@@ -37,7 +37,7 @@
                 'Rendering Service beta release',
                 'Proof-of-Rendering and BMW model',
                 'Inferix Console Beta',
-                'Strategic round funding'
+                'Seed round & Strategic round funding'
             ]
         },
         {

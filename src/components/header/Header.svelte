@@ -9,6 +9,7 @@
 
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
+	import DownloadFailed from '$components/inferix/Modals/DownloadFailed.svelte';
 	import { Modal } from 'flowbite-svelte';
 
 	import { afterUpdate, onMount } from 'svelte';
@@ -62,6 +63,7 @@
 
 	let isOpen = false;
 	let showModal = false;
+	let downloadShowModal = false;
 
 	afterUpdate(() => {
 		if (typeof window !== 'undefined') {
@@ -90,6 +92,10 @@
 	const closeMenu = () => {
 		isOpen = false;
 	};
+
+	function downloadMacOS() {
+		downloadShowModal = true;
+	}
 
 	function handleClickTab(e: MouseEvent, id: number, href: string) {
 		if (id === 2) return;
@@ -229,7 +235,7 @@
 										<img src={DownloadIcon} alt="download" />
 										<span>Windows</span>
 									</a>
-									<a class="download-options" href="https://h3d.me/ifxaddonblendermac">
+									<a class="download-options" href="#" on:click={() => downloadMacOS()}>
 										<img src={DownloadIcon} alt="download" />
 										<span>MacOS</span>
 									</a>
@@ -245,7 +251,7 @@
 										<img src={DownloadIcon} alt="download" />
 										<span>Windows</span>
 									</a>
-									<a class="download-options" href="https://h3d.me/ifxworkermac">
+									<a class="download-options" href="#" on:click={() => downloadMacOS()}>
 										<img src={DownloadIcon} alt="download" />
 										<span>MacOS</span>
 									</a>
@@ -296,6 +302,9 @@
 			<img src={Close} alt="close icon" />
 		</div>
 	</div>
+	<Modal bind:open={downloadShowModal} defaultClass="!rounded-[20px]">
+		<DownloadFailed />
+	</Modal>
 	<Modal bind:open={showModal} defaultClass="!rounded-[20px]">
 		<SignUpModal />
 	</Modal>
