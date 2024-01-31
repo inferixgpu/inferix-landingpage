@@ -41,7 +41,7 @@
                                 <li>Rendering Service beta release</li>
                                 <li>Proof-of-Rendering and BMW model</li>
                                 <li>Inferix Console Beta</li>
-                                <li>Strategic round funding</li>
+                                <li>Seed round & Strategic round funding</li>
                             </ul>
                         </div>
                         <div class="absolute flex justify-end items-end right-[-13px] bottom-1/2">
@@ -88,7 +88,7 @@
                             <ul class="flex flex-col gap-3 opacity-60 text-[#FFF] text-[16px] font-normal leading-6 p-4">
                                 <li>Decentralized GPU MVP release</li>
                                 <li>Partnership with rendering & AI business</li>
-                                <li>Seed round funding</li>
+                                <li>Inferix Worker MVP</li>
                             </ul>
                         </div>
                 </div>
