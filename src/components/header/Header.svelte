@@ -127,8 +127,26 @@
 		}, 4000);
 	}
 
+	let is_close = false;
+
+	function scroll() {
+		if (window.innerWidth <= 800) return;
+		if (is_close) return;
+		const header = document.getElementById('header');
+		if (window.scrollY > 150) header.style.marginTop = '-40px';
+		else header.style.marginTop = 0;
+	}
+
+	function onCloseGuide() {
+		is_close = true;
+		const header = document.getElementById('header');
+		header.style.marginTop = '-40px';
+	}
+
 	onMount(() => {
 		autoPlay();
+
+		window.addEventListener('scroll', scroll);
 	});
 </script>
 
@@ -137,8 +155,59 @@
 <div class="bg-lightDark relative headerBackground">
 	<div
 		id="header"
-		class={`md:bg-[#141414] md:h-[97.4px] h-[58px] flex fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
+		class={`md:bg-[#141414]  flex flex-col fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
 	>
+		{#if screenSize > 800}
+			<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
+				<span>📌 Test & Win WL spot!</span><a
+					href="https://medium.com/@inferixgpu/guide-inferix-mvp-for-designers-and-gpu-providers-be4221142ed9"
+					>Read the full blog ⟶
+				</a>
+				<svg
+					on:click={() => onCloseGuide()}
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-x"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="#597e8d"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path d="M18 6l-12 12" />
+					<path d="M6 6l12 12" />
+				</svg>
+			</div>
+		{/if}
+		{#if screenSize < 800}
+			<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
+				<span>Test & Win WL spot!</span><a
+					href="https://medium.com/@inferixgpu/guide-inferix-mvp-for-designers-and-gpu-providers-be4221142ed9"
+					>Read the full blog ⟶</a
+				>
+				<svg
+					on:click={() => onCloseGuide()}
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-x"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="#597e8d"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path d="M18 6l-12 12" />
+					<path d="M6 6l12 12" />
+				</svg>
+			</div>
+		{/if}
+		<div />
 		<div class="container mx-auto md:mb-5 md:px-0 box-border md:pt-0">
 			<nav class="flex justify-between w-auto font-outfit font-normal">
 				<div class="flex md:gap-4 gap-2 md:items-center items-start">
@@ -311,6 +380,57 @@
 </div>
 
 <style lang="postcss">
+	#header {
+		margin-top: 0;
+		transition: margin-top 0.3s ease-in-out;
+	}
+
+	#header > div:nth-child(2) {
+		height: 40px;
+	}
+
+	.link_blog_desktop,
+	.link_blog {
+		position: relative;
+		width: 100%;
+		height: 40px;
+		background: linear-gradient(to right, #00d6d9, #00c085);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.link_blog_desktop > svg,
+	.link_blog > svg {
+		position: absolute;
+		right: 5px;
+		top: 50%;
+		transform: translateY(-50%);
+		cursor: pointer;
+	}
+
+	.link_blog_desktop > a,
+	.link_blog > a {
+		color: #000;
+		cursor: pointer;
+	}
+
+	.link_blog_desktop > a:hover,
+	.link_blog > a:hover {
+		opacity: 0.8;
+	}
+
+	@media screen and (max-width: 800px) {
+		#header {
+			transition: none;
+		}
+
+		#header > div:nth-child(2) {
+			height: 30px;
+		}
+	}
+
 	.video-overlay-container {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 		@apply overflow-hidden absolute left-0 right-0 top-0 bottom-0 justify-center md:flex justify-center items-center flex-col;
