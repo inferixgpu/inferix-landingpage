@@ -1,140 +1,148 @@
 <script lang="ts">
-    import SignUpModal from "$components/inferix/SignUpModal/SignUpModal.svelte";
-    import HeaderLogo from '$images/icons/HeaderLogo.svg';
-    import X from '$images/icons/X.svg';
-    import D from '$images/icons/D.svg';
-    import M from '$images/icons/M.svg';
-    import Y from '$images/icons/Ytb.svg';
+	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
+	import HeaderLogo from '$images/icons/HeaderLogo.svg';
+	import X from '$images/icons/X.svg';
+	import D from '$images/icons/D.svg';
+	import M from '$images/icons/M.svg';
+	import Y from '$images/icons/Ytb.svg';
 
-    import footerVideo from '$videos/Footer.mp4';
-    import {Modal} from "flowbite-svelte";
-    import Saos from "saos";
+	import footerVideo from '$videos/Footer.mp4';
+	import { Modal } from 'flowbite-svelte';
+	import Saos from 'saos';
 
-    let activeTab = 1;
-    let showModal = false
+	let activeTab = 1;
+	let showModal = false;
 
-    const setActiveTab = (tab: number) => {
-        activeTab = tab;
-    };
+	const setActiveTab = (tab: number) => {
+		activeTab = tab;
+	};
 
-    const medias = [
-        {id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X},
-        {id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M},
-        {id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D},
-        {id: 4, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y},
-        
-    ];
-    let screenSize: number;
+	const medias = [
+		{ id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X },
+		{ id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M },
+		{ id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D },
+		{ id: 4, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y }
+	];
+	let screenSize: number;
 
-    function showSignUpModal() {
-        showModal = true;
-    }
+	function showSignUpModal() {
+		//showModal = true;
+		window.location.href =
+			'https://medium.com/@inferixgpu/guide-inferix-mvp-for-designers-and-gpu-providers-be4221142ed9';
+	}
 </script>
 
-<svelte:window bind:innerWidth={screenSize}/>
+<svelte:window bind:innerWidth={screenSize} />
 
 <div class="bg-[#212023] pb-[41px] md:pt-[100px] pt-[100px] md:px-0 px-5 box-border">
-    <div
-            class="md:h-[435px] h-[266px] container mx-auto overflow-hidden relative z-30"
-    >
-        <div class="md:top-[-35%] top-[30%] absolute z-10">
-            <video width="1600" height="435" autoplay muted loop playsinline class="footerVideo">
-                <source src={footerVideo} type="video/mp4"/>
-            </video>
-        </div>
-        <div
-                class="md:h-[435px] h-[266px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-start z-10"
-        >
-            <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                <p
-                        class="font-outfit text-base md:text-[32px] leading-default mx-5 md:mx-[9vw]  box-border text-left font-medium text-white"
-                >
-                    "Join us as a GPU provider and let's build our ecosystem together, harnessing the power of GPUs for
-                    seamless rendering, accelerated Al, and groundbreaking innovation" </p>
-            </Saos>
-            <Saos once top="200" animation={"puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both"}>
-                <button
-                        on:click={showSignUpModal}
-                        class="text-white cursor-pointer hover:opacity-[0.8] font-outfit mx-5 md:mx-[9vw] text-lg text-center font-medium mt-[32px] md:mt-[32px] capitalize px-8 py-4 rounded-2xl bg-black"
-                >
-                    Join Inferix now
-                </button>
-            </Saos>
-        </div>
-    </div>
-    <div class=" container mx-auto mt-[39px] flex md:flex-row flex-col justify-between">
-        <div
-                class="flex md:gap-4 gap-2 md:order-1 order-2 md:flex-row flex-col items-center md:items-start mt-8 md:mt-0"
-        >
-            <a href="https://inferix.io/">
-                <img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]"/>
-            </a>
-            <p class="font-base font-outfit font-normal mt-4 md:mt-0 text-white whitespace-nowrap">
-                Decentralized GPU Network
-            </p>
-        </div>
-        <div
-                class="flex flex-row md:gap-10 justify-center items-center gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
-        >
-            {#each medias as media (media.id)}
-                <div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
-                    <a target="_blank" href={media.href}><img src="{media.icon}"></a>
-                </div>
-            {/each}
-        </div>
-    </div>
-    <div class="container mx-auto">
-        <p class="font-outfit text-sm font-normal md:mt-[18px] mt-2 md:text-left text-center">
-            © 2023 Inferix. All rights reserved.
-        </p>
-    </div>
+	<div class="md:h-[435px] h-[266px] container mx-auto overflow-hidden relative z-30">
+		<div class="md:top-[-35%] top-[30%] absolute z-10">
+			<video width="1600" height="435" autoplay muted loop playsinline class="footerVideo">
+				<source src={footerVideo} type="video/mp4" />
+			</video>
+		</div>
+		<div
+			class="md:h-[435px] h-[266px] overlay absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-start z-10"
+		>
+			<Saos
+				once
+				top="200"
+				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
+			>
+				<p
+					class="font-outfit text-base md:text-[32px] leading-default mx-5 md:mx-[9vw] box-border text-left font-medium text-white"
+				>
+					"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of
+					GPUs for seamless rendering, accelerated Al, and groundbreaking innovation"
+				</p>
+			</Saos>
+			<Saos
+				once
+				top="200"
+				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
+			>
+				<button
+					on:click={showSignUpModal}
+					class="text-white cursor-pointer hover:opacity-[0.8] font-outfit mx-5 md:mx-[9vw] text-lg text-center font-medium mt-[32px] md:mt-[32px] capitalize px-8 py-4 rounded-2xl bg-black"
+				>
+					Join Inferix now
+				</button>
+			</Saos>
+		</div>
+	</div>
+	<div class=" container mx-auto mt-[39px] flex md:flex-row flex-col justify-between">
+		<div
+			class="flex md:gap-4 gap-2 md:order-1 order-2 md:flex-row flex-col items-center md:items-start mt-8 md:mt-0"
+		>
+			<a href="https://inferix.io/">
+				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
+			</a>
+			<p class="font-base font-outfit font-normal mt-4 md:mt-0 text-white whitespace-nowrap">
+				Decentralized GPU Network
+			</p>
+		</div>
+		<div
+			class="flex flex-row md:gap-10 justify-center items-center gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
+		>
+			{#each medias as media (media.id)}
+				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
+					<a target="_blank" href={media.href}><img src={media.icon} /></a>
+				</div>
+			{/each}
+		</div>
+	</div>
+	<div class="container mx-auto">
+		<p class="font-outfit text-sm font-normal md:mt-[18px] mt-2 md:text-left text-center">
+			© 2023 Inferix. All rights reserved.
+		</p>
+	</div>
 
-    <Modal bind:open={showModal} defaultClass="!rounded-[20px]">
-        <SignUpModal/>
-    </Modal>
+	<Modal bind:open={showModal} defaultClass="!rounded-[20px]">
+		<SignUpModal />
+	</Modal>
 </div>
 
 <style>
-    .overlay {
-        background: var(--4, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
-    }
+	.overlay {
+		background: var(--4, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+	}
 
-    .active {
-        color: var(--green);
-    }
+	.active {
+		color: var(--green);
+	}
 
-    .footerVideo {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        z-index: 0;
-        border-radius: 32px;
-    }
+	.footerVideo {
+		transform: scale(1);
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		z-index: 0;
+		border-radius: 32px;
+	}
 
-    @media screen and (max-width: 767px) {
-        .mediaContainer {
-            margin-left: auto;
-            margin-right: auto;
-        }
+	@media screen and (max-width: 767px) {
+		.mediaContainer {
+			margin-left: auto;
+			margin-right: auto;
+		}
 
-        .footerVideo {
-            transform: scale(2.5);
-            -webkit-transform: scale(2.5);
-            -moz-transform: scale(2.5);
-            z-index: 0;
-        }
-    }
+		.footerVideo {
+			transform: scale(2.5);
+			-webkit-transform: scale(2.5);
+			-moz-transform: scale(2.5);
+			z-index: 0;
+		}
+	}
 
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
-        .mediaContainer {
-            right: 0;
-        }
+	@media screen and (min-width: 768px) and (max-width: 1023px) {
+		.mediaContainer {
+			right: 0;
+		}
 
-        .footerVideo {
-            transform: scale(2);
-            -webkit-transform: scale(2);
-            -moz-transform: scale(2);
-            z-index: 0;
-        }
-    }
+		.footerVideo {
+			transform: scale(2);
+			-webkit-transform: scale(2);
+			-moz-transform: scale(2);
+			z-index: 0;
+		}
+	}
 </style>
