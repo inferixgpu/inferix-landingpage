@@ -130,9 +130,12 @@
 	let is_close = false;
 
 	function scroll() {
-		if (window.innerWidth <= 800) return;
 		if (is_close) return;
 		const header = document.getElementById('header');
+		if (window.innerWidth <= 800) {
+			header.style.marginTop = 0;
+			return;
+		}
 		if (window.scrollY > 150) header.style.marginTop = '-40px';
 		else header.style.marginTop = 0;
 	}
@@ -143,10 +146,18 @@
 		header.style.marginTop = '-40px';
 	}
 
+	let forceUpdate = 0;
+
+	function updateUI() {
+		forceUpdate += 1;
+		scroll();
+	}
+
 	onMount(() => {
 		autoPlay();
 
 		window.addEventListener('scroll', scroll);
+		window.addEventListener('resize', updateUI);
 	});
 </script>
 
@@ -184,7 +195,7 @@
 		{/if}
 		{#if screenSize < 800}
 			<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
-				<span>Test & Win WL spot!</span><a
+				<span>📌 Test & Win WL spot!</span><a
 					href="https://medium.com/@inferixgpu/guide-inferix-mvp-for-designers-and-gpu-providers-be4221142ed9"
 					>Read the full blog ⟶</a
 				>
@@ -414,6 +425,11 @@
 	.link_blog > a {
 		color: #000;
 		cursor: pointer;
+	}
+
+	.link_blog > a,
+	.link_blog > span {
+		font-size: 14px;
 	}
 
 	.link_blog_desktop > a:hover,
