@@ -27,8 +27,10 @@
 
 	function showSignUpModal() {
 		//showModal = true;
-		window.location.href =
-			'https://medium.com/@inferixgpu/guide-inferix-mvp-for-designers-and-gpu-providers-be4221142ed9';
+		// window.location.href =
+		// 'https://medium.com/@inferixgpu/guide-inferix-mvp-for-designers-and-gpu-providers-be4221142ed9';
+		window.location.href = 'https://docs.inferix.io/mvp-tutorial';
+		//window.open('https://docs.inferix.io/mvp-tutorial', '_blank');
 	}
 </script>
 
