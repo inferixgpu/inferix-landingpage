@@ -11,6 +11,7 @@
 	import MetaCity from '$images/png/metacity.png';
 	import Nvidia from '$images/png/nvidia.png';
 	import ZoneNine from '$images/png/ZoneNine.png';
+	import DePINSurf from '$images/png/DePINSurf.png';
 	import SystemArchitecture from '$components/body/SystemArchitecture.svelte';
 	import Technologies from '$components/body/Technologies.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
@@ -47,6 +48,12 @@
 			title: 'ZoneNine',
 			img: { name: ZoneNine, height: '85px' },
 			href: 'https://zone9survival.com/'
+		},
+		{
+			id: 6,
+			title: 'DePIN Surf',
+			img: { name: DePINSurf, height: '85px' },
+			href: 'https://depin.surf'
 		}
 	];
 </script>
@@ -121,7 +128,7 @@
 							{/each}
 						</div>
 						<div class="partnerImg mt-[65px]">
-							{#each partners.slice(3, 5) as partner (partner.id)}
+							{#each partners.slice(3, 6) as partner (partner.id)}
 								<a class="partnerLink" target="_blank" href={partner.href}>
 									<img
 										src={partner.img.name}
