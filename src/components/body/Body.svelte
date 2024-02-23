@@ -21,39 +21,39 @@
 	const partners = [
 		{
 			id: 1,
-			title: 'Actif3d',
-			img: { name: Actif3D, height: '85px' },
-			href: 'https://actif3d.com/'
-		},
-		{
-			id: 2,
-			title: 'MetaCity',
-			img: { name: MetaCity, height: '75px' },
-			href: 'https://citiverse.io/'
-		},
-		{
-			id: 3,
 			title: 'House3D',
 			img: { name: House3D, height: '85px' },
 			href: 'https://house3d.com/'
 		},
 		{
+			id: 2,
+			title: 'DePIN Surf',
+			img: { name: DePINSurf, height: '85px' },
+			href: 'https://depin.surf'
+		},
+		{
+			id: 3,
+			title: 'Actif3d',
+			img: { name: Actif3D, height: '85px' },
+			href: 'https://actif3d.com/'
+		},
+		{
 			id: 4,
+			title: 'MetaCity',
+			img: { name: MetaCity, height: '75px' },
+			href: 'https://citiverse.io/'
+		},
+		{
+			id: 5,
 			title: 'Nvidia',
 			img: { name: Nvidia, height: '85px' },
 			href: 'https://www.nvidia.com/en-us/startups/'
 		},
 		{
-			id: 5,
+			id: 6,
 			title: 'ZoneNine',
 			img: { name: ZoneNine, height: '85px' },
 			href: 'https://zone9survival.com/'
-		},
-		{
-			id: 6,
-			title: 'DePIN Surf',
-			img: { name: DePINSurf, height: '85px' },
-			href: 'https://depin.surf'
 		}
 	];
 </script>
@@ -142,7 +142,11 @@
 						{#each partners as partner (partner.id)}
 							<div class="partnerImg">
 								<a class="partnerLink" target="_blank" href={partner.href}>
-									<img src={partner.img.name} alt={partner.img.name} style={`height: ${partner.img.height};object-fit:scale-down`}/>
+									<img
+										src={partner.img.name}
+										alt={partner.img.name}
+										style={`height: ${partner.img.height};object-fit:scale-down`}
+									/>
 								</a>
 							</div>
 						{/each}
