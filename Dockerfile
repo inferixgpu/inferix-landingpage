@@ -15,7 +15,6 @@ COPY --from=build /app/package.json .
 COPY --from=build /app/.svelte-kit .
 
 ENV NODE_ENV=production
-RUN yarn install
 
 EXPOSE 3000
 CMD ["node", "index.js"]
