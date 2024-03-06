@@ -170,8 +170,7 @@
 	>
 		{#if screenSize > 800}
 			<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
-				<span>📌 Test & Win WL spot!</span><a
-					href="https://medium.com/@inferixgpu/guide-inferix-mvp-for-designers-and-gpu-providers-be4221142ed9"
+				<span>📌 MVP is live!</span><a href="https://docs.inferix.io/mvp-tutorial"
 					>Read the full blog ⟶
 				</a>
 				<svg
@@ -195,8 +194,7 @@
 		{/if}
 		{#if screenSize < 800}
 			<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
-				<span>📌 Test & Win WL spot!</span><a
-					href="https://medium.com/@inferixgpu/guide-inferix-mvp-for-designers-and-gpu-providers-be4221142ed9"
+				<span>📌 MVP is live!</span><a href="https://docs.inferix.io/mvp-tutorial"
 					>Read the full blog ⟶</a
 				>
 				<svg
