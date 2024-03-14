@@ -12,6 +12,7 @@
 	import Nvidia from '$images/png/nvidia.png';
 	import ZoneNine from '$images/png/ZoneNine.png';
 	import DePINSurf from '$images/png/DePINSurf.png';
+	import Network3 from '$images/png/Network3.png';
 	import SystemArchitecture from '$components/body/SystemArchitecture.svelte';
 	import Technologies from '$components/body/Technologies.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
@@ -54,7 +55,13 @@
 			title: 'ZoneNine',
 			img: { name: ZoneNine, height: '85px' },
 			href: 'https://zone9survival.com/'
-		}
+		},
+		{
+			id: 7,
+			title: 'Network3',
+			img: { name: Network3, height: '85px' },
+			href: 'https://network3.io/'
+		},
 	];
 </script>
 
@@ -114,7 +121,7 @@
 				top="300"
 				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
 			>
-				<div class="partnerDiv mx-auto">
+				<div class="partnerDiv mx-auto md:mt-[65px]">
 					{#if screenSize > 900}
 						<div class="partnerImg">
 							{#each partners.slice(0, 3) as partner (partner.id)}
@@ -138,6 +145,17 @@
 								</a>
 							{/each}
 						</div>
+						<div class="partnerImg mt-[65px]">
+							{#each partners.slice(6, 7) as partner (partner.id)}
+								<a class="partnerLink" target="_blank" href={partner.href}>
+									<img
+											src={partner.img.name}
+											alt={partner.img.name}
+											style={`height: ${partner.img.height}; max-width:350px; object-fit:scale-down`}
+									/>
+								</a>
+							{/each}
+						</div>
 					{:else}
 						{#each partners as partner (partner.id)}
 							<div class="partnerImg">
@@ -145,7 +163,7 @@
 									<img
 										src={partner.img.name}
 										alt={partner.img.name}
-										style={`height: ${partner.img.height};object-fit:scale-down`}
+										style={`height: ${partner.img.height};max-width:300px;object-fit:scale-down`}
 									/>
 								</a>
 							</div>
