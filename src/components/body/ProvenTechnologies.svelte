@@ -12,10 +12,10 @@
 <svelte:window bind:innerWidth={screenSize}/>
 
 <div
-        class="px-10 py-8 bg-[#212023] flex relative bg-cover bg-[url('$images/photos/Technologies.png')]"
+        class="bg-[#212023] bg-cover bg-[url('$images/photos/Technologies.png')]"
 >
     {#if screenSize > 900}
-        <div class="flex flex-col w-full">
+        <div class="flex flex-col w-full mx-auto box-border container">
             <div class="text-[48px] leading-[72px] font-bold">
                 Proven Technologies
             </div>
@@ -45,7 +45,7 @@
                     </p>
                 </div>
             </div>
-            <div class="grid grid-cols-3 h-[292px] gap-10">
+            <div class="grid grid-cols-3 gap-10 mb-auto">
                 <div class="my-auto">
                     <img class="w-[320px] h-[80px]" src={House3D} alt="House3D"/>
                 </div>
@@ -56,18 +56,19 @@
                     </span>
                 </div>
                 <div class="flex flex-col opacity-80">
-                    <span class="text-[32px] font-bold leading-[50px]">20,000+ pro</span>
+                    <span class="text-[32px] font-bold leading-[50px]">1,000,000+ designs</span>
                     <span class="font-light leading-[36px] text-[36px]">
-                    active professional designers
+                    design renderings per year using H3D Distributed Rendering
                     </span>
                 </div>
+
                 <div class="my-auto">
                     <img src={Actif3D} alt="House3D"/>
                 </div>
                 <div class="flex flex-col opacity-80">
-                    <span class="text-[32px] font-bold leading-[50px]">1,000,000+ designs</span>
+                    <span class="text-[32px] font-bold leading-[50px]">20,000+ pro</span>
                     <span class="font-light leading-[36px] text-[36px]">
-                    design renderings per year using H3D Distributed Rendering
+                    active professional designers
                     </span>
                 </div>
                 <div class="flex flex-col opacity-80">
@@ -80,7 +81,7 @@
             </div>
         </div>
     {:else}
-        <div class="flex flex-col w-full items-center gap-6">
+        <div class="flex flex-col w-full items-center gap-6 mx-auto box-border px-2">
             <div class="text-[32px] font-bold leading-[48px]">Proven Technologies</div>
             <div class="flex flex-col gap-5">
                 <div class="flex flex-row h-[56px] gap-5">
@@ -108,7 +109,7 @@
                     </p>
                 </div>
             </div>
-            <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-5 w-[280px] px-2">
                 <div class="flex flex-col opacity-80 ">
                     <span class="text-[24px] font-bold leading-[30px]">260,000+ users</span>
                     <span class="font-light leading-[24px] text-[14px]">
