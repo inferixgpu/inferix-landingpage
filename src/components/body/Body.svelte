@@ -7,7 +7,7 @@
 	import MpvWalkthrough from './MpvWalkthrough.svelte';
 
 	import Actif3D from '$images/png/actif3D.svg';
-	import House3D from '$images/png/house3d.png';
+	import House3D from '$images/png/House3D_white.png';
 	import MetaCity from '$images/png/metacity.png';
 	import Nvidia from '$images/png/nvidia.png';
 	import ZoneNine from '$images/png/ZoneNine.png';
