@@ -5,6 +5,6 @@
 	import '../theme.css';
 </script>
 
-<div class="mx-auto">
+<div>
 	<slot />
 </div>

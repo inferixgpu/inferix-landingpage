@@ -16,6 +16,7 @@
 	import SystemArchitecture from '$components/body/SystemArchitecture.svelte';
 	import Technologies from '$components/body/Technologies.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
+	import ProvenTechnologies from "$components/body/ProvenTechnologies.svelte";
 
 	let screenSize: number;
 
@@ -101,7 +102,8 @@
 
 	<MpvWalkthrough />
 	<SystemArchitecture />
-	<Technologies />
+<!--	<Technologies />-->
+	<ProvenTechnologies/>
 	<Industries />
 	<div class="bg-[#212023]">
 		<div
@@ -163,7 +165,7 @@
 									<img
 										src={partner.img.name}
 										alt={partner.img.name}
-										style={`height: ${partner.img.height};max-width:300px;object-fit:scale-down`}
+										style={`height: ${partner.img.height};object-fit:scale-down`}
 									/>
 								</a>
 							</div>
