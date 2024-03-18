@@ -148,7 +148,7 @@
         <div class="w-full h-full mt-[80px]">
             <div class="team-leader grid lg:grid-cols-5 md:grid-cols-6 grid-cols-1 gap-y-20 mb-20">
                 {#each teamLeaders as tl, index (index)}
-                    {#if screenSize < 1024 && screenSize > 768}
+                    {#if screenSize < 1024 && screenSize > 767}
                         {#if index < 3}
                             <div class="col-span-2 flex flex-col items-center gap-6 md:w-[180px] xl:w-[200px] max-w-[328px] mx-auto">
                                 <img src="{tl.avatar}" class="w-[160px] h-[160px]">
@@ -197,15 +197,15 @@
                 {#each teamMembers as tm}
                     {#if tm.title}
                         {#if screenSize > 350}
-                            <div class="flex flex-col items-center gap-6 p-6">
+                            <div class="flex flex-col items-center gap-6 py-6">
                                 <img src="{tm.avatar}" class="h-[120px] w-[120px]"/>
                                 <div class="flex flex-col gap-1">
-                                    <p class="text-center text-[20px] leading-[30px] font-bold whitespace-nowrap">{tm.name}</p>
+                                    <p class="text-center text-[20px] leading-[30px] font-bold">{tm.name}</p>
                                     <p class="text-center font-normal text-[12px] leading-[20px] whitespace-nowrap">{tm.position}</p>
                                 </div>
                             </div>
                         {:else }
-                            <div class="flex flex-col items-center gap-6 p-6">
+                            <div class="flex flex-col items-center gap-6 py-6">
                                 <img src="{tm.avatar}" class="h-[80px] w-[80px]"/>
                                 <div class="flex flex-col gap-1">
                                     <p class="text-center text-[20px] leading-[30px] font-bold ">{tm.name}</p>
@@ -215,14 +215,14 @@
                         {/if}
                     {:else }
                         {#if screenSize > 380}
-                            <div class="flex justify-center p-6">
+                            <div class="flex justify-center py-6">
                                 <div class="flex lg:w-[220px] md:w-full flex-col justify-center lg:items-center border-[2px] border-[#2D2C30] rounded-[40px]">
                                     <p class="text-[20px] text-center font-bold leading-[30px] self-stretch p-7">and 10+
                                         members more</p>
                                 </div>
                             </div>
                         {:else }
-                            <div class="flex justify-center p-6">
+                            <div class="flex justify-center py-6">
                                 <div class="flex w-[100px] md:w-full flex-col justify-center lg:items-center border-[2px] border-[#2D2C30] rounded-[40px]">
                                     <p class="text-[20px] text-center font-bold leading-[30px] self-stretch p-1">and 10+
                                         members more</p>

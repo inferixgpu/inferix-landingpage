@@ -247,9 +247,9 @@
 			</nav>
 		</div>
 	</div>
-	<div class="    mx-auto pt-[0px] box-border">
+	<div class="mx-auto pt-[0px] box-border">
 		<div class="overflow-hidden mx-auto relative">
-			<video autoplay muted loop playsinline class="h-[700px] md:h-full w-full object-cover">
+			<video autoplay muted loop playsinline class="h-[700px] w-full object-cover">
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 			<div style="display: flex" class="video-overlay-container">
