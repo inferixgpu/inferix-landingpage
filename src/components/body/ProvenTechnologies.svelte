@@ -3,7 +3,7 @@
     import ProofOfRendering from '$images/icons/ProofOfRendering.svg';
     import DataHub from '$images/icons/DataHub.svg';
     import Vr from '$images/icons/Vr.svg';
-    import House3D from '$images/png/House3D_white.png';
+    import House3D from '$images/png/House3D_white.svg';
     import Actif3D from '$images/png/actif3D.svg'
 
     let screenSize: number;
@@ -12,7 +12,7 @@
 <svelte:window bind:innerWidth={screenSize}/>
 
 <div
-        class="bg-[#212023] bg-cover bg-[url('$images/photos/Technologies.png')]"
+        class="pt-20 pb-10 bg-[#212023] bg-cover bg-[url('$images/photos/Technologies.png')]"
 >
     {#if screenSize > 900}
         <div class="flex flex-col w-full mx-auto box-border container">
@@ -40,40 +40,41 @@
                 </div>
                 <div class="flex flex-row bg-[#2D2C30] p-10 gap-10 h-[187px]">
                     <img src={Vr} alt="Box"/>
-                    <p class="text-[32px] leading-[48px] my-auto">
+                    <p class="text-[32px] leading-[48px] my-auto max-w-[236px]">
                         WebVR Auto-content
                     </p>
                 </div>
             </div>
             <div class="grid grid-cols-3 gap-10 mb-auto">
                 <div class="my-auto">
-                    <img class="w-[320px] h-[80px]" src={House3D} alt="House3D"/>
+                    <img class="h-[80px]" src={House3D} alt="House3D"/>
                 </div>
                 <div class="flex flex-col opacity-80">
                     <span class="text-[32px] font-bold leading-[50px]">260,000+ users</span>
-                    <span class="font-light leading-[36px] text-[36px]">
+                    <span class="font-light leading-[36px] text-[24px]">
                     from Southeast Asia and India
                     </span>
                 </div>
-                <div class="flex flex-col opacity-80">
-                    <span class="text-[32px] font-bold leading-[50px]">1,000,000+ designs</span>
-                    <span class="font-light leading-[36px] text-[36px]">
+                <div class="flex flex-col opacity-80 ">
+                    <span class="text-[32px] font-bold leading-[50px] ">1,000,000+ designs</span>
+                    <span class="font-light leading-[36px] text-[24px] ">
                     design renderings per year using H3D Distributed Rendering
                     </span>
                 </div>
 
-                <div class="my-auto">
-                    <img src={Actif3D} alt="House3D"/>
+                <div class="">
+                    <img class="object-cover" src={Actif3D} alt="Actif3D"/>
                 </div>
                 <div class="flex flex-col opacity-80">
                     <span class="text-[32px] font-bold leading-[50px]">20,000+ pro</span>
-                    <span class="font-light leading-[36px] text-[36px]">
+                    <span class="font-light leading-[36px] text-[24px]">
                     active professional designers
                     </span>
                 </div>
-                <div class="flex flex-col opacity-80">
+                <div class="flex flex-col opacity-80 ">
                     <span class="text-[32px] font-bold leading-[50px]">500,000+ 3D models</span>
-                    <span class="font-light leading-[36px] text-[36px]">
+                    <span class="font-light leading-[36px] text-[24px]">
+                    <span class="font-light leading-[36px] text-[24px] ">
                     of furniture and home accessories already inputted
                     </span>
                 </div>
