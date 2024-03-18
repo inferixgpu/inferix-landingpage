@@ -40,7 +40,7 @@
                 </div>
                 <div class="flex flex-row bg-[#2D2C30] p-10 gap-10 h-[187px]">
                     <img src={Vr} alt="Box"/>
-                    <p class="text-[32px] leading-[48px] my-auto max-w-[236px]">
+                    <p class="text-[32px] leading-[48px] my-auto">
                         WebVR Auto-content
                     </p>
                 </div>
