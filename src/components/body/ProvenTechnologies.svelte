@@ -81,7 +81,7 @@
             </div>
         </div>
     {:else}
-        <div class="flex flex-col w-full items-center gap-6 mx-auto box-border containercontainer">
+        <div class="flex flex-col w-full items-center gap-6 mx-auto box-border px-2">
             <div class="text-[32px] font-bold leading-[48px]">Proven Technologies</div>
             <div class="flex flex-col gap-5">
                 <div class="flex flex-row h-[56px] gap-5">
@@ -109,7 +109,7 @@
                     </p>
                 </div>
             </div>
-            <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-5 w-[280px] px-2">
                 <div class="flex flex-col opacity-80 ">
                     <span class="text-[24px] font-bold leading-[30px]">260,000+ users</span>
                     <span class="font-light leading-[24px] text-[14px]">
