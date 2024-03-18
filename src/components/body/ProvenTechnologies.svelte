@@ -112,25 +112,25 @@
                 </div>
             </div>
             <div class="flex flex-col gap-5 w-[280px] px-2">
-                <div class="flex flex-col opacity-80 ">
+                <div class="flex flex-col">
                     <span class="text-[24px] font-bold leading-[30px]">260,000+ users</span>
                     <span class="font-light leading-[24px] text-[14px]">
                     from Southeast Asia and India
                     </span>
                 </div>
-                <div class="flex flex-col opacity-80 ">
+                <div class="flex flex-col ">
                     <span class="text-[24px] font-bold leading-[30px]">1,000,000+ designs</span>
                     <span class="font-light leading-[24px] text-[14px]">
                     design renderings per year using H3D Distributed Rendering
                     </span>
                 </div>
-                <div class="flex flex-col opacity-80 ">
+                <div class="flex flex-col ">
                     <span class="text-[24px] font-bold leading-[30px]">20,000+ pro</span>
                     <span class="font-light leading-[24px] text-[14px]">
                     active professional designers
                     </span>
                 </div>
-                <div class="flex flex-col opacity-80">
+                <div class="flex flex-col">
                     <span class="text-[24px] font-bold leading-[30px]">500,000+ 3D models</span>
                     <span class="font-light leading-[24px] text-[14px]">
                     of furniture and home accessories already inputted
