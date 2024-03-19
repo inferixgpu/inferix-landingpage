@@ -7,7 +7,7 @@
 	import MpvWalkthrough from './MpvWalkthrough.svelte';
 
 	import Actif3D from '$images/png/actif3D.svg';
-	import House3D from '$images/png/House3D_white.png';
+	import House3D from '$images/png/House3D_white.svg';
 	import MetaCity from '$images/png/metacity.png';
 	import Nvidia from '$images/png/nvidia.png';
 	import ZoneNine from '$images/png/ZoneNine.png';
@@ -24,7 +24,7 @@
 		{
 			id: 1,
 			title: 'House3D',
-			img: { name: House3D, height: '85px' },
+			img: { name: House3D, height: '70px' },
 			href: 'https://house3d.com/'
 		},
 		{
