@@ -5,6 +5,7 @@
 	import D from '$images/icons/D.svg';
 	import M from '$images/icons/M.svg';
 	import Y from '$images/icons/Ytb.svg';
+	import W from '$images/icons/warpcast.svg';
 
 	import footerVideo from '$videos/Footer.mp4';
 	import { Modal } from 'flowbite-svelte';
@@ -21,7 +22,8 @@
 		{ id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X },
 		{ id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M },
 		{ id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D },
-		{ id: 4, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y }
+		{ id: 4, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y },
+		{ id: 5, name: 'Warpcast', href: 'https://warpcast.com/inferixgpu', icon: W }
 	];
 	let screenSize: number;
 
@@ -145,6 +147,10 @@
 			-webkit-transform: scale(2);
 			-moz-transform: scale(2);
 			z-index: 0;
+		}
+
+		.container > div:nth-child(2) {
+			gap: 1.6rem;
 		}
 	}
 </style>
