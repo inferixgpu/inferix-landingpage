@@ -16,7 +16,7 @@
 	import X from '$images/icons/X.svg';
 	import M from '$images/icons/M.svg';
 	import D from '$images/icons/D.svg';
-	import T from '$images/icons/T.svg';
+	import W from '$images/icons/warpcast.svg';
 	import Y from '$images/icons/Ytb.svg';
 
 	let textIndex = 0;
@@ -55,7 +55,7 @@
 		{ id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M },
 		{ id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D },
 		{ id: 4, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y },
-		{ id: 5, name: 'Telegram', href: 'https://t.me/inferixgpu', icon: T }
+		{ id: 5, name: 'Warpcast', href: 'https://warpcast.com/inferixgpu', icon: W }
 	];
 
 	let screenSize: number;
