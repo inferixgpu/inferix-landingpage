@@ -12,11 +12,12 @@
 	import Nvidia from '$images/png/nvidia.png';
 	import ZoneNine from '$images/png/ZoneNine.png';
 	import DePINSurf from '$images/png/DePINSurf.png';
+	import IoTex from '$images/png/IoTex.svg';
 	import Network3 from '$images/png/Network3.png';
 	import SystemArchitecture from '$components/body/SystemArchitecture.svelte';
 	import Technologies from '$components/body/Technologies.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
-	import ProvenTechnologies from "$components/body/ProvenTechnologies.svelte";
+	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
 
 	let screenSize: number;
 
@@ -24,45 +25,55 @@
 		{
 			id: 1,
 			title: 'House3D',
-			img: { name: House3D, height: '70px' },
+			img: { name: House3D, height: '70px', mobile_height: '40px' },
 			href: 'https://house3d.com/'
 		},
 		{
 			id: 2,
 			title: 'DePIN Surf',
-			img: { name: DePINSurf, height: '85px' },
+			img: { name: DePINSurf, height: '85px', mobile_height: '45px' },
 			href: 'https://depin.surf'
+		},
+		{
+			id: 8,
+			title: 'IoTex',
+			img: {
+				name: IoTex,
+				height: '85px',
+				mobile_height: '54px'
+			},
+			href: 'https://iotex.io/'
 		},
 		{
 			id: 3,
 			title: 'Actif3d',
-			img: { name: Actif3D, height: '85px' },
+			img: { name: Actif3D, height: '85px', mobile_height: '44px' },
 			href: 'https://actif3d.com/'
 		},
 		{
 			id: 4,
 			title: 'MetaCity',
-			img: { name: MetaCity, height: '75px' },
+			img: { name: MetaCity, height: '75px', mobile_height: '40px' },
 			href: 'https://citiverse.io/'
 		},
 		{
 			id: 5,
 			title: 'Nvidia',
-			img: { name: Nvidia, height: '85px' },
+			img: { name: Nvidia, height: '85px', mobile_height: '52px' },
 			href: 'https://www.nvidia.com/en-us/startups/'
 		},
 		{
 			id: 6,
 			title: 'ZoneNine',
-			img: { name: ZoneNine, height: '85px' },
+			img: { name: ZoneNine, height: '85px', mobile_height: '50px' },
 			href: 'https://zone9survival.com/'
 		},
 		{
 			id: 7,
 			title: 'Network3',
-			img: { name: Network3, height: '85px' },
+			img: { name: Network3, height: '85px', mobile_height: '40px' },
 			href: 'https://network3.io/'
-		},
+		}
 	];
 </script>
 
@@ -102,8 +113,8 @@
 
 	<MpvWalkthrough />
 	<SystemArchitecture />
-<!--	<Technologies />-->
-	<ProvenTechnologies/>
+	<!--	<Technologies />-->
+	<ProvenTechnologies />
 	<Industries />
 	<div class="bg-[#212023]">
 		<div
@@ -151,14 +162,14 @@
 							{#each partners.slice(6, 7) as partner (partner.id)}
 								<a class="partnerLink" target="_blank" href={partner.href}>
 									<img
-											src={partner.img.name}
-											alt={partner.img.name}
-											style={`height: ${partner.img.height}; max-width:350px; object-fit:scale-down`}
+										src={partner.img.name}
+										alt={partner.img.name}
+										style={`height: ${partner.img.height}; max-width:350px; object-fit:scale-down`}
 									/>
 								</a>
 							{/each}
 						</div>
-					{:else}
+					{:else if screenSize > 480}
 						{#each partners as partner (partner.id)}
 							<div class="partnerImg">
 								<a class="partnerLink" target="_blank" href={partner.href}>
@@ -166,6 +177,18 @@
 										src={partner.img.name}
 										alt={partner.img.name}
 										style={`height: ${partner.img.height};object-fit:scale-down`}
+									/>
+								</a>
+							</div>
+						{/each}
+					{:else}
+						{#each partners as partner (partner.id)}
+							<div class="partnerImg">
+								<a class="partnerLink" target="_blank" href={partner.href}>
+									<img
+										src={partner.img.name}
+										alt={partner.img.name}
+										style={`height: ${partner.img.mobile_height};object-fit:scale-down`}
 									/>
 								</a>
 							</div>
@@ -267,6 +290,14 @@
 
 		.partnerImg > a {
 			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.partnerImg {
+			width: 100%;
+			height: 100px;
+			margin-bottom: 15px;
 		}
 	}
 </style>
