@@ -488,7 +488,12 @@
 		position: relative;
 		display: flex;
 		width: 100vw;
-		animation: tip_move 10s linear infinite;
+		animation: tip_move 15s linear infinite;
+	}
+
+	.link_blog_desktop > div:hover,
+	.link_blog > div:hover {
+		animation-play-state: paused;
 	}
 
 	.link_blog_desktop > div > div,
