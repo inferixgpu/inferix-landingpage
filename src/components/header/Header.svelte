@@ -10,9 +10,9 @@
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import DownloadFailed from '$components/inferix/Modals/DownloadFailed.svelte';
-	import { Modal } from 'flowbite-svelte';
+	import {Modal} from 'flowbite-svelte';
 
-	import { afterUpdate, onMount } from 'svelte';
+	import {afterUpdate, onMount} from 'svelte';
 	import X from '$images/icons/X.svg';
 	import M from '$images/icons/M.svg';
 	import D from '$images/icons/D.svg';
@@ -166,22 +166,23 @@
 <div class="bg-lightDark relative headerBackground">
 	<div
 		id="header"
-		class={`md:bg-[#141414]  flex flex-col fixed top-0 md:pb-0 pb-4 box-content w-full z-40 items-end`}
+		class={`md:bg-[#141414] flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-40`}
 	>
+
 		{#if screenSize > 800}
 			<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
 				<div>
-					<div>
-						<span>📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release"
+					<div >
+						<span  class="flex items-center">📌 MVP is live!</span>
+						<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center"> Read the full blog ⟶</a>
+						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
 							>🚀 <span>Proof-of-Rendering Release</span></a
 						>
 					</div>
 					<div>
-						<span>📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release"
+						<span  class="flex items-center">📌 MVP is live!</span>
+						<a href="https://docs.inferix.io/mvp-tutorial"  class="flex items-center"> Read the full blog ⟶</a>
+						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
 							>🚀 <span>Proof-of-Rendering Release</span></a
 						>
 					</div>
@@ -205,36 +206,29 @@
 				</svg>
 			</div>
 		{/if}
-		{#if screenSize < 800}
+		{#if screenSize <= 800}
 			<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
 				<div>
-					<div>
-						<span>📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release"
-							>🚀 <span>Proof-of-Rendering Release</span></a
-						>
-					</div>
-					<div>
-						<span>📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release"
-							>🚀 <span>Proof-of-Rendering Release</span></a
+					<div >
+						<span  class="flex items-center whitespace-nowrap">📌 MVP is live!</span>
+						<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center whitespace-nowrap"> Read the full blog ⟶</a>
+						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] !w-[60%] justify-center whitespace-nowrap px-[10px]"
+						>🚀 <span>Proof-of-Rendering Release</span></a
 						>
 					</div>
 				</div>
 				<svg
-					on:click={() => onCloseGuide()}
-					xmlns="http://www.w3.org/2000/svg"
-					class="icon icon-tabler icon-tabler-x"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="#597e8d"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round"
+						on:click={() => onCloseGuide()}
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-x"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="#597e8d"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
 				>
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M18 6l-12 12" />
@@ -458,7 +452,7 @@
 
 	.link_blog_desktop > div > div > a:nth-child(3) > span,
 	.link_blog > div > div > a:nth-child(3) > span {
-		color: #000;
+		color: #ffffff;
 		cursor: pointer;
 
 		&:hover {
@@ -739,7 +733,7 @@
 		.link_blog_desktop > div > div > span,
 		.link_blog > div > div > a,
 		.link_blog > div > div > span {
-			font-size: 11px;
+			font-size: 15px;
 		}
 
 		.link_blog_desktop > div > div > a:nth-child(3),
@@ -761,4 +755,7 @@
 			margin-left: 19px;
 		}
 	}
+.bg-transparency {
+	background: linear-gradient(to right, rgba(141, 15, 15, 0.8), rgba(141, 15, 15, 0.7)) !important;
+}
 </style>
