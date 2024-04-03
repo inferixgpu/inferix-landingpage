@@ -159,7 +159,7 @@
 							{/each}
 						</div>
 						<div class="partnerImg mt-[65px]">
-							{#each partners.slice(6, 7) as partner (partner.id)}
+							{#each partners.slice(6, 8) as partner (partner.id)}
 								<a class="partnerLink" target="_blank" href={partner.href}>
 									<img
 										src={partner.img.name}
