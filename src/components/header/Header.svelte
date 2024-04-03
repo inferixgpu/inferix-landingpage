@@ -170,9 +170,22 @@
 	>
 		{#if screenSize > 800}
 			<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
-				<span>📌 MVP is live!</span><a href="https://docs.inferix.io/mvp-tutorial"
-					>Read the full blog ⟶
-				</a>
+				<div>
+					<div>
+						<span>📌 MVP is live!</span>
+						<a href="https://docs.inferix.io/mvp-tutorial"> Read the full blog ⟶</a>
+						<a href="https://docs.inferix.io/por-release"
+							>🚀 <span>Proof-of-Rendering Release</span></a
+						>
+					</div>
+					<div>
+						<span>📌 MVP is live!</span>
+						<a href="https://docs.inferix.io/mvp-tutorial"> Read the full blog ⟶</a>
+						<a href="https://docs.inferix.io/por-release"
+							>🚀 <span>Proof-of-Rendering Release</span></a
+						>
+					</div>
+				</div>
 				<svg
 					on:click={() => onCloseGuide()}
 					xmlns="http://www.w3.org/2000/svg"
@@ -194,9 +207,22 @@
 		{/if}
 		{#if screenSize < 800}
 			<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
-				<span>📌 MVP is live!</span><a href="https://docs.inferix.io/mvp-tutorial"
-					>Read the full blog ⟶</a
-				>
+				<div>
+					<div>
+						<span>📌 MVP is live!</span>
+						<a href="https://docs.inferix.io/mvp-tutorial"> Read the full blog ⟶</a>
+						<a href="https://docs.inferix.io/por-release"
+							>🚀 <span>Proof-of-Rendering Release</span></a
+						>
+					</div>
+					<div>
+						<span>📌 MVP is live!</span>
+						<a href="https://docs.inferix.io/mvp-tutorial"> Read the full blog ⟶</a>
+						<a href="https://docs.inferix.io/por-release"
+							>🚀 <span>Proof-of-Rendering Release</span></a
+						>
+					</div>
+				</div>
 				<svg
 					on:click={() => onCloseGuide()}
 					xmlns="http://www.w3.org/2000/svg"
@@ -419,20 +445,72 @@
 		cursor: pointer;
 	}
 
-	.link_blog_desktop > a,
-	.link_blog > a {
+	.link_blog_desktop > div > div > a,
+	.link_blog > div > div > a {
 		color: #000;
 		cursor: pointer;
 	}
 
-	.link_blog > a,
-	.link_blog > span {
+	.link_blog_desktop > div > div > a:nth-child(3),
+	.link_blog > div > div > a:nth-child(3) {
+		--tw-brightness: brightness(1);
+	}
+
+	.link_blog_desktop > div > div > a:nth-child(3) > span,
+	.link_blog > div > div > a:nth-child(3) > span {
+		color: #000;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	.link_blog > div > div > a,
+	.link_blog > div > div > span {
 		font-size: 14px;
 	}
 
-	.link_blog_desktop > a:hover,
-	.link_blog > a:hover {
+	.link_blog_desktop > div > div > a:not(:nth-child(3)):hover,
+	.link_blog > div > div > a:not(:nth-child(3)):hover {
 		opacity: 0.8;
+	}
+
+	.link_blog_desktop,
+	.link_blog {
+		width: 100vw;
+		position: relative;
+		gap: 0;
+	}
+
+	.link_blog_desktop > div,
+	.link_blog > div {
+		position: relative;
+		display: flex;
+		width: 100vw;
+		animation: tip_move 10s linear infinite;
+	}
+
+	.link_blog_desktop > div > div,
+	.link_blog > div > div {
+		width: 100vw;
+		min-width: 100vw;
+		display: flex;
+		justify-content: center;
+		gap: 5px;
+	}
+
+	.link_blog_desktop > div > div > a:nth-child(3),
+	.link_blog > div > div > a:nth-child(3) {
+		margin-left: calc(calc(100vw) / 4);
+	}
+	@keyframes tip_move {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-100%);
+		}
 	}
 
 	@media screen and (max-width: 800px) {
@@ -628,6 +706,28 @@
 			transform: translateY(0);
 			opacity: 1;
 			z-index: 100;
+		}
+	}
+
+	@media screen and (max-width: 580px) {
+		.link_blog_desktop > div > div > a,
+		.link_blog_desktop > div > div > span,
+		.link_blog > div > div > a,
+		.link_blog > div > div > span {
+			font-size: 14px;
+		}
+		.link_blog_desktop > div > div > a:nth-child(3),
+		.link_blog > div > div > a:nth-child(3) {
+			margin-left: 0;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.link_blog_desktop > div > div > a,
+		.link_blog_desktop > div > div > span,
+		.link_blog > div > div > a,
+		.link_blog > div > div > span {
+			font-size: 11px;
 		}
 	}
 </style>
