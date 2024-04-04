@@ -747,7 +747,7 @@
 		.link_blog_desktop > div > div > span,
 		.link_blog > div > div > a,
 		.link_blog > div > div > span {
-			font-size: 10px;
+			font-size: 15px;
 		}
 
 		.link_blog_desktop > div > div > a:nth-child(3),
