@@ -452,7 +452,7 @@
 
 	.link_blog_desktop > div > div > a:nth-child(3) > span,
 	.link_blog > div > div > a:nth-child(3) > span {
-		color: #ffffff;
+		animation: rainbow 2s linear infinite;
 		cursor: pointer;
 
 		&:hover {
@@ -755,7 +755,35 @@
 			margin-left: 19px;
 		}
 	}
-.bg-transparency {
-	background: linear-gradient(to right, rgba(141, 15, 15, 0.8), rgba(141, 15, 15, 0.7)) !important;
-}
+	.bg-transparency {
+		background: none !important;
+	}
+
+	@keyframes rainbow {
+		0% {
+			color: red;
+		}
+		16.67% {
+			color: sandybrown;
+		}
+		33.33% {
+			color: navajowhite;
+		}
+		50% {
+			color: green;
+		}
+		66.67% {
+			color: blue;
+		}
+		83.33% {
+			color: indigo;
+		}
+		100% {
+			color: violet;
+		}
+	}
+
+	.text-rainbow {
+		animation: rainbow 2s linear infinite;
+	}
 </style>
