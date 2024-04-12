@@ -9,7 +9,6 @@
 	function addNode() {
 		count++;
 		nodes = [...nodes, { id: count, value: '' }];
-		console.log('eee', nodes);
 	}
 
 	function handleFocus(i) {
@@ -39,17 +38,42 @@
 		input_step = i;
 	}
 
+	function onHoverSubmit() {
+		const submit = document.querySelector('#submit_register');
+		submit.addEventListener('mouseover', hoverSubmit);
+		submit.addEventListener('mouseout', leaveSubmit);
+	}
+
+	function hoverSubmit() {
+		const submit = document.querySelector('#submit_register');
+		gsap.to(submit, {
+			background: 'linear-gradient(45deg, #00D6D9 0%, #00C085 100%)',
+			duration: 0.5,
+			ease: 'none'
+		});
+	}
+
+	function leaveSubmit() {
+		const submit = document.querySelector('#submit_register');
+		gsap.to(submit, {
+			background: '#fff',
+			duration: 0.5,
+			ease: 'none'
+		});
+	}
+
 	onMount(() => {
 		handleFocus(1);
+		onHoverSubmit();
 	});
 </script>
 
 <div class="body-register">
-	<div class="wallet-register">
+	<div class="wallet-register" on:click={() => handleFocus(1)}>
 		<div class="wallet-desc">
 			<div><div class="step"><div>1</div></div></div>
 			<div>
-				<div class="desc-active">Wallet Address</div>
+				<div class={input_step == 1 ? 'desc-active' : ''}>Wallet Address</div>
 				<div>Enter your wallet address so we can verify your account on the system</div>
 			</div>
 		</div>
@@ -58,11 +82,11 @@
 			<input placeholder="Enter wallet address" on:focus={() => handleFocus(1)} />
 		</div>
 	</div>
-	<div class="email-register">
+	<div class="email-register" on:click={() => handleFocus(2)}>
 		<div class="email-desc">
 			<div><div class="step"><div>2</div></div></div>
 			<div>
-				<div>Emaill Address</div>
+				<div class={input_step == 2 ? 'desc-active' : ''}>Emaill Address</div>
 				<div>Enter your wallet address so we can verify your account on the system</div>
 			</div>
 		</div>
@@ -71,11 +95,11 @@
 			<input placeholder="Enter email address" on:focus={() => handleFocus(2)} />
 		</div>
 	</div>
-	<div class="node-register">
+	<div class="node-register" on:click={() => handleFocus(3)}>
 		<div class="node-desc">
 			<div><div class="step"><div>3</div></div></div>
 			<div>
-				<div>Node ID</div>
+				<div class={input_step == 3 ? 'desc-active' : ''}>Node ID</div>
 				<div>Enter your wallet address so we can verify your account on the system</div>
 			</div>
 		</div>
@@ -92,7 +116,7 @@
 	<div class="submit-register">
 		<div />
 		<div>
-			<div><div>Submit</div></div>
+			<div id="submit_register"><div>Submit</div></div>
 		</div>
 	</div>
 </div>
@@ -109,6 +133,7 @@
 	.body-register > div {
 		display: flex;
 		width: 100%;
+		cursor: pointer;
 	}
 
 	.body-register > div > div {
@@ -215,9 +240,6 @@
 		align-items: center;
 		cursor: pointer;
 
-		&:hover {
-			opacity: 0.8;
-		}
 		& > div {
 			color: #000;
 			font-size: 16px;
