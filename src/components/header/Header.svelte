@@ -21,7 +21,7 @@
 
 	let textIndex = 0;
 
-	let activeTab = 5;
+	let activeTab = 6;
 
 	const setActiveTab = (tab: number) => {
 		activeTab = tab;
@@ -43,9 +43,18 @@
 			title: 'Roadmap',
 			href: '#roadmap'
 		},
-		{ id: 4, title: 'Team', href: '#team' },
+		{
+			id: 4,
+			title: 'Team',
+			href: '#team'
+		},
 		{
 			id: 5,
+			title: 'Docs',
+			href: 'https://docs.inferix.io/'
+		},
+		{
+			id: 6,
 			title: 'Register',
 			href: '#'
 		}
@@ -98,8 +107,8 @@
 	}
 
 	function handleClickTab(e: MouseEvent, id: number, href: string) {
-		if (id === 2) return;
-		if (id === 5) {
+		if (id === 2 || id === 5) return;
+		if (id === 6) {
 			showModal = true;
 		}
 
