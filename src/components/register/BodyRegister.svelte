@@ -1,11 +1,19 @@
 <script>
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
+	import axios from 'axios';
+	import {Modal} from "flowbite-svelte";
+	import RegisterSuccessModal from "$components/inferix/Modals/RegisterSuccessModal.svelte";
 
 	let input_step = 0;
 	let count = 1;
+	let showModal = false;
 	var nodes = [{ id: 1, value: '' }];
 
+	let isNullEmail = {status: true, message: ''};
+	let isNullWallet = false;
+	let isNullWorkers = false;
+	let responseError = {error: false, message: ''};
 	function addNode() {
 		count++;
 		nodes = [...nodes, { id: count, value: '' }];
@@ -62,11 +70,83 @@
 		});
 	}
 
+	async function handleSubmit() {
+		let inputWallet = document.getElementById("wallet-address-input").value;
+		if (inputWallet) {
+			isNullWallet = false;
+		}
+		let inputEmail = document.getElementById("email-address-input").value;
+		if (inputEmail && isValidEmail(inputEmail)) {
+			isNullEmail.status = false;
+		}
+		const inputWorkers = [];
+
+		let elementWorkerIds = document.querySelectorAll('.workers-input input');
+		elementWorkerIds.forEach(function(input) {
+			if (input.value !== "") {
+				inputWorkers.push(input.value);
+			}
+		});
+
+		const formData = {
+			"ownerAddress": inputWallet,
+			"ownerEmail": inputEmail,
+			"workerUUIDs": inputWorkers
+		};
+		console.log(formData)
+		if (validateFormData(formData)) {
+			isNullEmail.status = isNullWallet = isNullWorkers = false;
+			try {
+				responseError.error = false;
+				const response = await axios.post('https://testnet-core.inferix.io/api/workers/register', formData);
+				if (response.data) {
+					showModal = true;
+				}
+			} catch (e) {
+				responseError.error = true;
+				responseError.message = e.response.data.message;
+			}
+
+		}
+
+	}
+
+	function validateFormData(formData) {
+		if (!formData.ownerAddress) {
+			isNullWallet = true;
+			return false;
+		}
+		if (!formData.ownerEmail) {
+			isNullEmail.status = true;
+			isNullEmail.message = "Email is required.";
+			return false;
+		}
+		if (!isValidEmail(formData.ownerEmail)) {
+			isNullEmail.status = true;
+			isNullEmail.message = "Please enter a valid email address.";
+			return false;
+		}
+		if (formData.workerUUIDs.length == 0) {
+			isNullWorkers = true;
+			return false;
+		}
+		return true;
+	}
+	function isValidEmail(value) {
+		// Sử dụng biểu thức chính quy để kiểm tra định dạng email
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return emailRegex.test(value);
+	}
 	onMount(() => {
 		handleFocus(1);
 		onHoverSubmit();
 	});
 </script>
+{#if responseError.error}
+	<div class="text-white h-[56px] flex w-full justify-center mb-[30px] whitespace-nowrap ">
+		<span class="flex items-center justify-center h-[56px] w-1/3 rounded-[20px] bg-red-600 min-w-[230px]">{responseError.message}</span>
+	</div>
+{/if}
 
 <div class="body-register">
 	<div class="wallet-register" on:click={() => handleFocus(1)}>
@@ -78,8 +158,14 @@
 			</div>
 		</div>
 		<div class="wallet-form">
-			<div class="form-label">Make sure you have entered your correct wallet address here</div>
-			<input placeholder="Enter wallet address" on:focus={() => handleFocus(1)} />
+			<div class="form-label flex gap-1">
+				Make sure you have entered your correct wallet address here
+				<p class="text-red-600">*</p>
+			</div>
+			<input id="wallet-address-input" type="text" placeholder="Enter wallet address" on:focus={() => handleFocus(1) } />
+			{#if isNullWallet}
+				<div class="text-[12px] text-red-600">Wallet address is required.</div>
+			{/if}
 		</div>
 	</div>
 	<div class="email-register" on:click={() => handleFocus(2)}>
@@ -90,9 +176,15 @@
 				<div>Enter your wallet address so we can verify your account on the system</div>
 			</div>
 		</div>
-		<div class="wallet-form">
-			<div class="form-label">Make sure you have entered your correct wallet address here</div>
-			<input placeholder="Enter email address" on:focus={() => handleFocus(2)} />
+		<div class="wallet-form ">
+			<div class="form-label flex gap-1">
+				Make sure you have entered your correct wallet address here
+				<p class="text-red-600">*</p>
+			</div>
+			<input id="email-address-input" type="email" placeholder="Enter email address" on:focus={() => handleFocus(2)}  />
+			{#if isNullEmail.status}
+				<div class="text-[12px] text-red-600">{isNullEmail.message}</div>
+			{/if}
 		</div>
 	</div>
 	<div class="node-register" on:click={() => handleFocus(3)}>
@@ -103,22 +195,33 @@
 				<div>Enter your wallet address so we can verify your account on the system</div>
 			</div>
 		</div>
-		<div class="wallet-form">
-			<div class="form-label">Make sure you have entered your correct wallet address here</div>
-			{#each nodes as node (node.id)}<input
+		<div class="wallet-form workers-input">
+			<div class="form-label flex gap-1">
+				Make sure you have entered your correct wallet address here
+				<p class="text-red-600">*</p>
+			</div>
+			{#if isNullWorkers}
+				<div class="text-[12px] text-red-600">Need at least 1 node ID.</div>
+			{/if}
+			{#each nodes as node (node.id)}
+				<input
 					placeholder="Enter node ID"
 					bind:value={node.value}
 					on:focus={() => handleFocus(3)}
-				/>{/each}
+				/>
+			{/each}
 			<div class="add-node-register" on:click={addNode}><div>Add more +</div></div>
 		</div>
 	</div>
 	<div class="submit-register">
 		<div />
 		<div>
-			<div id="submit_register"><div>Submit</div></div>
+			<div id="submit_register" on:click={handleSubmit}><div>Submit</div></div>
 		</div>
 	</div>
+	<Modal bind:open={showModal} defaultClass="!rounded-[20px]">
+		<RegisterSuccessModal />
+	</Modal>
 </div>
 
 <style lang="postcss">
@@ -292,6 +395,12 @@
 	@media screen and (max-width: 1280px) {
 		.body-register {
 			padding: 20px 140px;
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		.body-register {
+			padding: 16px;
 		}
 	}
 
