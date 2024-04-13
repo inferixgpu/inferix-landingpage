@@ -33,6 +33,11 @@
 			padding: 30px 100px;
 		}
 	}
+	@media screen and (max-width: 1024px) {
+		.header-register {
+			padding: 16px;
+		}
+	}
 
 	@media screen and (max-width: 768px) {
 		.header-register {

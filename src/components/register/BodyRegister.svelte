@@ -33,14 +33,16 @@
 				background:
 					'linear-gradient(180deg, rgba(244, 244, 244, 0.56) 0.01%, rgba(244, 244, 244, 0) 100%)',
 				duration: 0.8,
-				ease: 'none'
+				ease: 'none',
+				border: 'none',
 			});
 
 		for (let i = 0; i < not_focus.length; i++) {
 			gsap.to(not_focus[i], {
 				background: 'none',
 				duration: 0.8,
-				ease: 'none'
+				ease: 'none',
+				border: '1px solid rgba(244, 244, 244, 0.15)'
 			});
 		}
 		input_step = i;
@@ -154,15 +156,15 @@
 			<div><div class="step"><div>1</div></div></div>
 			<div>
 				<div class={input_step == 1 ? 'desc-active' : ''}>Wallet Address</div>
-				<div>Enter your wallet address so we can verify your account on the system</div>
+				<div>Enter your wallet ioPay address so we can verify your account on the system</div>
 			</div>
 		</div>
 		<div class="wallet-form">
 			<div class="form-label flex gap-1">
-				Make sure you have entered your correct wallet address here
+				Please enter your wallet address
 				<p class="text-red-600">*</p>
 			</div>
-			<input id="wallet-address-input" type="text" placeholder="Enter wallet address" on:focus={() => handleFocus(1) } />
+			<input id="wallet-address-input" type="text" placeholder="Example: io3wfl8zgmdkw6j7yv9ncxenp5f..." on:focus={() => handleFocus(1) } />
 			{#if isNullWallet}
 				<div class="text-[12px] text-red-600">Wallet address is required.</div>
 			{/if}
@@ -172,16 +174,16 @@
 		<div class="email-desc">
 			<div><div class="step"><div>2</div></div></div>
 			<div>
-				<div class={input_step == 2 ? 'desc-active' : ''}>Emaill Address</div>
-				<div>Enter your wallet address so we can verify your account on the system</div>
+				<div class={input_step == 2 ? 'desc-active' : ''}>Email Address</div>
+				<div>Share your email with us for enhanced support tailored to you</div>
 			</div>
 		</div>
 		<div class="wallet-form ">
 			<div class="form-label flex gap-1">
-				Make sure you have entered your correct wallet address here
+				Please enter your email
 				<p class="text-red-600">*</p>
 			</div>
-			<input id="email-address-input" type="email" placeholder="Enter email address" on:focus={() => handleFocus(2)}  />
+			<input id="email-address-input" type="email" placeholder="example@domain.com" on:focus={() => handleFocus(2)}  />
 			{#if isNullEmail.status}
 				<div class="text-[12px] text-red-600">{isNullEmail.message}</div>
 			{/if}
@@ -192,12 +194,12 @@
 			<div><div class="step"><div>3</div></div></div>
 			<div>
 				<div class={input_step == 3 ? 'desc-active' : ''}>Node ID</div>
-				<div>Enter your wallet address so we can verify your account on the system</div>
+				<div>The worker IDs you are currently using in our system</div>
 			</div>
 		</div>
 		<div class="wallet-form workers-input">
 			<div class="form-label flex gap-1">
-				Make sure you have entered your correct wallet address here
+				Please enter your worker ID
 				<p class="text-red-600">*</p>
 			</div>
 			{#if isNullWorkers}
@@ -205,7 +207,7 @@
 			{/if}
 			{#each nodes as node (node.id)}
 				<input
-					placeholder="Enter node ID"
+					placeholder="Example: e365eb20-283d-4dc2-8703-ae5b94286dbe"
 					bind:value={node.value}
 					on:focus={() => handleFocus(3)}
 				/>
