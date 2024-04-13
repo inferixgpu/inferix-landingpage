@@ -30,6 +30,8 @@
 
 		if (input_step != i)
 			gsap.to(focus, {
+				height: '40px',
+				width: '40px',
 				background:
 					'linear-gradient(180deg, rgba(244, 244, 244, 0.56) 0.01%, rgba(244, 244, 244, 0) 100%)',
 				duration: 0.8,
@@ -39,6 +41,8 @@
 
 		for (let i = 0; i < not_focus.length; i++) {
 			gsap.to(not_focus[i], {
+				height: '40px',
+				width: '40px',
 				background: 'none',
 				duration: 0.8,
 				ease: 'none',
@@ -194,7 +198,7 @@
 			<div><div class="step"><div>3</div></div></div>
 			<div>
 				<div class={input_step == 3 ? 'desc-active' : ''}>Node ID</div>
-				<div>The worker IDs you are currently using in our system</div>
+				<div>The node IDs you are currently using in our system</div>
 			</div>
 		</div>
 		<div class="wallet-form workers-input">
