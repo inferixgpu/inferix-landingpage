@@ -179,7 +179,7 @@
 			<div><div class="step"><div>2</div></div></div>
 			<div>
 				<div class={input_step == 2 ? 'desc-active' : ''}>Email Address</div>
-				<div>Share your email with us for enhanced support tailored to you</div>
+				<div>Enter your email with us for enhanced support tailored to you</div>
 			</div>
 		</div>
 		<div class="wallet-form ">
@@ -203,7 +203,7 @@
 		</div>
 		<div class="wallet-form workers-input">
 			<div class="form-label flex gap-1">
-				Please enter your worker ID
+				Please enter your node ID
 				<p class="text-red-600">*</p>
 			</div>
 			{#if isNullWorkers}

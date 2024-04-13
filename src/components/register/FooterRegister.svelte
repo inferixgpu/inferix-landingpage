@@ -30,7 +30,7 @@
 			class="flex md:gap-10 justify-center gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
 		>
 			{#each medias as media (media.id)}
-				<a target="_blank" href={media.href}><img src={media.icon} /></a>
+				<a target="_blank" href={media.href}><img class="rounded-[50%]" src={media.icon} /></a>
 			{/each}
 		</div>
 	</div>
