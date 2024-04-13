@@ -15,7 +15,6 @@
 
 	onDestroy(() => {
 		return;
-		console.log(document);
 		const body = document.querySelector('body');
 		body.style.height = '100vh';
 	});

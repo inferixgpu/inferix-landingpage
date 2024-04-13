@@ -16,6 +16,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		z-index: 999;
 	}
 
 	.header-register > img:first-child {
@@ -31,6 +32,11 @@
 	@media screen and (max-width: 1280px) {
 		.header-register {
 			padding: 30px 100px;
+		}
+	}
+	@media screen and (max-width: 1024px) {
+		.header-register {
+			padding: 16px;
 		}
 	}
 
