@@ -20,6 +20,12 @@ body {
 	line-height: normal;
 }
 
+body > div:first-child,
+body > div:first-child > div:first-child {
+	height: 100%;
+	min-height: 100vh;
+}
+
 a {
 	@apply hover:brightness-50;
 }
