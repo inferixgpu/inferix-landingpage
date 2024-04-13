@@ -1,9 +1,7 @@
 <script>
-	import { onMount } from 'svelte';
+	import {onMount} from 'svelte';
 	import gsap from 'gsap';
 	import axios from 'axios';
-	import {Modal} from "flowbite-svelte";
-	import RegisterSuccessModal from "$components/inferix/Modals/RegisterSuccessModal.svelte";
 
 	let input_step = 0;
 	let count = 1;
@@ -99,7 +97,6 @@
 			"ownerEmail": inputEmail,
 			"workerUUIDs": inputWorkers
 		};
-		console.log(formData)
 		if (validateFormData(formData)) {
 			isNullEmail.status = isNullWallet = isNullWorkers = false;
 			try {
@@ -143,16 +140,26 @@
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		return emailRegex.test(value);
 	}
+	function buttonDone() {
+		showModal = false;
+		document.getElementById("wallet-address-input").value = '';
+		document.getElementById("email-address-input").value = '';
+		nodes = [{ id: 1, value: '' }]
+	}
 	onMount(() => {
 		handleFocus(1);
 		onHoverSubmit();
 	});
 </script>
 {#if responseError.error}
-	<div class="text-white h-[56px] flex w-full justify-center mb-[30px] whitespace-nowrap ">
-		<span class="flex items-center justify-center h-[56px] w-1/3 rounded-[20px] bg-red-600 min-w-[230px]">{responseError.message}</span>
+	<div class="text-white h-[56px] flex w-full  md:mb-[30px] whitespace-nowrap xl:px-[250px] min-[1025px]:px-[140px] max-lg:px-4 justify-end">
+		<span class="md:w-[40%] max-lg:hidden"></span>
+		<span class="flex items-center justify-start h-[56px] md:w-[60%] max-md:w-full">
+			<p class="py-[8px] px-[18px] bg-red-600 h-[40px]">Registration failed!</p>
+		</span>
 	</div>
 {/if}
+
 
 <div class="body-register">
 	<div class="wallet-register" on:click={() => handleFocus(1)}>
@@ -225,9 +232,21 @@
 			<div id="submit_register" on:click={handleSubmit}><div>Submit</div></div>
 		</div>
 	</div>
-	<Modal bind:open={showModal} defaultClass="!rounded-[20px]">
-		<RegisterSuccessModal />
-	</Modal>
+	<modal class="fixed inset-0 flex items-center justify-center z-50" style="display: {showModal ? 'block' : 'none'}">
+		<div class="fixed inset-0 bg-black bg-opacity-90 items-center">
+			<div class="flex p-8 rounded-lg shadow-xl z-10 w-full h-full items-center justify-center">
+				<div class="modal-register-success">
+					<div class="flex flex-col justify-center items-center">
+						<p class="text-black text-center text-[36px] font-bold">Congratulations!</p>
+						<p class="text-black text-center text-[16px] font-light">You have successfully registered</p>
+					</div>
+					<div class="flex w-[164px] h-[40px] bg-white text-black text-[16px]
+					font-bold cursor-pointer justify-center items-center hover:bg-black hover:text-white"
+						 on:click={() => buttonDone()}>Done</div>
+				</div>
+			</div>
+		</div>
+	</modal>
 </div>
 
 <style lang="postcss">
@@ -398,6 +417,10 @@
 		}
 	}
 
+	.modal-register-success {
+		@apply flex flex-col gap-[32px] h-[272px] w-[480px] p-[64px] items-center justify-center;
+		background: var(--33333, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+	}
 	@media screen and (max-width: 1280px) {
 		.body-register {
 			padding: 20px 140px;
