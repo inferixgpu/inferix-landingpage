@@ -171,7 +171,7 @@
 					Enter your wallet ioPay address so we can verify your account on the system
 					(<a
 						href="https://youtube.com/shorts/IkZ1jl-pFxc?si=8O3_72m7biKupZX3"
-						class="text-blue-500 hover:text-yellow-200 hover:underline"
+						class="text-blue-500 hover:underline hover:filter-none"
 						target="_blank"
 						>
 					Click to view instructions</a>)
