@@ -167,7 +167,16 @@
 			<div><div class="step"><div>1</div></div></div>
 			<div>
 				<div class={input_step == 1 ? 'desc-active' : ''}>Wallet Address</div>
-				<div>Enter your wallet ioPay address so we can verify your account on the system</div>
+				<div>
+					Enter your wallet ioPay address so we can verify your account on the system
+					(<a
+						href="https://youtube.com/shorts/IkZ1jl-pFxc?si=8O3_72m7biKupZX3"
+						class="text-blue-600 hover:text-yellow-200"
+						target="_blank"
+						>
+					Click to view instructions</a>)
+				</div>
+
 			</div>
 		</div>
 		<div class="wallet-form">
@@ -233,7 +242,7 @@
 		</div>
 	</div>
 	<modal class="fixed inset-0 flex items-center justify-center z-50" style="display: {showModal ? 'block' : 'none'}">
-		<div class="fixed inset-0 bg-black bg-opacity-90 items-center">
+		<div class="fixed inset-0 bg-black bg-opacity-90 items-center backdrop-blur-[13px]">
 			<div class="flex p-8 rounded-lg shadow-xl z-10 w-full h-full items-center justify-center">
 				<div class="modal-register-success">
 					<div class="flex flex-col justify-center items-center">
