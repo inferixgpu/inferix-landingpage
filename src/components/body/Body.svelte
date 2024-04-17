@@ -100,21 +100,19 @@
 			</div>
 		</div>
 		<div class="innovated-body">
-			<video autoplay muted loop playsinline class="object-cover mx-auto w-[1200px] h-[609px]">
+			<video autoplay muted loop playsinline class="object-cover mx-auto sm:w-[1200px] max-sm:w-full h-[609px]">
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
 		<div class="innovated-footer" />
 	</div>
 
-<!--	<MpvWalkthrough />-->
-	<!--	<Technologies />-->
 	<ProvenTechnologies />
 	<SystemArchitecture />
 	<Industries />
 	<div>
 		<div
-			class="pb-0 h-[288px] w-[894px] md:flex gap-[48px] flex-col mx-auto md:pb-[60px] mt-[80px] md:mt-[160px]"
+			class="flex pb-0 sm:h-[288px] max-sm:w-full sm:w-[894px] md:flex gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[80px] md:mt-[160px]"
 		>
 			<Saos
 				once
@@ -268,6 +266,12 @@
 		filter: none;
 	}
 
+	@media screen and (max-width: 1536px) and (min-width: 1280px){
+		.innovated > .innovated-header {
+			height: 1200px;
+			width: 100%;
+		}
+	}
 	@media screen and (max-width: 640px) {
 		.innovated > .innovated-header {
 			display: flex;
@@ -289,6 +293,12 @@
 			font-style: normal;
 			font-weight: 500;
 			line-height: normal;
+		}
+		.partner-content {
+			display: grid;
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+			align-items: center;
+			gap: 6px;
 		}
 	}
 </style>

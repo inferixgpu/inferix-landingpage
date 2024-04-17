@@ -133,7 +133,6 @@
 
 <style>
 	.footer-body {
-		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -145,7 +144,6 @@
 	}
 
 	.footer-body .footer-content {
-		position: absolute;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
