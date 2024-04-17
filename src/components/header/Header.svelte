@@ -9,7 +9,7 @@
 	import {Modal} from 'flowbite-svelte';
 
 	import {afterUpdate, onMount} from 'svelte';
-	import X from '$images/icons/X.svg';
+	import X from '$images/icons/Twitter.svg';
 	import M from '$images/icons/M.svg';
 	import D from '$images/icons/D.svg';
 	import W from '$images/icons/warpcast.svg';
@@ -249,12 +249,12 @@
 				</div>
 				<div class="flex flex-col items-center justify-center">
 					{#if textIndex === 0}
-						<p class="text-[24px] font-[400] opacity-60">Fastest 3D rendering & AI inference by</p>
+						<p class="text-[24px] font-[400] opacity-60 text-center">Fastest 3D rendering & AI inference by</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 							<p class="text-[48px] font-bold text-center">INFERIX Decentralized GPU</p>
 						</Saos>
 					{:else }
-						<p class="text-[24px] font-[400] opacity-60">Low-cost AI inference by</p>
+						<p class="text-[24px] font-[400] opacity-60 text-center">Low-cost AI inference by</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 							<p class="text-[48px] font-bold text-center">INFERIX Crowdsourced GPU</p>
 						</Saos>

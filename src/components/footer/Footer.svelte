@@ -59,7 +59,7 @@
 			<img class="max-sm:w-[350px] h-[206px]" src="{FooterContent}"/>
 			<div class="flex flex-col gap-4">
 				<p class="footer-content-paragraph">"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of GPUs for seamless rendering, accelerated Al, and groundbreaking innovation"</p>
-				<div on:mouseenter={() => focusButtonJoin(true)} on:mouseleave={() => focusButtonJoin(false)}>
+				<div class="mx-[10px]" on:mouseenter={() => focusButtonJoin(true)} on:mouseleave={() => focusButtonJoin(false)}>
 					{#if !focusButtonJoinNow}
 						<div class="footer-join">
 							<p class="text-black text-[14px] font-normal whitespace-nowrap">Join Inferix Now</p>
@@ -210,15 +210,17 @@
 		.footer-body .footer-content {
 			height: 542px;
 			flex-direction: column;
+			margin: 16px;
 		}
 		.footer-content-paragraph {
-			max-width: 308px;
+			width: 90%;
 			color: #FFF;
 			font-size: 24px;
 			font-style: normal;
 			font-weight: 400;
 			line-height: 32px;
 			opacity: 0.6;
+			margin: 10px;
 		}
 	}
 </style>
