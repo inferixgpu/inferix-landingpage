@@ -56,7 +56,7 @@
 <!--		<img class="max-sm:hidden absolute ml-[1332px]" src="{LineCol}"/>-->
 <!--		<img class="max-sm:hidden absolute ml-[1356px]" src="{LineCol}"/>-->
 		<div class="footer-content">
-			<img class="max-sm:w-[350px] h-[206px]" src="{FooterContent}"/>
+			<img class="sm:w-[542px] h-[292px]" src="{FooterContent}"/>
 			<div class="flex flex-col gap-4">
 				<p class="footer-content-paragraph">"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of GPUs for seamless rendering, accelerated Al, and groundbreaking innovation"</p>
 				<div class="max-sm:mx-auto" on:mouseenter={() => focusButtonJoin(true)} on:mouseleave={() => focusButtonJoin(false)}>
