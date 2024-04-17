@@ -47,14 +47,14 @@
 
 <div class="bg-black flex flex-col items-center justify-center mx-auto">
 	<div class="footer-body">
-<!--		<img class="max-md:hidden absolute mt-[110px]" src="{LineRow}"/>-->
-<!--		<img class="max-md:hidden absolute mt-[134px]" src="{LineRow}"/>-->
-<!--		<img class="max-md:hidden absolute ml-[108px]" src="{LineCol}"/>-->
-<!--		<img class="max-md:hidden absolute ml-[132px]" src="{LineCol}"/>-->
-<!--		<img class="max-md:hidden absolute mt-[488px]" src="{LineRow}"/>-->
-<!--		<img class="max-md:hidden absolute mt-[512px]" src="{LineRow}"/>-->
-<!--		<img class="max-md:hidden absolute ml-[1332px]" src="{LineCol}"/>-->
-<!--		<img class="max-md:hidden absolute ml-[1356px]" src="{LineCol}"/>-->
+<!--		<img class="max-sm:hidden absolute mt-[110px]" src="{LineRow}"/>-->
+<!--		<img class="max-sm:hidden absolute mt-[134px]" src="{LineRow}"/>-->
+<!--		<img class="max-sm:hidden absolute ml-[108px]" src="{LineCol}"/>-->
+<!--		<img class="max-sm:hidden absolute ml-[132px]" src="{LineCol}"/>-->
+<!--		<img class="max-sm:hidden absolute mt-[488px]" src="{LineRow}"/>-->
+<!--		<img class="max-sm:hidden absolute mt-[512px]" src="{LineRow}"/>-->
+<!--		<img class="max-sm:hidden absolute ml-[1332px]" src="{LineCol}"/>-->
+<!--		<img class="max-sm:hidden absolute ml-[1356px]" src="{LineCol}"/>-->
 		<div class="footer-content">
 			<img class="max-sm:w-[350px] h-[206px]" src="{FooterContent}"/>
 			<div class="flex flex-col gap-4">
@@ -134,6 +134,9 @@
 <style>
 	.footer-body {
 		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		height: 622px;
 		width: 100%;
 		max-width: 1489px;
@@ -148,11 +151,10 @@
 		justify-content: center;
 		align-items: center;
 		height: 354px;
-		width: 100%;
-		margin-left: 20px;
-		margin-right: 20px;
+		width: 1200px;
 		gap: 4px;
 		background: var(--123, radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%));
+		margin: 134px 157px 134px 132px;
 	}
 
 	.footer-content-paragraph {
@@ -201,6 +203,10 @@
 		}
 	}
 	@media screen and (min-width: 1280px) and (max-width: 1536px) {
+		.footer-body .footer-content {
+			margin: 20px;
+			width: 100%;
+		}
 	}
 	@media screen and (max-width: 640px) {
 		.footer-body .footer-content {
@@ -213,7 +219,7 @@
 			font-size: 24px;
 			font-style: normal;
 			font-weight: 400;
-			line-height: 32px; /* 133.333% */
+			line-height: 32px;
 			opacity: 0.6;
 		}
 	}
