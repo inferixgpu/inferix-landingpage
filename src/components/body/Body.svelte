@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Frame from '$images/png/Frame.png';
- 	import innovatedHeader from '$images/png/inferixInnovateHeader.png';
+	import innovatedHeader from '$images/png/inferixInnovateHeader.png';
 	import Saos from 'saos';
 	import Industries from './Industries.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
@@ -19,7 +19,7 @@
 	import SystemArchitecture from '$components/body/SystemArchitecture.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
-	import InferixIntro from "$videos/-6832-41e3-b4e4-f39f89c47ac3.mp4";
+	import InferixIntro from '$videos/-6832-41e3-b4e4-f39f89c47ac3.mp4';
 
 	let screenSize: number;
 
@@ -90,7 +90,7 @@
 <div id="about" class="bg-black">
 	<div class="innovated">
 		<div class="innovated-header">
-			<img class="w-[256px] h-[52px] mt-[680px]" src="{innovatedHeader}"/>
+			<img class="w-[256px] h-[52px] mt-[680px]" src={innovatedHeader} />
 			<div class="innovated-header-content">
 				<p>An innovated platform for 3D rendering and AI</p>
 				<p>inference using crowdsourced GPUs globally</p>
@@ -101,7 +101,7 @@
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
-		<div class="innovated-footer"></div>
+		<div class="innovated-footer" />
 	</div>
 
 	<MpvWalkthrough />
@@ -198,17 +198,17 @@
 	}
 
 	.innovated {
-		@apply flex flex-col relative w-full ;
+		@apply flex flex-col relative w-full;
 		& > .innovated-header {
 			@apply flex flex-col h-[1200px] w-[1288px] mx-auto bg-cover bg-center -mt-[430px] items-center  gap-10 z-20;
-			background-image: url("$images/png/innovatedBackground.png");
+			background-image: url('$images/png/innovatedBackground.png');
 			& > .innovated-header-content {
 				text-align: center;
 				font-size: 40px;
 				font-style: normal;
 				font-weight: 500;
 				line-height: normal;
-				background: linear-gradient(159deg, #FFF -7.96%, rgba(255, 255, 255, 0.00) 124.67%);
+				background: linear-gradient(159deg, #fff -7.96%, rgba(255, 255, 255, 0) 124.67%);
 				background-clip: text;
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
@@ -217,7 +217,6 @@
 		& > .innovated-body {
 			@apply -mt-[350px] z-10;
 		}
-
 	}
 
 	.partner-header {
