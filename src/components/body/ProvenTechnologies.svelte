@@ -729,6 +729,20 @@
 		}
 	}
 
+	@media screen and (max-width: 800px) {
+		.proven-infor {
+			width: 100%;
+		}
+
+		.proven-infor > div:last-child {
+			width: 100%;
+		}
+
+		.proven-header {
+			height: 64px;
+		}
+	}
+
 	@media screen and (max-width: 768px) {
 		.proven-infor {
 			flex-direction: column;

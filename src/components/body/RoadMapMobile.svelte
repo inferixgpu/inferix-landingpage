@@ -73,7 +73,7 @@
 			</p>
 		</Saos>
 
-		<div class="flex flex-col mb-[80px] border-l-[2px] border-[#373639]">
+		<div class="flex flex-col border-l-[2px] border-[#373639]">
 			{#each roadmap as rm}
 				<div class="flex flex-row p-4 relative gap-10">
 					<div class="roadmap-item bg-[#2D2C30] p-4 w-full">

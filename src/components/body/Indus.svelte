@@ -70,16 +70,66 @@
 		<div class="in-mobile-content">
 			<div>
 				<div class="moved-in">
-					<img src={In1} alt="in1" />
-					<img src={In2} alt="in1" />
-					<img src={In3} alt="in1" />
-					<img src={In4} alt="in1" />
-					<img src={In5} alt="in1" />
-					<img src={In1} alt="in1" />
-					<img src={In2} alt="in1" />
-					<img src={In3} alt="in1" />
-					<img src={In4} alt="in1" />
-					<img src={In5} alt="in1" />
+					<div>
+						<img src={In1} alt="in1" />
+						<div>
+							<div>Entertainment & Media</div>
+						</div>
+					</div>
+					<div>
+						<img src={In2} alt="in1" />
+						<div>
+							<div>Architecture & Design</div>
+						</div>
+					</div>
+					<div>
+						<img src={In3} alt="in1" />
+						<div>
+							<div>Animation & VFX</div>
+						</div>
+					</div>
+					<div>
+						<img src={In4} alt="in1" />
+						<div>
+							<div>AR & VR</div>
+						</div>
+					</div>
+					<div>
+						<img src={In5} alt="in1" />
+						<div>
+							<div>Game Content</div>
+						</div>
+					</div>
+					<div>
+						<img src={In1} alt="in1" />
+						<div>
+							<div>Entertainment & Media</div>
+						</div>
+					</div>
+					<div>
+						<img src={In2} alt="in1" />
+						<div>
+							<div>Architecture & Design</div>
+						</div>
+					</div>
+					<div>
+						<img src={In3} alt="in1" />
+						<div>
+							<div>Animation & VFX</div>
+						</div>
+					</div>
+					<div>
+						<img src={In4} alt="in1" />
+						<div>
+							<div>AR & VR</div>
+						</div>
+					</div>
+					<div>
+						<img src={In5} alt="in1" />
+						<div>
+							<div>Game Content</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div><img src={animated_circle} /></div>
@@ -320,7 +370,7 @@
 		}
 
 		.in-mobile-content > div:last-child {
-		margin-top: 24px;
+			margin-top: 24px;
 		}
 
 		.in-mobile-content > div:last-child > img {
@@ -328,14 +378,44 @@
 		}
 
 		.in-mobile-content > div > div {
-			min-width: 1415px;
+			min-width: 1515px;
 			height: 396px;
 			display: flex;
+			gap: 10px;
 			animation: moved 10s linear infinite;
 		}
 
-		.in-mobile-content > div > div > img {
+		.in-mobile-content > div > div > div {
+			position: relative;
+			min-width: 283px;
+			height: 361px;
+		}
+
+		.in-mobile-content > div > div > div > img {
 			width: 283px;
+		}
+
+		.in-mobile-content > div > div > div > div {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+
+		.moved-in > div > div {
+			width: 100%;
+			height: 40px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: linear-gradient(
+				180deg,
+				rgba(49, 91, 91, 0) -1.11%,
+				rgba(49, 86, 91, 0.44) 23.83%,
+				#31595b 99.56%
+			);
+			stroke-width: 1px;
+			stroke: rgba(255, 255, 255, 0);
+			backdrop-filter: blur(10px);
 		}
 		@keyframes moved {
 			0% {
@@ -347,19 +427,31 @@
 		}
 	}
 
-	@media screen and (max-width: 393px) {
+	@media screen and (max-width: 414px) {
 		.in-mobile-content {
-			top: calc(100vw * 160 / 393);
+			top: calc(100vw * 160 / 414);
 		}
 
 		.in-mobile-content > div:first-child {
-			width: calc(100vw * 283 / 393);
-			height: calc(100vw * 361 / 393);
+			width: calc(100vw * 283 / 414);
+			height: calc(100vw * 361 / 414);
 			display: flex;
 			overflow: hidden;
 		}
-		.in-mobile-content > div > div > img {
-			width: calc(100vw * 283 / 393);
+		.in-mobile-content > div > div > div {
+			position: relative;
+			min-width: calc(100vw * 283 / 414);
+			height: calc(100vw * 361 / 414);
+		}
+		.in-mobile-content > div > div > div > img {
+			width: calc(100vw * 283 / 414);
+		}
+
+		.in-mobile-content > div > div > div > div {
+			position: absolute;
+			bottom: 0;
+			height: 35px;
+			left: 0;
 		}
 	}
 </style>
