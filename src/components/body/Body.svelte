@@ -2,7 +2,7 @@
 	import Frame from '$images/png/Frame.png';
 	import innovatedHeader from '$images/png/inferixInnovateHeader.png';
 	import Saos from 'saos';
-	import Industries from './Industries.svelte';
+	import Industries from './Indus.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
 	import Teams from './Teams.svelte';
 	import MpvWalkthrough from './MpvWalkthrough.svelte';
