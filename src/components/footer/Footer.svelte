@@ -45,7 +45,7 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div class="bg-black flex flex-col items-center justify-center md:pt-[100px] pt-[100px]  mx-auto">
+<div class="bg-black flex flex-col items-center justify-center mx-auto">
 	<div class="footer-body">
 		<img class="absolute mt-[110px]" src="{LineRow}"/>
 		<img class="absolute mt-[134px]" src="{LineRow}"/>

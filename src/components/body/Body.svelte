@@ -104,7 +104,7 @@
 		<div class="innovated-footer" />
 	</div>
 
-	<MpvWalkthrough />
+<!--	<MpvWalkthrough />-->
 	<SystemArchitecture />
 	<!--	<Technologies />-->
 	<ProvenTechnologies />
@@ -199,7 +199,7 @@
 	.innovated {
 		@apply flex flex-col relative w-full;
 		& > .innovated-header {
-			@apply flex flex-col h-[1200px] w-[1288px] mx-auto bg-cover bg-center -mt-[430px] items-center  gap-10 z-20;
+			@apply flex flex-col h-[1200px] w-[1288px] mx-auto bg-cover bg-center -mt-[330px] items-center  gap-10 z-20;
 			background-image: url('$images/png/innovatedBackground.png');
 			& > .innovated-header-content {
 				text-align: center;

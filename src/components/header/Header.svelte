@@ -18,6 +18,7 @@
 	import buttonGPUFocus from '$images/icons/ButtonGPUFocus.png';
 	import buttonScreen from '$images/icons/buttonScreen.png';
 	import buttonScreenFocus from '$images/icons/buttonScreenFocus.png';
+	import DownloadIcon from  '$images/icons/Download.svg';
 
 
 	let textIndex = 0;
