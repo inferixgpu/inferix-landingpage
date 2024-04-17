@@ -258,7 +258,7 @@
 		</div>
 		<div class="flex flex-row mt-[50px] w-[560px] h-[104px] mx-auto justify-between z-50 -mb-[150px] absolute">
 			<div class="item-download-1 cursor-pointer" on:mouseenter={() => focusButtonGPU(true)} on:mouseleave={() => focusButtonGPU(false)}>
-				<div class="basis-2/3 flex flex-col gap-2">
+				<div class="basis-2/3 flex flex-col gap-2 h-[64px] justify-end">
 					<p class="flex text-white text-[16px] font-bold justify-end">FOR GPU OWNER</p>
 					<div class="flex justify-between">
 						<a href="https://h3d.me/ifxworkerwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
@@ -290,7 +290,7 @@
 					{/if}
 
 				</div>
-				<div class="basis-2/3 flex flex-col gap-2">
+				<div class="basis-2/3 flex flex-col gap-2 h-[64px]">
 					<p class="flex text-white text-[16px] font-bold justify-start">3D RENDERING & AI INFERENCE</p>
 					<div class="flex justify-between">
 						<a href="https://h3d.me/ifxaddonblenderwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
