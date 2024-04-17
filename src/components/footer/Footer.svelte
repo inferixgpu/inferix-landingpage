@@ -71,7 +71,7 @@
 							</svg>
 						</div>
 					{:else}
-						<a class="join-footer-focus">
+						<a class="join-footer-focus" href="https://docs.inferix.io/inferix-mvp/tutorial-mvp-for-designers-and-gpu-owners" target="_blank">
 							<p class="">Let's build our ecosystem together</p>
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
 								<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.03 12.53L13.03 15.53C12.88 15.68 12.69 15.75 12.5 15.75C12.31 15.75 12.12 15.68 11.97 15.53C11.68 15.24 11.68 14.76 11.97 14.47L13.69 12.75H8.5C8.09 12.75 7.75 12.41 7.75 12C7.75 11.59 8.09 11.25 8.5 11.25H13.69L11.97 9.53C11.68 9.24 11.68 8.76 11.97 8.47C12.26 8.18 12.74 8.18 13.03 8.47L16.03 11.47C16.32 11.76 16.32 12.24 16.03 12.53Z" fill="white"/>
@@ -79,7 +79,6 @@
 						</a>
 					{/if}
 				</div>
-
 			</div>
 		</div>
 	</div>
@@ -116,21 +115,28 @@
 </div>
 
 <style>
-	.overlay {
-		background: var(--4, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+	.footer-body {
+		position: relative;
+		height: 622px;
+		width: 100%;
+		max-width: 1489px;
+		margin: 0 auto;
+		z-index: 30;
 	}
 
-	.active {
-		color: var(--green);
+	.footer-body .footer-content {
+		position: absolute;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		height: 354px;
+		width: 1200px;
+		gap: 4px;
+		background: var(--123, radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%));
+		margin: 134px 157px 134px 132px;
 	}
-	.footer-body {
-		@apply relative h-[622px] w-[1489px] mx-auto z-30;
-		& > .footer-content {
-			@apply absolute flex flex-row justify-center items-center h-[354px] w-[1200px] gap-4;
-			background: var(--123, radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%));
-			margin: 134px 157px 134px 132px;
-		}
-	}
+
 	.footer-content-paragraph {
 		color: #FFF;
 		font-size: 24px;
@@ -176,34 +182,6 @@
 			opacity: 1;
 		}
 	}
-	@media screen and (max-width: 767px) {
-		.mediaContainer {
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.footerVideo {
-			transform: scale(2.5);
-			-webkit-transform: scale(2.5);
-			-moz-transform: scale(2.5);
-			z-index: 0;
-		}
-	}
-
-	@media screen and (min-width: 768px) and (max-width: 1023px) {
-		.mediaContainer {
-			right: 0;
-		}
-
-		.footerVideo {
-			transform: scale(2);
-			-webkit-transform: scale(2);
-			-moz-transform: scale(2);
-			z-index: 0;
-		}
-
-		.container > div:nth-child(2) {
-			gap: 1.6rem;
-		}
+	@media screen and (min-width: 1280px) and (max-width: 1536px) {
 	}
 </style>
