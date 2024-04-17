@@ -66,6 +66,7 @@
 {:else}
 	<div class="in-mobile">
 		<img src={line_industry_mobile} alt="in" />
+		<div>Industry</div>
 		<div class="in-mobile-content">
 			<div>
 				<div class="moved-in">
@@ -81,6 +82,7 @@
 					<img src={In5} alt="in1" />
 				</div>
 			</div>
+			<div><img src={animated_circle} /></div>
 		</div>
 	</div>
 {/if}
@@ -291,6 +293,18 @@
 			width: 100%;
 			position: relative;
 		}
+
+		.in-mobile > div:nth-child(2) {
+			position: absolute;
+			text-align: center;
+			font-size: 24px;
+			font-weight: 600;
+			line-height: 48px; /* 200% */
+			background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
 		.in-mobile-content {
 			position: absolute;
 			top: 160px;
@@ -298,24 +312,54 @@
 			transform: translate(-50%, 0);
 		}
 
-		.in-mobile-content > div {
+		.in-mobile-content > div:first-child {
 			width: 283px;
 			height: 361px;
 			display: flex;
 			overflow: hidden;
 		}
 
+		.in-mobile-content > div:last-child {
+		margin-top: 24px;
+		}
+
+		.in-mobile-content > div:last-child > img {
+			width: 100%;
+		}
+
 		.in-mobile-content > div > div {
-			width: 1415px;
+			min-width: 1415px;
 			height: 396px;
-			overflow: hidden;
 			display: flex;
-			animation: moved 10s ease-in-out;
+			animation: moved 10s linear infinite;
 		}
 
 		.in-mobile-content > div > div > img {
 			width: 283px;
 		}
+		@keyframes moved {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(-100%);
+			}
+		}
+	}
 
+	@media screen and (max-width: 393px) {
+		.in-mobile-content {
+			top: calc(100vw * 160 / 393);
+		}
+
+		.in-mobile-content > div:first-child {
+			width: calc(100vw * 283 / 393);
+			height: calc(100vw * 361 / 393);
+			display: flex;
+			overflow: hidden;
+		}
+		.in-mobile-content > div > div > img {
+			width: calc(100vw * 283 / 393);
+		}
 	}
 </style>

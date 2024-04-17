@@ -715,6 +715,12 @@
 		.proven-infor {
 			width: 980px;
 		}
+
+		.proven-more-infor {
+			width: auto;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
 	}
 
 	@media screen and (max-width: 1024px) {
@@ -735,6 +741,10 @@
 
 		.proven-text {
 			gap: 8px;
+		}
+
+		.proven-more-infor {
+			display: none;
 		}
 	}
 
