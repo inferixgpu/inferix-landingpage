@@ -47,14 +47,14 @@
 
 <div class="bg-black flex flex-col items-center justify-center mx-auto">
 	<div class="footer-body">
-		<img class="absolute mt-[110px]" src="{LineRow}"/>
-		<img class="absolute mt-[134px]" src="{LineRow}"/>
-		<img class="absolute ml-[108px]" src="{LineCol}"/>
-		<img class="absolute ml-[132px]" src="{LineCol}"/>
-		<img class="absolute mt-[488px]" src="{LineRow}"/>
-		<img class="absolute mt-[512px]" src="{LineRow}"/>
-		<img class="absolute ml-[1332px]" src="{LineCol}"/>
-		<img class="absolute ml-[1356px]" src="{LineCol}"/>
+		<img class="max-md:hidden absolute mt-[110px]" src="{LineRow}"/>
+		<img class="max-md:hidden absolute mt-[134px]" src="{LineRow}"/>
+		<img class="max-md:hidden absolute ml-[108px]" src="{LineCol}"/>
+		<img class="max-md:hidden absolute ml-[132px]" src="{LineCol}"/>
+		<img class="max-md:hidden absolute mt-[488px]" src="{LineRow}"/>
+		<img class="max-md:hidden absolute mt-[512px]" src="{LineRow}"/>
+		<img class="max-md:hidden absolute ml-[1332px]" src="{LineCol}"/>
+		<img class="max-md:hidden absolute ml-[1356px]" src="{LineCol}"/>
 		<div class="footer-content">
 			<img class="h-[292px] w-[542px]" src="{FooterContent}"/>
 			<div class="flex flex-col gap-4">
@@ -183,5 +183,10 @@
 		}
 	}
 	@media screen and (min-width: 1280px) and (max-width: 1536px) {
+	}
+	@media screen and (max-width: 640px) {
+		.footer-body .footer-content {
+			display: none;
+		}
 	}
 </style>
