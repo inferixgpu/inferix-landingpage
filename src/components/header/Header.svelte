@@ -213,11 +213,23 @@
 				>
 			</div>
 		</div>
+		<div class="sm:hidden flex justify-between p-4">
+			<img class="h-[24px]" src="{HeaderLogo}">
+			<div class="cursor-pointer" on:click={toggleMenu}>
+				<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect x="0.5" y="0.5" width="39" height="39" fill="#1A1A1A"/>
+					<rect x="0.5" y="0.5" width="39" height="39" stroke="#2A343E"/>
+					<rect x="10" y="11" width="20" height="2" fill="#FFF4E9"/>
+					<rect x="15.8334" y="19" width="14.1667" height="2" fill="#FFF4E9"/>
+					<rect x="12.5" y="27" width="17.5" height="2" fill="#FFF4E9"/>
+				</svg>
+			</div>
 
+		</div>
 	</div>
 	<div class="mx-auto pt-[0px] flex flex-col bg-black relative justify-end items-center">
 		<div class="w-full flex justify-center items-center">
-			<div class="flex flex-col gap-4 w-[750px] h-[141px] mx-auto mt-[340px] absolute z-[20]">
+			<div class="flex flex-col gap-4 sm:w-[750px] max-sm:w-full h-[141px] mx-auto mt-[340px] absolute z-[20]">
 				<div class="flex justify-center text-black">
 				<a href="https://docs.inferix.io/por-release" target="_blank" class="flex bg-white border-[1px] border-solid border-white hover:bg-black hover:text-white gap-2 p-1 items-center rounded-[40px] cursor-pointer !filter-none" on:mouseenter={() => handleHoverRelease(true)} on:mouseleave={() => handleHoverRelease(false)}>
 					🚀 <p class="text-[14px] font-[500]">Proof-of-Rendering Release</p>
@@ -239,12 +251,12 @@
 					{#if textIndex === 0}
 						<p class="text-[24px] font-[400] opacity-60">Fastest 3D rendering & AI inference by</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-							<p class="text-[48px] font-bold ">INFERIX Decentralized GPU</p>
+							<p class="text-[48px] font-bold text-center">INFERIX Decentralized GPU</p>
 						</Saos>
 					{:else }
 						<p class="text-[24px] font-[400] opacity-60">Low-cost AI inference by</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-							<p class="text-[48px] font-bold ">INFERIX Crowdsourced GPU</p>
+							<p class="text-[48px] font-bold text-center">INFERIX Crowdsourced GPU</p>
 						</Saos>
 					{/if}
 
@@ -253,7 +265,7 @@
 		</div>
 
 		<div class="overflow-hidden bg-black mx-auto relative">
-			<video autoplay muted loop playsinline class="h-[698px] w-[1526px] object-cover mx-auto mt-[160px]">
+			<video autoplay muted loop playsinline class="h-[698px] sm:w-[1526px] max-sm:w-full object-cover mx-auto mt-[160px]">
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
@@ -309,7 +321,7 @@
 			</div>
 		</div>
 	</div>
-	<div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-screen z-40`}>
+	<div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-full z-50`}>
 		<div
 			class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full bg-bg box-border pt-[86px] relative p-[30px]"
 		>
@@ -353,13 +365,32 @@
 
 <style lang="postcss">
 	.header-bar {
-		@apply flex flex-row mx-auto w-[1200px] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover;
+		display: flex;
+		flex-direction: row;
+		margin: auto;
+		width: 1200px;
+		margin-top: 12px;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 4px;
+		height: 56px;
+		border-radius: 16px;
 		background-image: url("$images/png/header-register.png");
-		& > .register-button {
-			@apply flex justify-center h-[32px] w-[104px] items-center text-black py-4 text-[16px] font-[500];
-			border-radius: 4px;
-			background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
-		}
+		background-size: cover;
+	}
+
+	.header-bar > .register-button {
+		display: flex;
+		justify-content: center;
+		height: 32px;
+		width: 104px;
+		align-items: center;
+		color: black;
+		padding: 4px;
+		font-size: 16px;
+		font-weight: 500;
+		border-radius: 4px;
+		background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
 	}
 	#header {
 		margin-top: 0;
@@ -576,173 +607,9 @@
 
 	}
 
-	@media screen and (min-width: 768px) {
-		.header-tab {
-			font-size: 16px;
-			font-weight: 700;
-			line-height: 24px;
-			text-align: left;
-			padding: 12px 16px;
-		}
-
-		#header {
-			background-color: unset;
-		}
-
-		.header-tab.active {
-			display: flex;
-			padding: 12px 16px;
-			align-items: flex-start;
-			border-radius: 100px;
-			color: #08101d;
-			background-color: #00d6d9;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		.header-tab-mobile {
-			font-weight: 600;
-			padding-top: 12px;
-			/*padding: 12px 16px;*/
-		}
-		.header-tab-mobile.active {
-			color: #08101d;
-		}
-		.headerBackground {
-			background-image: url('$images/icons/HeaderBackgroundMobile.svg');
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
-
-		.text {
-			margin-top: 20px;
-		}
-	}
-
-	@keyframes -global-slide-up {
-		0% {
-			transform: translateY(100px);
-			opacity: 0;
-		}
-		100% {
-			transform: translateY(0);
-			opacity: 1;
-		}
-	}
-
-	@keyframes -global-puff-in-center {
-		0% {
-			transform: scale(1.02) translateY(120px);
-			opacity: 0;
-			text-align: center;
-			filter: blur(4px);
-		}
-		100% {
-			transform: scale(1) translateY(0);
-			opacity: 1;
-			text-align: center;
-			filter: blur(0px);
-		}
-	}
-
-	@keyframes -global-h1 {
-		0% {
-			transform: scale(1.1) translateY(120px);
-			opacity: 0;
-			text-align: center;
-			filter: blur(7px);
-		}
-		100% {
-			transform: scale(1) translateY(0);
-			opacity: 1;
-			text-align: center;
-			filter: blur(0px);
-		}
-	}
-
-	@keyframes -global-connector {
-		0% {
-			transform: translateY(-100px);
-			z-index: 0;
-			opacity: 0;
-		}
-		100% {
-			transform: translateY(0);
-			opacity: 1;
-			z-index: 100;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		.link_blog_desktop > div > div > a:nth-child(3),
-		.link_blog > div > div > a:nth-child(3) {
-			margin-left: calc(calc(100vw) / 8);
-		}
-	}
-
-	@media screen and (max-width: 580px) {
-		.link_blog_desktop > div > div > a,
-		.link_blog_desktop > div > div > span,
-		.link_blog > div > div > a,
-		.link_blog > div > div > span {
-			font-size: 14px;
-		}
-		.link_blog_desktop > div > div > a:nth-child(3),
-		.link_blog > div > div > a:nth-child(3) {
-			margin-left: 25px;
-		}
-	}
-
-	@media screen and (max-width: 480px) {
-		.link_blog_desktop > div > div > a,
-		.link_blog_desktop > div > div > span,
-		.link_blog > div > div > a,
-		.link_blog > div > div > span {
-			font-size: 15px;
-		}
-
-		.link_blog_desktop > div > div > a:nth-child(3),
-		.link_blog > div > div > a:nth-child(3) {
-			margin-left: 25px;
-		}
-	}
-
-	@media screen and (max-width: 380px) {
-		.link_blog_desktop > div > div > a,
-		.link_blog_desktop > div > div > span,
-		.link_blog > div > div > a,
-		.link_blog > div > div > span {
-			font-size: 15px;
-		}
-
-		.link_blog_desktop > div > div > a:nth-child(3),
-		.link_blog > div > div > a:nth-child(3) {
-			margin-left: 19px;
-		}
-	}
-
-	@keyframes rainbow {
-		0% {
-			color: red;
-		}
-		16.67% {
-			color: sandybrown;
-		}
-		33.33% {
-			color: navajowhite;
-		}
-		50% {
-			color: green;
-		}
-		66.67% {
-			color: blue;
-		}
-		83.33% {
-			color: indigo;
-		}
-		100% {
-			color: violet;
+	@media screen and (max-width: 640px){
+		.header-bar {
+			display: none;
 		}
 	}
 
