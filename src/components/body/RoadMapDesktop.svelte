@@ -20,7 +20,7 @@
 			<span class="roadmap-item flex flex-column w-[100%] border-[#373639]">
 				<div><p class="title-timeline-item">From 2018 to Q2-2023</p></div>
 				<div class="flex flex-row justify-between w-[50%] border-l-[1px] relative">
-					<div class="flex flex-col basis-11/12 justify-start gap-4 bg-[#2D2C30] p-6">
+					<div class="flex flex-col justify-start gap-4 bg-[#2D2C30] p-6">
 						<ul
 							class="flex flex-col gap-3 opacity-60 text-[#FFF] text-[16px] font-normal leading-6 p-4"
 						>
@@ -37,7 +37,7 @@
 			</span>
 			<span class="roadmap-item flex flex-column w-[100%] border-[#373639]">
 				<div class=" flex flex-row justify-end w-[50%] border-r-[1px] relative">
-					<div class="flex flex-col basis-11/12 justify-start gap-4 bg-[#2D2C30] p-6">
+					<div class="flex flex-col justify-start gap-4 bg-[#2D2C30] p-6">
 						<ul
 							class="flex flex-col gap-3 opacity-60 text-[#FFF] text-[16px] font-normal leading-6 p-4"
 						>
@@ -56,7 +56,7 @@
 			<span class="roadmap-item flex flex-column w-[100%] border-[#373639]">
 				<div><p class="title-timeline-item">Q4-2023</p></div>
 				<div class="flex flex-row justify-between w-[50%] border-l-[1px] relative">
-					<div class="flex flex-col basis-11/12 justify-start gap-4 bg-[#2D2C30] p-6">
+					<div class="flex flex-col justify-start gap-4 bg-[#2D2C30] p-6">
 						<ul
 							class="flex flex-col gap-3 opacity-60 text-[#FFF] text-[16px] font-normal leading-6 p-4"
 						>
@@ -72,7 +72,7 @@
 			</span>
 			<span class="roadmap-item flex flex-column w-[100%] border-[#373639]">
 				<div class="flex flex-row justify-end w-[50%] border-r-[1px] relative">
-					<div class="flex flex-col basis-11/12 justify-start gap-4 bg-[#2D2C30] p-6">
+					<div class="flex flex-col justify-start gap-4 bg-[#2D2C30] p-6">
 						<ul
 							class="flex flex-col gap-3 opacity-60 text-[#FFF] text-[16px] font-normal leading-6 p-4"
 						>
@@ -91,7 +91,7 @@
 			<span class="roadmap-item flex flex-column w-[100%] border-[#373639]">
 				<div><p class="title-timeline-item">Q3-2024</p></div>
 				<div class="flex flex-row justify-between w-[50%] border-l-[1px] relative">
-					<div class="flex flex-col basis-11/12 justify-start gap-4 bg-[#2D2C30] p-6">
+					<div class="flex flex-col justify-start gap-4 bg-[#2D2C30] p-6">
 						<ul
 							class="flex flex-col gap-3 opacity-60 text-[#FFF] text-[16px] font-normal leading-6 p-4"
 						>
@@ -108,7 +108,7 @@
 			</span>
 			<span class="roadmap-item flex flex-column w-[100%] border-[#373639]">
 				<div class="flex flex-row justify-end w-[50%] border-r-[1px] relative">
-					<div class="flex flex-col basis-11/12 justify-start gap-4 bg-[#2D2C30] p-6">
+					<div class="flex flex-col justify-start gap-4 bg-[#2D2C30] p-6">
 						<ul
 							class="flex flex-col gap-3 opacity-60 text-[#FFF] text-[16px] font-normal leading-6 p-4"
 						>
@@ -128,6 +128,10 @@
 </div>
 
 <style lang="postcss">
+	#roadmap {
+		margin-top: 200px;
+	}
+
 	#roadmap > div:last-child {
 		flex-direction: column;
 	}
@@ -177,6 +181,7 @@
 		border-color: rgba(244, 244, 244, 0.3);
 
 		& > div:first-child {
+			width: 540px;
 			border: 1px solid rgba(244, 244, 244, 0.3);
 			background: radial-gradient(
 				100% 100% at 50% 0%,
@@ -193,6 +198,7 @@
 		border-color: rgba(244, 244, 244, 0.3);
 
 		& > div:first-child {
+			width: 540px;
 			border: 1px solid rgba(244, 244, 244, 0.3);
 			background: radial-gradient(
 				100% 100% at 50% 0%,
@@ -223,7 +229,7 @@
 		padding-left: 1rem;
 		color: #fff;
 		font-size: 16px;
-		opacity: 0.6;
+		opacity: 1;
 	}
 
 	li::before {
