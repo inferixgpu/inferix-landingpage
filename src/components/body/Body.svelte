@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Frame from '$images/png/Frame.png';
+ 	import innovatedHeader from '$images/png/inferixInnovateHeader.png';
 	import Saos from 'saos';
 	import Industries from './Industries.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
@@ -15,9 +16,9 @@
 	import IoTex from '$images/png/IoTex.svg';
 	import Network3 from '$images/png/Network3.png';
 	import SystemArchitecture from '$components/body/SystemArchitecture.svelte';
-	import Technologies from '$components/body/Technologies.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
+	import InferixIntro from "$videos/-6832-41e3-b4e4-f39f89c47ac3.mp4";
 
 	let screenSize: number;
 
@@ -79,36 +80,21 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div id="about" class="bg-[#212023]">
-	<div class="Innovated-bg">
-		<Saos top="200" once animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-			<div class="innovated-title">
-				{#if screenSize > 768}
-					<p
-						class="md:text-center text-center text-xs md:text-[1.75rem] font-pre font-bold leading-default md:text-white text-textMobile"
-					>
-						An innovated platform for 3D rendering and AI inference using crowdsourced GPUs globally
-					</p>
-				{/if}
-				{#if screenSize < 768}
-					<p
-						style="color: #FFF;text-align: center;font-size: 20px;font-style: normal;font-weight: 700;line-height: 30px;margin-top: 80px"
-					>
-						An innovated platform for 3D rendering and AI inference using crowdsourced GPUs globally
-					</p>
-				{/if}
+<div id="about" class="bg-black">
+	<div class="innovated">
+		<div class="innovated-header">
+			<img class="w-[256px] h-[52px] mt-[680px]" src="{innovatedHeader}"/>
+			<div class="innovated-header-content">
+				<p>An innovated platform for 3D rendering and AI</p>
+				<p>inference using crowdsourced GPUs globally</p>
 			</div>
-		</Saos>
-		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-			<img src={Frame} class="mx-auto mt-[44px] md:flex pb-[60px]" alt="inferix circle" />
-		</Saos>
-		<!--		<Saos once top="100" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>-->
-		<!--			<img-->
-		<!--					src={InferixInnovated}-->
-		<!--					class="mx-auto mt-[44px] md:flex pb-[60px]"-->
-		<!--					alt="inferix circle"-->
-		<!--			/>-->
-		<!--		</Saos>-->
+		</div>
+		<div class="innovated-body">
+			<video autoplay muted loop playsinline class="object-cover mx-auto w-[1200px] h-[609px]">
+				<source src={InferixIntro} type="video/mp4" />
+			</video>
+		</div>
+		<div class="innovated-footer"></div>
 	</div>
 
 	<MpvWalkthrough />
@@ -259,19 +245,27 @@
 		cursor: pointer;
 	}
 
-	.innovated-title {
-		@apply flex md:flex-row flex-col items-center mx-auto md:pt-[131px] pt-0 container box-border w-[912px];
-		color: #fff;
-		text-align: center;
-		font-size: 32px;
-		font-style: normal;
-		line-height: 48px; /* 150% */
-	}
-	.Innovated-bg {
-		display: flex;
-		flex-direction: column;
-		background: #212023;
-		gap: 50px;
+	.innovated {
+		@apply flex flex-col relative w-full ;
+		& > .innovated-header {
+			@apply flex flex-col h-[1200px] w-[1288px] mx-auto bg-cover bg-center -mt-[430px] items-center  gap-10 z-20;
+			background-image: url("$images/png/innovatedBackground.png");
+			& > .innovated-header-content {
+				text-align: center;
+				font-size: 40px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				background: linear-gradient(159deg, #FFF -7.96%, rgba(255, 255, 255, 0.00) 124.67%);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+		}
+		& > .innovated-body {
+			@apply -mt-[350px] z-10;
+		}
+
 	}
 	@media screen and (max-width: 900px) {
 		.partnerDiv {

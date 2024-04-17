@@ -1,5 +1,5 @@
 <script>
-	import background from '$images/png/header_register.png';
+	import background from '$images/png/header-register.png';
 	import logo from '$images/icons/HeaderLogo.svg';
 </script>
 

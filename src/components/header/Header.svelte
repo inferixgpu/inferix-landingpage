@@ -2,10 +2,10 @@
 	import Close from '$images/icons/Close.svg';
 	import DownloadIcon from '$images/icons/Download.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
-	import MobileMenu from '$images/icons/MobileMenu.svg';
 	import IconScreen from '$images/icons/IconScreen.svg';
 	import IconGpu from '$images/icons/IconGpu.svg';
-	import InferixIntro from '$videos/InferixIntroLandingPage.mp4';
+	import InferixIntro from '$videos/-3e4b-4024-8f7f-a8034323822f.mp4';
+	import backgroundHeader from '$images/png/header-register.png';
 
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
@@ -53,12 +53,13 @@
 			title: 'Docs',
 			href: 'https://docs.inferix.io/'
 		},
-		{
-			id: 6,
-			title: 'Register',
-			href: '#'
-		}
+
 	];
+	const register = {
+		id: 6,
+		title: 'Register',
+		href: '#'
+	};
 	const medias = [
 		{ id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X },
 		{ id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M },
@@ -139,14 +140,14 @@
 	let is_close = false;
 
 	function scroll() {
-		if (is_close) return;
-		const header = document.getElementById('header');
-		if (window.innerWidth <= 800) {
-			header.style.marginTop = 0;
-			return;
-		}
-		if (window.scrollY > 150) header.style.marginTop = '-40px';
-		else header.style.marginTop = 0;
+		// if (is_close) return;
+		// const header = document.getElementById('header');
+		// if (window.innerWidth <= 800) {
+		// 	header.style.marginTop = 0;
+		// 	return;
+		// }
+		// if (window.scrollY > 150) header.style.marginTop = '-40px';
+		// else header.style.marginTop = 0;
 	}
 
 	function onCloseGuide() {
@@ -168,213 +169,87 @@
 		window.addEventListener('scroll', scroll);
 		window.addEventListener('resize', updateUI);
 	});
+	let isHovered = true;
+
+	function handleHoverRelease() {
+		isHovered = !isHovered;
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 
-<div class="bg-lightDark relative headerBackground">
+<div style="font-family: Inter">
 	<div
 		id="header"
-		class={`md:bg-[#141414] flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-40`}
+		class={`flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-40`}
 	>
-
-		{#if screenSize > 800}
-			<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
-				<div>
-					<div >
-						<span  class="flex items-center">📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
-							>🚀 <span>Proof-of-Rendering Release</span></a
-						>
-					</div>
-					<div>
-						<span  class="flex items-center">📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial"  class="flex items-center"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
-							>🚀 <span>Proof-of-Rendering Release</span></a
-						>
-					</div>
-				</div>
-				<svg
-					on:click={() => onCloseGuide()}
-					xmlns="http://www.w3.org/2000/svg"
-					class="icon icon-tabler icon-tabler-x"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="#597e8d"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-					<path d="M18 6l-12 12" />
-					<path d="M6 6l12 12" />
-				</svg>
+		<div class="header-bar">
+			<img class="h-[24px]" src="{HeaderLogo}">
+			<div class="flex justify-center h-[32px] gap-6">
+				{#each tabs as tab (tab.id)}
+					<a
+							href={tab.href}
+							on:click={(e) => handleClickTab(e, tab.id, tab.href)}
+							class="text-[16px] font-normal text-white px-2 py-1 whitespace-nowrap">{tab.title}</a
+					>
+				{/each}
 			</div>
-		{/if}
-		{#if screenSize <= 800}
-			<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
-				<div>
-					<div >
-						<span  class="flex items-center whitespace-nowrap">📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center whitespace-nowrap"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] !w-[60%] justify-center whitespace-nowrap px-[10px]"
-						>🚀 <span>Proof-of-Rendering Release</span></a
-						>
-					</div>
-				</div>
-				<svg
-						on:click={() => onCloseGuide()}
-						xmlns="http://www.w3.org/2000/svg"
-						class="icon icon-tabler icon-tabler-x"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="#597e8d"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
+			<div class="register-button">
+				<a
+						href={register.href}
+						on:click={(e) => handleClickTab(e, register.id, register.href)}
+						class="whitespace-nowrap">{register.title}</a
 				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-					<path d="M18 6l-12 12" />
-					<path d="M6 6l12 12" />
-				</svg>
 			</div>
-		{/if}
-		<div />
-		<div class="container mx-auto md:mb-5 md:px-0 box-border md:pt-0">
-			<nav class="flex justify-between w-auto font-outfit font-normal">
-				<div class="flex md:gap-4 gap-2 md:items-center items-start">
-					<a href="https://inferix.io/">
-						<img src={HeaderLogo} alt="Inferix" class="lg:w-[158px] lg:h-[32px] h-[24px]" />
-					</a>
-				</div>
-				{#if screenSize > 800}
-					<div class="md:flex lg:gap-8 md:gap-4 text-lg">
-						{#each tabs as tab (tab.id)}
-							<div
-								class="header-tab {activeTab === tab.id ? 'active' : 'tab'}"
-								on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-							>
-								<a target="_blank" href={tab.href}>{tab.title}</a>
-							</div>
-						{/each}
-					</div>
-				{/if}
-				{#if screenSize < 800}
-					<img
-						src={MobileMenu}
-						on:click={toggleMenu}
-						alt="menu"
-						class="md:mb-0 mb-4 cursor-pointer ml-auto w-[24px] h-[24px]"
-					/>
-				{/if}
-			</nav>
 		</div>
+
 	</div>
-	<div class="mx-auto pt-[0px] box-border">
-		<div class="overflow-hidden mx-auto relative">
-			<video autoplay muted loop playsinline class="h-[700px] w-full object-cover">
+	<div class="mx-auto pt-[0px] box-border relative bg-black">
+		<div class="w-full flex justify-center items-center">
+			<div class="flex flex-col gap-4 w-[750px] h-[141px] mx-auto mt-[340px] absolute z-[20]">
+				<div class="flex justify-center text-black">
+				<span class="flex bg-white border-[1px] border-solid border-white hover:bg-black hover:text-white gap-2 p-1 items-center rounded-[40px]" on:mouseenter={handleHoverRelease} on:mouseleave={handleHoverRelease}>
+					🚀 <p class="text-[14px] font-[500]">Proof-of-Rendering Release</p>
+					{#if isHovered}
+						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+						  <path
+								  d="M12.5 2C6.98 2 2.5 6.48 2.5 12C2.5 17.52 6.98 22 12.5 22C18.02 22 22.5 17.52 22.5 12C22.5 6.48 18.02 2 12.5 2ZM16.53 12.53L13.53 15.53C13.38 15.68 13.19 15.75 13 15.75C12.81 15.75 12.62 15.68 12.47 15.53C12.18 15.24 12.18 14.76 12.47 14.47L14.19 12.75H9C8.59 12.75 8.25 12.41 8.25 12C8.25 11.59 8.59 11.25 9 11.25H14.19L12.47 9.53C12.18 9.24 12.18 8.76 12.47 8.47C12.76 8.18 13.24 8.18 13.53 8.47L16.53 11.47C16.82 11.76 16.82 12.24 16.53 12.53Z"
+								  fill="black"
+						  />
+						</svg>
+					{:else}
+						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 24 24" fill="none">
+							<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.03 12.53L13.03 15.53C12.88 15.68 12.69 15.75 12.5 15.75C12.31 15.75 12.12 15.68 11.97 15.53C11.68 15.24 11.68 14.76 11.97 14.47L13.69 12.75H8.5C8.09 12.75 7.75 12.41 7.75 12C7.75 11.59 8.09 11.25 8.5 11.25H13.69L11.97 9.53C11.68 9.24 11.68 8.76 11.97 8.47C12.26 8.18 12.74 8.18 13.03 8.47L16.03 11.47C16.32 11.76 16.32 12.24 16.03 12.53Z" fill="white"/>
+						</svg>
+					{/if}
+				</span>
+				</div>
+				<div class="flex flex-col items-center justify-center">
+					<p class="text-[24px] font-[400] opacity-60">Fastest 3D rendering & AI inference by</p>
+					{#if textIndex === 0}
+						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
+							<p class="text-[48px] font-bold ">INFERIX Decentralized GPU</p>
+						</Saos>
+					{:else }
+						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
+							<p class="text-[48px] font-bold ">INFERIX Crowdsourced GPU</p>
+						</Saos>
+					{/if}
+
+				</div>
+			</div>
+		</div>
+
+		<div class="overflow-hidden bg-black mx-auto relative">
+			<video autoplay muted loop playsinline class="h-[698px] w-[1526px] object-cover mx-auto mt-[160px]">
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
-			<div style="display: flex" class="video-overlay-container">
-				<div class="text">
-					{#if textIndex === 0}
-						{#if screenSize > 768}
-							<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-								<h1
-									class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold"
-								>
-									Fastest 3D rendering by <br /> <strong>Inferix decentralized GPU</strong>
-								</h1>
-							</Saos>
-						{/if}
-						{#if screenSize < 768}
-							<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-								<h1 style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px">
-									Fastest 3D rendering by<br /> <strong>Inferix decentralized GPU</strong>
-								</h1>
-							</Saos>
-						{/if}
-					{/if}
-					{#if textIndex === 1}
-						{#if screenSize > 768}
-							<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-								<h1
-									class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold"
-								>
-									Low-cost AI inference by <br /> <strong>Inferix crowdsourced GPU</strong>
-								</h1>
-							</Saos>
-						{/if}
-						{#if screenSize < 768}
-							<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-								<h1 style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px">
-									Low-cost AI inference by<br /> <strong>Inferix crowdsourced GPU</strong>
-								</h1>
-							</Saos>
-						{/if}
-					{/if}
-				</div>
-				<Saos
-					top="200"
-					once
-					animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
-				>
-					<!--                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">-->
-					<!--                        Start-->
-					<!--                        free trial</p>-->
-					<div
-						class="flex gap-4 justify-center mt-[40px] md:mt-4 {screenSize > 768
-							? 'flex-row'
-							: 'flex-col'}"
-					>
-						<div class="download-btn">
-							<span><img src={IconScreen} alt="download" /></span>
-							<div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
-								<span>For Designer</span>
-								<div class="flex flex-row gap-5">
-									<a class="download-options" href="https://h3d.me/ifxaddonblenderwin">
-										<img src={DownloadIcon} alt="download" />
-										<span>Windows</span>
-									</a>
-									<a class="download-options" href="#" on:click={() => downloadMacOS()}>
-										<img src={DownloadIcon} alt="download" />
-										<span>MacOS</span>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="download-btn">
-							<span><img src={IconGpu} alt="download" /></span>
-							<div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
-								<span>For GPU Owner</span>
-								<div class="flex flex-row gap-5">
-									<a class="download-options" href="https://h3d.me/ifxworkerwin">
-										<img src={DownloadIcon} alt="download" />
-										<span>Windows</span>
-									</a>
-									<a class="download-options" href="#" on:click={() => downloadMacOS()}>
-										<img src={DownloadIcon} alt="download" />
-										<span>MacOS</span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</Saos>
-			</div>
+		</div>
+		<div class="flex flex-row mt-[50px] w-[560px] h-[104px] mx-auto justify-between">
+			<div class="item-download-1"></div>
+			<div class="item-download-2"></div>
 		</div>
 	</div>
-	<!--    <img-->
-	<!--            src={InferixMobile}-->
-	<!--            alt="InferixMobile"-->
-	<!--            class="md:hidden flex w-[78px] h-[31px] mx-auto mt-[50px] pb-5 box-content"-->
-	<!--    />-->
 	<div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-screen z-40`}>
 		<div
 			class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full bg-bg box-border pt-[86px] relative p-[30px]"
@@ -418,15 +293,19 @@
 </div>
 
 <style lang="postcss">
+	.header-bar {
+		@apply flex flex-row mx-auto w-[1200px] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover;
+		background-image: url("$images/png/header-register.png");
+		& > .register-button {
+			@apply flex justify-center h-[32px] w-[104px] items-center text-black py-4 text-[16px] font-[500];
+			border-radius: 4px;
+			background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+		}
+	}
 	#header {
 		margin-top: 0;
 		transition: margin-top 0.3s ease-in-out;
 	}
-
-	#header > div:nth-child(2) {
-		height: 40px;
-	}
-
 	.link_blog_desktop,
 	.link_blog {
 		position: relative;
@@ -617,6 +496,26 @@
 	}
 	h1 {
 		line-height: normal;
+	}
+
+	.item-download-1 {
+		display: flex;
+		width: 260px;
+		padding: 20px 16px;
+		align-items: center;
+		gap: 24px;
+		border-radius: 20px 0px 0px 20px;
+		background: linear-gradient(270deg, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.4) 100%);
+	}
+	.item-download-2 {
+		display: flex;
+		width: 260px;
+		padding: 20px 16px;
+		align-items: center;
+		gap: 24px;
+		border-radius: 0px 20px 20px 0px;
+		background: linear-gradient(270deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+
 	}
 
 	@media screen and (min-width: 768px) {
