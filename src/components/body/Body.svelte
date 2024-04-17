@@ -246,9 +246,9 @@
 	}
 
 	.innovated {
-		@apply flex flex-col relative w-full ;
+		@apply flex flex-col relative w-full z-20;
 		& > .innovated-header {
-			@apply flex flex-col h-[1200px] w-[1288px] mx-auto bg-cover bg-center -mt-[430px] items-center  gap-10 z-20;
+			@apply flex flex-col h-[1200px] w-[1288px] mx-auto bg-cover bg-center -mt-[300px] items-center gap-10 z-20;
 			background-image: url("$images/png/innovatedBackground.png");
 			& > .innovated-header-content {
 				text-align: center;
