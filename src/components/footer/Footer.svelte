@@ -47,16 +47,16 @@
 
 <div class="bg-black flex flex-col items-center justify-center mx-auto">
 	<div class="footer-body">
-		<img class="max-md:hidden absolute mt-[110px]" src="{LineRow}"/>
-		<img class="max-md:hidden absolute mt-[134px]" src="{LineRow}"/>
-		<img class="max-md:hidden absolute ml-[108px]" src="{LineCol}"/>
-		<img class="max-md:hidden absolute ml-[132px]" src="{LineCol}"/>
-		<img class="max-md:hidden absolute mt-[488px]" src="{LineRow}"/>
-		<img class="max-md:hidden absolute mt-[512px]" src="{LineRow}"/>
-		<img class="max-md:hidden absolute ml-[1332px]" src="{LineCol}"/>
-		<img class="max-md:hidden absolute ml-[1356px]" src="{LineCol}"/>
+<!--		<img class="max-md:hidden absolute mt-[110px]" src="{LineRow}"/>-->
+<!--		<img class="max-md:hidden absolute mt-[134px]" src="{LineRow}"/>-->
+<!--		<img class="max-md:hidden absolute ml-[108px]" src="{LineCol}"/>-->
+<!--		<img class="max-md:hidden absolute ml-[132px]" src="{LineCol}"/>-->
+<!--		<img class="max-md:hidden absolute mt-[488px]" src="{LineRow}"/>-->
+<!--		<img class="max-md:hidden absolute mt-[512px]" src="{LineRow}"/>-->
+<!--		<img class="max-md:hidden absolute ml-[1332px]" src="{LineCol}"/>-->
+<!--		<img class="max-md:hidden absolute ml-[1356px]" src="{LineCol}"/>-->
 		<div class="footer-content">
-			<img class="h-[292px] w-[542px]" src="{FooterContent}"/>
+			<img class="max-sm:w-[350px] h-[206px]" src="{FooterContent}"/>
 			<div class="flex flex-col gap-4">
 				<p class="footer-content-paragraph">"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of GPUs for seamless rendering, accelerated Al, and groundbreaking innovation"</p>
 				<div on:mouseenter={() => focusButtonJoin(true)} on:mouseleave={() => focusButtonJoin(false)}>
@@ -82,7 +82,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="h-[120px] w-full px-[156px] py-[24px] mt-[50px] flex md:flex-row flex-col justify-between bg-[rgb(17,17,17)]">
+	<div class="max-sm:hidden sm:h-[120px] max-sm:h-[136px] w-full px-[156px] py-[24px] mt-[50px] flex md:flex-row flex-col justify-between bg-[rgb(17,17,17)]">
 		<div
 			class="flex md:gap-4 gap-2 md:order-1 order-2 flex-col items-center md:items-start mt-8 md:mt-0"
 		>
@@ -96,6 +96,23 @@
 		<div
 			class="flex flex-row md:gap-10 justify-center items-start gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
 		>
+			{#each medias as media (media.id)}
+				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
+					<a target="_blank" href={media.href}><img src={media.icon} /></a>
+				</div>
+			{/each}
+		</div>
+	</div>
+	<div class="sm:hidden flex flex-col gap-6">
+		<div class="flex flex-col items-center">
+			<a href="https://inferix.io/">
+				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
+			</a>
+			<p class="font-base font-outfit font-normal mt-4 md:mt-0 text-white whitespace-nowrap">
+				Decentralized GPU Network
+			</p>
+		</div>
+		<div class="flex flex-row gap-5 mb-[20px]">
 			{#each medias as media (media.id)}
 				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
 					<a target="_blank" href={media.href}><img src={media.icon} /></a>
@@ -131,10 +148,11 @@
 		justify-content: center;
 		align-items: center;
 		height: 354px;
-		width: 1200px;
+		width: 100%;
+		margin-left: 20px;
+		margin-right: 20px;
 		gap: 4px;
 		background: var(--123, radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%));
-		margin: 134px 157px 134px 132px;
 	}
 
 	.footer-content-paragraph {
@@ -144,7 +162,7 @@
 		font-weight: 400;
 		line-height: 32px;
 		opacity: 0.6;
-		width: 507px;
+		max-width: 507px;
 	}
 	.footer-join {
 		width: 140px;
@@ -186,7 +204,17 @@
 	}
 	@media screen and (max-width: 640px) {
 		.footer-body .footer-content {
-			display: none;
+			height: 542px;
+			flex-direction: column;
+		}
+		.footer-content-paragraph {
+			max-width: 308px;
+			color: #FFF;
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 32px; /* 133.333% */
+			opacity: 0.6;
 		}
 	}
 </style>
