@@ -45,11 +45,11 @@
 			title: 'Roadmap',
 			href: '#roadmap'
 		},
-		{
-			id: 4,
-			title: 'Team',
-			href: '#team'
-		},
+		// {
+		// 	id: 4,
+		// 	title: 'Team',
+		// 	href: '#team'
+		// },
 		{
 			id: 5,
 			title: 'Docs',

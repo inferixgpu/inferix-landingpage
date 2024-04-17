@@ -142,6 +142,7 @@
 	{:else}
 		<RoadMapMobile />
 	{/if}
+<!--	<Teams/>-->
 </div>
 
 <style lang="postcss">
