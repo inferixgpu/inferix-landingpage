@@ -16,8 +16,8 @@
 	import Y from '$images/icons/Ytb.svg';
 	import buttonGPU from '$images/icons/ButtonGPU.png';
 	import buttonGPUFocus from '$images/icons/ButtonGPUFocus.png';
-	import buttonScreen from '$images/icons/buttonScreen.png';
-	import buttonScreenFocus from '$images/icons/buttonScreenFocus.png';
+	import buttonScreen from '$images/icons/ButtonScreen.png';
+	import buttonScreenFocus from '$images/icons/ButtonScreenFocus.png';
 	import DownloadIcon from  '$images/icons/Download.svg';
 
 
