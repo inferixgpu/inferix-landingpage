@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Frame from '$images/png/Frame.png';
- 	import innovatedHeader from '$images/png/inferixInnovateHeader.png';
+	import innovatedHeader from '$images/png/inferixInnovateHeader.png';
 	import Saos from 'saos';
 	import Industries from './Industries.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
@@ -15,6 +14,7 @@
 	import DePINSurf from '$images/png/DePINSurf.png';
 	import IoTex from '$images/png/IoTex.svg';
 	import Network3 from '$images/png/Network3.png';
+	import DeMR from '$images/png/DeMR.svg';
 	import SystemArchitecture from '$components/body/SystemArchitecture.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
@@ -36,7 +36,7 @@
 			href: 'https://depin.surf'
 		},
 		{
-			id: 8,
+			id: 3,
 			title: 'IoTex',
 			img: {
 				name: IoTex,
@@ -46,34 +46,40 @@
 			href: 'https://iotex.io/'
 		},
 		{
-			id: 3,
+			id: 4,
 			title: 'Actif3d',
 			img: { name: Actif3D, height: '85px', mobile_height: '44px' },
 			href: 'https://actif3d.com/'
 		},
 		{
-			id: 4,
+			id: 5,
 			title: 'MetaCity',
 			img: { name: MetaCity, height: '75px', mobile_height: '40px' },
 			href: 'https://citiverse.io/'
 		},
 		{
-			id: 5,
+			id: 6,
 			title: 'Nvidia',
 			img: { name: Nvidia, height: '85px', mobile_height: '52px' },
 			href: 'https://www.nvidia.com/en-us/startups/'
 		},
 		{
-			id: 6,
+			id: 7,
 			title: 'ZoneNine',
 			img: { name: ZoneNine, height: '85px', mobile_height: '50px' },
 			href: 'https://zone9survival.com/'
 		},
 		{
-			id: 7,
+			id: 8,
 			title: 'Network3',
 			img: { name: Network3, height: '85px', mobile_height: '40px' },
 			href: 'https://network3.io/'
+		},
+		{
+			id: 9,
+			title: 'DeMR',
+			img: {name: DeMR, height: '85px', mobile_height: '40px'},
+			href: 'https://www.demr.xyz/#/'
 		}
 	];
 </script>
@@ -102,16 +108,16 @@
 	<!--	<Technologies />-->
 	<ProvenTechnologies />
 	<Industries />
-	<div class="bg-[#212023]">
+	<div>
 		<div
-			class="pb-0 bg-[#212023] md:flex flex-col mx-auto container md:pb-[60px] mt-[80px] md:mt-[160px]"
+				class="pb-0 h-[288px] w-[894px] md:flex gap-[48px] flex-col mx-auto md:pb-[60px] mt-[80px] md:mt-[160px]"
 		>
 			<Saos
 				once
 				top="200"
 				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
 			>
-				<p class="text-center font-pre font-extrabold md:text-[48px] text-[32px] mb-[65px]">
+				<p class="partner-header">
 					Partner / Investor
 				</p>
 			</Saos>
@@ -120,68 +126,13 @@
 				top="300"
 				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
 			>
-				<div class="partnerDiv mx-auto md:mt-[65px]">
-					{#if screenSize > 900}
-						<div class="partnerImg">
-							{#each partners.slice(0, 3) as partner (partner.id)}
-								<a class="partnerLink" target="_blank" href={partner.href}>
-									<img
-										src={partner.img.name}
-										alt={partner.img.name}
-										style={`height: ${partner.img.height};object-fit:scale-down`}
-									/>
-								</a>
-							{/each}
-						</div>
-						<div class="partnerImg mt-[65px]">
-							{#each partners.slice(3, 6) as partner (partner.id)}
-								<a class="partnerLink" target="_blank" href={partner.href}>
-									<img
-										src={partner.img.name}
-										alt={partner.img.name}
-										style={`height: ${partner.img.height}; object-fit:scale-down`}
-									/>
-								</a>
-							{/each}
-						</div>
-						<div class="partnerImg mt-[65px]">
-							{#each partners.slice(6, 8) as partner (partner.id)}
-								<a class="partnerLink" target="_blank" href={partner.href}>
-									<img
-										src={partner.img.name}
-										alt={partner.img.name}
-										style={`height: ${partner.img.height}; max-width:350px; object-fit:scale-down`}
-									/>
-								</a>
-							{/each}
-						</div>
-					{:else if screenSize > 480}
-						{#each partners as partner (partner.id)}
-							<div class="partnerImg">
-								<a class="partnerLink" target="_blank" href={partner.href}>
-									<img
-										src={partner.img.name}
-										alt={partner.img.name}
-										style={`height: ${partner.img.height};object-fit:scale-down`}
-									/>
-								</a>
-							</div>
-						{/each}
-					{:else}
-						{#each partners as partner (partner.id)}
-							<div class="partnerImg">
-								<a class="partnerLink" target="_blank" href={partner.href}>
-									<img
-										src={partner.img.name}
-										alt={partner.img.name}
-										style={`height: ${partner.img.mobile_height};object-fit:scale-down`}
-									/>
-								</a>
-							</div>
-						{/each}
-					{/if}
+				<div class="partner-content">
+					{#each partners as partner (partner.id)}
+						<a class="partner-item" href="{partner.href}" target="_blank">
+							<img src="{partner.img.name}"/>
+						</a>
+					{/each}
 				</div>
-				<!-- <img src={PartnerAndInvestor} alt="Partner / Investor" class="mt-[60px] mx-auto"/> -->
 			</Saos>
 		</div>
 	</div>
@@ -266,6 +217,27 @@
 			@apply -mt-[350px] z-10;
 		}
 
+	}
+
+	.partner-header {
+		text-align: center;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 48px;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 8.85%, #FFF 100%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.partner-content {
+		@apply grid grid-cols-3 gap-6;
+		& > .partner-item {
+			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.30));
+			background: var(--123, radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%));
+			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none;
+		}
 	}
 	@media screen and (max-width: 900px) {
 		.partnerDiv {
