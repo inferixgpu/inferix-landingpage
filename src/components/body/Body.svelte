@@ -90,10 +90,13 @@
 <div id="about" class="bg-black">
 	<div class="innovated">
 		<div class="innovated-header">
-			<img class="w-[256px] h-[52px] mt-[680px]" src={innovatedHeader} />
+			<img class="w-[256px] h-[52px] mt-[680px] max-md:w-[185px] max-md:h-[37px]" src={innovatedHeader} />
 			<div class="innovated-header-content">
-				<p>An innovated platform for 3D rendering and AI</p>
-				<p>inference using crowdsourced GPUs globally</p>
+				<p class="max-sm:hidden">An innovated platform for 3D rendering and AI</p>
+				<p class="max-sm:hidden">inference using crowdsourced GPUs globally</p>
+				<p class="sm:hidden mt-[50px] px-[33px]">
+					An innovated platform for 3D rendering and AI inference using crowdsourced GPUs globally
+				</p>
 			</div>
 		</div>
 		<div class="innovated-body">
@@ -104,8 +107,7 @@
 		<div class="innovated-footer" />
 	</div>
 
-	<!--	<MpvWalkthrough />-->
-
+<!--	<MpvWalkthrough />-->
 	<!--	<Technologies />-->
 	<ProvenTechnologies />
 	<SystemArchitecture />
@@ -197,25 +199,42 @@
 	}
 
 	.innovated {
-		@apply flex flex-col relative w-full;
-		& > .innovated-header {
-			@apply flex flex-col h-[1200px] w-[1288px] mx-auto bg-cover bg-center -mt-[330px] items-center  gap-10 z-20;
-			background-image: url('$images/png/innovatedBackground.png');
-			& > .innovated-header-content {
-				text-align: center;
-				font-size: 40px;
-				font-style: normal;
-				font-weight: 500;
-				line-height: normal;
-				background: linear-gradient(159deg, #fff -7.96%, rgba(255, 255, 255, 0) 124.67%);
-				background-clip: text;
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
-		}
-		& > .innovated-body {
-			@apply -mt-[350px] z-10;
-		}
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		width: 100%;
+	}
+
+	.innovated > .innovated-header {
+		display: flex;
+		flex-direction: column;
+		height: 1200px;
+		width: 1288px;
+		margin: 0 auto;
+		background-image: url('$images/png/innovatedBackground.png');
+		background-size: cover;
+		background-position: center;
+		margin-top: -330px;
+		align-items: center;
+		gap: 10px;
+		z-index: 20;
+	}
+
+	.innovated > .innovated-header > .innovated-header-content {
+		text-align: center;
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		background: linear-gradient(159deg, #fff -7.96%, rgba(255, 255, 255, 0) 124.67%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.innovated > .innovated-body {
+		margin-top: -350px;
+		z-index: 10;
 	}
 
 	.partner-header {
@@ -231,45 +250,45 @@
 	}
 
 	.partner-content {
-		@apply grid grid-cols-3 gap-6;
-		& > .partner-item {
-			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
-			background: var(
-				--123,
-				radial-gradient(
-					100% 100% at 50% 0%,
-					rgba(255, 255, 255, 0.12) 0%,
-					rgba(255, 255, 255, 0) 100%
-				)
-			);
-			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none;
-		}
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 6px;
 	}
-	@media screen and (max-width: 900px) {
-		.partnerDiv {
-			width: 100%;
-			height: auto;
+
+	.partner-content > .partner-item {
+		border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.30));
+		background: var(--123, radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%));
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 80px;
+		width: 282px;
+		padding: 4px 64px;
+		cursor: pointer;
+		filter: none;
+	}
+
+	@media screen and (max-width: 640px) {
+		.innovated > .innovated-header {
+			display: flex;
 			flex-direction: column;
+			height: 1200px;
+			width: 100%;
+			margin: 0 auto;
+			background-image: url('$images/png/innovatedBackground.png');
+			background-size: cover;
+			background-position: center;
+			margin-top: -330px;
 			align-items: center;
-			padding: 0px 10px;
+			gap: 10px;
+			z-index: 20;
 		}
-
-		.partnerImg {
-			width: 100%;
-			height: 150px;
-			margin-bottom: 15px;
-		}
-
-		.partnerImg > a {
-			width: 100%;
-		}
-	}
-
-	@media screen and (max-width: 480px) {
-		.partnerImg {
-			width: 100%;
-			height: 100px;
-			margin-bottom: 15px;
+		.innovated > .innovated-header > .innovated-header-content {
+			text-align: center;
+			font-size: 32px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
 		}
 	}
 </style>

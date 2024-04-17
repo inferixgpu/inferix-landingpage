@@ -257,7 +257,8 @@
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
-		<div class="flex flex-row mt-[50px] w-[560px] h-[104px] mx-auto justify-between z-50 -mb-[150px] absolute">
+		<div class="flex sm:flex-row flex-col mt-[50px] sm:w-[560px] max-sm:w-full h-[104px]
+		items-center mx-auto justify-between z-50 max-sm:-mb-0 sm:-mb-[150px] max-sm:gap-2 absolute">
 			<div class="item-download-1 cursor-pointer" on:mouseenter={() => focusButtonGPU(true)} on:mouseleave={() => focusButtonGPU(false)}>
 				<div class="basis-2/3 flex flex-col gap-2 h-[64px] justify-end">
 					<p class="flex text-white text-[16px] font-bold justify-end">FOR GPU OWNER</p>
