@@ -57,26 +57,29 @@
 		<img class="absolute ml-[1356px]" src="{LineCol}"/>
 		<div class="footer-content">
 			<img class="h-[292px] w-[542px]" src="{FooterContent}"/>
-			<div class="flex flex-col gap-4" on:mouseenter={() => focusButtonJoin(true)} on:mouseleave={() => focusButtonJoin(false)}>
+			<div class="flex flex-col gap-4">
 				<p class="footer-content-paragraph">"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of GPUs for seamless rendering, accelerated Al, and groundbreaking innovation"</p>
-				{#if !focusButtonJoinNow}
-					<div class="footer-join">
-						<p class="text-black text-[14px] font-normal whitespace-nowrap">Join Inferix Now</p>
-						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-							<path
-									d="M12.5 2C6.98 2 2.5 6.48 2.5 12C2.5 17.52 6.98 22 12.5 22C18.02 22 22.5 17.52 22.5 12C22.5 6.48 18.02 2 12.5 2ZM16.53 12.53L13.53 15.53C13.38 15.68 13.19 15.75 13 15.75C12.81 15.75 12.62 15.68 12.47 15.53C12.18 15.24 12.18 14.76 12.47 14.47L14.19 12.75H9C8.59 12.75 8.25 12.41 8.25 12C8.25 11.59 8.59 11.25 9 11.25H14.19L12.47 9.53C12.18 9.24 12.18 8.76 12.47 8.47C12.76 8.18 13.24 8.18 13.53 8.47L16.53 11.47C16.82 11.76 16.82 12.24 16.53 12.53Z"
-									fill="black"
-							/>
-						</svg>
-					</div>
-				{:else}
-					<a class="join-footer-focus">
-						<p class="">Let's build our ecosystem together</p>
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
-							<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.03 12.53L13.03 15.53C12.88 15.68 12.69 15.75 12.5 15.75C12.31 15.75 12.12 15.68 11.97 15.53C11.68 15.24 11.68 14.76 11.97 14.47L13.69 12.75H8.5C8.09 12.75 7.75 12.41 7.75 12C7.75 11.59 8.09 11.25 8.5 11.25H13.69L11.97 9.53C11.68 9.24 11.68 8.76 11.97 8.47C12.26 8.18 12.74 8.18 13.03 8.47L16.03 11.47C16.32 11.76 16.32 12.24 16.03 12.53Z" fill="white"/>
-						</svg>
-					</a>
-				{/if}
+				<div on:mouseenter={() => focusButtonJoin(true)} on:mouseleave={() => focusButtonJoin(false)}>
+					{#if !focusButtonJoinNow}
+						<div class="footer-join">
+							<p class="text-black text-[14px] font-normal whitespace-nowrap">Join Inferix Now</p>
+							<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+								<path
+										d="M12.5 2C6.98 2 2.5 6.48 2.5 12C2.5 17.52 6.98 22 12.5 22C18.02 22 22.5 17.52 22.5 12C22.5 6.48 18.02 2 12.5 2ZM16.53 12.53L13.53 15.53C13.38 15.68 13.19 15.75 13 15.75C12.81 15.75 12.62 15.68 12.47 15.53C12.18 15.24 12.18 14.76 12.47 14.47L14.19 12.75H9C8.59 12.75 8.25 12.41 8.25 12C8.25 11.59 8.59 11.25 9 11.25H14.19L12.47 9.53C12.18 9.24 12.18 8.76 12.47 8.47C12.76 8.18 13.24 8.18 13.53 8.47L16.53 11.47C16.82 11.76 16.82 12.24 16.53 12.53Z"
+										fill="black"
+								/>
+							</svg>
+						</div>
+					{:else}
+						<a class="join-footer-focus">
+							<p class="">Let's build our ecosystem together</p>
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
+								<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.03 12.53L13.03 15.53C12.88 15.68 12.69 15.75 12.5 15.75C12.31 15.75 12.12 15.68 11.97 15.53C11.68 15.24 11.68 14.76 11.97 14.47L13.69 12.75H8.5C8.09 12.75 7.75 12.41 7.75 12C7.75 11.59 8.09 11.25 8.5 11.25H13.69L11.97 9.53C11.68 9.24 11.68 8.76 11.97 8.47C12.26 8.18 12.74 8.18 13.03 8.47L16.03 11.47C16.32 11.76 16.32 12.24 16.03 12.53Z" fill="white"/>
+							</svg>
+						</a>
+					{/if}
+				</div>
+
 			</div>
 		</div>
 	</div>
