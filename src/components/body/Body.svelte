@@ -17,7 +17,7 @@
 	import Network3 from '$images/png/Network3.png';
 	import SystemArchitecture from '$components/body/SystemArchitecture.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
-	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
+	import ProvenTechnologies from '$components/body/NewProven.svelte';
 	import InferixIntro from "$videos/-6832-41e3-b4e4-f39f89c47ac3.mp4";
 
 	let screenSize: number;
