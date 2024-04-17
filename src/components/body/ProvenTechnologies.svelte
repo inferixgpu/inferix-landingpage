@@ -18,7 +18,7 @@
 	import r_color from '$images/icons/r-color.svg';
 	import i from '$images/icons/i.svg';
 	import i_color from '$images/icons/i-color.svg';
-	import x from '$images/icons/x.svg';
+	import x from '$images/icons/X.svg';
 	import x_color from '$images/icons/x-color.svg';
 	import decentralized_render from '$images/png/decentralized_render.png';
 	import proof_of_rendering from '$images/png/proof_of_rendering.png';
@@ -26,7 +26,7 @@
 	import webvr_auto_content from '$images/png/webvr_auto_content.png';
 	import zerofrozr from '$images/png/zerofrozr.png';
 	import fan from '$images/png/fan.png';
-	import fan_x from '$images/icons/fan_x.png';
+	import fan_x from '$images/icons/fan_X.png';
 	import animated_x from '$images/icons/animated_x.svg';
 	import ai from '$videos/ai.mp4';
 	import BG_Left from '$images/png/BG-Left.png';
