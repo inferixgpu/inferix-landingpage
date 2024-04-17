@@ -79,7 +79,7 @@
 		{
 			id: 9,
 			title: 'DeMR',
-			img: {name: DeMR, height: '85px', mobile_height: '40px'},
+			img: { name: DeMR, height: '85px', mobile_height: '40px' },
 			href: 'https://www.demr.xyz/#/'
 		}
 	];
@@ -104,23 +104,22 @@
 		<div class="innovated-footer" />
 	</div>
 
-<!--	<MpvWalkthrough />-->
-	<SystemArchitecture />
+	<!--	<MpvWalkthrough />-->
+
 	<!--	<Technologies />-->
 	<ProvenTechnologies />
+	<SystemArchitecture />
 	<Industries />
 	<div>
 		<div
-				class="pb-0 h-[288px] w-[894px] md:flex gap-[48px] flex-col mx-auto md:pb-[60px] mt-[80px] md:mt-[160px]"
+			class="pb-0 h-[288px] w-[894px] md:flex gap-[48px] flex-col mx-auto md:pb-[60px] mt-[80px] md:mt-[160px]"
 		>
 			<Saos
 				once
 				top="200"
 				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
 			>
-				<p class="partner-header">
-					Partner / Investor
-				</p>
+				<p class="partner-header">Partner / Investor</p>
 			</Saos>
 			<Saos
 				once
@@ -129,8 +128,8 @@
 			>
 				<div class="partner-content">
 					{#each partners as partner (partner.id)}
-						<a class="partner-item" href="{partner.href}" target="_blank">
-							<img src="{partner.img.name}"/>
+						<a class="partner-item" href={partner.href} target="_blank">
+							<img src={partner.img.name} />
 						</a>
 					{/each}
 				</div>
@@ -142,7 +141,7 @@
 	{:else}
 		<RoadMapMobile />
 	{/if}
-<!--	<Teams/>-->
+	<!--	<Teams/>-->
 </div>
 
 <style lang="postcss">
@@ -225,7 +224,7 @@
 		font-style: normal;
 		font-weight: 600;
 		line-height: 48px;
-		background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 8.85%, #FFF 100%);
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
@@ -234,8 +233,15 @@
 	.partner-content {
 		@apply grid grid-cols-3 gap-6;
 		& > .partner-item {
-			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.30));
-			background: var(--123, radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%));
+			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
+			background: var(
+				--123,
+				radial-gradient(
+					100% 100% at 50% 0%,
+					rgba(255, 255, 255, 0.12) 0%,
+					rgba(255, 255, 255, 0) 100%
+				)
+			);
 			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none;
 		}
 	}

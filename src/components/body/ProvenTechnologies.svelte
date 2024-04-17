@@ -33,6 +33,7 @@
 	import BG_Right from '$images/png/BG-Right.png';
 	import line from '$images/icons/line.svg';
 	import line_2 from '$images/icons/line_2.svg';
+	import line_2_mobile from '$images/icons/line_2_mobile.svg';
 	import gsap from 'gsap';
 	import lo from 'lodash';
 
@@ -181,56 +182,110 @@
 		const animated_x = document.querySelector('#animated_x');
 		const tl = gsap.timeline({ repeat: -1 });
 		//const container = document.querySelector('')
-		tl.to(animated_x, {
-			left: 289 + 50 - 103,
-			duration: 0.8,
-			ease: 'none'
-		})
-			.to(animated_x, {
-				top: 125 + 70,
+		if (screenSize > 460) {
+			tl.to(animated_x, {
+				left: 289 + 50 - 103,
 				duration: 0.8,
 				ease: 'none'
 			})
-			.to(animated_x, {
-				left: 289 + 50 - 290,
-				duration: 1.1,
+				.to(animated_x, {
+					top: 125 + 70,
+					duration: 0.8,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					left: 289 + 50 - 290,
+					duration: 1.1,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					top: 125 + 70 + 188,
+					duration: 1.2,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					left: 289 + 50 - 103,
+					duration: 1.1,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					top: 125 + 70 + 385,
+					duration: 1.2,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					left: 289 + 50 - 290,
+					duration: 1.2,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					top: 125 + 70 + 483,
+					duration: 0.6,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					left: 289 + 50,
+					duration: 1.5,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					top: 95,
+					duration: 2.2,
+					ease: 'none'
+				});
+		} else {
+			console.log(screenSize, 'ggg');
+			tl.to(animated_x, {
+				left: 289 + 5 - 92,
+				duration: 0.8,
 				ease: 'none'
 			})
-			.to(animated_x, {
-				top: 125 + 70 + 188,
-				duration: 1.2,
-				ease: 'none'
-			})
-			.to(animated_x, {
-				left: 289 + 50 - 103,
-				duration: 1.1,
-				ease: 'none'
-			})
-			.to(animated_x, {
-				top: 125 + 70 + 385,
-				duration: 1.2,
-				ease: 'none'
-			})
-			.to(animated_x, {
-				left: 289 + 50 - 290,
-				duration: 1.2,
-				ease: 'none'
-			})
-			.to(animated_x, {
-				top: 125 + 70 + 483,
-				duration: 0.6,
-				ease: 'none'
-			})
-			.to(animated_x, {
-				left: 289 + 50,
-				duration: 1.5,
-				ease: 'none'
-			})
-			.to(animated_x, {
-				top: 95,
-				duration: 2.2,
-				ease: 'none'
-			});
+				.to(animated_x, {
+					top: 125 + 59,
+					duration: 0.8,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					left: 289 + 5 - 258,
+					duration: 1.1,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					top: 125 + 59 + 168,
+					duration: 1,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					left: 289 + 5 - 93,
+					duration: 1.1,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					top: 125 + 70 + 336,
+					duration: 1.2,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					left: 289 + 5 - 258,
+					duration: 1.2,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					top: 125 + 59 + 434,
+					duration: 0.6,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					left: 289 + 5,
+					duration: 1.2,
+					ease: 'none'
+				})
+				.to(animated_x, {
+					top: 95,
+					duration: 2.2,
+					ease: 'none'
+				});
+		}
 		await setTextAnimation();
 	}
 
@@ -238,6 +293,7 @@
 		await setTimeout(() => {}, 0);
 		setDefaultStyle();
 		setDefaultAnimation();
+		window.addEventListener('resize', setDefaultAnimation);
 	});
 </script>
 
@@ -321,7 +377,11 @@
 					<div id="custom_line_3" />
 					<div id="custom_line_4" />
 					<div id="custom_line_5" />
-					<img src={line_2} alt="line_2" />
+					{#if screenSize > 1280}
+						<img src={line_2} alt="line_2" />
+					{:else}
+						<img src={line_2_mobile} alt="line_2" />
+					{/if}
 				</div>
 			</div>
 			<div>
@@ -352,7 +412,7 @@
 				</div>
 				<div>
 					<div class="proven-video">
-						<video autoplay controls muted playsinline loop>
+						<video autoplay muted playsinline loop>
 							<source src={ai} type="video/mp4" />
 						</video>
 					</div>
@@ -649,5 +709,136 @@
 		font-weight: 400;
 		line-height: normal;
 		opacity: 0.6;
+	}
+
+	@media screen and (max-width: 1280px) {
+		.proven-infor {
+			width: 980px;
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		.proven-infor {
+			width: 800px;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.proven-infor {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.proven-img > div:last-child > img:last-child {
+			display: none;
+		}
+
+		.proven-text {
+			gap: 8px;
+		}
+	}
+
+	@media screen and (max-width: 460px) {
+		.proven-device {
+			width: 280px;
+		}
+
+		.proven-device > img:nth-child(2) {
+			left: 11px;
+		}
+
+		.proven-device > img:nth-child(3) {
+			left: 96px;
+		}
+
+		.proven-device > img:nth-child(4) {
+			left: 184px;
+		}
+
+		.proven-device > img:nth-child(n + 5):nth-child(-n + 7) {
+			width: calc(calc(100%) * 23 / 300);
+			position: absolute;
+			top: 42px;
+		}
+
+		.proven-device > img:nth-child(5) {
+			left: 40px;
+		}
+
+		.proven-device > img:nth-child(6) {
+			left: 125px;
+		}
+
+		.proven-device > img:nth-child(7) {
+			left: 213px;
+		}
+
+		.proven-img > div:last-child > img:nth-child(5) {
+			position: absolute;
+			width: 260px;
+			top: 125px;
+			left: 35px;
+			z-index: 1;
+		}
+
+		.proven-img > div:last-child > img:nth-child(6) {
+			width: 60px;
+			position: absolute;
+			z-index: 2;
+			top: 95px;
+			left: calc(289px + 5px);
+			transform: translate(-50%, 0);
+		}
+
+		.proven-infor {
+			width: 100%;
+			border: none;
+		}
+
+		.proven-infor > div:last-child {
+			width: 100%;
+		}
+
+		.proven-infor > div:last-child > div:first-child {
+			border: none;
+		}
+		.proven-header > img:first-child,
+		.proven-header > img:last-child {
+			display: none;
+		}
+
+		.proven-tech {
+			padding: 15px;
+		}
+
+		.proven-tech > div > img {
+			width: 70px;
+		}
+
+		.proven-tech > div > div {
+			font-size: 18px;
+		}
+
+		.proven-infor > div:last-child > div:last-child {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.proven-video {
+			width: calc(calc(100%) - 30px);
+		}
+
+		.proven-video > video {
+			height: 100%;
+		}
+
+		.proven-infor > div:last-child > div:last-child > div:last-child {
+			margin: 15px;
+			padding: 10px;
+		}
+
+		.proven-more-infor {
+			display: none;
+		}
 	}
 </style>

@@ -316,4 +316,19 @@
 			filter: drop-shadow(0px 0px 4px rgba(254, 254, 254, 0.9));
 		}
 	}
+
+	@media screen and (max-width: 600px) {
+		.slide {
+			gap: 5px;
+		}
+		.slide > div {
+			width: 3vw;
+			height: 3vw;
+		}
+		.prev > img,
+		.next > img {
+			width: 6vw;
+			height: 6vw;
+		}
+	}
 </style>
