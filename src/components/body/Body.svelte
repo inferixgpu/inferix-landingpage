@@ -16,7 +16,7 @@
 	import IoTex from '$images/png/IoTex.svg';
 	import Network3 from '$images/png/Network3.png';
 	import DeMR from '$images/png/DeMR.svg';
-	import SystemArchitecture from '$components/body/SystemArchitecture.svelte';
+	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
 	import InferixIntro from '$videos/-6832-41e3-b4e4-f39f89c47ac3.mp4';
