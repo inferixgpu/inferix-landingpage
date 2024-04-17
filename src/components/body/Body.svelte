@@ -87,7 +87,7 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div id="about" class="bg-black">
+<div class="bg-black">
 	<div class="innovated">
 		<div class="innovated-header">
 			<img class="w-[256px] h-[52px] mt-[680px] max-md:w-[185px] max-md:h-[37px]" src={innovatedHeader} />
@@ -104,7 +104,7 @@
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
-		<div class="innovated-footer" />
+		<div class="innovated-footer" id="about"/>
 	</div>
 
 	<ProvenTechnologies />

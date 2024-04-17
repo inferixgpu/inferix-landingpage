@@ -372,7 +372,7 @@
 		margin-top: 12px;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 4px;
+		padding: 4px 16px;
 		height: 56px;
 		border-radius: 16px;
 		background-image: url("$images/png/header-register.png");
