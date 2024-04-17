@@ -1,11 +1,7 @@
 <script lang="ts">
 	import Close from '$images/icons/Close.svg';
-	import DownloadIcon from '$images/icons/Download.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
-	import IconScreen from '$images/icons/IconScreen.svg';
-	import IconGpu from '$images/icons/IconGpu.svg';
 	import InferixIntro from '$videos/-3e4b-4024-8f7f-a8034323822f.mp4';
-	import backgroundHeader from '$images/png/header-register.png';
 
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
