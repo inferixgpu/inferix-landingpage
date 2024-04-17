@@ -1,5 +1,6 @@
 <script lang="ts">
-	import innovatedHeader from '$images/png/inferixInnovateHeader.png';
+	import Frame from '$images/png/Frame.png';
+ 	import innovatedHeader from '$images/png/inferixInnovateHeader.png';
 	import Saos from 'saos';
 	import Industries from './Industries.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
