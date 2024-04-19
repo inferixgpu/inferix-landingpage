@@ -10,13 +10,13 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div class="flex md:mt-[200px] mt-[200px] justify-center">
+<div class="flex md:mt-0 xl:mt-[200px] justify-center">
 	<div id="roadmap" class="md:block container w-100%">
 		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 			<p class="roadmap-header">Roadmap</p>
 		</Saos>
 
-		<div class="flex flex-column justify-between mb-[80px]">
+		<div class="flex flex-column justify-between mb-[80px] lg:mx-[40px] xl:mx-auto">
 			<span class="roadmap-item flex flex-column w-[100%] border-[#373639]">
 				<div><p class="title-timeline-item">From 2018 to Q2-2023</p></div>
 				<div class="flex flex-row justify-between w-[50%] border-l-[1px] relative">

@@ -112,7 +112,7 @@
 	<Industries />
 	<div>
 		<div
-			class="flex pb-0 sm:h-[288px] max-sm:w-full sm:w-[894px] md:flex gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[80px] md:mt-[160px]"
+			class="flex pb-0 lg:h-[288px] max-sm:w-full lg:w-[894px] md:flex gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[80px] md:mt-[160px]"
 		>
 			<Saos
 				once
@@ -197,108 +197,35 @@
 	}
 
 	.innovated {
-		display: flex;
-		flex-direction: column;
-		position: relative;
-		width: 100%;
-	}
+		@apply flex flex-col relative w-full z-20;
 
-	.innovated > .innovated-header {
-		display: flex;
-		flex-direction: column;
-		height: 1200px;
-		width: 1288px;
-		margin: 0 auto;
-		background-image: url('$images/png/innovatedBackground.png');
-		background-size: cover;
-		background-position: center;
-		margin-top: -330px;
-		align-items: center;
-		gap: 10px;
-		z-index: 20;
-	}
+		& > .innovated-header {
+			@apply flex flex-col h-[1200px] xl:w-[1288px] lg:w-[90%] mx-auto bg-cover bg-center -mt-[300px] items-center gap-10 z-20;
+			background-image: url("$images/png/innovatedBackground.png");
 
-	.innovated > .innovated-header > .innovated-header-content {
-		text-align: center;
-		font-size: 40px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: normal;
-		background: linear-gradient(159deg, #fff -7.96%, rgba(255, 255, 255, 0) 124.67%);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
+			& > .innovated-header-content {
+				text-align: center;
+				font-size: 40px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				background: linear-gradient(159deg, #FFF -7.96%, rgba(255, 255, 255, 0.00) 124.67%);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+		}
 
-	.innovated > .innovated-body {
-		margin-top: -350px;
-		z-index: 10;
+		& > .innovated-body {
+			@apply -mt-[350px] z-10;
+		}
 	}
-
-	.partner-header {
-		text-align: center;
-		font-size: 32px;
-		font-style: normal;
-		font-weight: 600;
-		line-height: 48px;
-		background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
 	.partner-content {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 6px;
-	}
-
-	.partner-content > .partner-item {
-		border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.30));
-		background: var(--123, radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%));
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 80px;
-		width: 282px;
-		padding: 4px 64px;
-		cursor: pointer;
-		filter: none;
-	}
-
-	@media screen and (max-width: 1536px) and (min-width: 1280px){
-		.innovated > .innovated-header {
-			height: 1200px;
-			width: 100%;
-		}
-	}
-	@media screen and (max-width: 640px) {
-		.innovated > .innovated-header {
-			display: flex;
-			flex-direction: column;
-			height: 1200px;
-			width: 100%;
-			margin: 0 auto;
-			background-image: url('$images/png/innovatedBackground.png');
-			background-size: cover;
-			background-position: center;
-			margin-top: -330px;
-			align-items: center;
-			gap: 10px;
-			z-index: 20;
-		}
-		.innovated > .innovated-header > .innovated-header-content {
-			text-align: center;
-			font-size: 32px;
-			font-style: normal;
-			font-weight: 500;
-			line-height: normal;
-		}
-		.partner-content {
-			display: grid;
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-			align-items: center;
-			gap: 24px;
+		@apply lg:grid lg:grid-cols-3 flex flex-col gap-6;
+		& > .partner-item {
+			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.30));
+			background: var(--123, radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%));
+			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none;
 		}
 	}
 </style>

@@ -254,6 +254,7 @@
 	}
 
 	.system-content-img {
+		@apply lg:mx-40px xl:mx-auto;
 		position: relative;
 		display: flex;
 		justify-content: center;

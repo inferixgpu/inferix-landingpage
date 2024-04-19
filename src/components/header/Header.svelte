@@ -192,11 +192,11 @@
 <div style="font-family: Inter">
 	<div
 		id="header"
-		class={`flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-40`}
+		class={`flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50`}
 	>
 		<div class="header-bar">
 			<img class="h-[24px]" src="{HeaderLogo}">
-			<div class="flex justify-center h-[32px] gap-6">
+			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
 					<a
 							href={tab.href}
@@ -213,7 +213,7 @@
 				>
 			</div>
 		</div>
-		<div class="sm:hidden flex justify-between p-4">
+		<div class="md:hidden flex justify-between p-4">
 			<img class="h-[24px]" src="{HeaderLogo}">
 			<div class="cursor-pointer" on:click={toggleMenu}>
 				<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -229,7 +229,7 @@
 	</div>
 	<div class="mx-auto pt-[0px] flex flex-col bg-black relative justify-end items-center">
 		<div class="w-full flex justify-center items-center">
-			<div class="flex flex-col gap-4 sm:w-[750px] max-sm:w-full h-[141px] mx-auto mt-[340px] absolute z-[20]">
+			<div class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto mt-[340px] absolute z-[20]">
 				<div class="flex justify-center text-black">
 				<a href="https://docs.inferix.io/por-release" target="_blank" class="flex bg-white border-[1px] border-solid border-white hover:bg-black hover:text-white gap-2 p-1 items-center rounded-[40px] cursor-pointer !filter-none" on:mouseenter={() => handleHoverRelease(true)} on:mouseleave={() => handleHoverRelease(false)}>
 					🚀 <p class="text-[14px] font-[500]">Proof-of-Rendering Release</p>
@@ -265,12 +265,12 @@
 		</div>
 
 		<div class="overflow-hidden bg-black mx-auto relative">
-			<video autoplay muted loop playsinline class="h-[698px] sm:w-[1526px] max-sm:w-full object-cover mx-auto mt-[160px]">
+			<video autoplay muted loop playsinline class="h-[698px] md:w-[1526px] max-md:w-full object-cover mx-auto mt-[160px]">
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
-		<div class="flex sm:flex-row flex-col mt-[50px] sm:w-[560px] max-sm:w-full h-[104px]
-		items-center mx-auto justify-between z-50 max-sm:-mb-0 sm:-mb-[150px] max-sm:gap-2 absolute">
+		<div class="flex md:flex-row flex-col mt-[50px] md:w-[560px] max-md:w-full h-[104px]
+		items-center mx-auto justify-between z-40 max-md:-mb-0 md:-mb-[150px] max-md:gap-2 absolute">
 			<div class="item-download-1 cursor-pointer" on:mouseenter={() => focusButtonGPU(true)} on:mouseleave={() => focusButtonGPU(false)}>
 				<div class="basis-2/3 flex flex-col gap-2 h-[64px] justify-end">
 					<p class="flex text-white text-[16px] font-bold justify-end">FOR GPU OWNER</p>
@@ -365,32 +365,13 @@
 
 <style lang="postcss">
 	.header-bar {
-		display: flex;
-		flex-direction: row;
-		margin: auto;
-		width: 1200px;
-		margin-top: 12px;
-		align-items: center;
-		justify-content: space-between;
-		padding: 4px 16px;
-		height: 56px;
-		border-radius: 16px;
+		@apply flex flex-row mx-auto xl:w-[1200px] md:w-[90%] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover max-md:hidden;
 		background-image: url("$images/png/header-register.png");
-		background-size: cover;
-	}
-
-	.header-bar > .register-button {
-		display: flex;
-		justify-content: center;
-		height: 32px;
-		width: 104px;
-		align-items: center;
-		color: black;
-		padding: 4px;
-		font-size: 16px;
-		font-weight: 500;
-		border-radius: 4px;
-		background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+		& > .register-button {
+			@apply flex justify-center h-[32px] w-[104px] items-center text-black py-4 text-[16px] font-[500];
+			border-radius: 4px;
+			background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+		}
 	}
 	#header {
 		margin-top: 0;
