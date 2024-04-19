@@ -100,7 +100,7 @@
 			</div>
 		</div>
 		<div class="innovated-body">
-			<video autoplay muted loop playsinline class="object-cover mx-auto sm:w-[1200px] max-sm:w-full h-[609px]">
+			<video autoplay muted loop playsinline class="mx-auto md:w-[1200px] max-md::w-full h-[609px]">
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
