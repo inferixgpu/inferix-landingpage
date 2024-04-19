@@ -67,7 +67,7 @@
 			<div class="content">
 				<img class="md:w-[49%] lg:h-full max-h-[292px]" src="{FooterContent}"/>
 				<div class="md:w-[49%] flex flex-col gap-4">
-					<p class="footer-content-paragraph">"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of GPUs for seamless rendering, accelerated Al, and groundbreaking innovation".</p>
+					<p class="footer-content-paragraph">"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."</p>
 					<div class="max-md:mx-auto max-md:pb-[20px]" on:mouseenter={() => focusButtonJoin(true)} on:mouseleave={() => focusButtonJoin(false)}>
 						{#if !focusButtonJoinNow}
 							<div class="footer-join">
