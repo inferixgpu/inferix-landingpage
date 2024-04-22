@@ -170,7 +170,6 @@
 	}
 
 	.footer-content-paragraph {
-		@apply md:mx-auto mx-1;
 		color: #FFF;
 		font-size: 24px;
 		font-style: normal;
