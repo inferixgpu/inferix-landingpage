@@ -65,9 +65,9 @@
 				<img class="w-full" src="{LineRow}"/>
 			</div>
 			<div class="content">
-				<img class="md:w-[49%] lg:h-full max-h-[292px]" src="{FooterContent}"/>
-				<div class="md:w-[49%] flex flex-col gap-4">
-					<p class="footer-content-paragraph">"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of GPUs for seamless rendering, accelerated Al, and groundbreaking innovation."</p>
+				<img class="md:w-[49%] lg:h-full 2xl:max-h-[292px] xl:max-h-[292px] max-h-[200px]" src="{FooterContent}"/>
+				<div class="md:w-[49%] flex flex-col gap-4 pr-2">
+					<p class="footer-content-paragraph">"Join us as a GPU provider and let's build our ecosystem together, harnessing the power of GPUs for seamless rendering, accelerated Al, and groundbreaking innovation"</p>
 					<div class="max-md:mx-auto max-md:pb-[20px]" on:mouseenter={() => focusButtonJoin(true)} on:mouseleave={() => focusButtonJoin(false)}>
 						{#if !focusButtonJoinNow}
 							<div class="footer-join">
@@ -159,7 +159,7 @@
 
 <style>
 	.footer-body {
-		@apply flex md:flex-col flex-row justify-center items-center mb-[150px] w-full;
+		@apply flex md:flex-col flex-row justify-center items-center 2xl:mb-[150px] mb-[70px] w-full;
 		& > .footer-content {
 			@apply flex md:flex-row flex-col justify-center items-center md:h-[354px] 2xl:w-full max-w-[1250px] gap-0 md:mx-[60px] ml-1 ;
 			& > .content {
@@ -171,13 +171,7 @@
 
 	.footer-content-paragraph {
 		@apply md:mx-auto mx-1;
-		color: #FFF;
-		font-size: 24px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 32px;
-		opacity: 0.6;
-		max-width: 507px;
+		@apply text-white font-normal opacity-60 leading-8 2xl:max-w-[507px] max-w-[400px] text-[16px] 2xl:text-[24px];
 	}
 	.footer-join {
 		width: 140px;
