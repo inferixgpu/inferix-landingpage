@@ -220,6 +220,17 @@
 			@apply -mt-[350px] z-10;
 		}
 	}
+	.partner-header {
+		text-align: center;
+		font-size: 32px;
+		font-weight: 600;
+		line-height: 48px; /* 150% */
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		margin-bottom: 32px;
+	}
 	.partner-content {
 		@apply lg:grid lg:grid-cols-3 flex flex-col gap-6;
 		& > .partner-item {
