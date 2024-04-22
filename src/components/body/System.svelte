@@ -73,14 +73,14 @@
 	}
 
 	function setDefault() {
-		const dot1 = document.querySelector('.slide > div:first-child');
-		const dot2 = document.querySelector('.slide > div:last-child');
+		const dot1 = document.getElementById('slide-dot-1');
+		const dot2 = document.getElementById('slide-dot-2');
 		if (index == 1) {
-			dot1.classList.add('slider-active');
-			dot2.classList.remove('slider-active');
+			dot1.style.backgroundColor = "#fefefe";
+			dot2.style.backgroundColor = "black";
 		} else {
-			dot1.classList.remove('slider-active');
-			dot2.classList.add('slider-active');
+			dot1.style.backgroundColor = "black";
+			dot2.style.backgroundColor = "#fefefe";
 		}
 	}
 
@@ -127,8 +127,8 @@
 				<img src={prev_light} alt="prev-light" />
 			</div>
 			<div class="slide">
-				<div />
-				<div />
+				<div id="slide-dot-1" />
+				<div id="slide-dot-2"/>
 			</div>
 			<div class="next" on:click={() => handleNext()}>
 				<img src={next_grey} alt="next-grey" />
@@ -311,7 +311,6 @@
 		height: 20px;
 		border-radius: 50%;
 		border: 1px solid #ddd;
-
 		&.slider-active {
 			background: #fefefe;
 			filter: drop-shadow(0px 0px 4px rgba(254, 254, 254, 0.9));
