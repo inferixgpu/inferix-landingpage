@@ -251,12 +251,12 @@
 					{#if textIndex === 0}
 						<p class="text-[24px] font-[400] opacity-60 text-center">Fastest 3D rendering & AI inference by</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-							<p class="text-[48px] font-bold text-center">INFERIX Decentralized GPU</p>
+							<p class="text-[48px] font-bold text-center">Inferix Decentralized GPU</p>
 						</Saos>
 					{:else }
 						<p class="text-[24px] font-[400] opacity-60 text-center">Low-cost AI inference by</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-							<p class="text-[48px] font-bold text-center">INFERIX Crowdsourced GPU</p>
+							<p class="text-[48px] font-bold text-center">Inferix Crowdsourced GPU</p>
 						</Saos>
 					{/if}
 
@@ -273,7 +273,7 @@
 		items-center mx-auto justify-between z-40 max-md:-mb-0 md:-mb-[150px] max-md:gap-2 absolute">
 			<div class="item-download-1 cursor-pointer" on:mouseenter={() => focusButtonGPU(true)} on:mouseleave={() => focusButtonGPU(false)}>
 				<div class="basis-2/3 flex flex-col gap-2 h-[64px] justify-end">
-					<p class="flex text-white text-[16px] font-bold justify-end">FOR GPU OWNER</p>
+					<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
 					<div class="flex justify-between">
 						<a href="https://h3d.me/ifxworkerwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
 							<img src="{DownloadIcon}">
@@ -305,7 +305,7 @@
 
 				</div>
 				<div class="basis-2/3 flex flex-col gap-2 h-[64px]">
-					<p class="flex text-white text-[16px] font-bold justify-start">3D RENDERING & AI INFERENCE</p>
+					<p class="flex text-white text-[16px] font-bold justify-start">3D Rendering & AI Inference</p>
 					<div class="flex justify-between">
 						<a href="https://h3d.me/ifxaddonblenderwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
 							<img src="{DownloadIcon}">

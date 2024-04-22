@@ -426,19 +426,19 @@
 
 		<div class="proven-more-infor">
 			<div>
-				<div class="infor-title">260,000+ USER</div>
+				<div class="infor-title">260,000+ User</div>
 				<div class="infor-desc">from Southeast Asia and India</div>
 			</div>
 			<div>
-				<div class="infor-title">20,000+ pro</div>
+				<div class="infor-title">20,000+ Pro</div>
 				<div class="infor-desc">active professional designers</div>
 			</div>
 			<div>
-				<div class="infor-title">1,000,000+ designs</div>
+				<div class="infor-title">1,000,000+ Designs</div>
 				<div class="infor-desc">design renderings per year using H3D Distributed Rendering</div>
 			</div>
 			<div>
-				<div class="infor-title">500,000+ 3D models</div>
+				<div class="infor-title">500,000+ 3D Models</div>
 				<div class="infor-desc">of furniture and home accessories already inputted</div>
 			</div>
 		</div>
@@ -700,7 +700,6 @@
 		font-size: 22px;
 		font-weight: 700;
 		line-height: 50px; /* 227.273% */
-		text-transform: uppercase;
 	}
 
 	.infor-desc {
