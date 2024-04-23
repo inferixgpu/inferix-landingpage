@@ -1,12 +1,8 @@
 <script lang="ts">
-	import Frame from '$images/png/Frame.png';
 	import innovatedHeader from '$images/png/inferixInnovateHeader.png';
 	import Saos from 'saos';
 	import Industries from './Indus.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
-	import Teams from './Teams.svelte';
-	import MpvWalkthrough from './MpvWalkthrough.svelte';
-
 	import Actif3D from '$images/png/actif3D.svg';
 	import House3D from '$images/png/House3D_white.svg';
 	import MetaCity from '$images/png/metacity.png';
@@ -20,6 +16,7 @@
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
 	import InferixIntro from '$videos/-6832-41e3-b4e4-f39f89c47ac3.mp4';
+	import ProvenTech from "$components/body/ProvenTech.svelte";
 
 	let screenSize: number;
 

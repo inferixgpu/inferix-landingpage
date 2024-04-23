@@ -299,8 +299,8 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div class="pt-20 pb-10 bg-cover bg-[url('$images/photos/technologi_background.png')]">
-	<div class="flex w-full proven-container">
+<div class="pt-20 pb-10 bg-cover bg-center bg-[url('$images/photos/technologi_background.png')]">
+	<div class="proven-container">
 		<div class="proven-infor">
 			<div class="proven-img">
 				<div class="proven-text">
@@ -377,10 +377,10 @@
 					<div id="custom_line_3" />
 					<div id="custom_line_4" />
 					<div id="custom_line_5" />
-					{#if screenSize > 1280}
-						<img src={line_2} alt="line_2" />
-					{:else}
+					{#if screenSize < 1280}
 						<img src={line_2_mobile} alt="line_2" />
+					{:else}
+						<img src={line_2} alt="line_2" />
 					{/if}
 				</div>
 			</div>
@@ -410,13 +410,13 @@
 						</div>
 					</div>
 				</div>
-				<div>
+				<div class="proven-footer">
 					<div class="proven-video">
 						<video autoplay muted playsinline loop>
 							<source src={ai} type="video/mp4" />
 						</video>
 					</div>
-					<div>
+					<div class="p-4">
 						<img src={House3D} alt="house-3d" />
 						<img src={Actif3D} alt="actif-3d" />
 					</div>
@@ -447,11 +447,7 @@
 
 <style lang="postcss">
 	.proven-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 24px;
+		@apply flex flex-col items-center justify-center gap-6;
 	}
 
 	.proven-container::before {
@@ -709,9 +705,15 @@
 		opacity: 0.6;
 	}
 
-	@media screen and (max-width: 1280px) {
+	@media screen and (max-width: 1279px) {
 		.proven-infor {
 			width: 980px;
+		}
+		.proven-tech {
+			@apply justify-end items-end;
+			& >  div {
+				@apply w-full;
+			}
 		}
 
 		.proven-more-infor {
@@ -725,13 +727,29 @@
 		.proven-infor {
 			width: 800px;
 		}
+
+		.proven-tech {
+			@apply justify-end items-end pr-0;
+			& >  div {
+				@apply w-[85%];
+			}
+		}
+		.proven-footer {
+			@apply !gap-2 mt-[40px];
+		}
+		.proven-video {
+			max-width: 235px;
+		}
 	}
 
 	@media screen and (max-width: 800px) {
 		.proven-infor {
 			width: 100%;
 		}
+		.proven-tech {
+			@apply items-center;
 
+		}
 		.proven-infor > div:last-child {
 			width: 100%;
 		}
