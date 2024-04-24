@@ -12,6 +12,7 @@
 	import industry_line from '$images/icons/industry_line.svg';
 	import animated_circle from '$images/png/AnimatedCircle.png';
 	import line_industry_mobile from '$images/icons/line_industry_mobile.svg';
+	import industry from '$videos/industry.mp4';
 
 	let screenSize: number;
 </script>
@@ -25,7 +26,9 @@
 			<div>
 				<div><div>Industries</div></div>
 				<div>
-					<img src={animated_circle} alt="animated-circle" />
+					<video autoplay muted loop playsinline>
+						<source src={industry} type="video/mp4" />
+					</video>
 				</div>
 				<div class="in-images">
 					<img src={In1} alt="image1" />
@@ -133,7 +136,11 @@
 					</div>
 				</div>
 			</div>
-			<div><img src={animated_circle} /></div>
+			<div>
+				<video autoplay muted loop playsinline>
+					<source src={industry} type="video/mp4" />
+				</video>
+			</div>
 		</div>
 	</div>
 {/if}
@@ -194,6 +201,10 @@
 		align-items: center;
 		overflow: hidden;
 		height: 269px;
+
+		& > video {
+			height: calc(calc(100%) - 2px);
+		}
 	}
 
 	.industry-content > div:first-child > div:last-child {
@@ -233,7 +244,9 @@
 
 			& > div {
 				color: #fff;
-				font-feature-settings: 'clig' off, 'liga' off;
+				font-feature-settings:
+					'clig' off,
+					'liga' off;
 				font-size: 16px;
 				font-weight: 600;
 				line-height: 36px; /* 225% */
@@ -275,6 +288,18 @@
 		}
 	}
 
+	.in-mobile-content {
+		& > div:nth-child(2) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			& > video {
+				width: calc(calc(100%)-2px);
+			}
+		}
+	}
+
 	@media screen and (max-width: 1380px) and (min-width: 1280px) {
 		.industry-content {
 
@@ -309,32 +334,92 @@
 
 	@media screen and (max-width: 1280px) {
 		.industry-content {
-			left: calc(calc(100vw - 100px) / 1199 * 153);
-			top: calc(calc(100vw - 100px) / 1199 * 131);
+			width: calc(calc(100%) * 895 / 1199);
+			left: calc(calc(100%) / 1199 * 153);
+			top: calc(calc(100%) / 1199 * 138);
+			height: 100%;
 		}
-		.industry-content > div {
-			width: calc(calc(100vw - 100px) / 1199 * 282);
+		.industry-content > div:first-child {
+			width: calc(calc(100%) / 894 * 282);
+			height:;
+			padding-top: calc(calc(100%) / 894 * 8);
+			padding-bottom: 0;
+		}
+
+		.industry-content > div:nth-child(1) > div:nth-child(1) {
+			height: calc(calc(100%) / 1112 * 65);
+
+			& > div {
+				font-size: 28px;
+				transform: translate(-60px, -14px);
+			}
 		}
 
 		.industry-content > div:nth-child(1) > div:nth-child(2) {
-			margin-top: calc(calc(100vw - 100px) / 1199 * 33);
-			height: calc(calc(100vw - 100px) / 1199 * 269);
+			margin-top: calc(calc(100%) / 282 * 25);
+			height: calc(calc(100%) / 1112 * 270);
 		}
 
 		.industry-content > div:nth-child(1) > div:nth-child(3) {
-			margin-top: calc(calc(100vw - 100px) / 1199 * 24);
+			margin-top: calc(calc(100%) / 282 * 24);
+			height: calc(calc(100%) / 1112 * 363);
 		}
 
 		.industry-content > div:nth-child(2) {
-			margin-left: calc(calc(100vw - 100px) / 1199 * 24);
-			padding-top: calc(calc(100vw - 100px) / 1199 * 93);
-			gap: calc(calc(100vw - 100px) / 1199 * 24);
+			width: calc(calc(100%) / 894 * 282);
+			margin-left: calc(calc(100%) / 894 * 24);
+			padding-top: calc(calc(100%) / 894 * 97);
+			gap: 0;
+		}
+
+		.industry-content > div:nth-child(2) > div:nth-child(1) {
+			height: calc(calc(100%) / 1112 * 395);
+		}
+
+		.industry-content > div:nth-child(2) > div:nth-child(2) {
+			margin-top: calc(calc(100%) / 282 * 24);
+			height: calc(calc(100%) / 1112 * 397);
 		}
 
 		.industry-content > div:nth-child(3) {
-			margin-left: calc(calc(100vw - 100px) / 1199 * 24);
-			gap: calc(calc(100vw - 100px) / 1199 * 24);
-			width: calc(calc(100vw - 100px) / 1199 * 282);
+			padding-top: 4px;
+			margin-left: calc(calc(100%) / 894 * 24);
+			flex: 1;
+			height: 100%;
+			gap: 0;
+		}
+
+		.industry-content > div:nth-child(3) > div:nth-child(1) {
+			height: calc(calc(100%) / 1112 * 363);
+
+			& > div {
+				height: calc(calc(100%) / 363 * 65);
+			}
+		}
+
+		.industry-content > div:nth-child(3) > div:nth-child(2) {
+			margin-top: calc(calc(100%) / 282 * 24);
+			height: calc(calc(100%) / 1112 * 364);
+
+			& > div {
+				height: calc(calc(100%) / 363 * 65);
+			}
+		}
+
+		.industry-content > div > div > div {
+			height: calc(calc(100%) / 397 * 75);
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		.industry-content > div:nth-child(3) {
+			margin-left: calc(calc(100%) / 894 * 23);
+		}
+	}
+
+	@media screen and (max-width: 960px) {
+		.industry-content > div > div > div > div {
+			font-size: 14px;
 		}
 	}
 
