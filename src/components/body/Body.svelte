@@ -200,9 +200,8 @@
 		@apply flex flex-col relative w-full z-20;
 
 		& > .innovated-header {
-			@apply flex flex-col h-[1200px] xl:w-[1288px] lg:w-[90%] mx-auto bg-cover bg-center -mt-[300px] items-center gap-10 z-20;
-			background-image: url("$images/png/innovatedBackground.png");
-
+			@apply flex flex-col h-[1200px] xl:w-[1288px] lg:w-[90%] mx-auto bg-cover max-md:bg-200 bg-center bg-no-repeat -mt-[300px] items-center gap-10 z-20
+			bg-[url("$images/png/innovatedBackground.png")] ;
 			& > .innovated-header-content {
 				text-align: center;
 				font-size: 40px;
