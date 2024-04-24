@@ -19,7 +19,8 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-{#if screenSize > 768}<div class="industry mb-[48px] mx-auto w-100% container mt-[160px] div-room">
+{#if screenSize > 768}
+	<div class="industry pb-[48px] mx-auto w-100% container mt-[160px] div-room">
 		<div><img src={industry_line} alt="industry_line" /></div>
 		<div class="industry-content">
 			<div>
@@ -301,6 +302,7 @@
 
 	@media screen and (max-width: 1380px) and (min-width: 1280px) {
 		.industry-content {
+
 			left: calc(calc(100vw - 160px) / 1199 * 153);
 			top: calc(calc(100vw - 160px) / 1199 * 131);
 		}
@@ -423,12 +425,16 @@
 
 	@media screen and (max-width: 768px) {
 		.in-mobile {
+			@apply mb-[100px];
 			display: flex;
 			justify-content: center;
 			width: 100%;
 			position: relative;
 		}
 
+		.industry-content {
+			height: 500px;
+		}
 		.in-mobile > div:nth-child(2) {
 			position: absolute;
 			text-align: center;
