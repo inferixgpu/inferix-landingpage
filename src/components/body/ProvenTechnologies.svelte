@@ -717,9 +717,9 @@
 		}
 
 		.proven-more-infor {
+			@apply grid grid-cols-2;
 			width: auto;
 			justify-content: center;
-			flex-wrap: wrap;
 		}
 	}
 
@@ -774,7 +774,9 @@
 		}
 
 		.proven-more-infor {
-			display: none;
+			@apply grid grid-cols-1;
+			width: auto;
+			justify-content: center;
 		}
 	}
 
@@ -877,8 +879,5 @@
 			padding: 10px;
 		}
 
-		.proven-more-infor {
-			display: none;
-		}
 	}
 </style>
