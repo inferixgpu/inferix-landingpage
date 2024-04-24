@@ -773,6 +773,12 @@ padding-top: 0;
 			gap: 8px;
 		}
 
+
+	.proven-video {
+		border-left-width: 2px;
+		border-right-width: 2px;
+	}
+
 		.proven-more-infor {
 			display: none;
 		}
