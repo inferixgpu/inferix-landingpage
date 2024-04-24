@@ -36,6 +36,7 @@
 	import line_2_mobile from '$images/icons/line_2_mobile.svg';
 	import gsap from 'gsap';
 	import lo from 'lodash';
+	import dr from '$images/png/dr.png'
 
 	let screenSize: number;
 
@@ -299,7 +300,7 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div class="pt-20 pb-10 bg-cover bg-[url('$images/photos/technologi_background.png')]">
+<div class="proven pb-10 bg-cover bg-[url('$images/photos/technologi_background.png')]">
 	<div class="flex w-full proven-container">
 		<div class="proven-infor">
 			<div class="proven-img">
@@ -393,18 +394,22 @@
 					</div>
 					<div class="proven-tech">
 						<div id="dr">
+						<img src={dr} alt='background-dr'/>
 							<img src={decentralized_render} alt="decentralized-render" />
 							<div>Decentralized Render</div>
 						</div>
 						<div id="por">
+												<img src={dr} alt='background-dr'/>
 							<img src={proof_of_rendering} alt="proof_of_rendering" />
 							<div>Proof Of Rendering</div>
 						</div>
 						<div id="d3dh">
+												<img src={dr} alt='background-dr'/>
 							<img src={decentralized_3d_data_hub} alt="decentralized_3d_data_hub" />
 							<div>Decentralized 3D Data Hub</div>
 						</div>
 						<div id="wac">
+												<img src={dr} alt='background-dr'/>
 							<img src={webvr_auto_content} alt="webvr_auto_content" />
 							<div>WebVR Auto-content</div>
 						</div>
@@ -446,6 +451,10 @@
 </div>
 
 <style lang="postcss">
+.proven {
+padding-top: 5rem;
+}
+
 	.proven-container {
 		display: flex;
 		flex-direction: column;
@@ -523,13 +532,18 @@
 		gap: 24px;
 		align-items: center;
 		padding: 8px;
-		border: 1px solid rgba(244, 244, 244, 0.56);
-		background: radial-gradient(
-			100% 100% at 50% 0%,
-			rgba(255, 255, 255, 0.12) 0%,
-			rgba(255, 255, 255, 0) 100%
-		);
+		position: relative;
+
+&  > img:first-child {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
 	}
+
+
 
 	.proven-tech > div > div {
 		color: #fff;
@@ -544,6 +558,7 @@
 		align-items: center;
 		justify-content: center;
 		overflow: hidden;
+		border: 1px solid rgba(244, 244, 244, 0.15);
 	}
 
 	.proven-video > video {
@@ -742,6 +757,9 @@
 	}
 
 	@media screen and (max-width: 768px) {
+	.proven {
+padding-top: 0;
+}
 		.proven-infor {
 			flex-direction: column;
 			align-items: center;
