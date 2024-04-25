@@ -110,6 +110,11 @@
 	}
 
 	function handleClickTab(e: MouseEvent, id: number, href: string) {
+		let tabItems = document.getElementsByClassName('tab-item');
+		for (let i = 0; i < tabItems.length; i++) {
+			tabItems[i].classList.remove('tab-active');
+		}
+		document.getElementById(`item-tab-${id}`).classList.add('tab-active');
 		if (id === 2 || id === 5) return;
 		if (id === 6) {
 			showModal = true;
@@ -201,7 +206,8 @@
 					<a
 							href={tab.href}
 							on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-							class="text-[16px] font-normal text-white px-2 py-1 whitespace-nowrap">{tab.title}</a
+							id="item-tab-{tab.id}"
+							class="tab-item ">{tab.title}</a
 					>
 				{/each}
 			</div>
@@ -213,7 +219,7 @@
 				>
 			</div>
 		</div>
-		<div class="md:hidden flex justify-between p-4">
+		<div class="md:hidden flex justify-between p-4 items-center border-solid border-b-[1px] border-[#f4f4f4]">
 			<img class="h-[24px]" src="{HeaderLogo}">
 			<div class="cursor-pointer" on:click={toggleMenu}>
 				<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -224,7 +230,6 @@
 					<rect x="12.5" y="27" width="17.5" height="2" fill="#FFF4E9"/>
 				</svg>
 			</div>
-
 		</div>
 	</div>
 	<div class="mx-auto pt-[0px] flex flex-col bg-black relative justify-end items-center">
@@ -270,54 +275,59 @@
 			</video>
 		</div>
 		<div class="flex md:flex-row flex-col mt-[50px] md:w-[560px] max-md:w-full h-[104px]
-		items-center mx-auto justify-between z-40 max-md:-mb-0 md:-mb-[150px] max-md:gap-2 absolute">
-			<div class="item-download-1 cursor-pointer" on:mouseenter={() => focusButtonGPU(true)} on:mouseleave={() => focusButtonGPU(false)}>
-				<div class="basis-2/3 flex flex-col gap-2 h-[64px] justify-end">
-					<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
-					<div class="flex justify-between">
-						<a href="https://h3d.me/ifxworkerwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
-							<img src="{DownloadIcon}">
-							<p class="text-white font-normal text-[12px] opacity-60">Window</p>
-						</a>
-						<a href="#" on:click={() => downloadMacOS()} class="inline-flex justify-between items-center gap-1 cursor-pointer">
-							<img class="object-cover" src="{DownloadIcon}">
-							<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
-						</a>
+				items-center mx-auto justify-between z-40 max-md:-mb-0 md:-mb-[150px] max-md:gap-2 absolute">
+
+			<div class="item-border-1">
+				<div class="item-download-1 cursor-pointer" on:mouseenter={() => focusButtonGPU(true)} on:mouseleave={() => focusButtonGPU(false)}>
+					<div class="basis-2/3 flex flex-col gap-2 h-[64px] justify-end">
+						<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
+						<div class="flex justify-between">
+							<a href="https://h3d.me/ifxworkerwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
+								<img src="{DownloadIcon}">
+								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+							</a>
+							<a href="#" on:click={() => downloadMacOS()} class="inline-flex justify-between items-center gap-1 cursor-pointer">
+								<img class="object-cover" src="{DownloadIcon}">
+								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+							</a>
+						</div>
 					</div>
-				</div>
 
-				<div class="basis-1/3 mt-4">
-					{#if !focusGPU}
-						<img class="ml-4" src="{buttonGPU}">
-					{:else }
-						<img class="ml-4" src="{buttonGPUFocus}">
-					{/if}
+					<div class="basis-1/3 mt-4">
+						{#if !focusGPU}
+							<img class="ml-4" src="{buttonGPU}">
+						{:else }
+							<img class="ml-4" src="{buttonGPUFocus}">
+						{/if}
 
+					</div>
 				</div>
 			</div>
-			<div class="item-download-2 cursor-pointer" on:mouseenter={() => focusButtonScreen(true)} on:mouseleave={() => focusButtonScreen(false)}>
-				<div class="basis-1/3 mt-4">
-					{#if !focusBtScreen}
-						<img class="-ml-4" src="{buttonScreen}">
-					{:else }
-						<img class="-ml-4" src="{buttonScreenFocus}">
-					{/if}
+			<div class="item-border-2">
+				<div class="item-download-2 cursor-pointer" on:mouseenter={() => focusButtonScreen(true)} on:mouseleave={() => focusButtonScreen(false)}>
+					<div class="basis-1/3 mt-4">
+						{#if !focusBtScreen}
+							<img class="-ml-4" src="{buttonScreen}">
+						{:else }
+							<img class="-ml-4" src="{buttonScreenFocus}">
+						{/if}
 
-				</div>
-				<div class="basis-2/3 flex flex-col gap-2 h-[64px]">
-					<p class="flex text-white text-[16px] font-bold justify-start">3D Rendering & AI Inference</p>
-					<div class="flex justify-between">
-						<a href="https://h3d.me/ifxaddonblenderwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
-							<img src="{DownloadIcon}">
-							<p class="text-white font-normal text-[12px] opacity-60">Window</p>
-						</a>
-						<a href="#" on:click={() => downloadMacOS()} class="inline-flex justify-between items-center gap-1 cursor-pointer">
-							<img class="object-cover" src="{DownloadIcon}">
-							<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
-						</a>
 					</div>
-				</div>
+					<div class="basis-2/3 flex flex-col gap-2 h-[64px]">
+						<p class="flex text-white text-[16px] font-bold justify-start">3D Rendering & AI Inference</p>
+						<div class="flex justify-between">
+							<a href="https://h3d.me/ifxaddonblenderwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
+								<img src="{DownloadIcon}">
+								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+							</a>
+							<a href="#" on:click={() => downloadMacOS()} class="inline-flex justify-between items-center gap-1 cursor-pointer">
+								<img class="object-cover" src="{DownloadIcon}">
+								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+							</a>
+						</div>
+					</div>
 
+				</div>
 			</div>
 		</div>
 	</div>
@@ -367,6 +377,9 @@
 	.header-bar {
 		@apply flex flex-row mx-auto xl:w-[1200px] md:w-[90%] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover max-md:hidden;
 		background-image: url("$images/png/header-register.png");
+		.tab-item {
+			@apply text-[16px] font-normal text-white px-2 py-1 whitespace-nowrap text-header-transfer;
+		}
 		& > .register-button {
 			@apply flex justify-center h-[32px] w-[104px] items-center text-black py-4 text-[16px] font-[500];
 			border-radius: 4px;
@@ -471,16 +484,6 @@
 		}
 	}
 
-	@media screen and (max-width: 800px) {
-		#header {
-			transition: none;
-		}
-
-		#header > div:nth-child(2) {
-			height: 30px;
-		}
-	}
-
 	.video-overlay-container {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 		@apply overflow-hidden absolute left-0 right-0 top-0 bottom-0 justify-center md:flex justify-center items-center flex-col;
@@ -569,25 +572,87 @@
 		line-height: normal;
 	}
 
-	.item-download-1 {
-		display: flex;
-		width: 260px;
-		padding: 20px 16px;
-		align-items: center;
-		border-radius: 20px 0 0 20px;
-		background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.3) 100%);
-
+	.item-border-1 {
+		position: relative;
+		padding: 1px;
+		.item-download-1 {
+			display: flex;
+			width: 260px;
+			padding: 20px 16px;
+			align-items: center;
+			background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+			border-radius: 20px 0px 0px 20px;
+			box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.1);
+		}
 	}
-	.item-download-2 {
-		display: flex;
-		width: 260px;
-		padding: 20px 16px;
-		align-items: center;
-		border-radius: 0 20px 20px 0;
-		background: linear-gradient(270deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+	/*.item-border-1:before {*/
+	/*	opacity: 0.5;*/
+	/*	content: "";*/
+	/*	position: absolute;*/
+	/*	inset: 0;*/
+	/*	border-radius: 20px 0px 0px 20px;*/
+	/*	padding: 1px;*/
+	/*	background-image: linear-gradient(to right bottom  , #33FFCE 10% , #F5D4FF 20%, #339DFF 30%, rgba(0, 0, 0, 0.3) 40%, rgba(255, 255, 255, 0) 50%);*/
+	/*	-webkit-mask:*/
+	/*			linear-gradient(#fff 0 0) content-box,*/
+	/*			linear-gradient(#fff 0 0);*/
+	/*	-webkit-mask-composite: xor;*/
+	/*	mask-composite: exclude;*/
+	/*	pointer-events: none;*/
+	/*}*/
+	/*.item-border-1:hover:before {*/
+	/*	background-image: linear-gradient(to top right  , #33FFCE 10% , #F5D4FF 20%, #339DFF 40%, rgba(0, 0, 0, 0.3) 60%, rgba(255, 255, 255, 0) 70%);*/
+	/*}*/
 
+
+
+	.item-border-2 {
+		position: relative;
+		padding: 1px;
+		.item-download-2 {
+			display: flex;
+			width: 260px;
+			padding: 20px 16px;
+			align-items: center;
+			border-radius: 0 20px 20px 0;
+			background: linear-gradient(270deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+			box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.1);
+		}
+	}
+	/*.item-border-2::before {*/
+	/*	opacity: 0.5;*/
+	/*	content: "";*/
+	/*	position: absolute;*/
+	/*	inset: 0;*/
+	/*	border-radius: 0 20px 20px 0;*/
+	/*	padding: 1px;*/
+	/*	background: linear-gradient(to left bottom  , #33FFCE 10% , #F5D4FF 20%, #339DFF 30%, rgba(0, 0, 0, 0.3) 40%, rgba(255, 255, 255, 0) 50%);*/
+	/*	-webkit-mask:*/
+	/*			linear-gradient(#fff 0 0) content-box,*/
+	/*			linear-gradient(#fff 0 0);*/
+	/*	-webkit-mask-composite: xor;*/
+	/*	mask-composite: exclude;*/
+	/*	pointer-events: none;*/
+	/*	transition: background 0.5s ease;*/
+	/*}*/
+
+	/*.item-border-2:hover::before {*/
+	/*	background: linear-gradient(to top left  ,#33FFCE 10% , #F5D4FF 20%, #339DFF 40%, rgba(0, 0, 0, 0.3) 60%, rgba(255, 255, 255, 0) 70%);*/
+	/*}*/
+
+	.text-header-transfer:hover {
+		background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
+	.tab-active {
+		background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 	@media screen and (max-width: 640px){
 		.header-bar {
 			display: none;

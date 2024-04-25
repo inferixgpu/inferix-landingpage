@@ -97,7 +97,7 @@
 			</div>
 		</div>
 		<div class="innovated-body">
-			<video autoplay muted loop playsinline class="mx-auto md:w-[1200px] max-md::w-full h-[609px]">
+			<video autoplay muted loop playsinline class="md:w-[1200px] max-md::w-full object-cover h-[609px] ">
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
@@ -197,12 +197,11 @@
 		@apply flex flex-col relative w-full z-20;
 
 		& > .innovated-header {
-			@apply flex flex-col h-[1200px] xl:w-[1288px] lg:w-[90%] mx-auto bg-cover bg-center -mt-[300px] items-center gap-10 z-20;
-			background-image: url("$images/png/innovatedBackground.png");
-
+			@apply flex flex-col h-[1200px] xl:w-[1288px] lg:w-[90%] mx-auto bg-cover max-md:bg-200 bg-center bg-no-repeat -mt-[300px] items-center gap-10 z-20
+			bg-[url("$images/png/innovatedBackground.png")] ;
 			& > .innovated-header-content {
+				@apply text-[40px] max-md:text-[32px];
 				text-align: center;
-				font-size: 40px;
 				font-style: normal;
 				font-weight: 500;
 				line-height: normal;
@@ -214,7 +213,7 @@
 		}
 
 		& > .innovated-body {
-			@apply -mt-[350px] z-10;
+			@apply -mt-[350px] max-md:-mt-[250px] z-10;
 		}
 	}
 	.partner-header {
