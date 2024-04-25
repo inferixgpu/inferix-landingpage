@@ -97,7 +97,7 @@
 			</div>
 		</div>
 		<div class="innovated-body">
-			<video autoplay muted loop playsinline class="md:w-[1200px] max-md::w-full object-cover h-[609px] ">
+			<video autoplay muted loop playsinline class="md:w-[1200px] max-md::w-full object-cover object-center h-[609px] ">
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
@@ -194,7 +194,7 @@
 	}
 
 	.innovated {
-		@apply flex flex-col relative w-full z-20;
+		@apply flex flex-col relative w-full items-center z-20;
 
 		& > .innovated-header {
 			@apply flex flex-col h-[1200px] lg:w-[90%] mx-auto bg-cover max-md:bg-200 bg-center bg-no-repeat -mt-[300px] items-center gap-10 z-20
