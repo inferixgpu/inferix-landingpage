@@ -162,7 +162,8 @@
 	.industry-content {
 		position: absolute;
 		top: 131px;
-		left: 153px;
+
+		left: calc(calc(calc(100%) - 1199px) / 2 154);
 		width: 894px;
 		height: 861px;
 		display: flex;
