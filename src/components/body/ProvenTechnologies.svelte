@@ -36,7 +36,7 @@
 	import line_2_mobile from '$images/icons/line_2_mobile.svg';
 	import gsap from 'gsap';
 	import lo from 'lodash';
-	import dr from '$images/png/dr.png'
+	import dr from '$images/png/dr.png';
 
 	let screenSize: number;
 
@@ -394,22 +394,22 @@
 					</div>
 					<div class="proven-tech">
 						<div id="dr">
-						<img src={dr} alt='background-dr'/>
+							<img src={dr} alt="background-dr" />
 							<img src={decentralized_render} alt="decentralized-render" />
 							<div>Decentralized Render</div>
 						</div>
 						<div id="por">
-												<img src={dr} alt='background-dr'/>
+							<img src={dr} alt="background-dr" />
 							<img src={proof_of_rendering} alt="proof_of_rendering" />
 							<div>Proof Of Rendering</div>
 						</div>
 						<div id="d3dh">
-												<img src={dr} alt='background-dr'/>
+							<img src={dr} alt="background-dr" />
 							<img src={decentralized_3d_data_hub} alt="decentralized_3d_data_hub" />
 							<div>Decentralized 3D Data Hub</div>
 						</div>
 						<div id="wac">
-												<img src={dr} alt='background-dr'/>
+							<img src={dr} alt="background-dr" />
 							<img src={webvr_auto_content} alt="webvr_auto_content" />
 							<div>WebVR Auto-content</div>
 						</div>
@@ -451,9 +451,10 @@
 </div>
 
 <style lang="postcss">
-.proven {
-padding-top: 5rem;
-}
+	.proven {
+		padding-top: 5rem;
+		overflow-x: hidden;
+	}
 
 	.proven-container {
 		@apply flex flex-col items-center justify-center gap-6;
@@ -530,16 +531,14 @@ padding-top: 5rem;
 		padding: 8px;
 		position: relative;
 
-&  > img:first-child {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-}
+		& > img:first-child {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 	}
-
-
 
 	.proven-tech > div > div {
 		color: #fff;
@@ -726,7 +725,7 @@ height: 100%;
 		}
 		.proven-tech {
 			@apply justify-end items-end;
-			& >  div {
+			& > div {
 				@apply w-full;
 			}
 		}
@@ -745,7 +744,7 @@ height: 100%;
 
 		.proven-tech {
 			@apply justify-end items-end pr-0;
-			& >  div {
+			& > div {
 				@apply w-[85%];
 			}
 		}
@@ -763,7 +762,6 @@ height: 100%;
 		}
 		.proven-tech {
 			@apply items-center;
-
 		}
 		.proven-infor > div:last-child {
 			width: 100%;
@@ -775,9 +773,9 @@ height: 100%;
 	}
 
 	@media screen and (max-width: 768px) {
-	.proven {
-padding-top: 0;
-}
+		.proven {
+			padding-top: 0;
+		}
 		.proven-infor {
 			flex-direction: column;
 			align-items: center;
@@ -787,20 +785,48 @@ padding-top: 0;
 			display: none;
 		}
 
+		.proven-tech {
+			padding: 30px;
+		}
+
+		.proven-tech > div {
+			width: 100%;
+		}
+
 		.proven-text {
 			gap: 8px;
 		}
 
-
-	.proven-video {
-		border-left-width: 2px;
-		border-right-width: 2px;
-	}
+		.proven-video {
+			border-left-width: 2px;
+			border-right-width: 2px;
+		}
 
 		.proven-more-infor {
 			@apply grid grid-cols-1;
 			width: auto;
 			justify-content: center;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		.proven-footer {
+			margin-top: 15px;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.proven-video {
+			max-width: calc(calc(100%) - 60px);
+			width: 100%;
+			& > video {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		.proven-footer > div:last-child {
+			width: calc(calc(100%) - 60px);
 		}
 	}
 
@@ -890,18 +916,31 @@ padding-top: 0;
 			align-items: center;
 		}
 
+		.proven-footer {
+			flex-direction: column;
+			align-items: center;
+			padding: 0 15px;
+		}
+
+		.proven-footer > div:last-child {
+			width: 100%;
+			padding: 15px !important;
+		}
+
 		.proven-video {
-			width: calc(calc(100%) - 30px);
+			width: 100%;
+			max-width: 100%;
+			height: 80vw;
 		}
 
 		.proven-video > video {
 			height: 100%;
+			width: auto;
 		}
 
 		.proven-infor > div:last-child > div:last-child > div:last-child {
 			margin: 15px;
 			padding: 10px;
 		}
-
 	}
 </style>

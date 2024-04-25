@@ -151,7 +151,6 @@
 		justify-content: center;
 		align-items: center;
 		position: relative;
-		width: 1199px;
 	}
 
 	.industry > div:first-child {
@@ -302,7 +301,6 @@
 
 	@media screen and (max-width: 1380px) and (min-width: 1280px) {
 		.industry-content {
-
 			left: calc(calc(100vw - 160px) / 1199 * 153);
 			top: calc(calc(100vw - 160px) / 1199 * 131);
 		}
@@ -425,11 +423,10 @@
 
 	@media screen and (max-width: 768px) {
 		.in-mobile {
-			@apply mb-[100px];
 			display: flex;
 			justify-content: center;
-			width: 100%;
 			position: relative;
+			overflow-x: hidden;
 		}
 
 		.industry-content {
@@ -448,13 +445,14 @@
 		}
 		.in-mobile-content {
 			position: absolute;
-			top: 160px;
-			left: 50%;
+			top: calc(calc(100%) / 759 * 119);
+			left: calc(calc(50%) + 1px);
 			transform: translate(-50%, 0);
+			width: 280px;
 		}
 
 		.in-mobile-content > div:first-child {
-			width: 283px;
+			width: 100%;
 			height: 361px;
 			display: flex;
 			overflow: hidden;
@@ -468,8 +466,8 @@
 			width: 100%;
 		}
 
-		.in-mobile-content > div > div {
-			min-width: 1515px;
+		.in-mobile-content > div:first-child > div {
+			min-width: calc(calc(500%) + 50px);
 			height: 396px;
 			display: flex;
 			gap: 10px;
@@ -478,7 +476,7 @@
 
 		.in-mobile-content > div > div > div {
 			position: relative;
-			min-width: 283px;
+			min-width: calc(calc(calc(100%) - 50px) / 5);
 			height: 361px;
 		}
 
@@ -520,12 +518,14 @@
 
 	@media screen and (max-width: 414px) {
 		.in-mobile-content {
-			top: calc(100vw * 160 / 414);
+			top: calc(100vw * 162 / 414);
+			left: calc(calc(50%));
+			width: calc(calc(100%) / 393 * 280);
 		}
 
 		.in-mobile-content > div:first-child {
-			width: calc(100vw * 283 / 414);
-			height: calc(100vw * 361 / 414);
+			width: 100%;
+			height: calc(100vw * 366 / 414);
 			display: flex;
 			overflow: hidden;
 		}
@@ -533,6 +533,7 @@
 			position: relative;
 			min-width: calc(100vw * 283 / 414);
 			height: calc(100vw * 361 / 414);
+			overflow-y: hidden;
 		}
 		.in-mobile-content > div > div > div > img {
 			width: calc(100vw * 283 / 414);

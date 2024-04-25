@@ -12,6 +12,9 @@
 	src: url('$fonts/Pretendard/PretendardVariable.ttf');
 }
 
+html, body {
+	width: 100%;
+}
 body {
 	background-color: var(--bg);
 	color: var(--body-text);
