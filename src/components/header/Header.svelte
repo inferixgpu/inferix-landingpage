@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Close from '$images/icons/Close.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
-	import InferixIntro from '$videos/-3e4b-4024-8f7f-a8034323822f.mp4';
+	import InferixIntro from '$videos/Earth_8.mp4';
 
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
@@ -45,11 +45,6 @@
 			title: 'Roadmap',
 			href: '#roadmap'
 		},
-		// {
-		// 	id: 4,
-		// 	title: 'Team',
-		// 	href: '#team'
-		// },
 		{
 			id: 5,
 			title: 'Docs',
@@ -146,16 +141,6 @@
 
 	let is_close = false;
 
-	function scroll() {
-		// if (is_close) return;
-		// const header = document.getElementById('header');
-		// if (window.innerWidth <= 800) {
-		// 	header.style.marginTop = 0;
-		// 	return;
-		// }
-		// if (window.scrollY > 150) header.style.marginTop = '-40px';
-		// else header.style.marginTop = 0;
-	}
 
 	function onCloseGuide() {
 		is_close = true;
@@ -167,13 +152,10 @@
 
 	function updateUI() {
 		forceUpdate += 1;
-		scroll();
 	}
 
 	onMount(() => {
 		autoPlay();
-
-		window.addEventListener('scroll', scroll);
 		window.addEventListener('resize', updateUI);
 	});
 	let isHovered = false;
@@ -286,7 +268,7 @@
 				>
 			</div>
 		</div>
-		<div class="md:hidden flex justify-between p-4 items-center border-solid border-b-[1px] border-[#f4f4f4]">
+		<div class="header-bar-mobile">
 			<img class="h-[24px]" src="{HeaderLogo}">
 			<div class="cursor-pointer" on:click={toggleMenu}>
 				<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -301,7 +283,7 @@
 	</div>
 	<div class="mx-auto pt-[0px] flex flex-col bg-black relative justify-end items-center">
 		<div class="w-full flex justify-center items-center">
-			<div class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto mt-[340px] absolute z-[20]">
+			<div class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto mt-[500px] absolute z-[20]">
 <!--				<div class="flex justify-center text-black">-->
 <!--					<a href="https://docs.inferix.io/por-release" target="_blank" class="flex bg-white border-[1px] border-solid border-white hover:bg-black hover:text-white gap-2 p-1 items-center rounded-[40px] cursor-pointer !filter-none" on:mouseenter={() => handleHoverRelease(true)} on:mouseleave={() => handleHoverRelease(false)}>-->
 <!--					🚀 <p class="text-[14px] font-[500]">Proof-of-Rendering Release</p>-->
@@ -337,7 +319,7 @@
 		</div>
 
 		<div class="overflow-hidden bg-black mx-auto relative">
-			<video autoplay muted loop playsinline class="h-[698px] md:w-[1526px] max-md:w-full object-cover mx-auto mt-[160px]">
+			<video autoplay muted loop playsinline class="h-[698px] md:w-[1526px] max-md:w-full object-contain mx-auto mt-[250px]">
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
@@ -453,10 +435,6 @@
 			background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
 		}
 	}
-	#header {
-		margin-top: 0;
-		transition: margin-top 0.3s ease-in-out;
-	}
 	.link_blog_desktop,
 	.link_blog {
 		position: relative;
@@ -511,7 +489,7 @@
 
 	.link_blog_desktop,
 	.link_blog {
-		width: 100vw;
+		width: 100%;
 		position: relative;
 		gap: 0;
 	}
@@ -638,6 +616,12 @@
 	h1 {
 		line-height: normal;
 	}
+	.header-bar-mobile {
+		@apply md:hidden flex justify-between p-4 items-center;
+		border-bottom: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.30));
+		background: rgba(0, 0, 0, 0.20);
+		backdrop-filter: blur(16px);
+	}
 
 	.item-border-1 {
 		position: relative;
@@ -724,6 +708,33 @@
 		.header-bar {
 			display: none;
 		}
+	}
+	@keyframes rainbow {
+		0% {
+			color: red;
+		}
+		16.67% {
+			color: sandybrown;
+		}
+		33.33% {
+			color: navajowhite;
+		}
+		50% {
+			color: green;
+		}
+		66.67% {
+			color: blue;
+		}
+		83.33% {
+			color: indigo;
+		}
+		100% {
+			color: violet;
+		}
+	}
+
+	.text-rainbow {
+		animation: rainbow 2s linear infinite;
 	}
 
 </style>
