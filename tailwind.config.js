@@ -39,9 +39,12 @@ export default {
 				'50': '50%',
 				'40': '40%',
 				'16': '4rem',
-			}
+			},
 		}
 	},
 	darkMode: 'class',
-	plugins: [require('flowbite/plugin')]
+	plugins: [
+		require('flowbite/plugin'),
+
+	]
 };

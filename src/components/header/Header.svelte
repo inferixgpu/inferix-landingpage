@@ -17,7 +17,7 @@
 	import buttonGPUFocus from '$images/icons/ButtonGPUFocus.png';
 	import buttonScreen from '$images/icons/ButtonScreen.png';
 	import buttonScreenFocus from '$images/icons/ButtonScreenFocus.png';
-	import DownloadIcon from  '$images/icons/Download.svg';
+	import DownloadIcon from '$images/icons/Download.svg';
 
 
 	let textIndex = 0;
@@ -276,24 +276,7 @@
 	</div>
 	<div class="mx-auto flex flex-col bg-black relative justify-end items-center">
 		<div class="w-full flex justify-center items-center">
-			<div class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto mt-[500px] absolute z-[20]">
-<!--				<div class="flex justify-center text-black">-->
-<!--					<a href="https://docs.inferix.io/por-release" target="_blank" class="flex bg-white border-[1px] border-solid border-white hover:bg-black hover:text-white gap-2 p-1 items-center rounded-[40px] cursor-pointer !filter-none" on:mouseenter={() => handleHoverRelease(true)} on:mouseleave={() => handleHoverRelease(false)}>-->
-<!--					🚀 <p class="text-[14px] font-[500]">Proof-of-Rendering Release</p>-->
-<!--					{#if !isHovered}-->
-<!--						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">-->
-<!--						  <path-->
-<!--								  d="M12.5 2C6.98 2 2.5 6.48 2.5 12C2.5 17.52 6.98 22 12.5 22C18.02 22 22.5 17.52 22.5 12C22.5 6.48 18.02 2 12.5 2ZM16.53 12.53L13.53 15.53C13.38 15.68 13.19 15.75 13 15.75C12.81 15.75 12.62 15.68 12.47 15.53C12.18 15.24 12.18 14.76 12.47 14.47L14.19 12.75H9C8.59 12.75 8.25 12.41 8.25 12C8.25 11.59 8.59 11.25 9 11.25H14.19L12.47 9.53C12.18 9.24 12.18 8.76 12.47 8.47C12.76 8.18 13.24 8.18 13.53 8.47L16.53 11.47C16.82 11.76 16.82 12.24 16.53 12.53Z"-->
-<!--								  fill="black"-->
-<!--						  />-->
-<!--						</svg>-->
-<!--					{:else}-->
-<!--						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 24 24" fill="none">-->
-<!--							<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.03 12.53L13.03 15.53C12.88 15.68 12.69 15.75 12.5 15.75C12.31 15.75 12.12 15.68 11.97 15.53C11.68 15.24 11.68 14.76 11.97 14.47L13.69 12.75H8.5C8.09 12.75 7.75 12.41 7.75 12C7.75 11.59 8.09 11.25 8.5 11.25H13.69L11.97 9.53C11.68 9.24 11.68 8.76 11.97 8.47C12.26 8.18 12.74 8.18 13.03 8.47L16.03 11.47C16.32 11.76 16.32 12.24 16.03 12.53Z" fill="white"/>-->
-<!--						</svg>-->
-<!--					{/if}-->
-<!--				</a>-->
-<!--				</div>-->
+			<div class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto md:mt-[500px] mt-[420px] absolute z-[20]">
 				<div class="flex flex-col items-center justify-center">
 					{#if textIndex === 0}
 						<p class="text-[24px] font-[400] opacity-60 text-center">Fastest 3D rendering & AI inference by</p>
@@ -311,19 +294,20 @@
 			</div>
 		</div>
 
-		<div class="overflow-hidden bg-black mx-auto relative">
-			<video autoplay muted loop playsinline class="h-[698px] md:w-[1526px] max-md:w-full object-contain mx-auto mt-[250px]">
-				<source src={InferixIntro} type="video/mp4" />
+		<div class="overflow-hidden bg-black mx-auto md:mt-0 -mt-[200px] max-md:opacity-40 relative">
+			<video autoplay muted loop playsinline
+				   class="h-[698px] md:w-[1526px] max-md:w-full object-contain mx-auto mt-[250px]">
+				<source src={InferixIntro} type="video/mp4"/>
 			</video>
 		</div>
-		<div class="flex md:flex-row flex-col mt-[50px] md:w-[560px] max-md:w-full h-[104px]
-				items-center mx-auto justify-between z-40 max-md:-mb-0 md:-mb-[150px] max-md:gap-2 absolute">
-
+		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">Available on desktop</div>
+		<div class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
+				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 absolute">
 			<div class="item-border-1">
 				<div class="item-download-1 cursor-pointer" on:mouseenter={() => focusButtonGPU(true)} on:mouseleave={() => focusButtonGPU(false)}>
-					<div class="basis-2/3 flex flex-col gap-2 h-[64px] justify-end">
+					<div class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:justify-center md:justify-end">
 						<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
-						<div class="flex justify-between">
+						<div class="flex justify-between max-md:hidden">
 							<a href="https://h3d.me/ifxworkerwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
 								<img src="{DownloadIcon}">
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
@@ -355,9 +339,9 @@
 						{/if}
 
 					</div>
-					<div class="basis-2/3 flex flex-col gap-2 h-[64px]">
+					<div class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center">
 						<p class="flex text-white text-[16px] font-bold justify-start">3D Rendering & AI Inference</p>
-						<div class="flex justify-between">
+						<div class="flex justify-between max-md:hidden">
 							<a href="https://h3d.me/ifxaddonblenderwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
 								<img src="{DownloadIcon}">
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
@@ -616,16 +600,14 @@
 	}
 
 	.item-border-1 {
-		position: relative;
-		padding: 1px;
+		@apply relative p-[1px];
 		.item-download-1 {
-			display: flex;
-			width: 260px;
-			padding: 20px 16px;
+			@apply flex w-[260px] px-5 py-4 max-md:py-0;
 			align-items: center;
 			background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
 			border-radius: 20px 0px 0px 20px;
 			box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.1);
+
 		}
 	}
 	/*.item-border-1:before {*/
@@ -650,12 +632,9 @@
 
 
 	.item-border-2 {
-		position: relative;
-		padding: 1px;
+		@apply relative p-[1px];
 		.item-download-2 {
-			display: flex;
-			width: 260px;
-			padding: 20px 16px;
+			@apply flex w-[260px] px-5 py-4 max-md:py-0;
 			align-items: center;
 			border-radius: 0 20px 20px 0;
 			background: linear-gradient(270deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
