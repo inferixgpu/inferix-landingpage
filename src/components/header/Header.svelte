@@ -2,7 +2,6 @@
 	import Close from '$images/icons/Close.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
 	import InferixIntro from '$videos/Earth_8.mp4';
-
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import DownloadFailed from '$components/inferix/Modals/DownloadFailed.svelte';
@@ -139,11 +138,11 @@
 		}, 4000);
 	}
 
-	let is_close = false;
+	let is_close = true;
 
 
 	function onCloseGuide() {
-		is_close = true;
+		is_close = false;
 	}
 
 	let forceUpdate = 0;
@@ -172,73 +171,76 @@
 
 <div style="font-family: Inter">
 	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
-		{#if screenSize > 800}
-			<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
-				<div>
-					<div >
-						<span  class="flex items-center">📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
-						>🚀 <span>Proof-of-Rendering Release</span></a
-						>
-					</div>
+		{#if is_close}
+			{#if screenSize > 800}
+				<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
 					<div>
-						<span  class="flex items-center">📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial"  class="flex items-center"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
-						>🚀 <span>Proof-of-Rendering Release</span></a
-						>
+						<div >
+							<span  class="flex items-center">📌 MVP is live!</span>
+							<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center"> Read the full blog ⟶</a>
+							<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
+							>🚀 <span>Proof-of-Rendering Release</span></a
+							>
+						</div>
+						<div>
+							<span  class="flex items-center">📌 MVP is live!</span>
+							<a href="https://docs.inferix.io/mvp-tutorial"  class="flex items-center"> Read the full blog ⟶</a>
+							<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
+							>🚀 <span>Proof-of-Rendering Release</span></a
+							>
+						</div>
 					</div>
+					<svg
+							on:click={() => onCloseGuide()}
+							xmlns="http://www.w3.org/2000/svg"
+							class="icon icon-tabler icon-tabler-x"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="#597e8d"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+					>
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<path d="M18 6l-12 12" />
+						<path d="M6 6l12 12" />
+					</svg>
 				</div>
-				<svg
-						on:click={() => onCloseGuide()}
-						xmlns="http://www.w3.org/2000/svg"
-						class="icon icon-tabler icon-tabler-x"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="#597e8d"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-					<path d="M18 6l-12 12" />
-					<path d="M6 6l12 12" />
-				</svg>
-			</div>
 
-		{:else}
-			<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
-				<div>
-					<div >
-						<span  class="flex items-center whitespace-nowrap">📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center whitespace-nowrap"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] !w-[60%] justify-center whitespace-nowrap px-[10px]"
-						>🚀 <span>Proof-of-Rendering Release</span></a
-						>
+			{:else}
+				<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
+					<div>
+						<div >
+							<span  class="flex items-center whitespace-nowrap">📌 MVP is live!</span>
+							<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center whitespace-nowrap"> Read the full blog ⟶</a>
+							<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] !w-[60%] justify-center whitespace-nowrap px-[10px]"
+							>🚀 <span>Proof-of-Rendering Release</span></a
+							>
+						</div>
 					</div>
+					<svg
+							on:click={() => onCloseGuide()}
+							xmlns="http://www.w3.org/2000/svg"
+							class="icon icon-tabler icon-tabler-x"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="#597e8d"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+					>
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<path d="M18 6l-12 12" />
+						<path d="M6 6l12 12" />
+					</svg>
 				</div>
-				<svg
-						on:click={() => onCloseGuide()}
-						xmlns="http://www.w3.org/2000/svg"
-						class="icon icon-tabler icon-tabler-x"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="#597e8d"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-					<path d="M18 6l-12 12" />
-					<path d="M6 6l12 12" />
-				</svg>
-			</div>
+			{/if}
 		{/if}
+
 		<div class="header-bar">
 			<img class="h-[24px]" src="{HeaderLogo}">
 			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
