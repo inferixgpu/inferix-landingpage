@@ -136,8 +136,8 @@
 		flex-direction: column;
 	}
 	.roadmap-header {
+		@apply max-md:!text-[24px] !text-[32px];
 		text-align: center;
-		font-size: 32px;
 		font-weight: 600;
 		line-height: 48px; /* 150% */
 		background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
