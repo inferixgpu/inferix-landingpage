@@ -296,12 +296,12 @@
 					{#if textIndex === 0}
 						<p class="text-[24px] font-[400] opacity-60 text-center">Fastest 3D rendering & AI inference by</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-							<p class="text-[48px] font-bold text-center">Inferix Decentralized GPU</p>
+							<p class="text-[48px] max-md:text-[40px] font-bold text-center">Inferix Decentralized GPU</p>
 						</Saos>
 					{:else }
 						<p class="text-[24px] font-[400] opacity-60 text-center">Low-cost AI inference by</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-							<p class="text-[48px] font-bold text-center">Inferix Crowdsourced GPU</p>
+							<p class="text-[48px] max-md:text-[40px] font-bold text-center">Inferix Crowdsourced GPU</p>
 						</Saos>
 					{/if}
 
