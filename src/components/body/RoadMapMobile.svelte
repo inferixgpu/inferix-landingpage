@@ -63,7 +63,7 @@
 <svelte:window bind:innerWidth={screenSize} />
 
 <div class="md:mt-[120px] mt-[120px] pb-[200px]">
-	<div id="roadmap" class="md:block container mx-auto w-100% ">
+	<div id="roadmap" class="md:block container mx-auto w-100%">
 		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 			<p
 				id="text-title"
@@ -75,14 +75,14 @@
 
 		<div class="flex flex-col border-l-[2px] border-[#373639]">
 			{#each roadmap as rm}
-				<div class="flex flex-row p-4 relative gap-10">
-					<div class="roadmap-item bg-[#2D2C30] p-4 w-full">
-						<div class="absolute flex justify-start items-start left-[-13px] top-[16px]">
+				<div class="item-container flex flex-row p-4 relative gap-10">
+					<div class="roadmap-item bg-[#2D2C30] w-full">
+						<div class="absolute flex justify-start items-center left-[-13px] top-[0px]">
 							<img src={Dot} class="max-w-[24px] max-h-[24px]" />
+							<p class="title-timeline-item">{rm.title}</p>
 						</div>
 						<div class="basis-1/12" />
 						<div class="basis-11/12">
-							<p class="title-timeline-item">{rm.title}</p>
 							<ul
 								class="flex flex-col gap-3 opacity-60 text-[#FFF] text-[16px] font-normal leading-6 p-2"
 							>
@@ -99,6 +99,23 @@
 </div>
 
 <style lang="postcss">
+	.item-container {
+		padding-top: 60px;
+	}
+
+	.roadmap-item {
+		padding: 15px;
+	}
+
+	.roadmap-item > div:first-child {
+		left: -10px;
+		gap: 10px;
+	}
+
+	.roadmap-item > div:first-child > img {
+		width: 17px;
+		height: 17px;
+	}
 	ul {
 		list-style-type: '· ';
 	}
