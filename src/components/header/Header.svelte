@@ -199,6 +199,73 @@
 		id="header"
 		class={`flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50`}
 	>
+		{#if screenSize > 800}
+			<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
+				<div>
+					<div >
+						<span  class="flex items-center">📌 MVP is live!</span>
+						<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center"> Read the full blog ⟶</a>
+						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
+						>🚀 <span>Proof-of-Rendering Release</span></a
+						>
+					</div>
+					<div>
+						<span  class="flex items-center">📌 MVP is live!</span>
+						<a href="https://docs.inferix.io/mvp-tutorial"  class="flex items-center"> Read the full blog ⟶</a>
+						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
+						>🚀 <span>Proof-of-Rendering Release</span></a
+						>
+					</div>
+				</div>
+				<svg
+						on:click={() => onCloseGuide()}
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-x"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="#597e8d"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path d="M18 6l-12 12" />
+					<path d="M6 6l12 12" />
+				</svg>
+			</div>
+
+		{:else}
+			<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
+				<div>
+					<div >
+						<span  class="flex items-center whitespace-nowrap">📌 MVP is live!</span>
+						<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center whitespace-nowrap"> Read the full blog ⟶</a>
+						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] !w-[60%] justify-center whitespace-nowrap px-[10px]"
+						>🚀 <span>Proof-of-Rendering Release</span></a
+						>
+					</div>
+				</div>
+				<svg
+						on:click={() => onCloseGuide()}
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-x"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="#597e8d"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path d="M18 6l-12 12" />
+					<path d="M6 6l12 12" />
+				</svg>
+			</div>
+		{/if}
 		<div class="header-bar">
 			<img class="h-[24px]" src="{HeaderLogo}">
 			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
@@ -235,23 +302,23 @@
 	<div class="mx-auto pt-[0px] flex flex-col bg-black relative justify-end items-center">
 		<div class="w-full flex justify-center items-center">
 			<div class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto mt-[340px] absolute z-[20]">
-				<div class="flex justify-center text-black">
-				<a href="https://docs.inferix.io/por-release" target="_blank" class="flex bg-white border-[1px] border-solid border-white hover:bg-black hover:text-white gap-2 p-1 items-center rounded-[40px] cursor-pointer !filter-none" on:mouseenter={() => handleHoverRelease(true)} on:mouseleave={() => handleHoverRelease(false)}>
-					🚀 <p class="text-[14px] font-[500]">Proof-of-Rendering Release</p>
-					{#if !isHovered}
-						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-						  <path
-								  d="M12.5 2C6.98 2 2.5 6.48 2.5 12C2.5 17.52 6.98 22 12.5 22C18.02 22 22.5 17.52 22.5 12C22.5 6.48 18.02 2 12.5 2ZM16.53 12.53L13.53 15.53C13.38 15.68 13.19 15.75 13 15.75C12.81 15.75 12.62 15.68 12.47 15.53C12.18 15.24 12.18 14.76 12.47 14.47L14.19 12.75H9C8.59 12.75 8.25 12.41 8.25 12C8.25 11.59 8.59 11.25 9 11.25H14.19L12.47 9.53C12.18 9.24 12.18 8.76 12.47 8.47C12.76 8.18 13.24 8.18 13.53 8.47L16.53 11.47C16.82 11.76 16.82 12.24 16.53 12.53Z"
-								  fill="black"
-						  />
-						</svg>
-					{:else}
-						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 24 24" fill="none">
-							<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.03 12.53L13.03 15.53C12.88 15.68 12.69 15.75 12.5 15.75C12.31 15.75 12.12 15.68 11.97 15.53C11.68 15.24 11.68 14.76 11.97 14.47L13.69 12.75H8.5C8.09 12.75 7.75 12.41 7.75 12C7.75 11.59 8.09 11.25 8.5 11.25H13.69L11.97 9.53C11.68 9.24 11.68 8.76 11.97 8.47C12.26 8.18 12.74 8.18 13.03 8.47L16.03 11.47C16.32 11.76 16.32 12.24 16.03 12.53Z" fill="white"/>
-						</svg>
-					{/if}
-				</a>
-				</div>
+<!--				<div class="flex justify-center text-black">-->
+<!--					<a href="https://docs.inferix.io/por-release" target="_blank" class="flex bg-white border-[1px] border-solid border-white hover:bg-black hover:text-white gap-2 p-1 items-center rounded-[40px] cursor-pointer !filter-none" on:mouseenter={() => handleHoverRelease(true)} on:mouseleave={() => handleHoverRelease(false)}>-->
+<!--					🚀 <p class="text-[14px] font-[500]">Proof-of-Rendering Release</p>-->
+<!--					{#if !isHovered}-->
+<!--						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">-->
+<!--						  <path-->
+<!--								  d="M12.5 2C6.98 2 2.5 6.48 2.5 12C2.5 17.52 6.98 22 12.5 22C18.02 22 22.5 17.52 22.5 12C22.5 6.48 18.02 2 12.5 2ZM16.53 12.53L13.53 15.53C13.38 15.68 13.19 15.75 13 15.75C12.81 15.75 12.62 15.68 12.47 15.53C12.18 15.24 12.18 14.76 12.47 14.47L14.19 12.75H9C8.59 12.75 8.25 12.41 8.25 12C8.25 11.59 8.59 11.25 9 11.25H14.19L12.47 9.53C12.18 9.24 12.18 8.76 12.47 8.47C12.76 8.18 13.24 8.18 13.53 8.47L16.53 11.47C16.82 11.76 16.82 12.24 16.53 12.53Z"-->
+<!--								  fill="black"-->
+<!--						  />-->
+<!--						</svg>-->
+<!--					{:else}-->
+<!--						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 24 24" fill="none">-->
+<!--							<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.03 12.53L13.03 15.53C12.88 15.68 12.69 15.75 12.5 15.75C12.31 15.75 12.12 15.68 11.97 15.53C11.68 15.24 11.68 14.76 11.97 14.47L13.69 12.75H8.5C8.09 12.75 7.75 12.41 7.75 12C7.75 11.59 8.09 11.25 8.5 11.25H13.69L11.97 9.53C11.68 9.24 11.68 8.76 11.97 8.47C12.26 8.18 12.74 8.18 13.03 8.47L16.03 11.47C16.32 11.76 16.32 12.24 16.03 12.53Z" fill="white"/>-->
+<!--						</svg>-->
+<!--					{/if}-->
+<!--				</a>-->
+<!--				</div>-->
 				<div class="flex flex-col items-center justify-center">
 					{#if textIndex === 0}
 						<p class="text-[24px] font-[400] opacity-60 text-center">Fastest 3D rendering & AI inference by</p>
