@@ -144,8 +144,6 @@
 
 	function onCloseGuide() {
 		is_close = true;
-		const header = document.getElementById('header');
-		header.style.marginTop = '-40px';
 	}
 
 	let forceUpdate = 0;
@@ -158,11 +156,7 @@
 		autoPlay();
 		window.addEventListener('resize', updateUI);
 	});
-	let isHovered = false;
 
-	function handleHoverRelease(status) {
-		isHovered = status;
-	}
 	let focusGPU = false;
 	function focusButtonGPU(status) {
 		focusGPU = status;
@@ -177,10 +171,7 @@
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 
 <div style="font-family: Inter">
-	<div
-		id="header"
-		class={`flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50`}
-	>
+	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
 		{#if screenSize > 800}
 			<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
 				<div>
@@ -281,7 +272,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="mx-auto pt-[0px] flex flex-col bg-black relative justify-end items-center">
+	<div class="mx-auto flex flex-col bg-black relative justify-end items-center">
 		<div class="w-full flex justify-center items-center">
 			<div class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto mt-[500px] absolute z-[20]">
 <!--				<div class="flex justify-center text-black">-->
@@ -471,7 +462,6 @@
 	.link_blog > div > div > a:nth-child(3) > span {
 		animation: rainbow 2s linear infinite;
 		cursor: pointer;
-
 		&:hover {
 			opacity: 0.8;
 		}
@@ -531,7 +521,7 @@
 
 	.video-overlay-container {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
-		@apply overflow-hidden absolute left-0 right-0 top-0 bottom-0 justify-center md:flex justify-center items-center flex-col;
+		@apply overflow-hidden absolute left-0 right-0 top-0 bottom-0 md:flex justify-center items-center flex-col;
 	}
 
 	.shadow-text {
