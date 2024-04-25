@@ -803,9 +803,7 @@
 		}
 
 		.proven-more-infor {
-			@apply grid grid-cols-1;
-			width: auto;
-			justify-content: center;
+			display: none;
 		}
 	}
 

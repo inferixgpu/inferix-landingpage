@@ -349,7 +349,7 @@
 			height: calc(calc(100%) / 1112 * 65);
 
 			& > div {
-				font-size: 28px;
+				font-size: 32px;
 				transform: translate(-60px, -14px);
 			}
 		}
@@ -408,6 +408,10 @@
 		.industry-content > div > div > div {
 			height: calc(calc(100%) / 397 * 75);
 		}
+
+		.industry-content > div:first-child > div:first-child > div:first-child {
+			height: auto;
+		}
 	}
 
 	@media screen and (max-width: 1024px) {
@@ -436,7 +440,7 @@
 		.in-mobile > div:nth-child(2) {
 			position: absolute;
 			text-align: center;
-			font-size: 24px;
+			font-size: 32px;
 			font-weight: 600;
 			line-height: 48px; /* 200% */
 			background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
