@@ -25,6 +25,20 @@ export default {
 				outfit: ['Outfit', 'sans-serif'],
 				pre: ['PretendardVariable', 'sans-serif'],
 				kommon: ['KommonGrotesk', 'sans-serif']
+			},
+			backgroundSize: {
+				'auto': 'auto',
+				'cover': 'cover',
+				'contain': 'contain',
+				'200': '200%',
+				'100': '100%',
+				'90': '90%',
+				'80': '80%',
+				'70': '70%',
+				'60': '60%',
+				'50': '50%',
+				'40': '40%',
+				'16': '4rem',
 			}
 		}
 	},
