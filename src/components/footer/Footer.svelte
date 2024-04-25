@@ -159,7 +159,7 @@
 
 <style>
 	.footer-body {
-		@apply flex md:flex-col flex-row justify-center items-center 2xl:mb-[150px] mb-[70px] w-full;
+		@apply flex md:flex-col flex-row justify-center items-center 2xl:mb-[150px] mb-[70px] w-[99%];
 		& > .footer-content {
 			@apply flex md:flex-row flex-col justify-center items-center md:h-[354px] 2xl:w-full max-w-[1250px] gap-0 md:mx-[60px] ml-1 ;
 			& > .content {
