@@ -1,7 +1,7 @@
 <script>
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
-	import X from '$images/icons/X.svg';
+	import X from '$images/icons/Twitter.svg';
 	import D from '$images/icons/D.svg';
 	import M from '$images/icons/M.svg';
 	import Y from '$images/icons/Ytb.svg';

@@ -788,6 +788,9 @@
 		.proven-tech {
 			padding: 30px;
 		}
+		.proven-header > div > div {
+			font-size: 24px;
+		}
 
 		.proven-tech > div {
 			width: 100%;
@@ -801,9 +804,11 @@
 			border-left-width: 2px;
 			border-right-width: 2px;
 		}
+	}
 
+	@media screen and (max-width: 648px) {
 		.proven-more-infor {
-			display: none;
+			grid-template-columns: repeat(1, minmax(0, 1fr));
 		}
 	}
 
