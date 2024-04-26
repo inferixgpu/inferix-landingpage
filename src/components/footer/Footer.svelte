@@ -170,7 +170,7 @@
 	}
 
 	.footer-content-paragraph {
-		@apply text-white font-normal opacity-60 leading-8 2xl:max-w-[507px] max-w-[400px] text-[16px] 2xl:text-[24px];
+		@apply text-white font-normal opacity-60 leading-8 2xl:max-w-[507px] max-w-[400px] text-[20px] 2xl:text-[24px];
 	}
 	.footer-join {
 		width: 140px;
