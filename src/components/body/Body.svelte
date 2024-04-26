@@ -194,10 +194,10 @@
 	}
 
 	.innovated {
-		@apply flex flex-col relative w-full items-center z-20;
+		@apply flex flex-col relative w-full items-center z-20 ;
 
 		& > .innovated-header {
-			@apply flex flex-col h-[1200px] lg:w-[90%] mx-auto bg-cover max-md:bg-200 bg-center bg-no-repeat -mt-[300px] items-center gap-10 z-20
+			@apply flex flex-col h-[1200px] lg:w-[90%] bg-cover max-md:bg-200 bg-center bg-no-repeat -mt-[300px] max-md:-mt-[580px] items-center gap-10 z-20
 			bg-[url("$images/png/innovatedBackground.png")] ;
 			& > .innovated-header-content {
 				@apply text-[40px] max-md:text-[32px];

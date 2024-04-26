@@ -18,7 +18,8 @@ export default {
 				normalGrey: '#A9A9A9',
 				green: '#123E29',
 				textMobile: '#BBB',
-				textGrey: '#6E6E6E'
+				textGrey: '#6E6E6E',
+
 			},
 			fontFamily: {
 				suit: ['SUIT', 'sans-serif'],
@@ -39,9 +40,12 @@ export default {
 				'50': '50%',
 				'40': '40%',
 				'16': '4rem',
-			}
+			},
 		}
 	},
 	darkMode: 'class',
-	plugins: [require('flowbite/plugin')]
+	plugins: [
+		require('flowbite/plugin'),
+
+	]
 };
