@@ -1,29 +1,39 @@
 <script>
-	import {onMount} from 'svelte';
+	import { onMount } from 'svelte';
 	import gsap from 'gsap';
 	import axios from 'axios';
+	import lo from 'lodash';
+
+	import leaderboard_light from '$images/png/leaderboard-light.png';
 
 	let input_step = 0;
 	let count = 1;
 	let showModal = false;
 	var nodes = [{ id: 1, value: '' }];
+	let nav = 2;
+	let data = [];
 
-	let isNullEmail = {status: true, message: ''};
+	let isNullEmail = { status: true, message: '' };
 	let isNullWallet = false;
 	let isNullWorkers = false;
-	let responseError = {error: false, message: ''};
+	let responseError = { error: false, message: '' };
 	function addNode() {
 		count++;
 		nodes = [...nodes, { id: count, value: '' }];
 	}
 
+	function clickNav(item, ele) {
+		if (item == 'registration') nav = 1;
+		else nav = 2;
+	}
+
 	function handleFocus(i) {
 		const focus = document.querySelector(
-			`.body-register > div:nth-child(${i}) > div:first-child > div:first-child > div`
+			`.body-register > div:last-child > div:nth-child(${i}) > div:first-child > div:first-child > div`
 		);
 
 		let not_focus = document.querySelectorAll(
-			`.body-register > div:not(:nth-child(${i})) > div:first-child > div:first-child > div`
+			`.body-register > div:last-child > div:not(:nth-child(${i})) > div:first-child > div:first-child > div`
 		);
 
 		if (input_step != i)
@@ -34,7 +44,7 @@
 					'linear-gradient(180deg, rgba(244, 244, 244, 0.56) 0.01%, rgba(244, 244, 244, 0) 100%)',
 				duration: 0.8,
 				ease: 'none',
-				border: 'none',
+				border: 'none'
 			});
 
 		for (let i = 0; i < not_focus.length; i++) {
@@ -75,33 +85,36 @@
 	}
 
 	async function handleSubmit() {
-		let inputWallet = document.getElementById("wallet-address-input").value;
+		let inputWallet = document.getElementById('wallet-address-input').value;
 		if (inputWallet) {
 			isNullWallet = false;
 		}
-		let inputEmail = document.getElementById("email-address-input").value;
+		let inputEmail = document.getElementById('email-address-input').value;
 		if (inputEmail && isValidEmail(inputEmail)) {
 			isNullEmail.status = false;
 		}
 		const inputWorkers = [];
 
 		let elementWorkerIds = document.querySelectorAll('.workers-input input');
-		elementWorkerIds.forEach(function(input) {
-			if (input.value !== "") {
+		elementWorkerIds.forEach(function (input) {
+			if (input.value !== '') {
 				inputWorkers.push(input.value);
 			}
 		});
 
 		const formData = {
-			"ownerAddress": inputWallet,
-			"ownerEmail": inputEmail,
-			"workerUUIDs": inputWorkers
+			ownerAddress: inputWallet,
+			ownerEmail: inputEmail,
+			workerUUIDs: inputWorkers
 		};
 		if (validateFormData(formData)) {
 			isNullEmail.status = isNullWallet = isNullWorkers = false;
 			try {
 				responseError.error = false;
-				const response = await axios.post('https://testnet-core.inferix.io/api/workers/register', formData);
+				const response = await axios.post(
+					'https://testnet-core.inferix.io/api/workers/register',
+					formData
+				);
 				if (response.data) {
 					showModal = true;
 				}
@@ -109,9 +122,7 @@
 				responseError.error = true;
 				responseError.message = e.response.data.message;
 			}
-
 		}
-
 	}
 
 	function validateFormData(formData) {
@@ -121,12 +132,12 @@
 		}
 		if (!formData.ownerEmail) {
 			isNullEmail.status = true;
-			isNullEmail.message = "Email is required.";
+			isNullEmail.message = 'Email is required.';
 			return false;
 		}
 		if (!isValidEmail(formData.ownerEmail)) {
 			isNullEmail.status = true;
-			isNullEmail.message = "Please enter a valid email address.";
+			isNullEmail.message = 'Please enter a valid email address.';
 			return false;
 		}
 		if (formData.workerUUIDs.length == 0) {
@@ -142,17 +153,34 @@
 	}
 	function buttonDone() {
 		showModal = false;
-		document.getElementById("wallet-address-input").value = '';
-		document.getElementById("email-address-input").value = '';
-		nodes = [{ id: 1, value: '' }]
+		document.getElementById('wallet-address-input').value = '';
+		document.getElementById('email-address-input').value = '';
+		nodes = [{ id: 1, value: '' }];
 	}
-	onMount(() => {
+
+	async function fetchLeaderboard() {
+		await axios
+			.get('https://testnet-core.inferix.io/api/workers/statistics')
+			.then((response) => {
+				data = lo.map(data, (d) => {
+					return { ...d, ...{ pointer: d.pointer.toFixed(0) } };
+				});
+				data = lo.take(lo.orderBy(lo.get(response, 'data.data'), ['point'], ['desc']), 20);
+			})
+			.catch((error) => console.log('Error: ' + error));
+	}
+
+	onMount(async () => {
 		handleFocus(1);
-		onHoverSubmit();
+		//onHoverSubmit();
+		await fetchLeaderboard();
 	});
 </script>
+
 {#if responseError.error}
-	<div class="text-white h-[56px] flex w-full  md:mb-[30px] whitespace-nowrap xl:px-[250px] min-[1025px]:px-[140px] max-lg:px-4 justify-end">
+	<div
+		class="text-white h-[56px] flex w-full md:mb-[30px] whitespace-nowrap xl:px-[250px] min-[1025px]:px-[140px] max-lg:px-4 justify-end"
+	>
 		<span class="md:w-[40%] max-lg:hidden"></span>
 		<span class="flex items-center justify-start h-[56px] md:w-[60%] max-md:w-full">
 			<p class="py-[8px] px-[18px] bg-red-600 h-[40px]">Registration failed!</p>
@@ -160,102 +188,159 @@
 	</div>
 {/if}
 
-
-<div class="body-register">
-	<div class="wallet-register" on:click={() => handleFocus(1)}>
-		<div class="wallet-desc">
-			<div><div class="step"><div>1</div></div></div>
-			<div>
-				<div class={input_step == 1 ? 'desc-active' : ''}>Wallet Address</div>
-				<div>
-					Enter your wallet ioPay address so we can verify your account on the system
-					(<a
-						href="https://youtube.com/shorts/IkZ1jl-pFxc?si=8O3_72m7biKupZX3"
-						class="text-blue-500 hover:underline hover:filter-none"
-						target="_blank"
-						>
-					Click to view instructions</a>)
-				</div>
-
-			</div>
+<div class={nav == 1 ? 'body-register' : 'body-register body-2'}>
+	<div class="nav-bar">
+		<div
+			class={nav == 1 ? 'nav-item nav-item-active' : 'nav-item'}
+			on:click={(ele) => clickNav('registration', ele)}
+		>
+			<div>Registration</div>
 		</div>
-		<div class="wallet-form">
-			<div class="form-label flex gap-1">
-				Please enter your wallet address
-				<p class="text-red-600">*</p>
-			</div>
-			<input id="wallet-address-input" type="text" placeholder="Example: io3wfl8zgmdkw6j7yv9ncxenp5f..." on:focus={() => handleFocus(1) } />
-			{#if isNullWallet}
-				<div class="text-[12px] text-red-600">Wallet address is required.</div>
-			{/if}
+		<div
+			class={nav == 2 ? 'nav-item nav-item-active' : 'nav-item'}
+			on:click={(ele) => clickNav('leaderboard', ele)}
+		>
+			<div>Leaderboard</div>
 		</div>
 	</div>
-	<div class="email-register" on:click={() => handleFocus(2)}>
-		<div class="email-desc">
-			<div><div class="step"><div>2</div></div></div>
-			<div>
-				<div class={input_step == 2 ? 'desc-active' : ''}>Email Address</div>
-				<div>Enter your email with us for enhanced support tailored to you</div>
-			</div>
-		</div>
-		<div class="wallet-form ">
-			<div class="form-label flex gap-1">
-				Please enter your email
-				<p class="text-red-600">*</p>
-			</div>
-			<input id="email-address-input" type="email" placeholder="example@domain.com" on:focus={() => handleFocus(2)}  />
-			{#if isNullEmail.status}
-				<div class="text-[12px] text-red-600">{isNullEmail.message}</div>
-			{/if}
-		</div>
-	</div>
-	<div class="node-register" on:click={() => handleFocus(3)}>
-		<div class="node-desc">
-			<div><div class="step"><div>3</div></div></div>
-			<div>
-				<div class={input_step == 3 ? 'desc-active' : ''}>Node ID</div>
-				<div>The node IDs you are currently using in our system</div>
-			</div>
-		</div>
-		<div class="wallet-form workers-input">
-			<div class="form-label flex gap-1">
-				Please enter your node ID
-				<p class="text-red-600">*</p>
-			</div>
-			{#if isNullWorkers}
-				<div class="text-[12px] text-red-600">Need at least 1 node ID.</div>
-			{/if}
-			{#each nodes as node (node.id)}
-				<input
-					placeholder="Example: e365eb20-283d-4dc2-8703-ae5b94286dbe"
-					bind:value={node.value}
-					on:focus={() => handleFocus(3)}
-				/>
-			{/each}
-			<div class="add-node-register" on:click={addNode}><div>Add more +</div></div>
-		</div>
-	</div>
-	<div class="submit-register">
-		<div />
+	{#if nav == 1}
 		<div>
-			<div id="submit_register" on:click={handleSubmit}><div>Submit</div></div>
-		</div>
-	</div>
-	<modal class="fixed inset-0 flex items-center justify-center z-50" style="display: {showModal ? 'block' : 'none'}">
-		<div class="fixed inset-0 bg-black bg-opacity-90 items-center backdrop-blur-[13px]">
-			<div class="flex p-8 rounded-lg shadow-xl z-10 w-full h-full items-center justify-center">
-				<div class="modal-register-success">
-					<div class="flex flex-col justify-center items-center">
-						<p class="text-black text-center text-[36px] font-bold">Congratulations!</p>
-						<p class="text-black text-center text-[16px] font-light">You have successfully registered</p>
+			<div class="wallet-register" on:click={() => handleFocus(1)}>
+				<div class="wallet-desc">
+					<div><div class="step"><div>1</div></div></div>
+					<div>
+						<div class={input_step == 1 ? 'desc-active' : ''}>Wallet Address</div>
+						<div>
+							Enter your wallet ioPay address so we can verify your account on the system (<a
+								href="https://youtube.com/shorts/IkZ1jl-pFxc?si=8O3_72m7biKupZX3"
+								class="text-blue-500 hover:underline hover:filter-none"
+								target="_blank"
+							>
+								Click to view instructions</a
+							>)
+						</div>
 					</div>
-					<div class="flex w-[164px] h-[40px] bg-white text-black text-[16px]
-					font-bold cursor-pointer justify-center items-center hover:bg-black hover:text-white"
-						 on:click={() => buttonDone()}>Done</div>
+				</div>
+				<div class="wallet-form">
+					<div class="form-label flex gap-1">
+						Please enter your wallet address
+						<p class="text-red-600">*</p>
+					</div>
+					<input
+						id="wallet-address-input"
+						type="text"
+						placeholder="Example: io3wfl8zgmdkw6j7yv9ncxenp5f..."
+						on:focus={() => handleFocus(1)}
+					/>
+					{#if isNullWallet}
+						<div class="text-[12px] text-red-600">Wallet address is required.</div>
+					{/if}
 				</div>
 			</div>
+			<div class="email-register" on:click={() => handleFocus(2)}>
+				<div class="email-desc">
+					<div><div class="step"><div>2</div></div></div>
+					<div>
+						<div class={input_step == 2 ? 'desc-active' : ''}>Email Address</div>
+						<div>Enter your email with us for enhanced support tailored to you</div>
+					</div>
+				</div>
+				<div class="wallet-form">
+					<div class="form-label flex gap-1">
+						Please enter your email
+						<p class="text-red-600">*</p>
+					</div>
+					<input
+						id="email-address-input"
+						type="email"
+						placeholder="example@domain.com"
+						on:focus={() => handleFocus(2)}
+					/>
+					{#if isNullEmail.status}
+						<div class="text-[12px] text-red-600">{isNullEmail.message}</div>
+					{/if}
+				</div>
+			</div>
+			<div class="node-register" on:click={() => handleFocus(3)}>
+				<div class="node-desc">
+					<div><div class="step"><div>3</div></div></div>
+					<div>
+						<div class={input_step == 3 ? 'desc-active' : ''}>Node ID</div>
+						<div>The node IDs you are currently using in our system</div>
+					</div>
+				</div>
+				<div class="wallet-form workers-input">
+					<div class="form-label flex gap-1">
+						Please enter your node ID
+						<p class="text-red-600">*</p>
+					</div>
+					{#if isNullWorkers}
+						<div class="text-[12px] text-red-600">Need at least 1 node ID.</div>
+					{/if}
+					{#each nodes as node (node.id)}
+						<input
+							placeholder="Example: e365eb20-283d-4dc2-8703-ae5b94286dbe"
+							bind:value={node.value}
+							on:focus={() => handleFocus(3)}
+						/>
+					{/each}
+					<div class="add-node-register" on:click={addNode}><div>Add more +</div></div>
+				</div>
+			</div>
+			<div class="submit-register">
+				<div />
+				<div>
+					<div id="submit_register" on:click={handleSubmit}><div>Submit</div></div>
+				</div>
+			</div>
+			<modal
+				class="fixed inset-0 flex items-center justify-center z-50"
+				style="display: {showModal ? 'block' : 'none'}"
+			>
+				<div class="fixed inset-0 bg-black bg-opacity-90 items-center backdrop-blur-[13px]">
+					<div class="flex p-8 rounded-lg shadow-xl z-10 w-full h-full items-center justify-center">
+						<div class="modal-register-success">
+							<div class="flex flex-col justify-center items-center">
+								<p class="text-black text-center text-[36px] font-bold">Congratulations!</p>
+								<p class="text-black text-center text-[16px] font-light">
+									You have successfully registered
+								</p>
+							</div>
+							<div
+								class="flex w-[164px] h-[40px] bg-white text-black text-[16px]
+					font-bold cursor-pointer justify-center items-center hover:bg-black hover:text-white"
+								on:click={() => buttonDone()}
+							>
+								Done
+							</div>
+						</div>
+					</div>
+				</div>
+			</modal>
 		</div>
-	</modal>
+	{:else}
+		<div class="leaderboard">
+			<img src={leaderboard_light} alt="leaderboard-light" />
+			<div class="leaderboard-content">
+				<div>Leaderboard Top 20 Alliance Campaign</div>
+				<div>Last Updated: 4/22/2024, 3:13:01 PM</div>
+				<div class="leaderboard-table">
+					<div class="table-header">
+						<div>Rank</div>
+						<div>Wallet address</div>
+						<div>Point</div>
+					</div>
+					<div class="table-body">
+						{#each data as item, index (index)}
+							<div class="data-item">
+								<div>{index + 1}</div>
+								<div>{item.ownerAddress}</div>
+								<div>{item.point.toFixed(0)}</div>
+							</div>{/each}
+					</div>
+				</div>
+			</div>
+		</div>{/if}
 </div>
 
 <style lang="postcss">
@@ -267,21 +352,61 @@
 		gap: 24px;
 	}
 
-	.body-register > div {
+	.body-register > .nav-bar {
+		width: fit-content;
+		height: 32px;
+		margin: 0 auto;
+		display: flex;
+		z-index: 1;
+	}
+
+	.body-register > .nav-bar > .nav-item {
+		width: fit-content;
+		display: flex;
+		padding: 4px 8px;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		border: none !important;
+		min-height: 0;
+		cursor: pointer;
+	}
+
+	.body-register > .nav-bar > .nav-item.nav-item-active {
+		background: linear-gradient(90deg, rgba(0, 214, 217, 1) 0%, rgba(0, 192, 133, 1) 100%);
+	}
+
+	.nav-bar > .nav-item > div {
+		color: #fff;
+		font-size: 14px;
+		font-weight: 400;
+	}
+
+	.nav-bar > .nav-item:hover > div {
+		color: #fff;
+		opacity: 0.5;
+	}
+
+	.nav-bar > .nav-item.nav-item-active:hover > div {
+		color: #000;
+		opacity: 1;
+	}
+
+	.body-register > div:last-child > div {
 		display: flex;
 		width: 100%;
 		cursor: pointer;
 	}
 
-	.body-register > div > div {
+	.body-register > div:last-child > div > div {
 		display: flex;
 	}
 
-	.body-register > div > div:first-child {
+	.body-register > div:last-child > div > div:first-child {
 		width: 40%;
 		gap: 32px;
 	}
-	.body-register > div > div:last-child {
+	.body-register > div:last-child > div > div:last-child {
 		flex: 1;
 	}
 
@@ -339,7 +464,7 @@
 		-webkit-text-fill-color: transparent;
 	}
 
-	.body-register > div > div:last-child {
+	.body-register > div:last-child > div > div:last-child {
 		flex-direction: column;
 		min-height: 105px;
 		gap: 8px;
@@ -348,7 +473,7 @@
 		justify-content: space-between;
 	}
 
-	.body-register > div > div:last-child > input {
+	.body-register > div:last-child > div > div:last-child > input {
 		height: 40px;
 		background: none;
 		border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.15));
@@ -363,12 +488,12 @@
 		}
 	}
 
-	.body-register > .submit-register > div:last-child {
+	.body-register > div:last-child > .submit-register > div:last-child {
 		border: none;
 		padding: 0;
 	}
 
-	.body-register > .submit-register > div:last-child > div {
+	.body-register > div:last-child > .submit-register > div:last-child > div {
 		width: 100%;
 		height: 40px;
 		background: #fff;
@@ -428,8 +553,127 @@
 
 	.modal-register-success {
 		@apply flex flex-col gap-[32px] h-[272px] w-[480px] p-[64px] items-center justify-center;
-		background: var(--33333, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+		background: var(--33333, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 	}
+
+	.body-register.body-2 {
+		padding: 0;
+		gap: 50px;
+	}
+
+	.leaderboard {
+		width: 100%;
+		display: flex;
+		position: relative;
+	}
+
+	.leaderboard * {
+		cursor: default;
+	}
+
+	.leaderboard > img {
+		max-width: 500%;
+		width: 1800px;
+		position: absolute;
+		top: -90%;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 0;
+	}
+
+	.leaderboard-content {
+		z-index: 1;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.leaderboard-content > div {
+		width: fit-content !important;
+	}
+
+	.leaderboard-content > div:first-child {
+		color: #fff;
+		font-size: 32px;
+		font-weight: 700;
+	}
+
+	.leaderboard-content > div:nth-child(2) {
+		color: #fff;
+		font-size: 16px;
+		font-weight: 300;
+	}
+
+	.leaderboard > .leaderboard-content > .leaderboard-table:last-child {
+		width: 640px !important;
+		border: none;
+		gap: 0;
+	}
+
+	.table-header,
+	.data-item {
+		width: 100%;
+		height: 35px;
+		display: flex;
+	}
+
+	.table-header > div {
+		display: flex;
+		padding: 8px 16px;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		background: #00ffd1;
+		color: #000;
+	}
+
+	.table-header > div:nth-child(1),
+	.table-header > div:nth-child(2) {
+		border-right: 1px solid #000;
+	}
+
+	.table-header > div:nth-child(1),
+	.data-item > div:nth-child(1) {
+		width: 10%;
+	}
+	.table-header > div:nth-child(2),
+	.data-item > div:nth-child(2) {
+		flex: 1;
+	}
+	.table-header > div:nth-child(3),
+	.data-item > div:nth-child(3) {
+		width: 18%;
+	}
+
+	.data-item {
+		height: 35px;
+
+		background: linear-gradient(
+			99deg,
+			rgba(244, 244, 244, 0.56) -29.6%,
+			rgba(128, 255, 209, 0) 52.22%
+		);
+	}
+
+	.data-item > div {
+		padding: 8px 16px;
+		border-right: 1px solid #fff;
+	}
+
+	.data-item > div:nth-child(1) {
+		border-left: 1px solid #fff;
+		text-align: center;
+	}
+
+	.data-item > div:nth-child(3) {
+		text-align: right;
+	}
+
+	.table-body {
+		border-bottom: 1px solid #fff;
+	}
+
 	@media screen and (max-width: 1280px) {
 		.body-register {
 			padding: 20px 140px;
@@ -446,11 +690,11 @@
 		.body-register {
 			padding: 16px;
 		}
-		.body-register > div {
+		.body-register > div:last-child > div {
 			flex-direction: column;
 		}
 
-		.body-register > div > div:first-child {
+		.body-register > div:last-child > div > div:first-child {
 			width: 100%;
 			margin-bottom: 16px;
 		}
