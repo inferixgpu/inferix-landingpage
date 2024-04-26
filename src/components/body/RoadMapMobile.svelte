@@ -62,7 +62,7 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div class="md:mt-[120px] mt-[120px] pb-[200px]">
+<div class="md:mt-[120px] mt-[120px] pb-[50px]">
 	<div id="roadmap" class="md:block container mx-auto w-100%">
 		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 			<p
