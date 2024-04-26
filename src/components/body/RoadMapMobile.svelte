@@ -67,7 +67,7 @@
 		<Saos once top="200" animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 			<p
 				id="text-title"
-				class="md:text-center text-center font-pre font-extrabold max-md:!text-[24px] text-[32px] mb-[80px]"
+				class="md:text-center text-center font-pre font-extrabold max-md:!text-[24px] text-[32px] mb-[35px]"
 			>
 				Roadmap
 			</p>

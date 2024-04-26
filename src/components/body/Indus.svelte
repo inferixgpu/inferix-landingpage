@@ -432,6 +432,7 @@
 			justify-content: center;
 			position: relative;
 			overflow-x: hidden;
+			margin-bottom: -150px;
 		}
 
 		.industry-content {
@@ -440,7 +441,7 @@
 		.in-mobile > div:nth-child(2) {
 			position: absolute;
 			text-align: center;
-			font-size: 32px;
+			font-size: 24px;
 			font-weight: 600;
 			line-height: 48px; /* 200% */
 			background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);

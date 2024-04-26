@@ -76,11 +76,11 @@
 		const dot1 = document.getElementById('slide-dot-1');
 		const dot2 = document.getElementById('slide-dot-2');
 		if (index == 1) {
-			dot1.style.backgroundColor = "#fefefe";
-			dot2.style.backgroundColor = "black";
+			dot1.style.backgroundColor = '#fefefe';
+			dot2.style.backgroundColor = 'black';
 		} else {
-			dot1.style.backgroundColor = "black";
-			dot2.style.backgroundColor = "#fefefe";
+			dot1.style.backgroundColor = 'black';
+			dot2.style.backgroundColor = '#fefefe';
 		}
 	}
 
@@ -128,7 +128,7 @@
 			</div>
 			<div class="slide">
 				<div id="slide-dot-1" />
-				<div id="slide-dot-2"/>
+				<div id="slide-dot-2" />
 			</div>
 			<div class="next" on:click={() => handleNext()}>
 				<img src={next_grey} alt="next-grey" />
@@ -314,6 +314,12 @@
 		&.slider-active {
 			background: #fefefe;
 			filter: drop-shadow(0px 0px 4px rgba(254, 254, 254, 0.9));
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.system-title {
+			font-size: 24px;
 		}
 	}
 

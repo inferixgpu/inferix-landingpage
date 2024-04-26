@@ -10,7 +10,7 @@
 	let count = 1;
 	let showModal = false;
 	var nodes = [{ id: 1, value: '' }];
-	let nav = 2;
+	let nav = 1;
 	let data = [];
 
 	let isNullEmail = { status: true, message: '' };
@@ -558,7 +558,7 @@
 
 	.body-register.body-2 {
 		padding: 0;
-		gap: 50px;
+		gap: 65px;
 	}
 
 	.leaderboard {
@@ -603,12 +603,17 @@
 		color: #fff;
 		font-size: 16px;
 		font-weight: 300;
+		opacity: 0.5;
+		margin-top: 8px;
 	}
 
 	.leaderboard > .leaderboard-content > .leaderboard-table:last-child {
 		width: 640px !important;
 		border: none;
 		gap: 0;
+		margin-top: 24px;
+		padding-top: 0;
+		padding-bottom: 35px;
 	}
 
 	.table-header,
@@ -649,11 +654,7 @@
 	.data-item {
 		height: 35px;
 
-		background: linear-gradient(
-			99deg,
-			rgba(244, 244, 244, 0.56) -29.6%,
-			rgba(128, 255, 209, 0) 52.22%
-		);
+		background: linear-gradient(169deg, rgba(244, 244, 244, 0.46) -40%, rgba(128, 255, 209, 0) 50%);
 	}
 
 	.data-item > div {
