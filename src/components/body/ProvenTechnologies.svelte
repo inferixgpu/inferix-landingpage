@@ -719,7 +719,7 @@
 		opacity: 0.6;
 	}
 
-	@media screen and (max-width: 1279px) {
+	@media screen and (max-width: 1280px) {
 		.proven-infor {
 			width: 980px;
 		}
@@ -734,6 +734,15 @@
 			@apply grid grid-cols-2;
 			width: auto;
 			justify-content: center;
+		}
+
+		.proven-more-infor > div:nth-child(1),
+		.proven-more-infor > div:nth-child(3) {
+			margin-right: 20px;
+		}
+		.proven-more-infor > div:nth-child(1),
+		.proven-more-infor > div:nth-child(2) {
+			margin-bottom: 20px;
 		}
 	}
 
@@ -809,6 +818,16 @@
 	@media screen and (max-width: 648px) {
 		.proven-more-infor {
 			grid-template-columns: repeat(1, minmax(0, 1fr));
+		}
+
+		.proven-more-infor > div:nth-child(1),
+		.proven-more-infor > div:nth-child(2),
+		.proven-more-infor > div:nth-child(3),
+		.proven-more-infor > div:nth-child(4) {
+			margin-right: 0;
+		}
+		.proven-more-infor > div:nth-child(3) {
+			margin-bottom: 20px;
 		}
 	}
 
