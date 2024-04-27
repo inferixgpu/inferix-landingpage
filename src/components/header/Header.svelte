@@ -5,9 +5,9 @@
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import DownloadFailed from '$components/inferix/Modals/DownloadFailed.svelte';
-	import {Modal} from 'flowbite-svelte';
+	import { Modal } from 'flowbite-svelte';
 
-	import {afterUpdate, onMount} from 'svelte';
+	import { afterUpdate, onMount } from 'svelte';
 	import X from '$images/icons/Twitter.svg';
 	import M from '$images/icons/M.svg';
 	import D from '$images/icons/D.svg';
@@ -18,7 +18,6 @@
 	import buttonScreen from '$images/icons/ButtonScreen.png';
 	import buttonScreenFocus from '$images/icons/ButtonScreenFocus.png';
 	import DownloadIcon from '$images/icons/Download.svg';
-
 
 	let textIndex = 0;
 
@@ -48,8 +47,7 @@
 			id: 5,
 			title: 'Docs',
 			href: 'https://docs.inferix.io/'
-		},
-
+		}
 	];
 	const register = {
 		id: 6,
@@ -118,11 +116,11 @@
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
 		setActiveTab(id);
-		const space = screenSize > 768 ? 200 : 150;
+		const space = screenSize > 768 ? 100 : 270;
 
 		if (tab) {
 			window.scrollTo({
-				top: tab.offsetTop - 100,
+				top: tab.offsetTop - space,
 				behavior: 'smooth'
 			});
 		}
@@ -139,7 +137,6 @@
 	}
 
 	let is_close = true;
-
 
 	function onCloseGuide() {
 		is_close = false;
@@ -175,63 +172,77 @@
 			{#if screenSize > 800}
 				<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
 					<div>
-						<div >
-							<span  class="flex items-center">📌 MVP is live!</span>
-							<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center"> Read the full blog ⟶</a>
-							<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
-							>🚀 <span>Proof-of-Rendering Release</span></a
+						<div>
+							<span class="flex items-center">📌 MVP is live!</span>
+							<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center">
+								Read the full blog ⟶</a
+							>
+							<a
+								href="https://docs.inferix.io/por-release"
+								class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
+								>🚀 <span>Proof-of-Rendering Release</span></a
 							>
 						</div>
 						<div>
-							<span  class="flex items-center">📌 MVP is live!</span>
-							<a href="https://docs.inferix.io/mvp-tutorial"  class="flex items-center"> Read the full blog ⟶</a>
-							<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
-							>🚀 <span>Proof-of-Rendering Release</span></a
+							<span class="flex items-center">📌 MVP is live!</span>
+							<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center">
+								Read the full blog ⟶</a
+							>
+							<a
+								href="https://docs.inferix.io/por-release"
+								class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
+								>🚀 <span>Proof-of-Rendering Release</span></a
 							>
 						</div>
 					</div>
 					<svg
-							on:click={() => onCloseGuide()}
-							xmlns="http://www.w3.org/2000/svg"
-							class="icon icon-tabler icon-tabler-x"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="#597e8d"
-							fill="none"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+						on:click={() => onCloseGuide()}
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-x"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="#597e8d"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
 					>
 						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 						<path d="M18 6l-12 12" />
 						<path d="M6 6l12 12" />
 					</svg>
 				</div>
-
 			{:else}
 				<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
 					<div>
-						<div >
-							<span  class="flex items-center whitespace-nowrap">📌 MVP is live!</span>
-							<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center whitespace-nowrap"> Read the full blog ⟶</a>
-							<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] !w-[60%] justify-center whitespace-nowrap px-[10px]"
-							>🚀 <span>Proof-of-Rendering Release</span></a
+						<div>
+							<span class="flex items-center whitespace-nowrap">📌 MVP is live!</span>
+							<a
+								href="https://docs.inferix.io/mvp-tutorial"
+								class="flex items-center whitespace-nowrap"
+							>
+								Read the full blog ⟶</a
+							>
+							<a
+								href="https://docs.inferix.io/por-release"
+								class="flex bg-transparency !items-center !h-[40px] !w-[60%] justify-center whitespace-nowrap px-[10px]"
+								>🚀 <span>Proof-of-Rendering Release</span></a
 							>
 						</div>
 					</div>
 					<svg
-							on:click={() => onCloseGuide()}
-							xmlns="http://www.w3.org/2000/svg"
-							class="icon icon-tabler icon-tabler-x"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="#597e8d"
-							fill="none"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+						on:click={() => onCloseGuide()}
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-x"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="#597e8d"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
 					>
 						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 						<path d="M18 6l-12 12" />
@@ -242,78 +253,109 @@
 		{/if}
 
 		<div class="header-bar">
-			<img class="h-[24px]" src="{HeaderLogo}">
+			<img class="h-[24px]" src={HeaderLogo} />
 			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
 					<a
-							href={tab.href}
-							on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-							id="item-tab-{tab.id}"
-							class="tab-item ">{tab.title}</a
+						href={tab.href}
+						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
+						id="item-tab-{tab.id}"
+						class="tab-item">{tab.title}</a
 					>
 				{/each}
 			</div>
 			<div class="register-button">
 				<a
-						href={register.href}
-						on:click={(e) => handleClickTab(e, register.id, register.href)}
-						class="whitespace-nowrap">{register.title}</a
+					href={register.href}
+					on:click={(e) => handleClickTab(e, register.id, register.href)}
+					class="whitespace-nowrap">{register.title}</a
 				>
 			</div>
 		</div>
 		<div class="header-bar-mobile">
-			<img class="h-[24px]" src="{HeaderLogo}">
+			<img class="h-[24px]" src={HeaderLogo} />
 			<div class="cursor-pointer" on:click={toggleMenu}>
-				<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<rect x="0.5" y="0.5" width="39" height="39" fill="#1A1A1A"/>
-					<rect x="0.5" y="0.5" width="39" height="39" stroke="#2A343E"/>
-					<rect x="10" y="11" width="20" height="2" fill="#FFF4E9"/>
-					<rect x="15.8334" y="19" width="14.1667" height="2" fill="#FFF4E9"/>
-					<rect x="12.5" y="27" width="17.5" height="2" fill="#FFF4E9"/>
+				<svg
+					width="40"
+					height="40"
+					viewBox="0 0 40 40"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<rect x="0.5" y="0.5" width="39" height="39" fill="#1A1A1A" />
+					<rect x="0.5" y="0.5" width="39" height="39" stroke="#2A343E" />
+					<rect x="10" y="11" width="20" height="2" fill="#FFF4E9" />
+					<rect x="15.8334" y="19" width="14.1667" height="2" fill="#FFF4E9" />
+					<rect x="12.5" y="27" width="17.5" height="2" fill="#FFF4E9" />
 				</svg>
 			</div>
 		</div>
 	</div>
 	<div class="mx-auto flex flex-col bg-black relative justify-end items-center">
 		<div class="w-full flex justify-center items-center">
-			<div class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto md:mt-[500px] mt-[420px] absolute z-[20]">
+			<div
+				class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto md:mt-[500px] mt-[420px] absolute z-[20]"
+			>
 				<div class="flex flex-col items-center justify-center">
 					{#if textIndex === 0}
-						<p class="text-[24px] font-[400] opacity-60 text-center">Fastest 3D rendering & AI inference by</p>
+						<p class="text-[24px] font-[400] opacity-60 text-center">
+							Fastest 3D rendering & AI inference by
+						</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-							<p class="text-[48px] max-md:text-[40px] font-bold text-center">Inferix Decentralized GPU</p>
+							<p class="text-[48px] max-md:text-[40px] font-bold text-center">
+								Inferix Decentralized GPU
+							</p>
 						</Saos>
-					{:else }
+					{:else}
 						<p class="text-[24px] font-[400] opacity-60 text-center">Low-cost AI inference by</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-							<p class="text-[48px] max-md:text-[40px] font-bold text-center">Inferix Crowdsourced GPU</p>
+							<p class="text-[48px] max-md:text-[40px] font-bold text-center">
+								Inferix Crowdsourced GPU
+							</p>
 						</Saos>
 					{/if}
-
 				</div>
 			</div>
 		</div>
 
 		<div class="overflow-hidden bg-black mx-auto md:mt-0 -mt-[200px] max-md:opacity-40 relative">
-			<video autoplay muted loop playsinline
-				   class="h-[698px] md:w-[1526px] max-md:w-full object-contain mx-auto mt-[250px]">
-				<source src={InferixIntro} type="video/mp4"/>
+			<video
+				autoplay
+				muted
+				loop
+				playsinline
+				class="h-[698px] md:w-[1526px] max-md:w-full object-contain mx-auto mt-[250px]"
+			>
+				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
 		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">Available on desktop</div>
-		<div class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
-				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 absolute">
+		<div
+			class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
+				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 absolute"
+		>
 			<div class="item-border-1">
-				<div class="item-download-1 cursor-pointer" on:mouseenter={() => focusButtonGPU(true)} on:mouseleave={() => focusButtonGPU(false)}>
+				<div
+					class="item-download-1 cursor-pointer"
+					on:mouseenter={() => focusButtonGPU(true)}
+					on:mouseleave={() => focusButtonGPU(false)}
+				>
 					<div class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:justify-center md:justify-end">
 						<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
 						<div class="flex justify-between max-md:hidden">
-							<a href="https://h3d.me/ifxworkerwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
-								<img src="{DownloadIcon}">
+							<a
+								href="https://h3d.me/ifxworkerwin"
+								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+							>
+								<img src={DownloadIcon} />
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
 							</a>
-							<a href="#" on:click={() => downloadMacOS()} class="inline-flex justify-between items-center gap-1 cursor-pointer">
-								<img class="object-cover" src="{DownloadIcon}">
+							<a
+								href="#"
+								on:click={() => downloadMacOS()}
+								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+							>
+								<img class="object-cover" src={DownloadIcon} />
 								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
 							</a>
 						</div>
@@ -321,38 +363,50 @@
 
 					<div class="basis-1/3 mt-4">
 						{#if !focusGPU}
-							<img class="ml-4" src="{buttonGPU}">
-						{:else }
-							<img class="ml-4" src="{buttonGPUFocus}">
+							<img class="ml-4" src={buttonGPU} />
+						{:else}
+							<img class="ml-4" src={buttonGPUFocus} />
 						{/if}
-
 					</div>
 				</div>
 			</div>
 			<div class="item-border-2">
-				<div class="item-download-2 cursor-pointer" on:mouseenter={() => focusButtonScreen(true)} on:mouseleave={() => focusButtonScreen(false)}>
+				<div
+					class="item-download-2 cursor-pointer"
+					on:mouseenter={() => focusButtonScreen(true)}
+					on:mouseleave={() => focusButtonScreen(false)}
+				>
 					<div class="basis-1/3 mt-4">
 						{#if !focusBtScreen}
-							<img class="-ml-4" src="{buttonScreen}">
-						{:else }
-							<img class="-ml-4" src="{buttonScreenFocus}">
+							<img class="-ml-4" src={buttonScreen} />
+						{:else}
+							<img class="-ml-4" src={buttonScreenFocus} />
 						{/if}
-
 					</div>
-					<div class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center">
-						<p class="flex text-white text-[16px] font-bold justify-start">3D Rendering & AI Inference</p>
+					<div
+						class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center"
+					>
+						<p class="flex text-white text-[16px] font-bold justify-start">
+							3D Rendering & AI Inference
+						</p>
 						<div class="flex justify-between max-md:hidden">
-							<a href="https://h3d.me/ifxaddonblenderwin" class="inline-flex justify-between items-center gap-1 cursor-pointer">
-								<img src="{DownloadIcon}">
+							<a
+								href="https://h3d.me/ifxaddonblenderwin"
+								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+							>
+								<img src={DownloadIcon} />
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
 							</a>
-							<a href="#" on:click={() => downloadMacOS()} class="inline-flex justify-between items-center gap-1 cursor-pointer">
-								<img class="object-cover" src="{DownloadIcon}">
+							<a
+								href="#"
+								on:click={() => downloadMacOS()}
+								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+							>
+								<img class="object-cover" src={DownloadIcon} />
 								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
 							</a>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
@@ -402,14 +456,14 @@
 <style lang="postcss">
 	.header-bar {
 		@apply flex flex-row mx-auto xl:w-[1200px] md:w-[90%] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover max-md:hidden;
-		background-image: url("$images/png/header-register.png");
+		background-image: url('$images/png/header-register.png');
 		.tab-item {
 			@apply text-[16px] font-normal text-white px-2 py-1 whitespace-nowrap text-header-transfer;
 		}
 		& > .register-button {
 			@apply flex justify-center h-[32px] w-[104px] items-center text-black py-4 text-[16px] font-[500];
 			border-radius: 4px;
-			background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+			background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		}
 	}
 	.link_blog_desktop,
@@ -593,10 +647,11 @@
 		line-height: normal;
 	}
 	.header-bar-mobile {
-		@apply md:hidden flex justify-between p-4 items-center;
-		border-bottom: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.30));
-		background: rgba(0, 0, 0, 0.20);
+		@apply md:hidden flex justify-between items-center;
+		border-bottom: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
+		background: rgba(0, 0, 0, 0.2);
 		backdrop-filter: blur(16px);
+		padding: 8px 10px;
 	}
 
 	.item-border-1 {
@@ -604,18 +659,31 @@
 		.item-download-1 {
 			@apply flex w-[260px] px-5 py-4;
 			align-items: center;
-			background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 100%);
+			background: linear-gradient(
+				270deg,
+				rgba(255, 255, 255, 0) 0%,
+				rgba(255, 255, 255, 0.15) 100%
+			);
 			border-radius: 20px 0px 0px 20px;
 		}
 		&:before {
 			opacity: 0.3;
-			content: "";
+			content: '';
 			position: absolute;
 			inset: 0;
 			border-radius: 20px 0px 0px 20px;
 			padding: 1px;
-			background-image: linear-gradient(to right bottom,#33FFCE 10%, #F5D4FF 25%, #339DFF 35%, #000000 40%, rgba(255, 255, 255, 0.2) 70%);
-			-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+			background-image: linear-gradient(
+				to right bottom,
+				#33ffce 10%,
+				#f5d4ff 25%,
+				#339dff 35%,
+				#000000 40%,
+				rgba(255, 255, 255, 0.2) 70%
+			);
+			-webkit-mask:
+				linear-gradient(#fff 0 0) content-box,
+				linear-gradient(#fff 0 0);
 			-webkit-mask-composite: xor;
 			mask-composite: exclude;
 			pointer-events: none;
@@ -625,20 +693,29 @@
 	.item-border-2 {
 		@apply relative;
 		.item-download-2 {
-			@apply flex w-[260px] px-5 py-4 ;
+			@apply flex w-[260px] px-5 py-4;
 			align-items: center;
 			border-radius: 0 20px 20px 0;
 			background: linear-gradient(270deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
 		}
 		&:before {
 			opacity: 0.3;
-			content: "";
+			content: '';
 			position: absolute;
 			inset: 0;
 			border-radius: 0 20px 20px 0;
-			padding:1px 1px 1px 1px;
-			background-image: linear-gradient(to left bottom,#33FFCE 10%, #F5D4FF 25%, #339DFF 35%, #000000 40%, rgba(255, 255, 255, 0.2) 70%);
-			-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+			padding: 1px 1px 1px 1px;
+			background-image: linear-gradient(
+				to left bottom,
+				#33ffce 10%,
+				#f5d4ff 25%,
+				#339dff 35%,
+				#000000 40%,
+				rgba(255, 255, 255, 0.2) 70%
+			);
+			-webkit-mask:
+				linear-gradient(#fff 0 0) content-box,
+				linear-gradient(#fff 0 0);
 			-webkit-mask-composite: xor;
 			mask-composite: exclude;
 			pointer-events: none;
@@ -646,19 +723,19 @@
 	}
 
 	.text-header-transfer:hover {
-		background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 
 	.tab-active {
-		background: var(--12, linear-gradient(45deg, #00D6D9 0%, #00C085 100%));
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
-	@media screen and (max-width: 640px){
+	@media screen and (max-width: 640px) {
 		.header-bar {
 			display: none;
 		}
@@ -697,18 +774,31 @@
 			.item-download-1 {
 				@apply flex w-[260px] px-5 py-0;
 				align-items: center;
-				background: linear-gradient(270deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.22) 100%);
+				background: linear-gradient(
+					270deg,
+					rgba(255, 255, 255, 0.01) 0%,
+					rgba(255, 255, 255, 0.22) 100%
+				);
 				border-radius: 20px 0px 0px 20px;
 			}
 			&:before {
 				opacity: 0.3;
-				content: "";
+				content: '';
 				position: absolute;
 				inset: 0;
 				border-radius: 20px 0px 0px 20px;
-				padding:1px 0px 0px 1px;
-				background-image: linear-gradient(to right bottom,#33FFCE 10%, #F5D4FF 25%, #339DFF 35%, #000000 40%, rgba(255, 255, 255, 0.2) 70%);
-				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				padding: 1px 0px 0px 1px;
+				background-image: linear-gradient(
+					to right bottom,
+					#33ffce 10%,
+					#f5d4ff 25%,
+					#339dff 35%,
+					#000000 40%,
+					rgba(255, 255, 255, 0.2) 70%
+				);
+				-webkit-mask:
+					linear-gradient(#fff 0 0) content-box,
+					linear-gradient(#fff 0 0);
 				-webkit-mask-composite: xor;
 				mask-composite: exclude;
 				pointer-events: none;
@@ -721,17 +811,30 @@
 				@apply flex w-[260px] px-5 py-0;
 				align-items: center;
 				border-radius: 0 20px 20px 0;
-				background: linear-gradient(270deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 100%);
+				background: linear-gradient(
+					270deg,
+					rgba(255, 255, 255, 0.22) 0%,
+					rgba(255, 255, 255, 0) 100%
+				);
 			}
 			&:before {
 				opacity: 0.3;
-				content: "";
+				content: '';
 				position: absolute;
 				inset: 0;
 				border-radius: 0 20px 20px 0;
-				padding:1px 1px 0px 0px;
-				background-image: linear-gradient(to left bottom,#33FFCE 10%, #F5D4FF 25%, #339DFF 35%, #000000 40%, rgba(255, 255, 255, 0.2) 70%);
-				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				padding: 1px 1px 0px 0px;
+				background-image: linear-gradient(
+					to left bottom,
+					#33ffce 10%,
+					#f5d4ff 25%,
+					#339dff 35%,
+					#000000 40%,
+					rgba(255, 255, 255, 0.2) 70%
+				);
+				-webkit-mask:
+					linear-gradient(#fff 0 0) content-box,
+					linear-gradient(#fff 0 0);
 				-webkit-mask-composite: xor;
 				mask-composite: exclude;
 				pointer-events: none;

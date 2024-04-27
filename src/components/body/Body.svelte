@@ -16,7 +16,7 @@
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
 	import InferixIntro from '$videos/-6832-41e3-b4e4-f39f89c47ac3.mp4';
-	import ProvenTech from "$components/body/ProvenTech.svelte";
+	import ProvenTech from '$components/body/ProvenTech.svelte';
 
 	let screenSize: number;
 
@@ -87,7 +87,10 @@
 <div class="bg-black">
 	<div class="innovated">
 		<div class="innovated-header">
-			<img class="w-[256px] h-[52px] mt-[680px] max-md:w-[185px] max-md:h-[37px]" src={innovatedHeader} />
+			<img
+				class="w-[256px] h-[52px] mt-[680px] max-md:w-[185px] max-md:h-[37px]"
+				src={innovatedHeader}
+			/>
 			<div class="innovated-header-content">
 				<p class="max-sm:hidden">An innovated platform for 3D rendering and AI</p>
 				<p class="max-sm:hidden">inference using crowdsourced GPUs globally</p>
@@ -97,11 +100,17 @@
 			</div>
 		</div>
 		<div class="innovated-body">
-			<video autoplay muted loop playsinline class="md:w-[1200px] max-md::w-full object-cover object-center h-[609px] ">
+			<video
+				autoplay
+				muted
+				loop
+				playsinline
+				class="md:w-[1200px] max-md::w-full object-cover object-center h-[609px]"
+			>
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
-		<div class="innovated-footer" id="about"/>
+		<div class="innovated-footer" id="about" />
 	</div>
 
 	<ProvenTechnologies />
@@ -194,18 +203,18 @@
 	}
 
 	.innovated {
-		@apply flex flex-col relative w-full items-center z-20 ;
+		@apply flex flex-col relative w-full items-center z-20;
 
 		& > .innovated-header {
 			@apply flex flex-col h-[1200px] lg:w-[90%] bg-cover max-md:bg-200 bg-center bg-no-repeat -mt-[300px] max-md:-mt-[580px] items-center gap-10 z-20
-			bg-[url("$images/png/innovatedBackground.png")] ;
+			bg-[url("$images/png/innovatedBackground.png")];
 			& > .innovated-header-content {
 				@apply text-[40px] max-md:text-[32px];
 				text-align: center;
 				font-style: normal;
 				font-weight: 500;
 				line-height: normal;
-				background: linear-gradient(159deg, #FFF -7.96%, rgba(255, 255, 255, 0.00) 124.67%);
+				background: linear-gradient(159deg, #fff -7.96%, rgba(255, 255, 255, 0) 124.67%);
 				background-clip: text;
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
@@ -230,8 +239,15 @@
 	.partner-content {
 		@apply lg:grid lg:grid-cols-3 flex flex-col gap-6;
 		& > .partner-item {
-			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.30));
-			background: var(--123, radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%));
+			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
+			background: var(
+				--123,
+				radial-gradient(
+					100% 100% at 50% 0%,
+					rgba(255, 255, 255, 0.12) 0%,
+					rgba(255, 255, 255, 0) 100%
+				)
+			);
 			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none;
 		}
 	}
