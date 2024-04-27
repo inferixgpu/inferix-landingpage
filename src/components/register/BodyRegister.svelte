@@ -3,6 +3,7 @@
 	import gsap from 'gsap';
 	import axios from 'axios';
 	import lo from 'lodash';
+	import Popup from '$components/register/AddressPopup.svelte';
 
 	import leaderboard_light from '$images/png/leaderboard-light.png';
 
@@ -12,6 +13,9 @@
 	var nodes = [{ id: 1, value: '' }];
 	let nav = 1;
 	let data = [];
+	let is_mobile = false;
+	let showed_address = '';
+	let showed_index;
 
 	let isNullEmail = { status: true, message: '' };
 	let isNullWallet = false;
@@ -162,17 +166,51 @@
 		await axios
 			.get('https://testnet-core.inferix.io/api/workers/statistics')
 			.then((response) => {
-				data = lo.map(data, (d) => {
-					return { ...d, ...{ pointer: d.pointer.toFixed(0) } };
+				let temp_data = lo.map(lo.get(response, 'data.data'), (d) => {
+					return {
+						...d,
+						...{
+							fixed_point: lo.get(d, 'point', 0).toFixed(0),
+							truncated_add: getTruncatedAddress(d.ownerAddress)
+						}
+					};
 				});
-				data = lo.take(lo.orderBy(lo.get(response, 'data.data'), ['point'], ['desc']), 20);
+				temp_data = lo.orderBy(temp_data, ['point'], ['desc']);
+				data = lo.take(temp_data, 20);
 			})
 			.catch((error) => console.log('Error: ' + error));
+	}
+
+	function resize() {
+		if (window.innerWidth <= 768) {
+			is_mobile = true;
+			let temp_data = lo.map(data, (d) => {
+				return {
+					...d,
+					...{
+						truncated_add: getTruncatedAddress(d.ownerAddress)
+					}
+				};
+			});
+			data = temp_data;
+		} else {
+			is_mobile = false;
+		}
+	}
+
+	function getTruncatedAddress(add) {
+		let width = window.innerWidth - 40 - (window.innerWidth - 40) * 0.28 - 62;
+		let max_char = Number(width / 13);
+		if (max_char > lo.size(add)) return add;
+		let start = max_char - 8;
+		return add.slice(0, start) + '...' + add.slice(-4);
 	}
 
 	onMount(async () => {
 		handleFocus(1);
 		//onHoverSubmit();
+		resize();
+		window.addEventListener('resize', resize);
 		await fetchLeaderboard();
 	});
 </script>
@@ -333,9 +371,44 @@
 					<div class="table-body">
 						{#each data as item, index (index)}
 							<div class="data-item">
-								<div>{index + 1}</div>
-								<div>{item.ownerAddress}</div>
-								<div>{item.point.toFixed(0)}</div>
+								<div><div>{index + 1}</div></div>
+								<div>
+									<div>{is_mobile ? item.truncated_add : item.ownerAddress}</div>
+									{#if is_mobile}
+										<div>
+											<svg
+												on:click={() => {
+													if (!showed_address) showed_address = item.ownerAddress;
+													else showed_address = '';
+													showed_index = index + 1;
+												}}
+												xmlns="http://www.w3.org/2000/svg"
+												width="20"
+												height="11"
+												viewBox="0 0 20 11"
+												fill="none"
+											>
+												<g clip-path="url(#clip0_840_2030)">
+													<path
+														d="M10.1462 0C14.0508 0.156372 17.1953 1.79878 19.3608 5.08662C19.5465 5.3691 19.5449 5.62888 19.3619 5.91287C17.6513 8.56262 15.1981 10.2166 12.0017 10.8139C7.53479 11.6482 2.90552 9.61636 0.616804 5.8705C0.461296 5.61627 0.458651 5.37566 0.619449 5.12597C2.34643 2.43536 4.83615 0.790939 8.08118 0.18462C8.33296 0.137708 8.58791 0.0983629 8.84286 0.0766726C9.23057 0.043885 9.61934 0.0297611 10.1462 0ZM10.0065 9.28344C12.1778 9.28092 13.9593 7.58302 13.9635 5.51185C13.9677 3.43514 12.1773 1.72715 9.99806 1.72967C7.82571 1.7322 6.04477 3.43009 6.0416 5.50076C6.03789 7.57798 7.82888 9.28596 10.0065 9.28344Z"
+														fill="white"
+													/>
+													<path
+														d="M7.31006 5.50484C7.31006 4.08135 8.50705 2.93984 9.99918 2.93933C11.503 2.93883 12.6968 4.08085 12.6952 5.51745C12.6936 6.9369 11.4918 8.07488 9.99601 8.07388C8.50546 8.07287 7.31006 6.92933 7.31006 5.50484Z"
+														fill="white"
+													/>
+												</g>
+												<defs>
+													<clipPath id="clip0_840_2030">
+														<rect width="19" height="11" fill="white" transform="translate(0.5)" />
+													</clipPath>
+												</defs>
+											</svg>
+										</div>{:else}
+										<div></div>{/if}
+									{#if showed_index == index + 1}<Popup bind:open={showed_address} />{/if}
+								</div>
+								<div><div>{item.fixed_point}</div></div>
 							</div>{/each}
 					</div>
 				</div>
@@ -387,7 +460,7 @@
 		opacity: 0.5;
 	}
 
-	.nav-bar > .nav-item.nav-item-active:hover > div {
+	.nav-bar > .nav-item.nav-item-active > div {
 		color: #000;
 		opacity: 1;
 	}
@@ -568,14 +641,14 @@
 	}
 
 	.leaderboard * {
-		cursor: default;
+		cursor: auto;
 	}
 
 	.leaderboard > img {
 		max-width: 500%;
 		width: 1800px;
 		position: absolute;
-		top: -90%;
+		top: -87%;
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 0;
@@ -587,16 +660,18 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
 	}
 
 	.leaderboard-content > div {
-		width: fit-content !important;
 	}
 
 	.leaderboard-content > div:first-child {
 		color: #fff;
 		font-size: 32px;
 		font-weight: 700;
+		width: auto !important;
+		text-align: center;
 	}
 
 	.leaderboard-content > div:nth-child(2) {
@@ -608,7 +683,8 @@
 	}
 
 	.leaderboard > .leaderboard-content > .leaderboard-table:last-child {
-		width: 640px !important;
+		max-width: 640px !important;
+		width: 640px;
 		border: none;
 		gap: 0;
 		margin-top: 24px;
@@ -621,6 +697,7 @@
 		width: 100%;
 		height: 35px;
 		display: flex;
+		align-items: center;
 	}
 
 	.table-header > div {
@@ -631,6 +708,12 @@
 		gap: 10px;
 		background: #00ffd1;
 		color: #000;
+		height: 100%;
+	}
+
+	.data-item > div {
+		height: 100%;
+		display: flex;
 	}
 
 	.table-header > div:nth-child(1),
@@ -641,14 +724,20 @@
 	.table-header > div:nth-child(1),
 	.data-item > div:nth-child(1) {
 		width: 10%;
+		justify-content: center;
+		align-items: center;
 	}
 	.table-header > div:nth-child(2),
 	.data-item > div:nth-child(2) {
-		flex: 1;
+		flex: 72%;
 	}
-	.table-header > div:nth-child(3),
+	.table-header > div:nth-child(3) {
+		width: 18%;
+		justify-content: center;
+	}
 	.data-item > div:nth-child(3) {
 		width: 18%;
+		justify-content: flex-end;
 	}
 
 	.data-item {
@@ -671,6 +760,42 @@
 		text-align: right;
 	}
 
+	.data-item > div:nth-child(2) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.data-item > div:nth-child(2) > div:first-child {
+		flex: 1;
+	}
+
+	.data-item > div:nth-child(2) > div:nth-child(2) {
+		cursor: pointer;
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+	.data-item > div:nth-child(2) > div:nth-child(2) > svg {
+		cursor: pointer;
+	}
+
+	.data-item > div:nth-child(2) > div:nth-child(2) > svg > g {
+		cursor: pointer;
+	}
+
+	.data-item > div:nth-child(2) > div:nth-child(2) > svg > g > path {
+		cursor: pointer;
+	}
+
+	.data-item > div:nth-child(2) > div:nth-child(2) > defs {
+		cursor: pointer;
+	}
+
 	.table-body {
 		border-bottom: 1px solid #fff;
 	}
@@ -678,6 +803,10 @@
 	@media screen and (max-width: 1280px) {
 		.body-register {
 			padding: 20px 140px;
+		}
+
+		.body-register.body-2 {
+			padding: 20px 0;
 		}
 	}
 
@@ -697,7 +826,39 @@
 
 		.body-register > div:last-child > div > div:first-child {
 			width: 100%;
-			margin-bottom: 16px;
+		}
+	}
+
+	@media screen and (max-width: 674px) {
+		.leaderboard > img {
+			width: 250vw;
+			top: -20px;
+			transform: translate(-50%, -52%);
+		}
+
+		.leaderboard-content {
+			padding: 0 20px;
+		}
+
+		.leaderboard > div:last-child > .leaderboard-table:last-child {
+			width: 100%;
+			padding: 0 0 20px 0;
+		}
+
+		.table-header > div:nth-child(1),
+		.data-item > div:nth-child(1) {
+			padding: 0;
+			width: auto;
+			min-width: 45px;
+		}
+
+		.data-item > div:nth-child(2) > div:first-child {
+			max-width: calc(calc(100%) - 30px);
+		}
+
+		.table-header > div:nth-child(3),
+		.data-item > div:nth-child(3) {
+			min-width: 100px;
 		}
 	}
 </style>
