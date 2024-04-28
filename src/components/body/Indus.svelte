@@ -70,7 +70,7 @@
 {:else}
 	<div class="in-mobile">
 		<img src={line_industry_mobile} alt="in" />
-		<div>Industry</div>
+		<div>Industries</div>
 		<div class="in-mobile-content">
 			<div>
 				<div class="moved-in">
@@ -441,6 +441,7 @@
 		}
 		.in-mobile > div:nth-child(2) {
 			position: absolute;
+			top: 78px;
 			text-align: center;
 			font-size: 24px;
 			font-weight: 600;
@@ -524,6 +525,14 @@
 	}
 
 	@media screen and (max-width: 414px) {
+		.in-mobile {
+			width: fit-content;
+		}
+
+		.in-mobile > div:nth-child(2) {
+			top: calc(100vw / 414 * 80);
+		}
+
 		.in-mobile-content {
 			top: calc(100vw * 162 / 414);
 			left: calc(calc(50%));
@@ -551,6 +560,12 @@
 			bottom: 0;
 			height: 35px;
 			left: 0;
+		}
+	}
+
+	@media screen and (max-width: 340px) {
+		.in-mobile > div:nth-child(2) {
+			top: calc(100vw / 414 * 75);
 		}
 	}
 </style>
