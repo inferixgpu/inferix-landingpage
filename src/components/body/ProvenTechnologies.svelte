@@ -34,7 +34,7 @@
 	import line from '$images/icons/line.svg';
 	import line_2 from '$images/icons/line_2.svg';
 	import line_2_mobile from '$images/icons/line_2_mobile.svg';
-	import gsap from 'gsap';
+	import { gsap } from 'gsap';
 	import lo from 'lodash';
 	import dr from '$images/png/dr.png';
 
