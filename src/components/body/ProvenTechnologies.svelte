@@ -39,7 +39,7 @@
 	import dr from '$images/png/dr.png';
 
 	let screenSize: number;
-	const tl = gsap.timeline({ repeat: -1 });
+	let tl = gsap.timeline({ repeat: -1 });
 
 	function setDefaultStyle() {
 		const device = document.querySelector('.proven-device > img');
@@ -172,18 +172,8 @@
 
 	async function setDefaultAnimation() {
 		//drawCustomLine();
-		let fans = document.querySelectorAll('.proven-device > img:nth-child(n + 2):nth-child(-n + 4)');
-		for (let i = 0; i < fans.length; i++) {
-			gsap.to(fans[i], {
-				rotation: 360,
-				duration: 1.5,
-				ease: 'none',
-				repeat: -1
-			});
-		}
-		const animated_x = document.querySelector('#animated_x');
 
-		//const container = document.querySelector('')
+		const animated_x = document.querySelector('#animated_x');
 		if (screenSize > 460) {
 			tl.to(animated_x, {
 				left: 289 + 50 - 103,
@@ -236,7 +226,6 @@
 					ease: 'none'
 				});
 		} else {
-			tl.kill();
 			tl.to(animated_x, {
 				left: 289 + 5 - 92,
 				duration: 0.8,
@@ -294,6 +283,15 @@
 	onMount(async () => {
 		await setTimeout(() => {}, 0);
 		setDefaultStyle();
+		let fans = document.querySelectorAll('.proven-device > img:nth-child(n + 2):nth-child(-n + 4)');
+		for (let i = 0; i < fans.length; i++) {
+			gsap.to(fans[i], {
+				rotation: 360,
+				duration: 1.5,
+				ease: 'none',
+				repeat: -1
+			});
+		}
 		setDefaultAnimation();
 		window.addEventListener('resize', setDefaultAnimation);
 	});
