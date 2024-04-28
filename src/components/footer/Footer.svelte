@@ -249,4 +249,9 @@
 			padding: 20px;
 		}
 	}
+	@media screen and (min-width: 1536px) {
+		.footer-content-paragraph {
+			line-height: 32px;
+		}
+	}
 </style>

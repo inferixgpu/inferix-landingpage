@@ -39,6 +39,7 @@
 	import dr from '$images/png/dr.png';
 
 	let screenSize: number;
+	const tl = gsap.timeline({ repeat: -1 });
 
 	function setDefaultStyle() {
 		const device = document.querySelector('.proven-device > img');
@@ -181,7 +182,7 @@
 			});
 		}
 		const animated_x = document.querySelector('#animated_x');
-		const tl = gsap.timeline({ repeat: -1 });
+
 		//const container = document.querySelector('')
 		if (screenSize > 460) {
 			tl.to(animated_x, {
@@ -235,7 +236,7 @@
 					ease: 'none'
 				});
 		} else {
-			console.log(screenSize, 'ggg');
+			tl.kill();
 			tl.to(animated_x, {
 				left: 289 + 5 - 92,
 				duration: 0.8,

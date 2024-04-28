@@ -295,8 +295,9 @@
 		<div class="w-full flex justify-center items-center">
 			<div
 				class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto md:mt-[500px] mt-[420px] absolute z-[20]"
+				style={is_close ? '' : 'margin-top: 420px'}
 			>
-				<div class="flex flex-col items-center justify-center">
+				<div class="flex flex-col items-center justify-center" style="padding: 0 15px;">
 					{#if textIndex === 0}
 						<p class="text-[24px] font-[400] opacity-60 text-center">
 							Fastest 3D rendering & AI inference by
