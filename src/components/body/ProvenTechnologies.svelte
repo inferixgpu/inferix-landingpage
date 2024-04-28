@@ -816,19 +816,6 @@
 	}
 
 	@media screen and (max-width: 648px) {
-		.proven-more-infor {
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-		}
-
-		.proven-more-infor > div:nth-child(1),
-		.proven-more-infor > div:nth-child(2),
-		.proven-more-infor > div:nth-child(3),
-		.proven-more-infor > div:nth-child(4) {
-			margin-right: 0;
-		}
-		.proven-more-infor > div:nth-child(3) {
-			margin-bottom: 20px;
-		}
 	}
 
 	@media screen and (max-width: 600px) {
@@ -849,6 +836,29 @@
 
 		.proven-footer > div:last-child {
 			width: calc(calc(100%) - 60px);
+		}
+
+		.proven-more-infor {
+			width: 100%;
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+		}
+
+		.proven-more-infor {
+			padding: 0 30px;
+		}
+
+		.proven-more-infor > div {
+			width: 100%;
+		}
+
+		.proven-more-infor > div:nth-child(1),
+		.proven-more-infor > div:nth-child(2),
+		.proven-more-infor > div:nth-child(3),
+		.proven-more-infor > div:nth-child(4) {
+			margin-right: 0;
+		}
+		.proven-more-infor > div:nth-child(3) {
+			margin-bottom: 20px;
 		}
 	}
 
@@ -963,6 +973,13 @@
 		.proven-infor > div:last-child > div:last-child > div:last-child {
 			margin: 15px;
 			padding: 10px;
+		}
+
+		.proven-container {
+			gap: 5px;
+		}
+		.proven-more-infor {
+			padding: 0 15px;
 		}
 	}
 </style>

@@ -157,6 +157,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		z-index: 1;
 	}
 
 	.industry-content {
@@ -335,18 +336,18 @@
 		.industry-content {
 			width: calc(calc(100%) * 895 / 1199);
 			left: calc(calc(100%) / 1199 * 153);
-			top: calc(calc(100%) / 1199 * 138);
+			top: calc(calc(100%) / 1199 * 131);
 			height: 100%;
 		}
 		.industry-content > div:first-child {
 			width: calc(calc(100%) / 894 * 282);
 			height:;
-			padding-top: calc(calc(100%) / 894 * 8);
+			padding-top: calc(calc(100%) / 894 * 13);
 			padding-bottom: 0;
 		}
 
 		.industry-content > div:nth-child(1) > div:nth-child(1) {
-			height: calc(calc(100%) / 1112 * 65);
+			height: calc(calc(100%) / 1112 * 57);
 
 			& > div {
 				font-size: 32px;
@@ -356,12 +357,12 @@
 
 		.industry-content > div:nth-child(1) > div:nth-child(2) {
 			margin-top: calc(calc(100%) / 282 * 25);
-			height: calc(calc(100%) / 1112 * 270);
+			height: calc(calc(100%) / 1112 * 257);
 		}
 
 		.industry-content > div:nth-child(1) > div:nth-child(3) {
 			margin-top: calc(calc(100%) / 282 * 24);
-			height: calc(calc(100%) / 1112 * 363);
+			height: calc(calc(100%) / 1112 * 350);
 		}
 
 		.industry-content > div:nth-child(2) {
@@ -372,24 +373,24 @@
 		}
 
 		.industry-content > div:nth-child(2) > div:nth-child(1) {
-			height: calc(calc(100%) / 1112 * 395);
+			height: calc(calc(100%) / 1112 * 376);
 		}
 
 		.industry-content > div:nth-child(2) > div:nth-child(2) {
 			margin-top: calc(calc(100%) / 282 * 24);
-			height: calc(calc(100%) / 1112 * 397);
+			height: calc(calc(100%) / 1112 * 375);
 		}
 
 		.industry-content > div:nth-child(3) {
 			padding-top: 4px;
-			margin-left: calc(calc(100%) / 894 * 24);
+			margin-left: calc(calc(100%) / 894 * 22);
 			flex: 1;
 			height: 100%;
 			gap: 0;
 		}
 
 		.industry-content > div:nth-child(3) > div:nth-child(1) {
-			height: calc(calc(100%) / 1112 * 363);
+			height: calc(calc(100%) / 1112 * 347);
 
 			& > div {
 				height: calc(calc(100%) / 363 * 65);
@@ -398,7 +399,7 @@
 
 		.industry-content > div:nth-child(3) > div:nth-child(2) {
 			margin-top: calc(calc(100%) / 282 * 24);
-			height: calc(calc(100%) / 1112 * 364);
+			height: calc(calc(100%) / 1112 * 345);
 
 			& > div {
 				height: calc(calc(100%) / 363 * 65);
