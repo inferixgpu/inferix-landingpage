@@ -5,7 +5,7 @@
 
 <div class="header-register">
 	<img src={background} alt="background" />
-	<img src={logo} alt="logo" />
+	<a href="/"><img src={logo} alt="logo" /></a>
 </div>
 
 <style lang="postcss">
@@ -24,9 +24,13 @@
 		height: 56px;
 	}
 
-	.header-register > img:last-child {
+	.header-register > a {
 		position: absolute;
 		height: 24px;
+	}
+
+	.header-register > a > img {
+		height: 100%;
 	}
 
 	@media screen and (max-width: 1280px) {

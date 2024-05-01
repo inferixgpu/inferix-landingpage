@@ -905,4 +905,9 @@
 			transform: translate(-50%, -52%);
 		}
 	}
+
+	.data-item > div:nth-child(3) > div {
+		font-family: 'Roboto Mono', monospace;
+		font-size: 15px;
+	}
 </style>
