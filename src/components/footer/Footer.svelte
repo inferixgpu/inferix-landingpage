@@ -141,6 +141,7 @@
 	>
 		<div
 			class="flex md:gap-4 gap-2 md:order-1 order-2 flex-col items-center md:items-start mt-8 md:mt-0"
+			style="background: #111;"
 		>
 			<a href="https://inferix.io/">
 				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
@@ -159,7 +160,10 @@
 			{/each}
 		</div>
 	</div>
-	<div class="md:hidden flex flex-col gap-6">
+	<div
+		class="md:hidden flex flex-col gap-6 justify-center items-center w-full"
+		style="background: #111; padding: 20px 0;"
+	>
 		<div class="flex flex-col items-center">
 			<a href="https://inferix.io/">
 				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
