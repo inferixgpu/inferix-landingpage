@@ -3,9 +3,10 @@
 	import gsap from 'gsap';
 	import axios from 'axios';
 	import lo from 'lodash';
+	import moment from 'moment';
 	import Popup from '$components/register/AddressPopup.svelte';
 
-	import leaderboard_light from '$images/png/leaderboard-light.png';
+	import leaderboard_light from '$images/png/innovatedBackground.png';
 
 	let input_step = 0;
 	let count = 1;
@@ -365,7 +366,7 @@
 			<img src={leaderboard_light} alt="leaderboard-light" />
 			<div class="leaderboard-content">
 				<div>Leaderboard Top 20 Alliance Campaign</div>
-				<div>Last Updated: 4/22/2024, 3:13:01 PM</div>
+				<div>Last Updated: {moment(new Date().getTime()).format('MM/DD/YYYY, hh:mm:ss A')}</div>
 				<div class="leaderboard-table">
 					<div class="table-header">
 						<div>Rank</div>
@@ -677,9 +678,9 @@
 
 	.leaderboard > img {
 		max-width: 500%;
-		width: 1800px;
+		width: 1700px;
 		position: absolute;
-		top: -87%;
+		top: -79%;
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 0;
@@ -867,8 +868,8 @@
 	@media screen and (max-width: 674px) {
 		.leaderboard > img {
 			width: 250vw;
-			top: -20px;
-			transform: translate(-50%, -52%);
+			top: 35px;
+			transform: translate(-50%, -50%);
 		}
 
 		.leaderboard-content {
@@ -894,6 +895,14 @@
 		.table-header > div:nth-child(3),
 		.data-item > div:nth-child(3) {
 			min-width: 100px;
+		}
+	}
+
+	@media screen and (max-width: 440px) {
+		.leaderboard > img {
+			width: 250vw;
+			top: 25px;
+			transform: translate(-50%, -52%);
 		}
 	}
 </style>
