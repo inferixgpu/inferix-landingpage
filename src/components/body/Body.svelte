@@ -13,6 +13,7 @@
 	import Network3 from '$images/png/Network3.png';
 	import DeMR from '$images/png/DeMR.svg';
 	import AIxBlock from '$images/png/AIxBlock.png';
+	import Cudos from '$images/png/cudos.png';
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
@@ -79,17 +80,23 @@
 			title: 'DeMR',
 			img: { name: DeMR, height: '85px', mobile_height: '40px' },
 			href: 'https://www.demr.xyz/#/'
-		},
-		{
-			title: '',
-			img: { name: null, height: '85px', mobile_height: '40px' },
-			href: ''
-		},
+		}
+	];
+
+	const partner_more = [
 		{
 			id: 10,
 			title: 'AIxBlock',
 			img: { name: AIxBlock, height: '85px', mobile_height: '40px' },
-			href: 'https://aixblock.org/'
+			href: 'https://aixblock.org/',
+			is_half: true
+		},
+		{
+			id: 11,
+			title: 'Cudos',
+			img: { name: Cudos, height: '85px', mobile_height: '40px' },
+			href: 'https://www.cudos.org/',
+			is_half: true
 		}
 	];
 </script>
@@ -152,6 +159,14 @@
 								target="_blank"
 							>
 								<img src={partner.img.name} />
+							</a>{/if}
+					{/each}
+					{#each partner_more as partner (partner.id)}
+						{#if !partner.id}{#if screenSize > 1024}<div></div>{/if}{:else}<a
+								class="partner-item-last"
+								href={partner.href}
+								target="_blank"
+								><div><img src={partner.img.name} /></div>
 							</a>{/if}
 					{/each}
 				</div>
@@ -253,7 +268,7 @@
 		margin-bottom: 32px;
 	}
 	.partner-content {
-		@apply lg:grid lg:grid-cols-3 flex flex-col gap-6;
+		@apply lg:grid lg:grid-cols-6 flex flex-col gap-6;
 
 		& > .partner-item {
 			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
@@ -265,7 +280,28 @@
 					rgba(255, 255, 255, 0) 100%
 				)
 			);
-			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none;
+			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none col-span-2;
+		}
+
+		& > .partner-item-last {
+			@apply flex col-span-3;
+			justify-content: flex-end;
+			div {
+				border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
+				background: var(
+					--123,
+					radial-gradient(
+						100% 100% at 50% 0%,
+						rgba(255, 255, 255, 0.12) 0%,
+						rgba(255, 255, 255, 0) 100%
+					)
+				);
+				@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none;
+			}
+		}
+
+		& > .partner-item-last:last-child {
+			justify-content: flex-start;
 		}
 	}
 </style>
