@@ -770,6 +770,9 @@
 	}
 
 	@media screen and (max-width: 768px) {
+		.link_blog > svg {
+			display: none;
+		}
 		.item-border-1 {
 			@apply relative;
 			.item-download-1 {
@@ -840,6 +843,16 @@
 				mask-composite: exclude;
 				pointer-events: none;
 			}
+		}
+
+		.header-bar-mobile > div:last-child {
+			width: 35px;
+			height: 35px;
+		}
+
+		.header-bar-mobile > div:last-child > svg {
+			width: 100%;
+			height: 100%;
 		}
 	}
 </style>
