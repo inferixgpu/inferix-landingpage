@@ -34,11 +34,11 @@
 
 	function handleFocus(i) {
 		const focus = document.querySelector(
-			`.body-register > div:last-child > div:nth-child(${i}) > div:first-child > div:first-child > div`
+			`.body-register > div:last-child > div:nth-child(${i}) > div:first-child > div:first-child > div:first-child`
 		);
 
 		let not_focus = document.querySelectorAll(
-			`.body-register > div:last-child > div:not(:nth-child(${i})) > div:first-child > div:first-child > div`
+			`.body-register > div:last-child > div:not(:nth-child(${i})) > div:first-child > div:first-child > div:first-child`
 		);
 
 		if (input_step != i)
@@ -246,7 +246,12 @@
 		<div>
 			<div class="wallet-register" on:click={() => handleFocus(1)}>
 				<div class="wallet-desc">
-					<div><div class="step"><div>1</div></div></div>
+					<div>
+						<div class="step">
+							<div>1</div>
+						</div>
+						<div class="line"></div>
+					</div>
 					<div>
 						<div class={input_step == 1 ? 'desc-active' : ''}>Wallet Address</div>
 						<div>
@@ -278,7 +283,12 @@
 			</div>
 			<div class="email-register" on:click={() => handleFocus(2)}>
 				<div class="email-desc">
-					<div><div class="step"><div>2</div></div></div>
+					<div>
+						<div class="step">
+							<div>2</div>
+						</div>
+						<div class="line"></div>
+					</div>
 					<div>
 						<div class={input_step == 2 ? 'desc-active' : ''}>Email Address</div>
 						<div>Enter your email with us for enhanced support tailored to you</div>
@@ -302,7 +312,9 @@
 			</div>
 			<div class="node-register" on:click={() => handleFocus(3)}>
 				<div class="node-desc">
-					<div><div class="step"><div>3</div></div></div>
+					<div>
+						<div class="step"><div>3</div></div>
+					</div>
 					<div>
 						<div class={input_step == 3 ? 'desc-active' : ''}>Node ID</div>
 						<div>The node IDs you are currently using in our system</div>
@@ -465,6 +477,11 @@
 		z-index: 1;
 	}
 
+	.body-register > div:last-child {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.body-register > .nav-bar > .nav-item {
 		width: fit-content;
 		display: flex;
@@ -521,6 +538,7 @@
 		display: flex;
 		flex-direction: column;
 		padding-right: 32px;
+		gap: 8px;
 	}
 
 	.step {
@@ -576,6 +594,7 @@
 		border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.15));
 		padding: 16px;
 		justify-content: space-between;
+		margin-bottom: 24px;
 	}
 
 	.body-register > div:last-child > div > div:last-child > input {
@@ -836,6 +855,21 @@
 		border-bottom: 1px solid #fff;
 	}
 
+	.wallet-desc > div:first-child,
+	.email-desc > div:first-child {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.line {
+		width: 1px;
+		height: 100%;
+		flex: 1;
+		border-left: 1px solid rgba(244, 244, 244, 0.3);
+		margin-bottom: 2px;
+	}
+
 	@media screen and (max-width: 1280px) {
 		.body-register {
 			padding: 20px 140px;
@@ -862,6 +896,10 @@
 
 		.body-register > div:last-child > div > div:first-child {
 			width: 100%;
+		}
+
+		.line {
+			display: none;
 		}
 	}
 
