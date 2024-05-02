@@ -12,6 +12,7 @@
 	import IoTex from '$images/png/IoTex.svg';
 	import Network3 from '$images/png/Network3.png';
 	import DeMR from '$images/png/DeMR.svg';
+	import AIxBlock from '$images/png/AIxBlock.png';
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
@@ -78,6 +79,17 @@
 			title: 'DeMR',
 			img: { name: DeMR, height: '85px', mobile_height: '40px' },
 			href: 'https://www.demr.xyz/#/'
+		},
+		{
+			title: '',
+			img: { name: null, height: '85px', mobile_height: '40px' },
+			href: ''
+		},
+		{
+			id: 10,
+			title: 'AIxBlock',
+			img: { name: AIxBlock, height: '85px', mobile_height: '40px' },
+			href: 'https://aixblock.org/'
 		}
 	];
 </script>
@@ -134,9 +146,13 @@
 			>
 				<div class="partner-content">
 					{#each partners as partner (partner.id)}
-						<a class="partner-item" href={partner.href} target="_blank">
-							<img src={partner.img.name} />
-						</a>
+						{#if !partner.id}{#if screenSize > 1024}<div></div>{/if}{:else}<a
+								class="partner-item"
+								href={partner.href}
+								target="_blank"
+							>
+								<img src={partner.img.name} />
+							</a>{/if}
 					{/each}
 				</div>
 			</Saos>
@@ -238,6 +254,7 @@
 	}
 	.partner-content {
 		@apply lg:grid lg:grid-cols-3 flex flex-col gap-6;
+
 		& > .partner-item {
 			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
 			background: var(

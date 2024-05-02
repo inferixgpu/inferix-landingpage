@@ -308,9 +308,13 @@
 					</div>
 				</div>
 				<div class="wallet-form workers-input">
-					<div class="form-label flex gap-1">
-						Please enter your node ID
-						<p class="text-red-600">*</p>
+					<div class="form-label">
+						Please enter your Inferix Worker's IDs (<a
+							href="https://www.youtube.com/watch?v=trDVtn48WLY"
+							class="text-blue-500 hover:underline hover:filter-none"
+							target="_blank">Click to view instructions</a
+						>)
+						<span class="text-red-600">*</span>
 					</div>
 					{#if isNullWorkers}
 						<div class="text-[12px] text-red-600">Need at least 1 node ID.</div>
