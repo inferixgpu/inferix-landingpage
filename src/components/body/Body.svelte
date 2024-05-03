@@ -113,7 +113,7 @@
 			<div class="innovated-header-content">
 				<p class="max-sm:hidden">An innovated platform for 3D rendering and AI</p>
 				<p class="max-sm:hidden">inference using crowdsourced GPUs globally</p>
-				<p class="sm:hidden mt-[50px] px-[33px]">
+				<p class="sm:hidden px-[33px]">
 					An innovated platform for 3D rendering and AI inference using crowdsourced GPUs globally
 				</p>
 			</div>
@@ -302,6 +302,12 @@
 
 		& > .partner-item-last:last-child {
 			justify-content: flex-start;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.innovated-header > img {
+			margin-top: 600px;
 		}
 	}
 </style>
