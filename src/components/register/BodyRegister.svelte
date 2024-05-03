@@ -49,7 +49,7 @@
 					'linear-gradient(180deg, rgba(244, 244, 244, 0.56) 0.01%, rgba(244, 244, 244, 0) 100%)',
 				duration: 0.8,
 				ease: 'none',
-				border: 'none'
+				borderColor: '#5f5f5f'
 			});
 
 		for (let i = 0; i < not_focus.length; i++) {
@@ -699,7 +699,7 @@
 		max-width: 500%;
 		width: 1700px;
 		position: absolute;
-		top: -79%;
+		top: -76%;
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 0;
