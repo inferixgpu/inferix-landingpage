@@ -209,7 +209,7 @@
 
 	onMount(async () => {
 		handleFocus(1);
-		//onHoverSubmit();
+		onHoverSubmit();
 		resize();
 		window.addEventListener('resize', resize);
 		await fetchLeaderboard();
@@ -680,6 +680,10 @@
 		background: var(--33333, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 	}
 
+	.modal-register-success > div > p:first-child {
+		margin-bottom: 15px;
+	}
+
 	.body-register.body-2 {
 		padding: 0;
 		gap: 65px;
@@ -868,6 +872,10 @@
 		flex: 1;
 		border-left: 1px solid rgba(244, 244, 244, 0.3);
 		margin-bottom: 2px;
+	}
+
+	#submit_register:hover {
+		//background: linear-gradient(45deg, #00d6d9 0%, #00c085 100%);
 	}
 
 	@media screen and (max-width: 1280px) {

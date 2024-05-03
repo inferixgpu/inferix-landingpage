@@ -432,7 +432,7 @@
 				{#each medias as media (media.id)}
 					<div>
 						<a target="_blank" href={media.href}
-							><img src={media.icon} class="h-[34px] w-[34px]" /></a
+							><img src={media.icon} class="h-[34px] w-[34px]" style="border-radius: 50%;" /></a
 						>
 					</div>
 				{/each}
