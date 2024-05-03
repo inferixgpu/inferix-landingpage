@@ -428,7 +428,7 @@
 		}
 
 		.industry-content > div:nth-child(1) > div:nth-child(2) {
-			height: calc(calc(100vw) / 1199 * 225									);
+			height: calc(calc(100vw) / 1199 * 225);
 			margin-top: calc(calc(100vw) / 1199 * 24);
 		}
 		.industry-content > div:nth-child(1) > div:nth-child(3) {
@@ -549,21 +549,21 @@
 		}
 
 		.in-mobile-content {
-			top: calc(100vw * 162 / 414);
+			top: calc(100vw * 169 / 414);
 			left: calc(calc(50%));
 			width: calc(calc(100%) / 393 * 280);
 		}
 
 		.in-mobile-content > div:first-child {
 			width: 100%;
-			height: calc(100vw * 366 / 414);
+			height: calc(100vw * 378 / 414);
 			display: flex;
 			overflow: hidden;
 		}
 		.in-mobile-content > div > div > div {
 			position: relative;
 			min-width: calc(100vw * 283 / 414);
-			height: calc(100vw * 361 / 414);
+			height: calc(100vw * 380 / 414);
 			overflow-y: hidden;
 		}
 		.in-mobile-content > div > div > div > img {
@@ -575,6 +575,10 @@
 			bottom: 0;
 			height: 35px;
 			left: 0;
+		}
+
+		.in-mobile-content > div:last-child {
+			margin-top: 26px;
 		}
 	}
 
