@@ -416,8 +416,23 @@
 	}
 
 	@media screen and (max-width: 1024px) {
+		.industry-content {
+			top: calc(calc(100%) / 1100 * 117);
+		}
 		.industry-content > div:nth-child(3) {
 			margin-left: calc(calc(100%) / 894 * 23);
+		}
+		.industry-content > div:nth-child(1) > div:first-child > div {
+			font-size: 24px;
+			transform: translate(-28px, -17px);
+		}
+
+		.industry-content > div:nth-child(1) > div:nth-child(2) {
+			height: calc(calc(100vw) / 1199 * 225									);
+			margin-top: calc(calc(100vw) / 1199 * 24);
+		}
+		.industry-content > div:nth-child(1) > div:nth-child(3) {
+			margin-top: calc(calc(100vw) / 1199 * 20);
 		}
 	}
 
