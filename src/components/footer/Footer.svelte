@@ -177,7 +177,9 @@
 		<div class="flex flex-row gap-5 mb-[20px]">
 			{#each medias as media (media.id)}
 				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
-					<a target="_blank" href={media.href}><img src={media.icon} /></a>
+					<a target="_blank" href={media.href}
+						><img src={media.icon} style="border-radius: 50%;" /></a
+					>
 				</div>
 			{/each}
 		</div>
