@@ -479,6 +479,10 @@
 		gap: 10px;
 	}
 
+	.link_blog_desktop {
+		font-size: 16px;
+	}
+
 	.link_blog_desktop > svg,
 	.link_blog > svg {
 		position: absolute;
