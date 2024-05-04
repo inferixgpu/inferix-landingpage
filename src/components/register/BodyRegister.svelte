@@ -665,8 +665,8 @@
 	}
 
 	.leaderboard > .leaderboard-content > .leaderboard-table:last-child {
-		max-width: 640px !important;
-		width: 640px;
+		max-width: 395px !important;
+		width: 395px;
 		border: none;
 		gap: 0;
 		margin-top: 24px;
@@ -706,6 +706,7 @@
 	.table-header > div:nth-child(1),
 	.data-item > div:nth-child(1) {
 		width: 10%;
+		min-width: 50px;
 		justify-content: center;
 		align-items: center;
 	}
@@ -715,10 +716,12 @@
 	}
 	.table-header > div:nth-child(3) {
 		width: 18%;
+		min-width: 110px;
 		justify-content: center;
 	}
 	.data-item > div:nth-child(3) {
 		width: 18%;
+		min-width: 110px;
 		justify-content: flex-end;
 	}
 
