@@ -102,11 +102,12 @@
 	}
 
 	function handleClickTab(e: MouseEvent, id: number, href: string) {
+		console.log(id, 'ggg');
 		let tabItems = document.getElementsByClassName('tab-item');
 		for (let i = 0; i < tabItems.length; i++) {
 			tabItems[i].classList.remove('tab-active');
 		}
-		document.getElementById(`item-tab-${id}`).classList.add('tab-active');
+		if (id != 6) document.getElementById(`item-tab-${id}`).classList.add('tab-active');
 		if (id === 2 || id === 5) return;
 		if (id === 6) {
 			showModal = true;
