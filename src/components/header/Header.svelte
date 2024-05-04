@@ -102,7 +102,6 @@
 	}
 
 	function handleClickTab(e: MouseEvent, id: number, href: string) {
-		console.log(id, 'ggg');
 		let tabItems = document.getElementsByClassName('tab-item');
 		for (let i = 0; i < tabItems.length; i++) {
 			tabItems[i].classList.remove('tab-active');
