@@ -18,6 +18,8 @@
 	import buttonScreen from '$images/icons/ButtonScreen.png';
 	import buttonScreenFocus from '$images/icons/ButtonScreenFocus.png';
 	import DownloadIcon from '$images/icons/Download.svg';
+	import background_download_1 from '$images/png/background-download-1.png';
+	import background_download_2 from '$images/png/background-download-2.png';
 
 	let textIndex = 0;
 
@@ -156,17 +158,33 @@
 	let focusGPU = false;
 	function focusButtonGPU(status) {
 		focusGPU = status;
+		const ele = document.querySelector('.item-border-1 > .item-download-1');
+		if (status) {
+			ele.classList.remove('back-leave');
+			ele.classList.add('back-hover');
+		} else {
+			ele.classList.remove('back-hover');
+			ele.classList.add('back-leave');
+		}
 	}
 
 	let focusBtScreen = false;
 	function focusButtonScreen(status) {
 		focusBtScreen = status;
+		const ele = document.querySelector('.item-border-2 > .item-download-2');
+		if (status) {
+			ele.classList.remove('back2-leave');
+			ele.classList.add('back2-hover');
+		} else {
+			ele.classList.remove('back2-hover');
+			ele.classList.add('back2-leave');
+		}
 	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 
-<div style="font-family: Inter">
+<div class="header-container" style="font-family: Inter">
 	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
 		{#if is_close}
 			{#if screenSize > 800}
@@ -341,6 +359,7 @@
 					on:mouseenter={() => focusButtonGPU(true)}
 					on:mouseleave={() => focusButtonGPU(false)}
 				>
+					<img src={background_download_1} alt="background" />
 					<div class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:justify-center md:justify-end">
 						<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
 						<div class="flex justify-between max-md:hidden">
@@ -377,6 +396,7 @@
 					on:mouseenter={() => focusButtonScreen(true)}
 					on:mouseleave={() => focusButtonScreen(false)}
 				>
+					<img src={background_download_2} alt="back-download-2" />
 					<div class="basis-1/3 mt-4">
 						{#if !focusBtScreen}
 							<img class="-ml-4" src={buttonScreen} />
@@ -664,35 +684,72 @@
 		.item-download-1 {
 			@apply flex w-[260px] px-5 py-4;
 			align-items: center;
-			background: linear-gradient(
-				270deg,
-				rgba(255, 255, 255, 0) 0%,
-				rgba(255, 255, 255, 0.15) 100%
-			);
 			border-radius: 20px 0px 0px 20px;
+			position: relative;
+			overflow: hidden;
+
+			&::before {
+				content: '';
+				background: conic-gradient(transparent 270deg, rgb(0, 192, 133), white, transparent);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				aspect-ratio: 1;
+				width: 100%;
+				//rotate: 0.1turn;
+				//animation: rotate 1s linear infinite forwards;
+			}
+
+			&::after {
+				content: '';
+				background: inherit;
+				border-radius: inherit;
+				position: absolute;
+				inset: 1px;
+			}
+
+			&.back-hover::before {
+				animation: rotate 0.3s linear forwards;
+			}
+
+			&.back-leave::before {
+				animation: revert_rotate 0.3s linear forwards;
+			}
 		}
-		&:before {
-			opacity: 0.3;
-			content: '';
-			position: absolute;
-			inset: 0;
-			border-radius: 20px 0px 0px 20px;
-			padding: 1px;
-			background-image: linear-gradient(
-				to right bottom,
-				#33ffce 10%,
-				#f5d4ff 25%,
-				#339dff 35%,
-				#000000 40%,
-				rgba(255, 255, 255, 0.2) 70%
-			);
-			-webkit-mask:
-				linear-gradient(#fff 0 0) content-box,
-				linear-gradient(#fff 0 0);
-			-webkit-mask-composite: xor;
-			mask-composite: exclude;
-			pointer-events: none;
+	}
+
+	@keyframes rotate {
+		from {
+			transform: translate(-50%, -50%) scale(1.4) rotate(65deg);
 		}
+
+		to {
+			transform: translate(-50%, -50%) scale(1.4) rotate(-162deg);
+		}
+	}
+
+	@keyframes revert_rotate {
+		from {
+			transform: translate(-50%, -50%) scale(1.4) rotate(-162deg);
+		}
+
+		to {
+			transform: translate(-50%, -50%) scale(1.4) rotate(65deg);
+		}
+	}
+
+	.item-download-1 > img:first-child {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: calc(100% - 0.8px);
+		height: calc(100% - 0.8px);
+	}
+
+	.item-download-1 > div {
+		z-index: 1;
 	}
 
 	.item-border-2 {
@@ -701,30 +758,69 @@
 			@apply flex w-[260px] px-5 py-4;
 			align-items: center;
 			border-radius: 0 20px 20px 0;
-			background: linear-gradient(270deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+			position: relative;
+			overflow: hidden;
+
+			&::before {
+				content: '';
+				background: conic-gradient(transparent 270deg, rgb(0, 192, 133), white, transparent);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				aspect-ratio: 1;
+				width: 100%;
+			}
+
+			&::after {
+				content: '';
+				background: inherit;
+				border-radius: inherit;
+				position: absolute;
+				inset: 1px;
+			}
+
+			&.back2-hover::before {
+				animation: rotate2 0.3s linear forwards;
+			}
+
+			&.back2-leave::before {
+				animation: revert_rotate2 0.3s linear forwards;
+			}
 		}
-		&:before {
-			opacity: 0.3;
-			content: '';
-			position: absolute;
-			inset: 0;
-			border-radius: 0 20px 20px 0;
-			padding: 1px 1px 1px 1px;
-			background-image: linear-gradient(
-				to left bottom,
-				#33ffce 10%,
-				#f5d4ff 25%,
-				#339dff 35%,
-				#000000 40%,
-				rgba(255, 255, 255, 0.2) 70%
-			);
-			-webkit-mask:
-				linear-gradient(#fff 0 0) content-box,
-				linear-gradient(#fff 0 0);
-			-webkit-mask-composite: xor;
-			mask-composite: exclude;
-			pointer-events: none;
+	}
+
+	@keyframes rotate2 {
+		from {
+			transform: translate(-50%, -50%) scale(1.4) rotate(55deg);
 		}
+
+		to {
+			transform: translate(-50%, -50%) scale(1.4) rotate(245deg);
+		}
+	}
+
+	@keyframes revert_rotate2 {
+		from {
+			transform: translate(-50%, -50%) scale(1.4) rotate(245deg);
+		}
+
+		to {
+			transform: translate(-50%, -50%) scale(1.4) rotate(55deg);
+		}
+	}
+
+	.item-download-2 > img:first-child {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: calc(100% - 0.8px);
+		height: calc(100% - 0.8px);
+	}
+
+	.item-download-2 > div {
+		z-index: 1;
 	}
 
 	.text-header-transfer:hover {
@@ -777,6 +873,11 @@
 		.link_blog > svg {
 			display: none;
 		}
+
+		.header-container > div:nth-child(2) > div:last-child {
+			gap: 15px;
+		}
+
 		.item-border-1 {
 			@apply relative;
 			.item-download-1 {
