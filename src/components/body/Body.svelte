@@ -14,6 +14,7 @@
 	import DeMR from '$images/png/DeMR.svg';
 	import AIxBlock from '$images/png/AIxBlock.png';
 	import Cudos from '$images/png/cudos.png';
+	import IOPay from '$images/png/iopay.svg';
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
@@ -80,10 +81,7 @@
 			title: 'DeMR',
 			img: { name: DeMR, height: '85px', mobile_height: '40px' },
 			href: 'https://www.demr.xyz/#/'
-		}
-	];
-
-	const partner_more = [
+		},
 		{
 			id: 10,
 			title: 'AIxBlock',
@@ -97,8 +95,17 @@
 			img: { name: Cudos, height: '85px', mobile_height: '40px' },
 			href: 'https://www.cudos.org/',
 			is_half: true
+		},
+		{
+			id: 12,
+			title: 'IOPay',
+			img: { name: IOPay, height: '85px', mobile_height: '40px' },
+			href: 'https://iopay.me/',
+			is_half: true
 		}
 	];
+
+	const partner_more = [];
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
@@ -202,6 +209,11 @@
 
 	.partnerImg > a > img {
 		margin: auto;
+	}
+
+	.partner-item:last-child > img {
+		height: 100%;
+		width: auto;
 	}
 
 	.partnerLink {
