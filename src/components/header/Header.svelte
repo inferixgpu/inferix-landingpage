@@ -727,13 +727,13 @@
 		}
 
 		to {
-			transform: translate(-50%, -50%) scale(1.4) rotate(-162deg);
+			transform: translate(-50%, -50%) scale(1.4) rotate(-158deg);
 		}
 	}
 
 	@keyframes revert_rotate {
 		from {
-			transform: translate(-50%, -50%) scale(1.4) rotate(-162deg);
+			transform: translate(-50%, -50%) scale(1.4) rotate(-158deg);
 		}
 
 		to {
@@ -765,12 +765,13 @@
 
 			&::before {
 				content: '';
-				background: conic-gradient(transparent 270deg, rgb(0, 192, 133), white, transparent);
+				background: conic-gradient(transparent 270deg, transparent, rgb(0, 192, 133), white, transparent);
 				position: absolute;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
 				aspect-ratio: 1;
+				rotate: 5deg;
 				width: 100%;
 			}
 
@@ -794,21 +795,21 @@
 
 	@keyframes rotate2 {
 		from {
-			transform: translate(-50%, -50%) scale(1.4) rotate(55deg);
+			transform: translate(-50%, -40%) scale(1.4) rotate(10deg);
 		}
 
 		to {
-			transform: translate(-50%, -50%) scale(1.4) rotate(245deg);
+			transform: translate(-50%, -50%) scale(1.4) rotate(225deg);
 		}
 	}
 
 	@keyframes revert_rotate2 {
 		from {
-			transform: translate(-50%, -50%) scale(1.4) rotate(245deg);
+			transform: translate(-50%, -50%) scale(1.4) rotate(225deg);
 		}
 
 		to {
-			transform: translate(-50%, -50%) scale(1.4) rotate(55deg);
+			transform: translate(-50%, -50%) scale(1.4) rotate(10deg);
 		}
 	}
 
@@ -819,6 +820,7 @@
 		transform: translate(-50%, -50%);
 		width: calc(100% - 0.8px);
 		height: calc(100% - 0.8px);
+		//opacity: 0;
 	}
 
 	.item-download-2 > div {
