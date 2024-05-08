@@ -157,6 +157,7 @@
 
 	let focusGPU = false;
 	function focusButtonGPU(status) {
+		if (screenSize < 768) return;
 		focusGPU = status;
 		const ele = document.querySelector('.item-border-1 > .item-download-1');
 		if (status) {
@@ -170,6 +171,7 @@
 
 	let focusBtScreen = false;
 	function focusButtonScreen(status) {
+		if (screenSize < 768) return;
 		focusBtScreen = status;
 		const ele = document.querySelector('.item-border-2 > .item-download-2');
 		if (status) {
