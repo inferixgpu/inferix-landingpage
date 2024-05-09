@@ -42,6 +42,10 @@
 		.header-register {
 			padding: 16px;
 		}
+
+		.header-register > img {
+			border-radius: 16px;
+		}
 	}
 
 	@media screen and (max-width: 768px) {
