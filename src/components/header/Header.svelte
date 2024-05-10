@@ -44,12 +44,12 @@
 			id: 3,
 			title: 'Roadmap',
 			href: '#roadmap'
-		},
-		{
-			id: 5,
-			title: 'Docs',
-			href: 'https://docs.inferix.io/'
 		}
+		// {
+		// 	id: 5,
+		// 	title: 'Docs',
+		// 	href: 'https://docs.inferix.io/'
+		// }
 	];
 	const register = {
 		id: 6,
@@ -765,7 +765,13 @@
 
 			&::before {
 				content: '';
-				background: conic-gradient(transparent 270deg, transparent, rgb(0, 192, 133), white, transparent);
+				background: conic-gradient(
+					transparent 270deg,
+					transparent,
+					rgb(0, 192, 133),
+					white,
+					transparent
+				);
 				position: absolute;
 				top: 50%;
 				left: 50%;
