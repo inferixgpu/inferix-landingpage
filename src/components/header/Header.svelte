@@ -5,9 +5,9 @@
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import DownloadFailed from '$components/inferix/Modals/DownloadFailed.svelte';
-	import { Modal } from 'flowbite-svelte';
+	import {Modal} from 'flowbite-svelte';
 
-	import { afterUpdate, onMount } from 'svelte';
+	import {afterUpdate, onMount} from 'svelte';
 	import X from '$images/icons/Twitter.svg';
 	import M from '$images/icons/M.svg';
 	import D from '$images/icons/D.svg';
@@ -182,6 +182,8 @@
 			ele.classList.add('back2-leave');
 		}
 	}
+
+
 </script>
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
@@ -190,84 +192,61 @@
 	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
 		{#if is_close}
 			{#if screenSize > 800}
-				<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
-					<div>
-						<div>
-							<span class="flex items-center">📌 MVP is live!</span>
-							<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center">
-								Read the full blog ⟶</a
-							>
-							<a
-								href="https://docs.inferix.io/por-release"
-								class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
-								>🚀 <span>Proof-of-Rendering Release</span></a
-							>
+				<div class="transition-bar">
+					<div class="absolute right-0 top-2 z-30 cursor-pointer" on:click="{onCloseGuide}">
+						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x svelte-pwodhr" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg>
+					</div>
+					<div class="transition-action">
+						<div class="flex basis-1/3 justify-center shrink-0">
+							<a href="https://docs.inferix.io/mvp-tutorial"
+							   class="inline-flex h-full items-center gap-1">📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a>
 						</div>
-						<div>
-							<span class="flex items-center">📌 MVP is live!</span>
-							<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center">
-								Read the full blog ⟶</a
-							>
-							<a
-								href="https://docs.inferix.io/por-release"
-								class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
-								>🚀 <span>Proof-of-Rendering Release</span></a
-							>
+						<div class="flex basis-1/3 justify-center shrink-0">
+							<a href="https://docs.inferix.io/por-release"
+							   class="inline text-rainbow"
+							>🚀 <span>Proof-of-Rendering Release</span></a>
+						</div>
+						<div class="flex basis-1/3 justify-center shrink-0">
+							<a href="https://inferix.io/register"
+							   class="inline"
+							>🚀 Alliance Campaign is LIVE - <span class="text-black">  Join now!</span></a>
 						</div>
 					</div>
-					<svg
-						on:click={() => onCloseGuide()}
-						xmlns="http://www.w3.org/2000/svg"
-						class="icon icon-tabler icon-tabler-x"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="#597e8d"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-						<path d="M18 6l-12 12" />
-						<path d="M6 6l12 12" />
-					</svg>
+					<div class="transition-action">
+						<div class="flex basis-1/3 justify-center shrink-0">
+							<a href="https://docs.inferix.io/mvp-tutorial"
+							   class="inline-flex h-full items-center gap-1">📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a>
+						</div>
+						<div class="flex basis-1/3 justify-center shrink-0">
+							<a href="https://docs.inferix.io/por-release"
+							   class="inline text-rainbow"
+							>🚀 <span>Proof-of-Rendering Release</span></a>
+						</div>
+						<div class="flex basis-1/3 justify-center shrink-0">
+							<a href="https://inferix.io/register"
+							   class="inline"
+							>🚀 Alliance Campaign is LIVE - <span class="text-black">  Join now!</span></a>
+						</div>
+					</div>
 				</div>
 			{:else}
-				<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
-					<div>
-						<div>
-							<span class="flex items-center whitespace-nowrap">📌 MVP is live!</span>
-							<a
-								href="https://docs.inferix.io/mvp-tutorial"
-								class="flex items-center whitespace-nowrap"
-							>
-								Read the full blog ⟶</a
-							>
-							<a
-								href="https://docs.inferix.io/por-release"
-								class="flex bg-transparency !items-center !h-[40px] !w-[60%] justify-center whitespace-nowrap px-[10px]"
-								>🚀 <span>Proof-of-Rendering Release</span></a
-							>
+				<div class="transition-bar" id="guide-mobile">
+					<div class="transition-action">
+						<div class="flex basis-1/3 justify-center shrink-0">
+							<a href="https://docs.inferix.io/mvp-tutorial"
+							   class="inline-flex h-full items-center gap-1">📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a>
+						</div>
+						<div class="flex basis-1/3 justify-center shrink-0">
+							<a href="https://docs.inferix.io/por-release"
+							   class="inline text-rainbow"
+							>🚀 <span>Proof-of-Rendering Release</span></a>
+						</div>
+						<div class="flex basis-1/3 justify-center shrink-0">
+							<a href="https://inferix.io/register"
+							   class="inline"
+							>🚀 Alliance Campaign is LIVE - <span class="text-black">  Join now!</span></a>
 						</div>
 					</div>
-					<svg
-						on:click={() => onCloseGuide()}
-						xmlns="http://www.w3.org/2000/svg"
-						class="icon icon-tabler icon-tabler-x"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="#597e8d"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-						<path d="M18 6l-12 12" />
-						<path d="M6 6l12 12" />
-					</svg>
 				</div>
 			{/if}
 		{/if}
@@ -566,17 +545,13 @@
 
 	.link_blog_desktop > div > div,
 	.link_blog > div > div {
-		width: 100vw;
-		min-width: 100vw;
+		width: 100%;
+		min-width: 100%;
 		display: flex;
 		justify-content: center;
 		gap: 5px;
 	}
 
-	.link_blog_desktop > div > div > a:nth-child(3),
-	.link_blog > div > div > a:nth-child(3) {
-		margin-left: calc(calc(100vw) / 4);
-	}
 	@keyframes tip_move {
 		0% {
 			transform: translateX(0);
@@ -969,5 +944,18 @@
 			width: 100%;
 			height: 100%;
 		}
+	}
+	.transition-bar {
+		@apply flex gap-[30px] shrink-0 relative;
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+		.transition-action {
+			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
+			animation: slide-left 20s linear infinite;
+		}
+	}
+
+	@keyframes slide-left {
+		0% { transform: translateX(0%); }
+		100% { transform: translateX(-150%); }
 	}
 </style>
