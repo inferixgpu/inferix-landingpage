@@ -197,40 +197,43 @@
 						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x svelte-pwodhr" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg>
 					</div>
 					<div class="transition-action">
-						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://docs.inferix.io/mvp-tutorial"
-							   class="inline-flex h-full items-center gap-1">📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a>
+						<div class="transition-item">
+							<div class="flex basis-1/3 justify-center shrink-0">
+								<a href="https://docs.inferix.io/mvp-tutorial"
+								   class="inline-flex h-full items-center gap-1">📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a>
+							</div>
+							<div class="flex basis-1/3 justify-center shrink-0">
+								<a href="https://docs.inferix.io/por-release"
+								   class="inline text-rainbow"
+								>🚀 <span>Proof-of-Rendering Release</span></a>
+							</div>
+							<div class="flex basis-1/3 justify-center shrink-0">
+								<a href="https://inferix.io/register"
+								   class="inline"
+								>🚀 Alliance Campaign is LIVE - <span class="text-black">  Join now!</span></a>
+							</div>
 						</div>
-						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://docs.inferix.io/por-release"
-							   class="inline text-rainbow"
-							>🚀 <span>Proof-of-Rendering Release</span></a>
-						</div>
-						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://inferix.io/register"
-							   class="inline"
-							>🚀 Alliance Campaign is LIVE - <span class="text-black">  Join now!</span></a>
+						<div class="transition-item">
+							<div class="flex basis-1/3 justify-center shrink-0">
+								<a href="https://docs.inferix.io/mvp-tutorial"
+								   class="inline-flex h-full items-center gap-1">📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a>
+							</div>
+							<div class="flex basis-1/3 justify-center shrink-0">
+								<a href="https://docs.inferix.io/por-release"
+								   class="inline text-rainbow"
+								>🚀 <span>Proof-of-Rendering Release</span></a>
+							</div>
+							<div class="flex basis-1/3 justify-center shrink-0">
+								<a href="https://inferix.io/register"
+								   class="inline"
+								>🚀 Alliance Campaign is LIVE - <span class="text-black">  Join now!</span></a>
+							</div>
 						</div>
 					</div>
-					<div class="transition-action">
-						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://docs.inferix.io/mvp-tutorial"
-							   class="inline-flex h-full items-center gap-1">📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a>
-						</div>
-						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://docs.inferix.io/por-release"
-							   class="inline text-rainbow"
-							>🚀 <span>Proof-of-Rendering Release</span></a>
-						</div>
-						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://inferix.io/register"
-							   class="inline"
-							>🚀 Alliance Campaign is LIVE - <span class="text-black">  Join now!</span></a>
-						</div>
-					</div>
+
 				</div>
 			{:else}
-				<div class="transition-bar" id="guide-mobile">
+				<div class="transition-bar-mobile" id="guide-mobile">
 					<div class="transition-action">
 						<div class="flex basis-1/3 justify-center shrink-0">
 							<a href="https://docs.inferix.io/mvp-tutorial"
@@ -466,98 +469,6 @@
 			@apply flex justify-center h-[32px] w-[104px] items-center text-black py-4 text-[16px] font-[500];
 			border-radius: 4px;
 			background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
-		}
-	}
-	.link_blog_desktop,
-	.link_blog {
-		position: relative;
-		width: 100%;
-		height: 40px;
-		background: linear-gradient(to right, #00d6d9, #00c085);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 10px;
-	}
-
-	.link_blog_desktop {
-		font-size: 16px;
-	}
-
-	.link_blog_desktop > svg,
-	.link_blog > svg {
-		position: absolute;
-		right: 5px;
-		top: 50%;
-		transform: translateY(-50%);
-		cursor: pointer;
-	}
-
-	.link_blog_desktop > div > div > a,
-	.link_blog > div > div > a {
-		color: #000;
-		cursor: pointer;
-	}
-
-	.link_blog_desktop > div > div > a:nth-child(3),
-	.link_blog > div > div > a:nth-child(3) {
-		--tw-brightness: brightness(1);
-	}
-
-	.link_blog_desktop > div > div > a:nth-child(3) > span,
-	.link_blog > div > div > a:nth-child(3) > span {
-		animation: rainbow 2s linear infinite;
-		cursor: pointer;
-		&:hover {
-			opacity: 0.8;
-		}
-	}
-
-	.link_blog > div > div > a,
-	.link_blog > div > div > span {
-		font-size: 14px;
-	}
-
-	.link_blog_desktop > div > div > a:not(:nth-child(3)):hover,
-	.link_blog > div > div > a:not(:nth-child(3)):hover {
-		opacity: 0.8;
-	}
-
-	.link_blog_desktop,
-	.link_blog {
-		width: 100%;
-		position: relative;
-		gap: 0;
-	}
-
-	.link_blog_desktop > div,
-	.link_blog > div {
-		position: relative;
-		display: flex;
-		width: 100vw;
-		animation: tip_move 15s linear infinite;
-	}
-
-	.link_blog_desktop > div:hover,
-	.link_blog > div:hover {
-		animation-play-state: paused;
-	}
-
-	.link_blog_desktop > div > div,
-	.link_blog > div > div {
-		width: 100%;
-		min-width: 100%;
-		display: flex;
-		justify-content: center;
-		gap: 5px;
-	}
-
-	@keyframes tip_move {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-100%);
 		}
 	}
 
@@ -949,13 +860,30 @@
 		@apply flex gap-[30px] shrink-0 relative;
 		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		.transition-action {
-			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
-			animation: slide-left 20s linear infinite;
+			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap ;
+			animation: slide-left 30s linear infinite;
+			&:hover {
+				animation-play-state: paused;
+			}
+			.transition-item {
+				@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
+			}
+		}
+	}
+	.transition-bar-mobile {
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+		.transition-action {
+
+			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px] ;
+			animation: slide-left 10s linear infinite;
+			&:hover {
+				animation-play-state: paused;
+			}
 		}
 	}
 
 	@keyframes slide-left {
 		0% { transform: translateX(0%); }
-		100% { transform: translateX(-150%); }
+		100% { transform: translateX(-110%); }
 	}
 </style>
