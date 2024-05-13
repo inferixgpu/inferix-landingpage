@@ -364,7 +364,8 @@
 		<div class="leaderboard">
 			<img src={leaderboard_light} alt="leaderboard-light" />
 			<div class="leaderboard-content">
-				<div>Leaderboard Top 20 Alliance Campaign</div>
+				<div>Leaderboard Top 20 #ProQuest </div>
+				<div>Alliance Campaign</div>
 				<div>Last Updated: {moment(new Date().getTime()).format('MM/DD/YYYY, hh:mm:ss A')}</div>
 				<div class="leaderboard-table">
 					<div class="table-header">
@@ -630,7 +631,7 @@
 		max-width: 500%;
 		width: 1700px;
 		position: absolute;
-		top: -76%;
+		top: -72%;
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 0;
@@ -657,6 +658,14 @@
 	}
 
 	.leaderboard-content > div:nth-child(2) {
+		color: #fff;
+		font-size: 32px;
+		font-weight: 700;
+		width: auto !important;
+		text-align: center;
+	}
+
+	.leaderboard-content > div:nth-child(3) {
 		color: #fff;
 		font-size: 16px;
 		font-weight: 300;
