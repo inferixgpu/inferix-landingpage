@@ -163,6 +163,10 @@
 		nodes = [{ id: 1, value: '' }];
 	}
 
+	function getPointConverted(num) {
+		return Number(num).toLocaleString('en-US');
+	}
+
 	async function fetchLeaderboard() {
 		await axios
 			.get('https://testnet-core.inferix.io/api/workers/statistics')
@@ -171,7 +175,7 @@
 					return {
 						...d,
 						...{
-							fixed_point: lo.get(d, 'point', 0).toFixed(0),
+							point_converted: getPointConverted(lo.get(d, 'point', 0).toFixed(0)),
 							truncated_add: getTruncatedAddress(d.ownerAddress)
 						}
 					};
@@ -364,7 +368,7 @@
 		<div class="leaderboard">
 			<img src={leaderboard_light} alt="leaderboard-light" />
 			<div class="leaderboard-content">
-				<div>Leaderboard Top 20 #ProQuest </div>
+				<div>Leaderboard Top 20 #ProQuest</div>
 				<div>Alliance Campaign</div>
 				<div>Last Updated: {moment(new Date().getTime()).format('MM/DD/YYYY, hh:mm:ss A')}</div>
 				<div class="leaderboard-table">
@@ -380,7 +384,7 @@
 								<div>
 									<div>{item.truncated_add}</div>
 								</div>
-								<div><div>{item.fixed_point}</div></div>
+								<div><div>{item.point_converted}</div></div>
 							</div>{/each}
 					</div>
 				</div>
@@ -693,7 +697,7 @@
 
 	.table-header > div {
 		display: flex;
-		padding: 8px 16px;
+		padding: 8px 10px;
 		justify-content: center;
 		align-items: center;
 		gap: 10px;
@@ -725,12 +729,12 @@
 	}
 	.table-header > div:nth-child(3) {
 		width: 18%;
-		min-width: 110px;
+		min-width: 135px;
 		justify-content: center;
 	}
 	.data-item > div:nth-child(3) {
 		width: 18%;
-		min-width: 110px;
+		min-width: 135px;
 		justify-content: flex-end;
 	}
 
@@ -741,7 +745,7 @@
 	}
 
 	.data-item > div {
-		padding: 8px 16px;
+		padding: 8px 10px;
 		border-right: 1px solid #fff;
 	}
 
@@ -883,7 +887,7 @@
 
 		.table-header > div:nth-child(3),
 		.data-item > div:nth-child(3) {
-			min-width: 100px;
+			min-width: 120px;
 		}
 	}
 
