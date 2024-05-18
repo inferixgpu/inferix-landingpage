@@ -16,7 +16,7 @@
 	import Cudos from '$images/png/cudos.png';
 	import IOPay from '$images/png/iopay.svg';
 	import ForesightX from '$images/png/foresightx.png';
-	import FutureMoney from '$images/png/futuremoney.svg';
+	import FutureMoney from '$images/png/futuremoney.png';
 
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
@@ -106,24 +106,23 @@
 			href: 'https://iopay.me/',
 			is_half: true
 		},
-		{},
-		{
+	];
+
+	const partner_more = [
+	{
 			id: 14,
 			title: 'FutureMoney',
 			img: { name: FutureMoney, height: '85', mobile_height: '40px' },
 			href: 'https://www.fmgroup.xyz/',
 			is_half: true
-		}
-	];
-
-	const partner_more = [
-		// {
-		// 	id: 13,
-		// 	title: 'ForesightX',
-		// 	img: { name: ForesightX, height: '85px', mobile_height: '40px' },
-		// 	href: 'https://www.foresightx.net/#/',
-		// 	is_half: true
-		// },
+		},
+		 {
+		 	id: 13,
+		 	title: 'ForesightX',
+		 	img: { name: ForesightX, height: '85px', mobile_height: '40px' },
+		 	href: 'https://www.foresightx.net/#/',
+		 	is_half: true
+		 },
 	];
 </script>
 
