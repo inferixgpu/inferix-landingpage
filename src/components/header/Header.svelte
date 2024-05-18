@@ -5,9 +5,9 @@
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import DownloadFailed from '$components/inferix/Modals/DownloadFailed.svelte';
-	import {Modal} from 'flowbite-svelte';
+	import { Modal } from 'flowbite-svelte';
 
-	import {afterUpdate, onMount} from 'svelte';
+	import { afterUpdate, onMount } from 'svelte';
 	import X from '$images/icons/Twitter.svg';
 	import M from '$images/icons/M.svg';
 	import D from '$images/icons/D.svg';
@@ -44,12 +44,13 @@
 			id: 3,
 			title: 'Roadmap',
 			href: '#roadmap'
-		}
+		},
 		// {
 		// 	id: 5,
 		// 	title: 'Docs',
 		// 	href: 'https://docs.inferix.io/'
 		// }
+		{ id: 4, title: 'Partners', href: '#partners' }
 	];
 	const register = {
 		id: 6,
@@ -118,7 +119,7 @@
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
 		setActiveTab(id);
-		const space = screenSize > 768 ? 100 : 270;
+		const space = id == 4 ? 350 : screenSize > 768 ? 100 : 270;
 
 		if (tab) {
 			window.scrollTo({
@@ -182,8 +183,6 @@
 			ele.classList.add('back2-leave');
 		}
 	}
-
-
 </script>
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
@@ -193,61 +192,82 @@
 		{#if is_close}
 			{#if screenSize > 800}
 				<div class="transition-bar">
-					<div class="absolute right-0 top-2 z-30 cursor-pointer" on:click="{onCloseGuide}">
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x svelte-pwodhr" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg>
+					<div class="absolute right-0 top-2 z-30 cursor-pointer" on:click={onCloseGuide}>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="icon icon-tabler icon-tabler-x svelte-pwodhr"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="#597e8d"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"
+							></path><path d="M6 6l12 12"></path></svg
+						>
 					</div>
 					<div class="transition-action">
 						<div class="transition-item">
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://docs.inferix.io/mvp-tutorial"
-								   class="inline-flex h-full items-center gap-1">📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a>
+								<a
+									href="https://docs.inferix.io/mvp-tutorial"
+									class="inline-flex h-full items-center gap-1"
+									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://docs.inferix.io/por-release"
-								   class="inline text-rainbow"
-								>🚀 <span>Proof-of-Rendering Release</span></a>
+								<a href="https://docs.inferix.io/por-release" class="inline text-rainbow"
+									>🚀 <span>Proof-of-Rendering Release</span></a
+								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://inferix.io/register"
-								   class="inline"
-								>🚀 Alliance Campaign is LIVE - <span class="text-black">  Join now!</span></a>
+								<a href="https://inferix.io/register" class="inline"
+									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a
+								>
 							</div>
 						</div>
 						<div class="transition-item">
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://docs.inferix.io/mvp-tutorial"
-								   class="inline-flex h-full items-center gap-1">📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a>
+								<a
+									href="https://docs.inferix.io/mvp-tutorial"
+									class="inline-flex h-full items-center gap-1"
+									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://docs.inferix.io/por-release"
-								   class="inline text-rainbow"
-								>🚀 <span>Proof-of-Rendering Release</span></a>
+								<a href="https://docs.inferix.io/por-release" class="inline text-rainbow"
+									>🚀 <span>Proof-of-Rendering Release</span></a
+								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://inferix.io/register"
-								   class="inline"
-								>🚀 Alliance Campaign is LIVE - <span class="text-black">  Join now!</span></a>
+								<a href="https://inferix.io/register" class="inline"
+									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a
+								>
 							</div>
 						</div>
 					</div>
-
 				</div>
 			{:else}
 				<div class="transition-bar-mobile" id="guide-mobile">
 					<div class="transition-action">
 						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://docs.inferix.io/mvp-tutorial"
-							   class="inline-flex h-full items-center gap-1">📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a>
+							<a
+								href="https://docs.inferix.io/mvp-tutorial"
+								class="inline-flex h-full items-center gap-1"
+								>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+							>
 						</div>
 						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://docs.inferix.io/por-release"
-							   class="inline text-rainbow"
-							>🚀 <span>Proof-of-Rendering Release</span></a>
+							<a href="https://docs.inferix.io/por-release" class="inline text-rainbow"
+								>🚀 <span>Proof-of-Rendering Release</span></a
+							>
 						</div>
 						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://inferix.io/register"
-							   class="inline"
-							>🚀 Alliance Campaign is LIVE - <span class="text-black">  Join now!</span></a>
+							<a href="https://inferix.io/register" class="inline"
+								>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a
+							>
 						</div>
 					</div>
 				</div>
@@ -860,7 +880,7 @@
 		@apply flex gap-[30px] shrink-0 relative;
 		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		.transition-action {
-			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap ;
+			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap;
 			animation: slide-left 30s linear infinite;
 			&:hover {
 				animation-play-state: paused;
@@ -873,8 +893,7 @@
 	.transition-bar-mobile {
 		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		.transition-action {
-
-			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px] ;
+			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
 			animation: slide-left 10s linear infinite;
 			&:hover {
 				animation-play-state: paused;
@@ -883,7 +902,11 @@
 	}
 
 	@keyframes slide-left {
-		0% { transform: translateX(0%); }
-		100% { transform: translateX(-110%); }
+		0% {
+			transform: translateX(0%);
+		}
+		100% {
+			transform: translateX(-110%);
+		}
 	}
 </style>
