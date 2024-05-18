@@ -28,6 +28,20 @@
 
 	const partners = [
 		{
+			id: 14,
+			title: 'FutureMoney',
+			img: { name: FutureMoney, height: '85', mobile_height: '40px' },
+			href: 'https://www.fmgroup.xyz/',
+			is_half: true
+		},
+		{
+			id: 13,
+			title: 'ForesightX',
+			img: { name: ForesightX, height: '85px', mobile_height: '40px' },
+			href: 'https://www.foresightx.net/#/',
+			is_half: true
+		},
+		{
 			id: 1,
 			title: 'House3D',
 			img: { name: House3D, height: '70px', mobile_height: '40px' },
@@ -91,7 +105,10 @@
 			img: { name: AIxBlock, height: '85px', mobile_height: '40px' },
 			href: 'https://aixblock.org/',
 			is_half: true
-		},
+		}
+	];
+
+	const partner_more = [
 		{
 			id: 11,
 			title: 'Cudos',
@@ -105,24 +122,7 @@
 			img: { name: IOPay, height: '85px', mobile_height: '40px' },
 			href: 'https://iopay.me/',
 			is_half: true
-		},
-	];
-
-	const partner_more = [
-	{
-			id: 14,
-			title: 'FutureMoney',
-			img: { name: FutureMoney, height: '85', mobile_height: '40px' },
-			href: 'https://www.fmgroup.xyz/',
-			is_half: true
-		},
-		 {
-		 	id: 13,
-		 	title: 'ForesightX',
-		 	img: { name: ForesightX, height: '85px', mobile_height: '40px' },
-		 	href: 'https://www.foresightx.net/#/',
-		 	is_half: true
-		 },
+		}
 	];
 </script>
 
