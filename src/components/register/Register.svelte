@@ -34,7 +34,7 @@
 		background: #000;
 		display: flex;
 		flex-direction: column;
-		overflow-x: hidden;
+		overflow: hidden;
 	}
 
 	.register * {

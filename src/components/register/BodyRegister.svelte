@@ -14,6 +14,7 @@
 	var nodes = [{ id: 1, value: '' }];
 	let nav = 1;
 	let data = [];
+	let no_data_found = false;
 	let is_mobile = false;
 	let showed_address = '';
 	let showed_index;
@@ -168,22 +169,27 @@
 	}
 
 	async function fetchLeaderboard() {
-		await axios
-			.get('https://testnet-core.inferix.io/api/workers/statistics')
-			.then((response) => {
-				let temp_data = lo.map(lo.get(response, 'data.data'), (d) => {
-					return {
-						...d,
-						...{
-							point_converted: getPointConverted(lo.get(d, 'point', 0).toFixed(0)),
-							truncated_add: getTruncatedAddress(d.ownerAddress)
-						}
-					};
-				});
-				temp_data = lo.orderBy(temp_data, ['point'], ['desc']);
-				data = lo.take(temp_data, 20);
-			})
-			.catch((error) => console.log('Error: ' + error));
+		try {
+			await axios
+				.get('https://testnet-core.inferix.io/api/workers/statistics')
+				.then((response) => {
+					let temp_data = lo.map(lo.get(response, 'data.data'), (d) => {
+						return {
+							...d,
+							...{
+								point_converted: getPointConverted(lo.get(d, 'point', 0).toFixed(0)),
+								truncated_add: getTruncatedAddress(d.ownerAddress)
+							}
+						};
+					});
+					temp_data = lo.orderBy(temp_data, ['point'], ['desc']);
+					data = lo.take(temp_data, 20);
+					if (!lo.size(data)) no_data_found = true;
+				})
+				.catch((error) => console.log('Error: ' + error));
+		} catch (error) {
+			no_data_found = true;
+		}
 	}
 
 	function resize() {
@@ -377,16 +383,17 @@
 						<div>Wallet address</div>
 						<div>Point</div>
 					</div>
-					<div class="table-body">
-						{#each data as item, index (index)}
-							<div class="data-item">
-								<div><div>{index + 1}</div></div>
-								<div>
-									<div>{item.truncated_add}</div>
-								</div>
-								<div><div>{item.point_converted}</div></div>
-							</div>{/each}
-					</div>
+					{#if !no_data_found}<div class="table-body">
+							{#each data as item, index (index)}
+								<div class="data-item">
+									<div><div>{index + 1}</div></div>
+									<div>
+										<div>{item.truncated_add}</div>
+									</div>
+									<div><div>{item.point_converted}</div></div>
+								</div>{/each}
+						</div>
+					{:else}<div class="no-data-found"><div>No data found!</div></div>{/if}
 				</div>
 			</div>
 		</div>{/if}
@@ -521,7 +528,7 @@
 
 	.body-register > div:last-child > div > div:last-child {
 		flex-direction: column;
-		min-height: 105px;
+		//min-height: 105px;
 		gap: 8px;
 		border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.15));
 		padding: 16px;
@@ -635,7 +642,7 @@
 		max-width: 500%;
 		width: 1700px;
 		position: absolute;
-		top: -72%;
+		top: -680px;
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 0;
@@ -800,6 +807,20 @@
 
 	.table-body {
 		border-bottom: 1px solid #fff;
+	}
+
+	.no-data-found {
+		width: 100%;
+		height: 35px;
+		border: 1px solid #fff;
+		border-top: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.no-data-found > div {
+		color: #fff9;
 	}
 
 	.wallet-desc > div:first-child,
