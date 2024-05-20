@@ -17,6 +17,7 @@
 	import IOPay from '$images/png/iopay.svg';
 	import ForesightX from '$images/png/foresightx.png';
 	import FutureMoney from '$images/png/futuremoney.png';
+	import ShimaCapital from '$images/png/shima-capital.png';
 
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
@@ -27,6 +28,13 @@
 	let screenSize: number;
 
 	const partners = [
+	{
+			id: 15,
+			title: 'ShimaCapital',
+			img: { name: ShimaCapital, height: '85', mobile_height: '40px' },
+			href: 'https://shima.capital/',
+			is_half: true
+		},
 		{
 			id: 14,
 			title: 'FutureMoney',
@@ -105,10 +113,7 @@
 			img: { name: AIxBlock, height: '85px', mobile_height: '40px' },
 			href: 'https://aixblock.org/',
 			is_half: true
-		}
-	];
-
-	const partner_more = [
+		},
 		{
 			id: 11,
 			title: 'Cudos',
@@ -123,6 +128,10 @@
 			href: 'https://iopay.me/',
 			is_half: true
 		}
+	];
+
+	const partner_more = [
+
 	];
 </script>
 
