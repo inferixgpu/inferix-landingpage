@@ -18,6 +18,7 @@
 	import ForesightX from '$images/png/foresightx.png';
 	import FutureMoney from '$images/png/futuremoney.png';
 	import ShimaCapital from '$images/png/shima-capital.png';
+	import Icetea from '$images/png/icetea-io.svg';
 
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
@@ -28,7 +29,7 @@
 	let screenSize: number;
 
 	const partners = [
-	{
+		{
 			id: 15,
 			title: 'ShimaCapital',
 			img: { name: ShimaCapital, height: '85', mobile_height: '40px' },
@@ -127,12 +128,18 @@
 			img: { name: IOPay, height: '85px', mobile_height: '40px' },
 			href: 'https://iopay.me/',
 			is_half: true
+		},
+		{},
+		{
+			id: 16,
+			title: 'Icetea Labs',
+			img: { name: Icetea, height: '85px', mobile_height: '40px' },
+			href: 'https://icetea.io/',
+			is_half: true
 		}
 	];
 
-	const partner_more = [
-
-	];
+	const partner_more = [];
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
