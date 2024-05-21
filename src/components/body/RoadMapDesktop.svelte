@@ -129,7 +129,7 @@
 
 <style lang="postcss">
 	#roadmap {
-		margin-top: 200px;
+		margin-top: 120px;
 	}
 
 	#roadmap > div:last-child {

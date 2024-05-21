@@ -40,6 +40,7 @@
 			title: 'GPU Network',
 			href: 'https://dash.inferix.io/'
 		},
+		{ id: 4, title: 'Partners', href: '#partners' },
 		{
 			id: 3,
 			title: 'Roadmap',
@@ -50,7 +51,7 @@
 		// 	title: 'Docs',
 		// 	href: 'https://docs.inferix.io/'
 		// }
-		{ id: 4, title: 'Partners', href: '#partners' }
+
 	];
 	const register = {
 		id: 6,
@@ -119,7 +120,7 @@
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
 		setActiveTab(id);
-		const space = id == 4 ? 350 : screenSize > 768 ? 100 : 270;
+		const space = (id == 4|| id == 3) ? 150 : screenSize > 768 ? 100 : 270;
 
 		if (tab) {
 			window.scrollTo({
