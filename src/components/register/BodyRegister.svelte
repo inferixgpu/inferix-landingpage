@@ -27,7 +27,10 @@
 	}
 
 	function searchAddress(add) {
-		if (!add) return;
+		if (!add) {
+			searched_addresss = [];
+			return;
+		}
 		searched_addresss = lo.filter(data, (item) => {
 			const addMatch = item.ownerAddress.toLowerCase().includes(add.toLowerCase());
 			return addMatch;
@@ -188,17 +191,18 @@
 			await axios
 				.get('https://testnet-core.inferix.io/api/workers/statistics')
 				.then((response) => {
-					let temp_data = lo.map(lo.get(response, 'data.data'), (d) => {
+					let temp_data = lo.map(lo.get(response, 'data.data'), (d, index) => {
 						return {
 							...d,
 							...{
+								id: index + 1,
 								point_converted: getPointConverted(lo.get(d, 'point', 0).toFixed(0)),
 								truncated_add: getTruncatedAddress(d.ownerAddress)
 							}
 						};
 					});
 					data = lo.orderBy(temp_data, ['point'], ['desc']);
-					searched_addresss = data;
+
 					//data = lo.take(temp_data, 20);
 					if (!lo.size(lo.take(temp_data, 20))) no_data_found = true;
 				})
@@ -393,13 +397,7 @@
 				<div>Leaderboard Top 20 #ProQuest</div>
 				<div>Alliance Campaign</div>
 				<div>Last Updated: {moment(new Date().getTime()).format('MM/DD/YYYY, hh:mm:ss A')}</div>
-				<div class="search_address">
-					<input
-						placeholder="Type your address to search..."
-						value={search_add}
-						on:input={onInputAddress}
-					/>
-				</div>
+
 				<div class="leaderboard-table">
 					<div class="table-header">
 						<div>Rank</div>
@@ -407,9 +405,9 @@
 						<div>Point</div>
 					</div>
 					{#if !no_data_found}<div class="table-body">
-							{#each lo.take(searched_addresss, 20) as item, index (index)}
+							{#each lo.take(data, 20) as item, index (index)}
 								<div class="data-item">
-									<div><div>{index + 1}</div></div>
+									<div><div>{item.id}</div></div>
 									<div>
 										<div>{item.truncated_add}</div>
 									</div>
@@ -417,6 +415,23 @@
 								</div>{/each}
 						</div>
 					{:else}<div class="no-data-found"><div>No data found!</div></div>{/if}
+				</div>
+				<div class="search_address">
+					<input
+						placeholder="Type your address to search..."
+						value={search_add}
+						on:input={onInputAddress}
+					/>
+					<div class="table-body">
+						{#each lo.take(searched_addresss, 20) as item, index (index)}
+							<div class="data-item">
+								<div><div>{item.id}</div></div>
+								<div>
+									<div>{item.truncated_add}</div>
+								</div>
+								<div><div>{item.point_converted}</div></div>
+							</div>{/each}
+					</div>
 				</div>
 			</div>
 		</div>{/if}
@@ -707,7 +722,7 @@
 		margin-top: 8px;
 	}
 
-	.leaderboard > .leaderboard-content > .leaderboard-table:last-child {
+	.leaderboard > .leaderboard-content > .leaderboard-table {
 		max-width: 395px !important;
 		width: 395px;
 		border: none;
@@ -715,6 +730,7 @@
 		margin-top: 24px;
 		padding-top: 0;
 		padding-bottom: 35px;
+		flex-direction: column;
 	}
 
 	.table-header,
@@ -863,6 +879,15 @@
 
 	#submit_register:hover {
 		//background: linear-gradient(45deg, #00d6d9 0%, #00c085 100%);
+	}
+
+	.body-register > div:last-child > div > .search_address:last-child {
+		padding: 0;
+		border: none;
+
+		& > input {
+			color: #fff;
+		}
 	}
 
 	@media screen and (max-width: 1280px) {
