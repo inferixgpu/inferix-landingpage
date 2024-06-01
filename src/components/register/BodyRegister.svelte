@@ -18,6 +18,21 @@
 	let is_mobile = false;
 	let showed_address = '';
 	let showed_index;
+	let search_add = '';
+	let searched_addresss = [];
+
+	function onInputAddress(e) {
+		search_add = e.target.value;
+		searchAddress(search_add);
+	}
+
+	function searchAddress(add) {
+		if (!add) return;
+		searched_addresss = lo.filter(data, (item) => {
+			const addMatch = item.ownerAddress.toLowerCase().includes(add.toLowerCase());
+			return addMatch;
+		});
+	}
 
 	let isNullEmail = { status: true, message: '' };
 	let isNullWallet = false;
@@ -182,9 +197,10 @@
 							}
 						};
 					});
-					temp_data = lo.orderBy(temp_data, ['point'], ['desc']);
-					data = lo.take(temp_data, 20);
-					if (!lo.size(data)) no_data_found = true;
+					data = lo.orderBy(temp_data, ['point'], ['desc']);
+					searched_addresss = data;
+					//data = lo.take(temp_data, 20);
+					if (!lo.size(lo.take(temp_data, 20))) no_data_found = true;
 				})
 				.catch((error) => console.log('Error: ' + error));
 		} catch (error) {
@@ -377,6 +393,13 @@
 				<div>Leaderboard Top 20 #ProQuest</div>
 				<div>Alliance Campaign</div>
 				<div>Last Updated: {moment(new Date().getTime()).format('MM/DD/YYYY, hh:mm:ss A')}</div>
+				<div class="search_address">
+					<input
+						placeholder="Type your address to search..."
+						value={search_add}
+						on:input={onInputAddress}
+					/>
+				</div>
 				<div class="leaderboard-table">
 					<div class="table-header">
 						<div>Rank</div>
@@ -384,7 +407,7 @@
 						<div>Point</div>
 					</div>
 					{#if !no_data_found}<div class="table-body">
-							{#each data as item, index (index)}
+							{#each lo.take(searched_addresss, 20) as item, index (index)}
 								<div class="data-item">
 									<div><div>{index + 1}</div></div>
 									<div>
@@ -923,5 +946,18 @@
 	.data-item > div:nth-child(3) > div {
 		font-family: 'Roboto Mono', monospace;
 		font-size: 15px;
+	}
+
+	.search_address {
+		width: 395px;
+		padding: 16px;
+		padding-bottom: 0;
+
+		& > input {
+			width: 100%;
+			height: 30px;
+			padding-left: 10px;
+			color: #000;
+		}
 	}
 </style>
