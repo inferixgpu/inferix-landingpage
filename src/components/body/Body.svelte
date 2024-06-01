@@ -19,6 +19,9 @@
 	import FutureMoney from '$images/png/futuremoney.png';
 	import ShimaCapital from '$images/png/shima-capital.png';
 	import Icetea from '$images/png/icetea-io.svg';
+	import Wayru from '$images/png/wayru.png';
+	import MindNetwork from '$images/png/MindNetwork.png';
+	import DePHY from '$images/png/DePHY.png';
 
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
@@ -129,12 +132,33 @@
 			href: 'https://iopay.me/',
 			is_half: true
 		},
-		{},
 		{
 			id: 16,
 			title: 'Icetea Labs',
 			img: { name: Icetea, height: '85px', mobile_height: '40px' },
 			href: 'https://icetea.io/',
+			is_half: true
+		},
+		{
+			id: 17,
+			title: 'Wayru',
+			img: { name: Wayru, height: '85px', mobile_height: '40px' },
+			href: 'https://www.wayru.io/',
+			is_half: true
+		},
+		{
+			id: 18,
+			title: 'Mind Network',
+			img: { name: MindNetwork, height: '85px', mobile_height: '40px' },
+			href: 'https://mindnetwork.xyz/',
+			is_half: true
+		},
+		{},
+		{
+			id: 19,
+			title: 'DePHY',
+			img: { name: DePHY, height: '85px', mobile_height: '40px' },
+			href: 'https://dephy.io/',
 			is_half: true
 		}
 	];
@@ -179,7 +203,7 @@
 	<div>
 		<div
 			id="partners"
-			class="flex pb-0  max-sm:w-full lg:w-[894px] md:flex gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
+			class="flex pb-0 max-sm:w-full lg:w-[894px] md:flex gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
 		>
 			<Saos
 				once
