@@ -16,25 +16,28 @@
 	let data = [];
 	let no_data_found = false;
 	let is_mobile = false;
-	let showed_address = '';
-	let showed_index;
+	let enter = false;
 	let search_add = '';
 	let searched_addresss = [];
 
 	function onInputAddress(e) {
 		search_add = e.target.value;
-		searchAddress(search_add);
+	}
+
+	function handleKeydown(e) {
+		if (e.key === 'Enter') {
+			enter = true;
+			searchAddress(search_add);
+		}
 	}
 
 	function searchAddress(add) {
+		console.log(add, 'add');
 		if (!add) {
 			searched_addresss = [];
 			return;
 		}
-		searched_addresss = lo.filter(data, (item) => {
-			const addMatch = item.ownerAddress.toLowerCase().includes(add.toLowerCase());
-			return addMatch;
-		});
+		searched_addresss = lo.find(data, (item) => item.ownerAddress === add);
 	}
 
 	let isNullEmail = { status: true, message: '' };
@@ -416,21 +419,19 @@
 						</div>
 					{:else}<div class="no-data-found"><div>No data found!</div></div>{/if}
 				</div>
-				<div class="search_address">
+				<div class="search_address" style="gap: 0">
 					<input
-						placeholder="Type your address to search..."
+						placeholder="Type your address and enter to search..."
 						value={search_add}
 						on:input={onInputAddress}
+						on:keydown={handleKeydown}
 					/>
-					<div class="table-body">
-						{#each lo.take(searched_addresss, 20) as item, index (index)}
-							<div class="data-item">
-								<div><div>{item.id}</div></div>
-								<div>
-									<div>{item.truncated_add}</div>
-								</div>
-								<div><div>{item.point_converted}</div></div>
-							</div>{/each}
+					<div
+						style="width: 18%; min-width: 135px; display: flex; align-items: center; justify-content: flex-end;"
+					>
+						<div style="font-family: 'Roboto Mono', monospace; font-size: 15px;">
+							{enter ? lo.get(searched_addresss, 'point_converted', 'Not found!') : ''}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -882,8 +883,10 @@
 	}
 
 	.body-register > div:last-child > div > .search_address:last-child {
+		display: flex;
 		padding: 0;
 		border: none;
+		flex-direction: row;
 
 		& > input {
 			color: #fff;
