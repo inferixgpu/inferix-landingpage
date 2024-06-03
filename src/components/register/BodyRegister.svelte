@@ -32,7 +32,6 @@
 	}
 
 	function searchAddress(add) {
-		console.log(add, 'add');
 		if (!add) {
 			searched_addresss = [];
 			return;
