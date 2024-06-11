@@ -47,26 +47,27 @@
 <div class="bg-black flex flex-col items-center justify-center w-full">
 	<div class="footer-body">
 		<div class="flex flex-col gap-[18px] w-full max-md:hidden">
-			<img class="w-full" src={LineRow} />
-			<img class="w-full" src={LineRow} />
+			<img class="w-full" src={LineRow} alt="LingRow" />
+			<img class="w-full" src={LineRow} alt="LineRow" />
 		</div>
 		<div class="flex gap-[18px] md:hidden">
-			<img src={LineCol} />
-			<img src={LineCol} />
+			<img src={LineCol} alt="LineCol" />
+			<img src={LineCol} alt="LineCol" />
 		</div>
 		<div class="footer-content">
 			<div class="flex gap-[18px] max-md:hidden">
-				<img src={LineCol} />
-				<img src={LineCol} />
+				<img src={LineCol} alt="LineCol" />
+				<img src={LineCol} alt="LineCol" />
 			</div>
 			<div class="flex flex-col gap-[18px] w-full md:hidden">
-				<img class="w-full" src={LineRow} />
-				<img class="w-full" src={LineRow} />
+				<img class="w-full" src={LineRow} alt="LineRow" />
+				<img class="w-full" src={LineRow} alt="LineRow" />
 			</div>
 			<div class="content">
 				<img
 					class="md:w-[49%] lg:h-full 2xl:max-h-[292px] xl:max-h-[292px] max-h-[200px]"
 					src={FooterContent}
+					alt="FooterContent"
 				/>
 				<div class="md:w-[49%] flex flex-col gap-4 pr-2">
 					<p class="footer-content-paragraph">
@@ -119,21 +120,21 @@
 				</div>
 			</div>
 			<div class="flex flex-col gap-[18px] w-full md:hidden">
-				<img class="w-full" src={LineRow} />
-				<img class="w-full" src={LineRow} />
+				<img class="w-full" src={LineRow} alt="LineRow" />
+				<img class="w-full" src={LineRow} alt="LineRow" />
 			</div>
 			<div class="flex gap-[18px] max-md:hidden">
-				<img src={LineCol} />
-				<img src={LineCol} />
+				<img src={LineCol} alt="LineCol" />
+				<img src={LineCol} alt="LineCol" />
 			</div>
 		</div>
 		<div class="flex flex-col gap-[18px] w-full max-md:hidden">
-			<img class="w-full" src={LineRow} />
-			<img class="w-full" src={LineRow} />
+			<img class="w-full" src={LineRow} alt="LineRow" />
+			<img class="w-full" src={LineRow} alt="LineRow" />
 		</div>
 		<div class="flex gap-[18px] md:hidden">
-			<img src={LineCol} />
-			<img src={LineCol} />
+			<img src={LineCol} alt="LineCol" />
+			<img src={LineCol} alt="LineCol" />
 		</div>
 	</div>
 	<div
@@ -156,7 +157,7 @@
 			{#each medias as media (media.id)}
 				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
 					<a target="_blank" href={media.href}
-						><img src={media.icon} style="border-radius: 50%;" /></a
+						><img src={media.icon} alt={media.name} style="border-radius: 50%;" /></a
 					>
 				</div>
 			{/each}
@@ -178,7 +179,7 @@
 			{#each medias as media (media.id)}
 				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
 					<a target="_blank" href={media.href}
-						><img src={media.icon} style="border-radius: 50%;" /></a
+						><img src={media.icon} alt={media.name} style="border-radius: 50%;" /></a
 					>
 				</div>
 			{/each}
