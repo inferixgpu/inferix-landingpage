@@ -5,9 +5,9 @@
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import DownloadFailed from '$components/inferix/Modals/DownloadFailed.svelte';
-	import { Modal } from 'flowbite-svelte';
+	import {Modal} from 'flowbite-svelte';
 
-	import { afterUpdate, onMount } from 'svelte';
+	import {afterUpdate, onMount} from 'svelte';
 	import X from '$images/icons/Twitter.svg';
 	import M from '$images/icons/M.svg';
 	import D from '$images/icons/D.svg';
@@ -215,16 +215,17 @@
 								<a
 									href="https://docs.inferix.io/mvp-tutorial"
 									class="inline-flex h-full items-center gap-1"
+									aria-label="Read more"
 									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
 								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://docs.inferix.io/por-release" class="inline text-rainbow"
+								<a href="https://docs.inferix.io/por-release" class="inline text-rainbow" aria-label="Read more"
 									>🚀 <span>Proof-of-Rendering Release</span></a
 								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://inferix.io/register" class="inline"
+								<a href="https://inferix.io/register" class="inline" aria-label="Read more"
 									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a
 								>
 							</div>
@@ -234,16 +235,17 @@
 								<a
 									href="https://docs.inferix.io/mvp-tutorial"
 									class="inline-flex h-full items-center gap-1"
+									aria-label="Read more"
 									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
 								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://docs.inferix.io/por-release" class="inline text-rainbow"
+								<a href="https://docs.inferix.io/por-release" class="inline text-rainbow" aria-label="Read more"
 									>🚀 <span>Proof-of-Rendering Release</span></a
 								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://inferix.io/register" class="inline"
+								<a href="https://inferix.io/register" class="inline" aria-label="Read more"
 									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a
 								>
 							</div>
@@ -257,16 +259,17 @@
 							<a
 								href="https://docs.inferix.io/mvp-tutorial"
 								class="inline-flex h-full items-center gap-1"
+								aria-label="Read more"
 								>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
 							>
 						</div>
 						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://docs.inferix.io/por-release" class="inline text-rainbow"
+							<a href="https://docs.inferix.io/por-release" class="inline text-rainbow" aria-label="Read more"
 								>🚀 <span>Proof-of-Rendering Release</span></a
 							>
 						</div>
 						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://inferix.io/register" class="inline"
+							<a href="https://inferix.io/register" class="inline" aria-label="Read more"
 								>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a
 							>
 						</div>
@@ -283,7 +286,9 @@
 						href={tab.href}
 						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
 						id="item-tab-{tab.id}"
-						class="tab-item">{tab.title}</a
+						class="tab-item"
+						aria-label="Read more"
+					>{tab.title}</a
 					>
 				{/each}
 			</div>
@@ -291,12 +296,13 @@
 				<a
 					href={register.href}
 					on:click={(e) => handleClickTab(e, register.id, register.href)}
-					class="whitespace-nowrap">{register.title}</a
-				>
+					class="whitespace-nowrap"
+					aria-label="Read more"
+				>{register.title}</a>
 			</div>
 		</div>
 		<div class="header-bar-mobile">
-			<img class="h-[24px]" src={HeaderLogo} />
+			<img class="h-[24px]" src={HeaderLogo} alt="header-logo-inferix"/>
 			<div class="cursor-pointer" on:click={toggleMenu}>
 				<svg
 					width="40"
@@ -371,6 +377,7 @@
 							<a
 								href="https://h3d.me/ifxworkerwin"
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+								aria-label="Read more"
 							>
 								<img src={DownloadIcon} />
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
@@ -379,6 +386,7 @@
 								href="#"
 								on:click={() => downloadMacOS()}
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+								aria-label="Read more"
 							>
 								<img class="object-cover" src={DownloadIcon} />
 								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
@@ -388,9 +396,9 @@
 
 					<div class="basis-1/3 mt-4">
 						{#if !focusGPU}
-							<img class="ml-4" src={buttonGPU} />
+							<img class="ml-4" src={buttonGPU} alt="buttonGPU"/>
 						{:else}
-							<img class="ml-4" src={buttonGPUFocus} />
+							<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus"/>
 						{/if}
 					</div>
 				</div>
@@ -404,9 +412,9 @@
 					<img src={background_download_2} alt="back-download-2" />
 					<div class="basis-1/3 mt-4">
 						{#if !focusBtScreen}
-							<img class="-ml-4" src={buttonScreen} />
+							<img class="-ml-4" src={buttonScreen} alt="buttonScreen"/>
 						{:else}
-							<img class="-ml-4" src={buttonScreenFocus} />
+							<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus"/>
 						{/if}
 					</div>
 					<div
@@ -419,6 +427,7 @@
 							<a
 								href="https://h3d.me/ifxaddonblenderwin"
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+								aria-label="Read more"
 							>
 								<img src={DownloadIcon} />
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
@@ -427,6 +436,7 @@
 								href="#"
 								on:click={() => downloadMacOS()}
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+								aria-label="Read more"
 							>
 								<img class="object-cover" src={DownloadIcon} />
 								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
@@ -449,16 +459,18 @@
 					<a
 						href={tab.href}
 						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-						class="whitespace-nowrap">{tab.title}</a
+						class="whitespace-nowrap"
+						aria-label="Read more"
+					>{tab.title}</a
 					>
 				</div>
 			{/each}
 			<div class="flex justify-center opacity-60 gap-[20px] w-[100%] mt-[40px]">
 				{#each medias as media (media.id)}
 					<div>
-						<a target="_blank" href={media.href}
-							><img src={media.icon} class="h-[34px] w-[34px]" style="border-radius: 50%;" /></a
-						>
+						<a target="_blank" href={media.href} aria-label="Read more">
+							<img src={media.icon} class="h-[34px] w-[34px]" style="border-radius: 50%;" alt="icon"/>
+						</a>
 					</div>
 				{/each}
 			</div>
