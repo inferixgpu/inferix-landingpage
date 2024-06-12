@@ -45,13 +45,12 @@
 			id: 3,
 			title: 'Roadmap',
 			href: '#roadmap'
-		},
+		}
 		// {
 		// 	id: 5,
 		// 	title: 'Docs',
 		// 	href: 'https://docs.inferix.io/'
 		// }
-
 	];
 	const register = {
 		id: 6,
@@ -120,7 +119,7 @@
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
 		setActiveTab(id);
-		const space = (id == 4|| id == 3) ? 150 : screenSize > 768 ? 100 : 270;
+		const space = id == 4 || id == 3 ? 150 : screenSize > 768 ? 100 : 270;
 
 		if (tab) {
 			window.scrollTo({
@@ -279,7 +278,7 @@
 		{/if}
 
 		<div class="header-bar">
-			<img class="h-[24px]" src={HeaderLogo} />
+			<img class="h-[24px]" src={HeaderLogo} alt="HeaderLogo" />
 			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
 					<a
@@ -379,7 +378,7 @@
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 								aria-label="Read more"
 							>
-								<img src={DownloadIcon} />
+								<img src={DownloadIcon} alt="DownloadIcon" />
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
 							</a>
 							<a
@@ -388,7 +387,7 @@
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 								aria-label="Read more"
 							>
-								<img class="object-cover" src={DownloadIcon} />
+								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
 								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
 							</a>
 						</div>
@@ -429,7 +428,7 @@
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 								aria-label="Read more"
 							>
-								<img src={DownloadIcon} />
+								<img src={DownloadIcon} alt="DownloadIcon" />
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
 							</a>
 							<a
@@ -438,7 +437,7 @@
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 								aria-label="Read more"
 							>
-								<img class="object-cover" src={DownloadIcon} />
+								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
 								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
 							</a>
 						</div>

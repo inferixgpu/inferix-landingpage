@@ -47,8 +47,8 @@
 <div class="bg-black flex flex-col items-center justify-center w-full">
 	<div class="footer-body">
 		<div class="flex flex-col gap-[18px] w-full max-md:hidden">
-			<img class="w-full" src={LineRow} />
-			<img class="w-full" src={LineRow} />
+			<img class="w-full" src={LineRow} alt="LingRow" />
+			<img class="w-full" src={LineRow} alt="LineRow" />
 		</div>
 		<div class="flex gap-[18px] md:hidden">
 			<img src={LineCol} alt="icon"/>
@@ -156,9 +156,7 @@
 		>
 			{#each medias as media (media.id)}
 				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
-					<a target="_blank" href={media.href} aria-label="Read more"
-						><img src={media.icon} style="border-radius: 50%;" alt="icon"/></a
-					>
+					<a target="_blank" href={media.href} aria-label="Read more"><img src={media.icon} style="border-radius: 50%;" alt="icon"/></a>
 				</div>
 			{/each}
 		</div>
