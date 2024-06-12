@@ -31,7 +31,7 @@
 						</ul>
 					</div>
 					<div class="absolute">
-						<img src={Dot} alt="Dot" class="max-w-[24px] max-h-[24px]" />
+						<img src={Dot} class="max-w-[24px] max-h-[24px]" alt="icon"/>
 					</div>
 				</div>
 			</span>
@@ -48,7 +48,7 @@
 						</ul>
 					</div>
 					<div class="absolute">
-						<img src={Dot} alt="Dot" class="max-w-[24px] max-h-[24px]" />
+						<img src={Dot} class="max-w-[24px] max-h-[24px]" alt="icon"/>
 					</div>
 				</div>
 				<div><p class="title-timeline-item">Q3-2023</p></div>
@@ -66,7 +66,7 @@
 						</ul>
 					</div>
 					<div class="absolute">
-						<img src={Dot} alt="Dot" class="max-w-[24px] max-h-[24px]" />
+						<img src={Dot} class="max-w-[24px] max-h-[24px]" alt="icon"/>
 					</div>
 				</div>
 			</span>
@@ -83,7 +83,7 @@
 						</ul>
 					</div>
 					<div class="absolute">
-						<img src={Dot} alt="Dot" class="max-w-[24px] max-h-[24px]" />
+						<img src={Dot} class="max-w-[24px] max-h-[24px]" alt="icon"/>
 					</div>
 				</div>
 				<div><p class="title-timeline-item">Q1-2024 & Q2-2024</p></div>
@@ -102,7 +102,7 @@
 						</ul>
 					</div>
 					<div class="absolute">
-						<img src={Dot} alt="Dot" class="max-w-[24px] max-h-[24px]" />
+						<img src={Dot} class="max-w-[24px] max-h-[24px]" alt="icon"/>
 					</div>
 				</div>
 			</span>
@@ -118,7 +118,7 @@
 						</ul>
 					</div>
 					<div class="absolute">
-						<img src={Dot} alt="Dot" class="max-w-[24px] max-h-[24px]" />
+						<img src={Dot} class="max-w-[24px] max-h-[24px]" alt="icon"/>
 					</div>
 				</div>
 				<div><p class="title-timeline-item">Q4-2024</p></div>

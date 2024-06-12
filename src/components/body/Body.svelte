@@ -224,8 +224,9 @@
 								class="partner-item"
 								href={partner.href}
 								target="_blank"
+								aria-label="Read more"
 							>
-								<img src={partner.img.name} alt={partner.title} />
+								<img src={partner.img.name} alt="partner"/>
 							</a>{/if}
 					{/each}
 					{#each partner_more as partner (partner.id)}
@@ -233,7 +234,8 @@
 								class="partner-item-last"
 								href={partner.href}
 								target="_blank"
-								><div><img src={partner.img.name} alt={partner.title} /></div>
+								aria-label="Read more"
+								><div><img src={partner.img.name} alt="partner"/></div>
 							</a>{/if}
 					{/each}
 				</div>

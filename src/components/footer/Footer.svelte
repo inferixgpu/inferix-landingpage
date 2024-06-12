@@ -51,17 +51,17 @@
 			<img class="w-full" src={LineRow} alt="LineRow" />
 		</div>
 		<div class="flex gap-[18px] md:hidden">
-			<img src={LineCol} alt="LineCol" />
-			<img src={LineCol} alt="LineCol" />
+			<img src={LineCol} alt="icon"/>
+			<img src={LineCol} alt="icon"/>
 		</div>
 		<div class="footer-content">
 			<div class="flex gap-[18px] max-md:hidden">
-				<img src={LineCol} alt="LineCol" />
-				<img src={LineCol} alt="LineCol" />
+				<img src={LineCol} alt="icon"/>
+				<img src={LineCol} alt="icon"/>
 			</div>
 			<div class="flex flex-col gap-[18px] w-full md:hidden">
-				<img class="w-full" src={LineRow} alt="LineRow" />
-				<img class="w-full" src={LineRow} alt="LineRow" />
+				<img class="w-full" src={LineRow} alt="icon"/>
+				<img class="w-full" src={LineRow} alt="icon"/>
 			</div>
 			<div class="content">
 				<img
@@ -120,21 +120,21 @@
 				</div>
 			</div>
 			<div class="flex flex-col gap-[18px] w-full md:hidden">
-				<img class="w-full" src={LineRow} alt="LineRow" />
-				<img class="w-full" src={LineRow} alt="LineRow" />
+				<img class="w-full" src={LineRow} alt="icon"/>
+				<img class="w-full" src={LineRow} alt="icon"/>
 			</div>
 			<div class="flex gap-[18px] max-md:hidden">
-				<img src={LineCol} alt="LineCol" />
-				<img src={LineCol} alt="LineCol" />
+				<img src={LineCol} alt="icon"/>
+				<img src={LineCol} alt="icon"/>
 			</div>
 		</div>
 		<div class="flex flex-col gap-[18px] w-full max-md:hidden">
-			<img class="w-full" src={LineRow} alt="LineRow" />
-			<img class="w-full" src={LineRow} alt="LineRow" />
+			<img class="w-full" src={LineRow} alt="icon"/>
+			<img class="w-full" src={LineRow} alt="icon"/>
 		</div>
 		<div class="flex gap-[18px] md:hidden">
-			<img src={LineCol} alt="LineCol" />
-			<img src={LineCol} alt="LineCol" />
+			<img src={LineCol} alt="icon"/>
+			<img src={LineCol} alt="icon"/>
 		</div>
 	</div>
 	<div
@@ -145,7 +145,7 @@
 			style="background: #111;"
 		>
 			<a href="https://inferix.io/">
-				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
+				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]"/>
 			</a>
 			<p class="font-base font-outfit font-normal mt-4 md:mt-0 text-white whitespace-nowrap">
 				Decentralized GPU Network
@@ -156,9 +156,7 @@
 		>
 			{#each medias as media (media.id)}
 				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
-					<a target="_blank" href={media.href}
-						><img src={media.icon} alt={media.name} style="border-radius: 50%;" /></a
-					>
+					<a target="_blank" href={media.href} aria-label="Read more"><img src={media.icon} style="border-radius: 50%;" alt="icon"/></a>
 				</div>
 			{/each}
 		</div>
@@ -178,9 +176,9 @@
 		<div class="flex flex-row gap-5 mb-[20px]">
 			{#each medias as media (media.id)}
 				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
-					<a target="_blank" href={media.href}
-						><img src={media.icon} alt={media.name} style="border-radius: 50%;" /></a
-					>
+					<a target="_blank" href={media.href}> aria-label="Read more"
+						<img src={media.icon} style="border-radius: 50%;" alt="icon"/>
+					</a>
 				</div>
 			{/each}
 		</div>
