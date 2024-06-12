@@ -174,6 +174,7 @@
 			<img
 				class="w-[256px] h-[52px] mt-[680px] max-md:w-[185px] max-md:h-[37px]"
 				src={innovatedHeader}
+				alt="innovatedHeader"
 			/>
 			<div class="innovated-header-content">
 				<p class="max-sm:hidden">An innovated platform for 3D rendering and AI</p>
@@ -224,7 +225,7 @@
 								href={partner.href}
 								target="_blank"
 							>
-								<img src={partner.img.name} />
+								<img src={partner.img.name} alt={partner.title} />
 							</a>{/if}
 					{/each}
 					{#each partner_more as partner (partner.id)}
@@ -232,7 +233,7 @@
 								class="partner-item-last"
 								href={partner.href}
 								target="_blank"
-								><div><img src={partner.img.name} /></div>
+								><div><img src={partner.img.name} alt={partner.title} /></div>
 							</a>{/if}
 					{/each}
 				</div>

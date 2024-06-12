@@ -45,13 +45,12 @@
 			id: 3,
 			title: 'Roadmap',
 			href: '#roadmap'
-		},
+		}
 		// {
 		// 	id: 5,
 		// 	title: 'Docs',
 		// 	href: 'https://docs.inferix.io/'
 		// }
-
 	];
 	const register = {
 		id: 6,
@@ -120,7 +119,7 @@
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
 		setActiveTab(id);
-		const space = (id == 4|| id == 3) ? 150 : screenSize > 768 ? 100 : 270;
+		const space = id == 4 || id == 3 ? 150 : screenSize > 768 ? 100 : 270;
 
 		if (tab) {
 			window.scrollTo({
@@ -276,7 +275,7 @@
 		{/if}
 
 		<div class="header-bar">
-			<img class="h-[24px]" src={HeaderLogo} />
+			<img class="h-[24px]" src={HeaderLogo} alt="HeaderLogo" />
 			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
 					<a
@@ -296,7 +295,7 @@
 			</div>
 		</div>
 		<div class="header-bar-mobile">
-			<img class="h-[24px]" src={HeaderLogo} />
+			<img class="h-[24px]" src={HeaderLogo} alt="HeaderLogo" />
 			<div class="cursor-pointer" on:click={toggleMenu}>
 				<svg
 					width="40"
@@ -372,7 +371,7 @@
 								href="https://h3d.me/ifxworkerwin"
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 							>
-								<img src={DownloadIcon} />
+								<img src={DownloadIcon} alt="DownloadIcon" />
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
 							</a>
 							<a
@@ -380,7 +379,7 @@
 								on:click={() => downloadMacOS()}
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 							>
-								<img class="object-cover" src={DownloadIcon} />
+								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
 								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
 							</a>
 						</div>
@@ -388,9 +387,9 @@
 
 					<div class="basis-1/3 mt-4">
 						{#if !focusGPU}
-							<img class="ml-4" src={buttonGPU} />
+							<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
 						{:else}
-							<img class="ml-4" src={buttonGPUFocus} />
+							<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus" />
 						{/if}
 					</div>
 				</div>
@@ -404,9 +403,9 @@
 					<img src={background_download_2} alt="back-download-2" />
 					<div class="basis-1/3 mt-4">
 						{#if !focusBtScreen}
-							<img class="-ml-4" src={buttonScreen} />
+							<img class="-ml-4" src={buttonScreen} alt="buttonScreen" />
 						{:else}
-							<img class="-ml-4" src={buttonScreenFocus} />
+							<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus" />
 						{/if}
 					</div>
 					<div
@@ -420,7 +419,7 @@
 								href="https://h3d.me/ifxaddonblenderwin"
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 							>
-								<img src={DownloadIcon} />
+								<img src={DownloadIcon} alt="DownloadIcon" />
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
 							</a>
 							<a
@@ -428,7 +427,7 @@
 								on:click={() => downloadMacOS()}
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 							>
-								<img class="object-cover" src={DownloadIcon} />
+								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
 								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
 							</a>
 						</div>
@@ -457,7 +456,12 @@
 				{#each medias as media (media.id)}
 					<div>
 						<a target="_blank" href={media.href}
-							><img src={media.icon} class="h-[34px] w-[34px]" style="border-radius: 50%;" /></a
+							><img
+								src={media.icon}
+								alt={media.name}
+								class="h-[34px] w-[34px]"
+								style="border-radius: 50%;"
+							/></a
 						>
 					</div>
 				{/each}
