@@ -1,9 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Box from '$images/icons/Box.svg';
-	import ProofOfRendering from '$images/icons/ProofOfRendering.svg';
-	import DataHub from '$images/icons/DataHub.svg';
-	import Vr from '$images/icons/Vr.svg';
 	import House3D from '$images/png/House3D_white.svg';
 	import Actif3D from '$images/png/actif3D.svg';
 	import I from '$images/icons/I-uppercase.svg';
@@ -34,69 +30,12 @@
 	import line from '$images/icons/line.svg';
 	import line_2 from '$images/icons/line_2.svg';
 	import line_2_mobile from '$images/icons/line_2_mobile.svg';
-	import { gsap } from 'gsap';
-	import lo from 'lodash';
+	import size from 'lodash.size';
 	import dr from '$images/png/dr.png';
+	import { gsap } from 'gsap';
 
 	let screenSize: number;
 	let tl = gsap.timeline({ repeat: -1 });
-
-	function setDefaultStyle() {
-		const device = document.querySelector('.proven-device > img');
-		let fans = document.querySelectorAll('.proven-device > img:nth-child(n + 2):nth-child(-n + 4)');
-		return;
-		for (let i = 0; i < fans.length; i++) {
-			fans[i].width = `${(device.width * 85) / 300}px`;
-		}
-	}
-
-	function drawCustomLine() {
-		const dr = document.querySelector('#dr');
-		const por = document.querySelector('#por');
-		const d3dh = document.querySelector('#d3dh');
-		const wac = document.querySelector('#wac');
-		const text = document.querySelector('.proven-text');
-
-		const line1 = document.querySelector('#custom_line_1');
-		const line2 = document.querySelector('#custom_line_2');
-		const line3 = document.querySelector('#custom_line_3');
-		const line4 = document.querySelector('#custom_line_4');
-		const line5 = document.querySelector('#custom_line_5');
-		var cl = gsap.timeline();
-		cl.fromTo(
-			line1,
-			{
-				height: '500px',
-				top: `${
-					dr.offsetTop - dr.offsetParent.offsetTop + dr.offsetHeight / 2 - text.offsetHeight
-				}px`,
-				left: '449px'
-			},
-			{
-				height: '500px',
-				top: `${
-					dr.offsetTop - dr.offsetParent.offsetTop + dr.offsetHeight / 2 - text.offsetHeight
-				}px`,
-				duration: 0
-			}
-		);
-
-		cl.fromTo(
-			line2,
-			{
-				height: '1px',
-				width: '10px',
-				top: `${
-					dr.offsetTop - dr.offsetParent.offsetTop + dr.offsetHeight / 2 - text.offsetHeight
-				}px`,
-				left: '449px'
-			},
-			{
-				height: '1px'
-			}
-		);
-		cl.play();
-	}
 
 	function sleep(milisecond) {
 		return new Promise((resolve) => setTimeout(resolve, milisecond));
@@ -106,7 +45,7 @@
 		let ch = document.querySelectorAll('.proven-text > div > img:first-child');
 		let ch_color = document.querySelectorAll('.proven-text > div > img:last-child');
 
-		for (let i = 0; i < lo.size(ch); i++) {
+		for (let i = 0; i < size(ch); i++) {
 			gsap.to(ch[i], {
 				opacity: 1,
 				duration: 0.3,
@@ -282,7 +221,6 @@
 
 	onMount(async () => {
 		await setTimeout(() => {}, 0);
-		setDefaultStyle();
 		let fans = document.querySelectorAll('.proven-device > img:nth-child(n + 2):nth-child(-n + 4)');
 		for (let i = 0; i < fans.length; i++) {
 			gsap.to(fans[i], {

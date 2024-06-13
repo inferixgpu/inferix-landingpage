@@ -78,7 +78,7 @@
 				<div class="item-container flex flex-row p-4 relative gap-10">
 					<div class="roadmap-item bg-[#2D2C30] w-full">
 						<div class="absolute flex justify-start items-center left-[-13px] top-[0px]">
-							<img src={Dot} class="max-w-[24px] max-h-[24px]" />
+							<img src={Dot} class="max-w-[24px] max-h-[24px]" alt="dot" />
 							<p class="title-timeline-item">{rm.title}</p>
 						</div>
 						<div class="basis-1/12" />

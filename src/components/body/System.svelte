@@ -99,9 +99,9 @@
 	}
 
 	onMount(() => {
-		window.onbeforeunload = function () {
-			window.scrollTo(0, 0);
-		};
+		// window.onbeforeunload = function () {
+		// 	window.scrollTo(0, 0);
+		// };
 		setDefault();
 		autoAnimate();
 	});
@@ -118,11 +118,11 @@
 	</div>
 	<div class="system-content">
 		<div class="system-content-img">
-			<img src={how_work_1} alt="how_work_1" />
-			<img src={how_work_2} alt="how_work_2" />
+			<img src={how_work_1} alt="how_work_1" loading="lazy" />
+			<img src={how_work_2} alt="how_work_2" loading="lazy" />
 		</div>
 		<div class="how-work-btn">
-			<div class="prev" on:click={() => handlePrev()}>
+			<div role="button" tabindex="0" class="prev" on:click={() => handlePrev()}>
 				<img src={prev_grey} alt="prev-grey" />
 				<img src={prev_light} alt="prev-light" />
 			</div>
@@ -130,7 +130,7 @@
 				<div id="slide-dot-1" />
 				<div id="slide-dot-2" />
 			</div>
-			<div class="next" on:click={() => handleNext()}>
+			<div role="button" tabindex="0" class="next" on:click={() => handleNext()}>
 				<img src={next_grey} alt="next-grey" />
 				<img src={next_light} alt="next-light" />
 			</div>
@@ -157,102 +157,6 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.wk-bg {
-		background: #212023;
-	}
-
-	.span-network {
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 20px; /* 142.857% */
-		background: var(--4, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		border-radius: 8px;
-		border: 1px solid var(--4, #00d6d9);
-		display: flex;
-		padding: 8px;
-		justify-content: center;
-		align-items: center;
-		gap: 8px;
-		align-self: stretch;
-	}
-
-	.span-block {
-		display: flex;
-		padding: 16px;
-		justify-content: center;
-		align-items: center;
-		gap: 8px;
-		border-radius: 16px;
-		border: 1px solid var(--4, #00d6d9);
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 24px; /* 150% */
-		background: var(--4, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
-	.span-decentralized {
-		display: flex;
-		position: relative;
-		width: 220px;
-		height: 108px;
-		padding: 24px;
-		justify-content: center;
-		align-items: center;
-		gap: 8px;
-		border-radius: 16px;
-		border: 1px solid var(--4, #00d6d9);
-		text-align: center;
-		font-size: 20px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 30px; /* 150% */
-		background: var(--4, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
-	.absolute-text {
-		text-align: center;
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 20px; /* 142.857% */
-		background: linear-gradient(267deg, #00d6d9 2.37%, #00c085 104.79%);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
-	.absolute-span {
-		display: flex;
-		padding: 12px;
-		justify-content: center;
-		align-items: center;
-		gap: 8px;
-		position: absolute;
-		border-radius: 16px;
-		border: 1px solid #00d6d9;
-		background: #413f45;
-	}
-
-	.title-item-architect {
-		color: #fff;
-		text-align: center;
-		font-size: 32px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 40px; /* 125% */
-	}
-
 	.system-content-img {
 		@apply lg:mx-40px xl:mx-auto;
 		position: relative;
@@ -311,10 +215,6 @@
 		height: 20px;
 		border-radius: 50%;
 		border: 1px solid #ddd;
-		&.slider-active {
-			background: #fefefe;
-			filter: drop-shadow(0px 0px 4px rgba(254, 254, 254, 0.9));
-		}
 	}
 
 	@media screen and (max-width: 768px) {
