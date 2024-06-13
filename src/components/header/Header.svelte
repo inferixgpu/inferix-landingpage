@@ -5,9 +5,8 @@
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import DownloadFailed from '$components/inferix/Modals/DownloadFailed.svelte';
-	import {Modal} from 'flowbite-svelte';
-
-	import {afterUpdate, onMount} from 'svelte';
+	import Modal from '$components/utils/Modal.svelte';
+	import { afterUpdate, onMount } from 'svelte';
 	import X from '$images/icons/Twitter.svg';
 	import M from '$images/icons/M.svg';
 	import D from '$images/icons/D.svg';
@@ -22,12 +21,7 @@
 	import background_download_2 from '$images/png/background-download-2.png';
 
 	let textIndex = 0;
-
 	let activeTab = 6;
-
-	const setActiveTab = (tab: number) => {
-		activeTab = tab;
-	};
 
 	const tabs = [
 		{
@@ -64,46 +58,33 @@
 		{ id: 4, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y },
 		{ id: 5, name: 'Warpcast', href: 'https://warpcast.com/inferixgpu', icon: W }
 	];
-
 	let screenSize: number;
 	let y: number;
-
 	let isOpen = false;
 	let showModal = false;
 	let downloadShowModal = false;
+	function closeDownloadModal() {
+		downloadShowModal = false;
+	}
 
+	function closeModal() {
+		showModal = false;
+	}
 	afterUpdate(() => {
 		if (typeof window !== 'undefined') {
 			if (isOpen) {
 				// Prevent scrolling when the menu is open
 				document.documentElement.style.overflowY = 'hidden';
-				document.addEventListener('touchmove', preventDefaultScroll, {
+				document.addEventListener('touchmove', (e) => e.preventDefault(), {
 					passive: false
 				});
 			} else {
 				// Re-enable scrolling when the menu is closed
 				document.documentElement.style.overflowY = 'auto';
-				document.removeEventListener('touchmove', preventDefaultScroll);
+				document.removeEventListener('touchmove', (e) => e.preventDefault());
 			}
 		}
 	});
-
-	function preventDefaultScroll(e: TouchEvent) {
-		e.preventDefault();
-	}
-
-	const toggleMenu = () => {
-		isOpen = true;
-	};
-
-	const closeMenu = () => {
-		isOpen = false;
-	};
-
-	function downloadMacOS() {
-		downloadShowModal = true;
-	}
-
 	function handleClickTab(e: MouseEvent, id: number, href: string) {
 		let tabItems = document.getElementsByClassName('tab-item');
 		for (let i = 0; i < tabItems.length; i++) {
@@ -111,14 +92,11 @@
 		}
 		if (id != 6) document.getElementById(`item-tab-${id}`).classList.add('tab-active');
 		if (id === 2 || id === 5) return;
-		if (id === 6) {
-			showModal = true;
-		}
-
+		if (id === 6) showModal = true;
 		e.preventDefault();
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
-		setActiveTab(id);
+		activeTab = id;
 		const space = id == 4 || id == 3 ? 150 : screenSize > 768 ? 100 : 270;
 
 		if (tab) {
@@ -126,36 +104,21 @@
 				top: tab.offsetTop - space,
 				behavior: 'smooth'
 			});
-		}
-		if (screenSize < 768) {
-			isOpen = false;
+			if (screenSize < 768) isOpen = false;
 		}
 	}
-
 	function autoPlay() {
 		setTimeout(() => {
 			textIndex = (textIndex + 1) % 2;
 			autoPlay();
 		}, 4000);
 	}
-
 	let is_close = true;
-
-	function onCloseGuide() {
-		is_close = false;
-	}
-
 	let forceUpdate = 0;
-
-	function updateUI() {
-		forceUpdate += 1;
-	}
-
 	onMount(() => {
 		autoPlay();
-		window.addEventListener('resize', updateUI);
+		window.addEventListener('resize', () => (forceUpdate += 1));
 	});
-
 	let focusGPU = false;
 	function focusButtonGPU(status) {
 		if (screenSize < 768) return;
@@ -186,13 +149,17 @@
 </script>
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
-
 <div class="header-container" style="font-family: Inter">
 	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
 		{#if is_close}
 			{#if screenSize > 800}
 				<div class="transition-bar">
-					<div class="absolute right-0 top-2 z-30 cursor-pointer" on:click={onCloseGuide}>
+					<div
+						class="absolute right-0 top-2 z-30 cursor-pointer"
+						role="button"
+						tabindex="0"
+						on:click={() => (is_close = false)}
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							class="icon icon-tabler icon-tabler-x svelte-pwodhr"
@@ -219,8 +186,10 @@
 								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://docs.inferix.io/por-release" class="inline text-rainbow" aria-label="Read more"
-									>🚀 <span>Proof-of-Rendering Release</span></a
+								<a
+									href="https://docs.inferix.io/por-release"
+									class="inline text-rainbow"
+									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
 								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
@@ -239,8 +208,10 @@
 								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://docs.inferix.io/por-release" class="inline text-rainbow" aria-label="Read more"
-									>🚀 <span>Proof-of-Rendering Release</span></a
+								<a
+									href="https://docs.inferix.io/por-release"
+									class="inline text-rainbow"
+									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
 								>
 							</div>
 							<div class="flex basis-1/3 justify-center shrink-0">
@@ -263,8 +234,10 @@
 							>
 						</div>
 						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://docs.inferix.io/por-release" class="inline text-rainbow" aria-label="Read more"
-								>🚀 <span>Proof-of-Rendering Release</span></a
+							<a
+								href="https://docs.inferix.io/por-release"
+								class="inline text-rainbow"
+								aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
 							>
 						</div>
 						<div class="flex basis-1/3 justify-center shrink-0">
@@ -283,26 +256,29 @@
 				{#each tabs as tab (tab.id)}
 					<a
 						href={tab.href}
+						role="button"
+						tabindex="0"
 						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
 						id="item-tab-{tab.id}"
 						class="tab-item"
-						aria-label="Read more"
-					>{tab.title}</a
+						aria-label="Read more">{tab.title}</a
 					>
 				{/each}
 			</div>
 			<div class="register-button">
 				<a
 					href={register.href}
+					role="button"
+					tabindex="0"
 					on:click={(e) => handleClickTab(e, register.id, register.href)}
 					class="whitespace-nowrap"
-					aria-label="Read more"
-				>{register.title}</a>
+					aria-label="Read more">{register.title}</a
+				>
 			</div>
 		</div>
 		<div class="header-bar-mobile">
-			<img class="h-[24px]" src={HeaderLogo} alt="header-logo-inferix"/>
-			<div class="cursor-pointer" on:click={toggleMenu}>
+			<img class="h-[24px]" src={HeaderLogo} alt="header-logo-inferix" />
+			<div class="cursor-pointer" role="button" tabindex="0" on:click={() => (isOpen = true)}>
 				<svg
 					width="40"
 					height="40"
@@ -365,6 +341,8 @@
 		>
 			<div class="item-border-1">
 				<div
+					role="button"
+					tabindex="0"
 					class="item-download-1 cursor-pointer"
 					on:mouseenter={() => focusButtonGPU(true)}
 					on:mouseleave={() => focusButtonGPU(false)}
@@ -382,8 +360,10 @@
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
 							</a>
 							<a
-								href="#"
-								on:click={() => downloadMacOS()}
+								href="javascript:void(0)"
+								role="button"
+								tabindex="0"
+								on:click={() => (downloadShowModal = true)}
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 								aria-label="Read more"
 							>
@@ -395,9 +375,9 @@
 
 					<div class="basis-1/3 mt-4">
 						{#if !focusGPU}
-							<img class="ml-4" src={buttonGPU} alt="buttonGPU"/>
+							<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
 						{:else}
-							<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus"/>
+							<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus" />
 						{/if}
 					</div>
 				</div>
@@ -411,9 +391,9 @@
 					<img src={background_download_2} alt="back-download-2" />
 					<div class="basis-1/3 mt-4">
 						{#if !focusBtScreen}
-							<img class="-ml-4" src={buttonScreen} alt="buttonScreen"/>
+							<img class="-ml-4" src={buttonScreen} alt="buttonScreen" />
 						{:else}
-							<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus"/>
+							<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus" />
 						{/if}
 					</div>
 					<div
@@ -432,8 +412,10 @@
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
 							</a>
 							<a
-								href="#"
-								on:click={() => downloadMacOS()}
+								href="javascript:void(0)"
+								role="button"
+								tabindex="0"
+								on:click={() => (downloadShowModal = true)}
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 								aria-label="Read more"
 							>
@@ -450,26 +432,39 @@
 		<div
 			class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full bg-bg box-border pt-[86px] relative p-[30px]"
 		>
-			<a href="https://inferix.io/" class="absolute top-[20px]" on:click={closeMenu}>
+			<a
+				href="https://inferix.io/"
+				class="absolute top-[20px]"
+				role="button"
+				tabindex="0"
+				on:click={() => (isOpen = false)}
+			>
 				<img src={HeaderLogo} alt="Inferix" class="w-[158px] h-[32px]" />
 			</a>
 			{#each tabs as tab (tab.id)}
 				<div class="header-tab-mobile tab opacity-60">
 					<a
 						href={tab.href}
+						role="button"
+						tabindex="0"
 						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
 						class="whitespace-nowrap"
-						aria-label="Read more"
-					>{tab.title}</a
+						aria-label="Read more">{tab.title}</a
 					>
 				</div>
 			{/each}
 			<div class="flex justify-center opacity-60 gap-[20px] w-[100%] mt-[40px]">
 				{#each medias as media (media.id)}
 					<div>
-						<a target="_blank" href={media.href} aria-label="Read more">
-							<img src={media.icon} class="h-[34px] w-[34px]" style="border-radius: 50%;" alt="icon"/>
-						</a>
+						<a target="_blank" href={media.href}
+							><img
+								src={media.icon}
+								alt={media.name}
+								loading="lazy"
+								class="h-[34px] w-[34px]"
+								style="border-radius: 50%;"
+							/></a
+						>
 					</div>
 				{/each}
 			</div>
@@ -477,15 +472,17 @@
 
 		<div
 			class={`${isOpen ? 'block' : 'hidden'} top-4 absolute right-5 cursor-pointer z-20`}
-			on:click={closeMenu}
+			role="button"
+			tabindex="0"
+			on:click={() => (isOpen = false)}
 		>
 			<img src={Close} alt="close icon" />
 		</div>
 	</div>
-	<Modal bind:open={downloadShowModal} defaultClass="!rounded-[20px]">
+	<Modal bind:show={downloadShowModal} on:close={closeDownloadModal}>
 		<DownloadFailed />
 	</Modal>
-	<Modal bind:open={showModal} defaultClass="!rounded-[20px]">
+	<Modal bind:show={showModal} on:close={closeModal}>
 		<SignUpModal />
 	</Modal>
 </div>
@@ -503,82 +500,45 @@
 			background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		}
 	}
-
 	.video-overlay-container {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 		@apply overflow-hidden absolute left-0 right-0 top-0 bottom-0 md:flex justify-center items-center flex-col;
 	}
-
 	.shadow-text {
 		filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 	}
-
 	.active {
 		border-radius: 100px;
 		background: var(--4, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		color: #00d6d9;
 	}
-
 	.overlay {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 	}
-
 	.overlayMobile {
 		transition: left 0.6s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 		overflow: hidden;
 		width: 100%;
 		left: -100%;
 	}
-
 	.overlayMobile.open {
 		left: 0;
 	}
-
 	:global(strong) {
 		color: #00d6d9 !important;
 	}
-
 	.centerPosition {
 		transform: translateX(-50%);
 	}
-
 	.trialButton {
 		filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 		width: 160px;
 		height: 54px;
 	}
-
 	.trialButton:hover {
 		background: rgba(0, 0, 0, 0.69);
 		border-radius: 28px;
 	}
-
-	.download-btn {
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
-		@apply flex flex-row justify-start items-center w-[265px] h-[75px] md:w-[265px] md:h-[75px] drop-shadow text-xs md:text-lg;
-		border-radius: 16px;
-		background: var(--3, #2d2c30);
-		padding: 16px 24px;
-		gap: 24px;
-	}
-
-	.download-btn > span > img {
-		@apply w-[30px] md:w-[40px] h-[30px] md:h-[40px];
-	}
-
-	.download-btn > img {
-		@apply w-[12px] md:w-[14px] h-[12px] md:h-[14px];
-	}
-
-	.download-btn > div > span {
-		color: #fff;
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 20px; /* 125% */
-	}
-
 	.download-options {
 		color: #fff;
 		font-size: 12px;
@@ -588,9 +548,6 @@
 		opacity: 0.6;
 		@apply flex flex-row justify-center items-center gap-1;
 	}
-	h1 {
-		line-height: normal;
-	}
 	.header-bar-mobile {
 		@apply md:hidden flex justify-between items-center;
 		border-bottom: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
@@ -598,7 +555,6 @@
 		backdrop-filter: blur(16px);
 		padding: 8px 10px;
 	}
-
 	.item-border-1 {
 		@apply relative;
 		.item-download-1 {
@@ -607,7 +563,6 @@
 			border-radius: 20px 0px 0px 20px;
 			position: relative;
 			overflow: hidden;
-
 			&::before {
 				content: '';
 				background: conic-gradient(transparent 270deg, rgb(0, 192, 133), white, transparent);
@@ -620,7 +575,6 @@
 				//rotate: 0.1turn;
 				//animation: rotate 1s linear infinite forwards;
 			}
-
 			&::after {
 				content: '';
 				background: inherit;
@@ -628,17 +582,14 @@
 				position: absolute;
 				inset: 1px;
 			}
-
 			&.back-hover::before {
 				animation: rotate 0.3s linear forwards;
 			}
-
 			&.back-leave::before {
 				animation: revert_rotate 0.3s linear forwards;
 			}
 		}
 	}
-
 	@keyframes rotate {
 		from {
 			transform: translate(-50%, -50%) scale(1.4) rotate(65deg);
@@ -648,7 +599,6 @@
 			transform: translate(-50%, -50%) scale(1.4) rotate(-158deg);
 		}
 	}
-
 	@keyframes revert_rotate {
 		from {
 			transform: translate(-50%, -50%) scale(1.4) rotate(-158deg);
@@ -658,7 +608,6 @@
 			transform: translate(-50%, -50%) scale(1.4) rotate(65deg);
 		}
 	}
-
 	.item-download-1 > img:first-child {
 		position: absolute;
 		top: 50%;
@@ -667,11 +616,9 @@
 		width: calc(100% - 0.8px);
 		height: calc(100% - 0.8px);
 	}
-
 	.item-download-1 > div {
 		z-index: 1;
 	}
-
 	.item-border-2 {
 		@apply relative;
 		.item-download-2 {
@@ -798,10 +745,6 @@
 	}
 
 	@media screen and (max-width: 768px) {
-		.link_blog > svg {
-			display: none;
-		}
-
 		.header-container > div:nth-child(2) > div:last-child {
 			gap: 15px;
 		}

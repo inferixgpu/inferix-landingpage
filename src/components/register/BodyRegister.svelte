@@ -1,10 +1,14 @@
 <script>
 	import { onMount } from 'svelte';
-	import gsap from 'gsap';
 	import axios from 'axios';
-	import lo from 'lodash';
+	import size from 'lodash.size';
+	import find from 'lodash.find';
+	import map from 'lodash.map';
+	import orderBy from 'lodash.orderby';
+	import take from 'lodash.take';
+	import get from 'lodash.get';
 	import moment from 'moment';
-	import Popup from '$components/register/AddressPopup.svelte';
+	import gsap from 'gsap';
 
 	import leaderboard_light from '$images/png/innovatedBackground.png';
 
@@ -36,7 +40,7 @@
 			searched_addresss = [];
 			return;
 		}
-		searched_addresss = lo.find(data, (item) => item.ownerAddress === add);
+		searched_addresss = find(data, (item) => item.ownerAddress === add);
 	}
 
 	let isNullEmail = { status: true, message: '' };
@@ -193,20 +197,20 @@
 			await axios
 				.get('https://testnet-core.inferix.io/api/workers/statistics')
 				.then((response) => {
-					let temp_data = lo.map(lo.get(response, 'data.data'), (d, index) => {
+					let temp_data = map(get(response, 'data.data'), (d, index) => {
 						return {
 							...d,
 							...{
 								id: index + 1,
-								point_converted: getPointConverted(lo.get(d, 'point', 0).toFixed(0)),
+								point_converted: getPointConverted(get(d, 'point', 0).toFixed(0)),
 								truncated_add: getTruncatedAddress(d.ownerAddress)
 							}
 						};
 					});
-					data = lo.orderBy(temp_data, ['point'], ['desc']);
+					data = orderBy(temp_data, ['point'], ['desc']);
 
-					//data = lo.take(temp_data, 20);
-					if (!lo.size(lo.take(temp_data, 20))) no_data_found = true;
+					//data =  take(temp_data, 20);
+					if (!size(take(temp_data, 20))) no_data_found = true;
 				})
 				.catch((error) => console.log('Error: ' + error));
 		} catch (error) {
@@ -249,12 +253,16 @@
 <div class={nav == 1 ? 'body-register' : 'body-register body-2'}>
 	<div class="nav-bar">
 		<div
+			role="button"
+			tabindex="0"
 			class={nav == 1 ? 'nav-item nav-item-active' : 'nav-item'}
 			on:click={(ele) => clickNav('registration', ele)}
 		>
 			<div>Registration</div>
 		</div>
 		<div
+			role="button"
+			tabindex="0"
 			class={nav == 2 ? 'nav-item nav-item-active' : 'nav-item'}
 			on:click={(ele) => clickNav('leaderboard', ele)}
 		>
@@ -263,7 +271,7 @@
 	</div>
 	{#if nav == 1}
 		<div>
-			<div class="wallet-register" on:click={() => handleFocus(1)}>
+			<div role="button" tabindex="0" class="wallet-register" on:click={() => handleFocus(1)}>
 				<div class="wallet-desc">
 					<div>
 						<div class="step">
@@ -300,7 +308,7 @@
 					{/if}
 				</div>
 			</div>
-			<div class="email-register" on:click={() => handleFocus(2)}>
+			<div class="email-register" role="button" tabindex="0" on:click={() => handleFocus(2)}>
 				<div class="email-desc">
 					<div>
 						<div class="step">
@@ -329,7 +337,7 @@
 					{/if}
 				</div>
 			</div>
-			<div class="node-register" on:click={() => handleFocus(3)}>
+			<div class="node-register" role="button" tabindex="0" on:click={() => handleFocus(3)}>
 				<div class="node-desc">
 					<div>
 						<div class="step"><div>3</div></div>
@@ -358,13 +366,17 @@
 							on:focus={() => handleFocus(3)}
 						/>
 					{/each}
-					<div class="add-node-register" on:click={addNode}><div>Add more +</div></div>
+					<div class="add-node-register" role="button" tabindex="0" on:click={addNode}>
+						<div>Add more +</div>
+					</div>
 				</div>
 			</div>
 			<div class="submit-register">
 				<div />
 				<div>
-					<div id="submit_register" on:click={handleSubmit}><div>Submit</div></div>
+					<div id="submit_register" role="button" tabindex="0" on:click={handleSubmit}>
+						<div>Submit</div>
+					</div>
 				</div>
 			</div>
 			<modal
@@ -381,8 +393,9 @@
 								</p>
 							</div>
 							<div
-								class="flex w-[164px] h-[40px] bg-white text-black text-[16px]
-					font-bold cursor-pointer justify-center items-center hover:bg-black hover:text-white"
+								class="flex w-[164px] h-[40px] bg-white text-black text-[16px] font-bold cursor-pointer justify-center items-center hover:bg-black hover:text-white"
+								role="button"
+								tabindex="0"
 								on:click={() => buttonDone()}
 							>
 								Done
@@ -407,7 +420,7 @@
 						<div>Point</div>
 					</div>
 					{#if !no_data_found}<div class="table-body">
-							{#each lo.take(data, 20) as item, index (index)}
+							{#each take(data, 20) as item, index (index)}
 								<div class="data-item">
 									<div><div>{item.id}</div></div>
 									<div>
@@ -429,7 +442,7 @@
 						style="width: 18%; min-width: 135px; display: flex; align-items: center; justify-content: flex-end;"
 					>
 						<div style="font-family: 'Roboto Mono', monospace; font-size: 15px;">
-							{enter ? lo.get(searched_addresss, 'point_converted', 'Not found!') : ''}
+							{enter ? get(searched_addresss, 'point_converted', 'Not found!') : ''}
 						</div>
 					</div>
 				</div>
@@ -635,10 +648,6 @@
 		line-height: 24px;
 	}
 
-	.animated {
-		animation: changeBackground 0s ease-in-out forwards;
-	}
-
 	@keyframes changeBackground {
 		0% {
 			background: none;
@@ -823,27 +832,6 @@
 		display: flex;
 		align-items: center;
 	}
-
-	.data-item > div:nth-child(2) > div:nth-child(2) > svg {
-		cursor: pointer;
-	}
-
-	.data-item > div:nth-child(2) > div:nth-child(2) > svg > g {
-		cursor: pointer;
-	}
-
-	.data-item > div:nth-child(2) > div:nth-child(2) > svg > path {
-		cursor: pointer;
-	}
-
-	.data-item > div:nth-child(2) > div:nth-child(2) > svg > g > path {
-		cursor: pointer;
-	}
-
-	.data-item > div:nth-child(2) > div:nth-child(2) > defs {
-		cursor: pointer;
-	}
-
 	.table-body {
 		border-bottom: 1px solid #fff;
 	}

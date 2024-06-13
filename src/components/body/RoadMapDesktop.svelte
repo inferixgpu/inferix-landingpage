@@ -1,8 +1,5 @@
 <script lang="ts">
 	import Dot from '$images/icons/Dot.svg';
-	import In1 from '$images/png/industries/1.png';
-	import RoadmapWorkaround from '$images/icons/Roadmap.svg';
-	import RoadmapMobileWorkaround from '$images/icons/RoadmapMobile.svg';
 	import Saos from 'saos';
 
 	let screenSize: number;

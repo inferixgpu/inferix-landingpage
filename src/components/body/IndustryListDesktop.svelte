@@ -94,24 +94,24 @@
     }
 
     .industryContainer > div:nth-child(1) {
-        background-image: url('$images/png/industries/1.png');
+        background-image: url('$images/png/industries/1.jpg');
         @apply ml-[17.5] md:ml-[50px] xl:ml-[80px] 2xl:ml-[160px];
     }
 
     .industryContainer > div:nth-child(2) {
-        background-image: url('$images/png/industries/2.png');
+        background-image: url('$images/png/industries/2.jpg');
     }
 
     .industryContainer > div:nth-child(3) {
-        background-image: url('$images/png/industries/3.png');
+        background-image: url('$images/png/industries/3.jpg');
     }
 
     .industryContainer > div:nth-child(4) {
-        background-image: url('$images/png/industries/4.png');
+        background-image: url('$images/png/industries/4.jpg');
     }
 
     .industryContainer > div:nth-child(5) {
-        background-image: url('$images/png/industries/5.png');
+        background-image: url('$images/png/industries/5.jpg');
         @apply mr-[17.5] md:mr-[50px] xl:mr-[80px] 2xl:mr-[160px];
     }
 

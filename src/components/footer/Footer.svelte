@@ -10,11 +10,7 @@
 	import LineCol from '$images/png/LineCol.svg';
 	import FooterContent from '$images/png/FooterContent.png';
 
-	import { Modal } from 'flowbite-svelte';
-	import Saos from 'saos';
-
 	let activeTab = 1;
-	let showModal = false;
 
 	const setActiveTab = (tab: number) => {
 		activeTab = tab;
@@ -28,14 +24,6 @@
 		{ id: 5, name: 'Warpcast', href: 'https://warpcast.com/inferixgpu', icon: W }
 	];
 	let screenSize: number;
-
-	function showSignUpModal() {
-		//showModal = true;
-		// window.location.href =
-		// 'https://medium.com/@inferixgpu/guide-inferix-mvp-for-designers-and-gpu-providers-be4221142ed9';
-		window.location.href = 'https://docs.inferix.io/mvp-tutorial';
-		//window.open('https://docs.inferix.io/mvp-tutorial', '_blank');
-	}
 	let focusButtonJoinNow = false;
 	function focusButtonJoin(status) {
 		focusButtonJoinNow = status;
@@ -51,21 +39,22 @@
 			<img class="w-full" src={LineRow} alt="LineRow" />
 		</div>
 		<div class="flex gap-[18px] md:hidden">
-			<img src={LineCol} alt="icon"/>
-			<img src={LineCol} alt="icon"/>
+			<img src={LineCol} alt="icon" />
+			<img src={LineCol} alt="icon" />
 		</div>
 		<div class="footer-content">
 			<div class="flex gap-[18px] max-md:hidden">
-				<img src={LineCol} alt="icon"/>
-				<img src={LineCol} alt="icon"/>
+				<img src={LineCol} alt="icon" />
+				<img src={LineCol} alt="icon" />
 			</div>
 			<div class="flex flex-col gap-[18px] w-full md:hidden">
-				<img class="w-full" src={LineRow} alt="icon"/>
-				<img class="w-full" src={LineRow} alt="icon"/>
+				<img class="w-full" src={LineRow} alt="icon" />
+				<img class="w-full" src={LineRow} alt="icon" />
 			</div>
 			<div class="content">
 				<img
 					class="md:w-[49%] lg:h-full 2xl:max-h-[292px] xl:max-h-[292px] max-h-[200px]"
+					loading="lazy"
 					src={FooterContent}
 					alt="FooterContent"
 				/>
@@ -75,6 +64,8 @@
 						of GPUs for seamless rendering, accelerated Al, and groundbreaking innovation"
 					</p>
 					<div
+						role="button"
+						tabindex="0"
 						class="max-md:mx-auto max-md:pb-[20px]"
 						on:mouseenter={() => focusButtonJoin(true)}
 						on:mouseleave={() => focusButtonJoin(false)}
@@ -120,21 +111,21 @@
 				</div>
 			</div>
 			<div class="flex flex-col gap-[18px] w-full md:hidden">
-				<img class="w-full" src={LineRow} alt="icon"/>
-				<img class="w-full" src={LineRow} alt="icon"/>
+				<img class="w-full" src={LineRow} alt="icon" />
+				<img class="w-full" src={LineRow} alt="icon" />
 			</div>
 			<div class="flex gap-[18px] max-md:hidden">
-				<img src={LineCol} alt="icon"/>
-				<img src={LineCol} alt="icon"/>
+				<img src={LineCol} alt="icon" />
+				<img src={LineCol} alt="icon" />
 			</div>
 		</div>
 		<div class="flex flex-col gap-[18px] w-full max-md:hidden">
-			<img class="w-full" src={LineRow} alt="icon"/>
-			<img class="w-full" src={LineRow} alt="icon"/>
+			<img class="w-full" src={LineRow} alt="icon" />
+			<img class="w-full" src={LineRow} alt="icon" />
 		</div>
 		<div class="flex gap-[18px] md:hidden">
-			<img src={LineCol} alt="icon"/>
-			<img src={LineCol} alt="icon"/>
+			<img src={LineCol} alt="icon" />
+			<img src={LineCol} alt="icon" />
 		</div>
 	</div>
 	<div
@@ -145,7 +136,7 @@
 			style="background: #111;"
 		>
 			<a href="https://inferix.io/">
-				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]"/>
+				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
 			</a>
 			<p class="font-base font-outfit font-normal mt-4 md:mt-0 text-white whitespace-nowrap">
 				Decentralized GPU Network
@@ -155,8 +146,15 @@
 			class="flex flex-row md:gap-10 justify-center items-start gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
 		>
 			{#each medias as media (media.id)}
-				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
-					<a target="_blank" href={media.href} aria-label="Read more"><img src={media.icon} style="border-radius: 50%;" alt="icon"/></a>
+				<div
+					role="button"
+					tabindex="0"
+					class={activeTab === media.id ? 'active' : ''}
+					on:click={() => setActiveTab(media.id)}
+				>
+					<a target="_blank" href={media.href} aria-label="Read more"
+						><img src={media.icon} loading="lazy" style="border-radius: 50%;" alt="icon" /></a
+					>
 				</div>
 			{/each}
 		</div>
@@ -175,9 +173,15 @@
 		</div>
 		<div class="flex flex-row gap-5 mb-[20px]">
 			{#each medias as media (media.id)}
-				<div class={activeTab === media.id ? 'active' : ''} on:click={() => setActiveTab(media.id)}>
-					<a target="_blank" href={media.href}> aria-label="Read more"
-						<img src={media.icon} style="border-radius: 50%;" alt="icon"/>
+				<div
+					role="button"
+					tabindex="0"
+					class={activeTab === media.id ? 'active' : ''}
+					on:click={() => setActiveTab(media.id)}
+				>
+					<a target="_blank" href={media.href}>
+						aria-label="Read more"
+						<img src={media.icon} style="border-radius: 50%;" alt="icon" loading="lazy" />
 					</a>
 				</div>
 			{/each}
@@ -186,10 +190,6 @@
 	<div class="flex h-[32px] w-full bg-[rgb(26,27,27)] items-center justify-center">
 		<p class="font-outfit text-sm font-normal">© 2023 Inferix. All rights reserved.</p>
 	</div>
-
-	<Modal bind:open={showModal} defaultClass="!rounded-[20px]">
-		<SignUpModal />
-	</Modal>
 </div>
 
 <style>

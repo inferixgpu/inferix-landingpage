@@ -26,8 +26,7 @@
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
-	import InferixIntro from '$videos/-6832-41e3-b4e4-f39f89c47ac3.mp4';
-	import ProvenTech from '$components/body/ProvenTech.svelte';
+	import InferixIntro from '$videos/inferix-intro.mp4';
 
 	let screenSize: number;
 
@@ -167,7 +166,6 @@
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
-
 <div class="bg-black">
 	<div class="innovated">
 		<div class="innovated-header">
@@ -226,7 +224,13 @@
 								target="_blank"
 								aria-label="Read more"
 							>
-								<img src={partner.img.name} alt="partner"/>
+								<img
+									src={partner.img.name}
+									alt={partner.title}
+									width="152"
+									height="auto"
+									loading="lazy"
+								/>
 							</a>{/if}
 					{/each}
 					{#each partner_more as partner (partner.id)}
@@ -234,8 +238,15 @@
 								class="partner-item-last"
 								href={partner.href}
 								target="_blank"
-								aria-label="Read more"
-								><div><img src={partner.img.name} alt="partner"/></div>
+								><div>
+									<img
+										src={partner.img.name}
+										alt={partner.title}
+										width="152"
+										height="auto"
+										loading="lazy"
+									/>
+								</div>
 							</a>{/if}
 					{/each}
 				</div>
@@ -251,60 +262,9 @@
 </div>
 
 <style lang="postcss">
-	.partnerDiv {
-		padding: 0px 35px;
-		height: 235px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-	.partnerImg {
-		background-color: #212023;
-		width: 100%;
-		height: 85px;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-evenly;
-		align-items: center;
-		border-radius: 24px;
-	}
-
-	.partnerImg > a > img {
-		margin: auto;
-	}
-
 	.partner-item:last-child > img {
 		height: 100%;
 		width: auto;
-	}
-
-	.partnerLink {
-		display: flex;
-		width: 33%;
-		height: 100%;
-		cursor: pointer;
-	}
-
-	.partner-mobile-div {
-		height: 50px;
-		display: flex;
-		justify-content: center;
-	}
-
-	.partner-mobile-img {
-		background-image: url('$images/png/PartnerAndInvestorMobile.png');
-		background-repeat: no-repeat;
-		width: 350px;
-		height: 100%;
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.partner-mobile-link {
-		display: flex;
-		width: 30%;
-		height: 100%;
-		cursor: pointer;
 	}
 
 	.innovated {

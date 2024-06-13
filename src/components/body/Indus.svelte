@@ -2,15 +2,12 @@
 	import ArrowDown from '$images/icons/ArrowDown.svg';
 	import ArrowDownMobile from '$images/icons/ArrowDownMobile.svg';
 	import EllipseBackground from '$images/png/EllipseBackground.png';
-	import In1 from '$images/png/industries/1.png';
-	import In2 from '$images/png/industries/2.png';
-	import In3 from '$images/png/industries/3.png';
-	import In4 from '$images/png/industries/4.png';
-	import In5 from '$images/png/industries/5.png';
-	import Saos from 'saos';
-	import IndustryListDesktop from './IndustryListDesktop.svelte';
+	import In1 from '$images/png/industries/1.jpg';
+	import In2 from '$images/png/industries/2.jpg';
+	import In3 from '$images/png/industries/3.jpg';
+	import In4 from '$images/png/industries/4.jpg';
+	import In5 from '$images/png/industries/5.jpg';
 	import industry_line from '$images/icons/industry_line.svg';
-	import animated_circle from '$images/png/AnimatedCircle.png';
 	import line_industry_mobile from '$images/icons/line_industry_mobile.svg';
 	import industry from '$videos/industry.mp4';
 
@@ -31,7 +28,7 @@
 					</video>
 				</div>
 				<div class="in-images">
-					<img src={In1} alt="image1" />
+					<img src={In1} alt="image1" loading="lazy" />
 					<div>
 						<div>Entertainment & Media</div>
 					</div>
@@ -39,13 +36,13 @@
 			</div>
 			<div>
 				<div class="in-images">
-					<img src={In2} alt="image2" />
+					<img src={In2} alt="image2" loading="lazy" />
 					<div>
 						<div>Architecture & Design</div>
 					</div>
 				</div>
 				<div class="in-images">
-					<img src={In3} alt="image3" />
+					<img src={In3} alt="image3" loading="lazy" />
 					<div>
 						<div>Animation & VFX</div>
 					</div>
@@ -53,13 +50,13 @@
 			</div>
 			<div>
 				<div class="in-images">
-					<img src={In4} alt="image4" />
+					<img src={In4} alt="image4" loading="lazy" />
 					<div>
 						<div>AR & VR</div>
 					</div>
 				</div>
 				<div class="in-images">
-					<img src={In5} alt="image5" />
+					<img src={In5} alt="image5" loading="lazy" />
 					<div>
 						<div>Game Content</div>
 					</div>
@@ -75,31 +72,31 @@
 			<div>
 				<div class="moved-in">
 					<div>
-						<img src={In1} alt="in1" />
+						<img src={In1} alt="in1" loading="lazy" />
 						<div>
 							<div>Entertainment & Media</div>
 						</div>
 					</div>
 					<div>
-						<img src={In2} alt="in1" />
+						<img src={In2} alt="in1" loading="lazy" />
 						<div>
 							<div>Architecture & Design</div>
 						</div>
 					</div>
 					<div>
-						<img src={In3} alt="in1" />
+						<img src={In3} alt="in1" loading="lazy" />
 						<div>
 							<div>Animation & VFX</div>
 						</div>
 					</div>
 					<div>
-						<img src={In4} alt="in1" />
+						<img src={In4} alt="in1" loading="lazy" />
 						<div>
 							<div>AR & VR</div>
 						</div>
 					</div>
 					<div>
-						<img src={In5} alt="in1" />
+						<img src={In5} alt="in1" loading="lazy" />
 						<div>
 							<div>Game Content</div>
 						</div>
@@ -270,10 +267,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 24px;
-	}
-
-	.rooms {
-		animation: textMove 5s linear infinite;
 	}
 	.div-room {
 		overflow: hidden;
@@ -484,11 +477,6 @@
 		.in-mobile-content > div:last-child {
 			margin-top: 24px;
 		}
-
-		.in-mobile-content > div:last-child > img {
-			width: 100%;
-		}
-
 		.in-mobile-content > div:first-child > div {
 			min-width: calc(calc(500%) + 50px);
 			height: 396px;
