@@ -16,7 +16,7 @@
 	let count = 1;
 	let showModal = false;
 	var nodes = [{ id: 1, value: '' }];
-	let nav = 1;
+	let nav = 2;
 	let data = [];
 	let no_data_found = false;
 	let is_mobile = false;
@@ -231,8 +231,11 @@
 	}
 
 	onMount(async () => {
-		handleFocus(1);
-		onHoverSubmit();
+		if (nav ==1) {
+			handleFocus(1);
+			onHoverSubmit();
+
+		}
 		resize();
 		window.addEventListener('resize', resize);
 		await fetchLeaderboard();
@@ -251,24 +254,24 @@
 {/if}
 
 <div class={nav == 1 ? 'body-register' : 'body-register body-2'}>
-	<div class="nav-bar">
-		<div
-			role="button"
-			tabindex="0"
-			class={nav == 1 ? 'nav-item nav-item-active' : 'nav-item'}
-			on:click={(ele) => clickNav('registration', ele)}
-		>
-			<div>Registration</div>
-		</div>
-		<div
-			role="button"
-			tabindex="0"
-			class={nav == 2 ? 'nav-item nav-item-active' : 'nav-item'}
-			on:click={(ele) => clickNav('leaderboard', ele)}
-		>
-			<div>Leaderboard</div>
-		</div>
-	</div>
+<!--	<div class="nav-bar">-->
+<!--		<div-->
+<!--			role="button"-->
+<!--			tabindex="0"-->
+<!--			class={nav == 1 ? 'nav-item nav-item-active' : 'nav-item'}-->
+<!--			on:click={(ele) => clickNav('registration', ele)}-->
+<!--		>-->
+<!--			<div>Registration</div>-->
+<!--		</div>-->
+<!--		<div-->
+<!--			role="button"-->
+<!--			tabindex="0"-->
+<!--			class={nav == 2 ? 'nav-item nav-item-active' : 'nav-item'}-->
+<!--			on:click={(ele) => clickNav('leaderboard', ele)}-->
+<!--		>-->
+<!--			<div>Leaderboard</div>-->
+<!--		</div>-->
+<!--	</div>-->
 	{#if nav == 1}
 		<div>
 			<div role="button" tabindex="0" class="wallet-register" on:click={() => handleFocus(1)}>
