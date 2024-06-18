@@ -414,7 +414,7 @@
 			<div class="leaderboard-content">
 				<div>Leaderboard Top 20 #ProQuest</div>
 				<div>Alliance Campaign</div>
-				<div>Last Updated: {moment(new Date().getTime()).format('MM/DD/YYYY, hh:mm:ss A')}</div>
+				<div>Last Updated: {moment(new Date("06/15/2024, 11:59:59 PM")).format('MM/DD/YYYY, hh:mm:ss A')}</div>
 
 				<div class="leaderboard-table">
 					<div class="table-header">
