@@ -32,13 +32,6 @@
 
 	const partners = [
 		{
-			id: 15,
-			title: 'ShimaCapital',
-			img: { name: ShimaCapital, height: '85', mobile_height: '40px' },
-			href: 'https://shima.capital/',
-			is_half: true
-		},
-		{
 			id: 14,
 			title: 'FutureMoney',
 			img: { name: FutureMoney, height: '85', mobile_height: '40px' },
@@ -152,7 +145,6 @@
 			href: 'https://mindnetwork.xyz/',
 			is_half: true
 		},
-		{},
 		{
 			id: 19,
 			title: 'DePHY',
