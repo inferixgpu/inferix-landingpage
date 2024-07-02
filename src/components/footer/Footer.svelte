@@ -179,8 +179,7 @@
 					class={activeTab === media.id ? 'active' : ''}
 					on:click={() => setActiveTab(media.id)}
 				>
-					<a target="_blank" href={media.href}>
-						aria-label="Read more"
+					<a target="_blank" href={media.href} aria-label="Read more">
 						<img src={media.icon} style="border-radius: 50%;" alt="icon" loading="lazy" />
 					</a>
 				</div>
