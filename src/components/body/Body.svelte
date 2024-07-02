@@ -218,7 +218,7 @@
 			>
 				<div class="partner-content">
 					{#each partners as partner (partner.id)}
-						{#if !partner.id}{#if screenSize > 1024}<div class="col-span-2"></div>{/if}{:else}<a
+						{#if !partner.id}{#if screenSize >= 1024}<div class="col-span-2"></div>{/if}{:else}<a
 								class="partner-item"
 								href={partner.href}
 								target="_blank"
