@@ -527,7 +527,7 @@
 	.proven-text > div {
 		display: flex;
 		align-items: flex-end;
-		position: ralative;
+		position: relative;
 	}
 
 	.proven-text > div > img:first-child {
@@ -700,11 +700,21 @@
 		.proven-video {
 			max-width: 235px;
 		}
+
+		.proven-text > div > img:last-child {
+			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 914px) {
+		.proven-infor {
+			width: 90%;
+		}
 	}
 
 	@media screen and (max-width: 800px) {
 		.proven-infor {
-			width: 100%;
+			//width: 100%;
 		}
 		.proven-tech {
 			@apply items-center;
