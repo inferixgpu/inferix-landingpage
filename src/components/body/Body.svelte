@@ -17,11 +17,11 @@
 	import IOPay from '$images/png/iopay.svg';
 	import ForesightX from '$images/png/foresightx.png';
 	import FutureMoney from '$images/png/futuremoney.png';
-	import ShimaCapital from '$images/png/shima-capital.png';
 	import Icetea from '$images/png/icetea-io.svg';
 	import Wayru from '$images/png/wayru.png';
 	import MindNetwork from '$images/png/MindNetwork.png';
 	import DePHY from '$images/png/DePHY.png';
+	import Loxodrome from '$images/png/loxodrome.svg';
 
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
@@ -150,6 +150,14 @@
 			title: 'DePHY',
 			img: { name: DePHY, height: '85px', mobile_height: '40px' },
 			href: 'https://dephy.io/',
+			is_half: true
+		},
+		{},
+		{
+			id: 20,
+			title: 'Loxodrome',
+			img: { name: Loxodrome, height: '85px', mobile_height: '40px' },
+			href: 'https://loxodrome.xyz/',
 			is_half: true
 		}
 	];
