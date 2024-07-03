@@ -22,6 +22,7 @@
 	import MindNetwork from '$images/png/MindNetwork.png';
 	import DePHY from '$images/png/DePHY.png';
 	import Loxodrome from '$images/png/loxodrome.svg';
+	import PowerPod from '$images/png/powerpod.png';
 
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
@@ -151,18 +152,25 @@
 			img: { name: DePHY, height: '85px', mobile_height: '40px' },
 			href: 'https://dephy.io/',
 			is_half: true
-		},
-		{},
+		}
+	];
+
+	const partner_more = [
 		{
 			id: 20,
 			title: 'Loxodrome',
 			img: { name: Loxodrome, height: '85px', mobile_height: '40px' },
 			href: 'https://loxodrome.xyz/',
 			is_half: true
+		},
+		{
+			id: 21,
+			title: 'PowerPod',
+			img: { name: PowerPod, height: '85px', mobile_height: '40px' },
+			href: 'https://www.powerpod.pro/',
+			is_half: true
 		}
 	];
-
-	const partner_more = [];
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
