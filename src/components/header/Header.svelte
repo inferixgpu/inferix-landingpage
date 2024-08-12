@@ -35,11 +35,11 @@
 			href: 'https://dash.inferix.io/'
 		},
 		{ id: 4, title: 'Partners', href: '#partners' },
-		{
-			id: 3,
-			title: 'Roadmap',
-			href: '#roadmap'
-		}
+		// {
+		// 	id: 3,
+		// 	title: 'Roadmap',
+		// 	href: '#roadmap'
+		// }
 		// {
 		// 	id: 5,
 		// 	title: 'Docs',
@@ -177,7 +177,7 @@
 					</div>
 					<div class="transition-action">
 						<div class="transition-item">
-							<div class="flex basis-1/3 justify-center shrink-0">
+							<div class="flex basis-1/2 justify-center shrink-0">
 								<a
 									href="https://docs.inferix.io/mvp-tutorial"
 									class="inline-flex h-full items-center gap-1"
@@ -185,21 +185,21 @@
 									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
 								>
 							</div>
-							<div class="flex basis-1/3 justify-center shrink-0">
+							<div class="flex basis-1/2 justify-center shrink-0">
 								<a
 									href="https://docs.inferix.io/por-release"
 									class="inline text-rainbow"
 									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
 								>
 							</div>
-							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://inferix.io/register" class="inline" aria-label="Read more"
-									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a
-								>
-							</div>
+<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
+<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
+<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
+<!--								>-->
+<!--							</div>-->
 						</div>
 						<div class="transition-item">
-							<div class="flex basis-1/3 justify-center shrink-0">
+							<div class="flex basis-1/2 justify-center shrink-0">
 								<a
 									href="https://docs.inferix.io/mvp-tutorial"
 									class="inline-flex h-full items-center gap-1"
@@ -207,25 +207,25 @@
 									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
 								>
 							</div>
-							<div class="flex basis-1/3 justify-center shrink-0">
+							<div class="flex basis-1/2 justify-center shrink-0">
 								<a
 									href="https://docs.inferix.io/por-release"
 									class="inline text-rainbow"
 									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
 								>
 							</div>
-							<div class="flex basis-1/3 justify-center shrink-0">
-								<a href="https://inferix.io/register" class="inline" aria-label="Read more"
-									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a
-								>
-							</div>
+<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
+<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
+<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
+<!--								>-->
+<!--							</div>-->
 						</div>
 					</div>
 				</div>
 			{:else}
 				<div class="transition-bar-mobile" id="guide-mobile">
 					<div class="transition-action">
-						<div class="flex basis-1/3 justify-center shrink-0">
+						<div class="flex basis-1/4 justify-center shrink-0">
 							<a
 								href="https://docs.inferix.io/mvp-tutorial"
 								class="inline-flex h-full items-center gap-1"
@@ -233,18 +233,33 @@
 								>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
 							>
 						</div>
-						<div class="flex basis-1/3 justify-center shrink-0">
+						<div class="flex basis-1/4 justify-center shrink-0">
 							<a
 								href="https://docs.inferix.io/por-release"
 								class="inline text-rainbow"
 								aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
 							>
 						</div>
-						<div class="flex basis-1/3 justify-center shrink-0">
-							<a href="https://inferix.io/register" class="inline" aria-label="Read more"
-								>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a
+						<div class="flex basis-1/4 justify-center shrink-0">
+							<a
+									href="https://docs.inferix.io/mvp-tutorial"
+									class="inline-flex h-full items-center gap-1"
+									aria-label="Read more"
+							>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
 							>
 						</div>
+						<div class="flex basis-1/4 justify-center shrink-0">
+							<a
+									href="https://docs.inferix.io/por-release"
+									class="inline text-rainbow"
+									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
+							>
+						</div>
+<!--						<div class="flex basis-1/3 justify-center shrink-0">-->
+<!--							<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
+<!--								>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
+<!--							>-->
+<!--						</div>-->
 					</div>
 				</div>
 			{/if}

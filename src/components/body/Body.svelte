@@ -261,11 +261,11 @@
 			</Saos>
 		</div>
 	</div>
-	{#if screenSize > 768}
-		<RoadMapDesktop />
-	{:else}
-		<RoadMapMobile />
-	{/if}
+	<!--{#if screenSize > 768}-->
+	<!--	<RoadMapDesktop />-->
+	<!--{:else}-->
+	<!--	<RoadMapMobile />-->
+	<!--{/if}-->
 	<!--	<Teams/>-->
 </div>
 
