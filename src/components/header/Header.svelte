@@ -146,6 +146,13 @@
 			ele.classList.add('back2-leave');
 		}
 	}
+
+	function scrollToTop() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
@@ -266,7 +273,7 @@
 		{/if}
 
 		<div class="header-bar">
-			<img class="h-[24px]" src={HeaderLogo} alt="HeaderLogo" />
+			<img class="h-[24px] cursor-pointer" src={HeaderLogo} alt="HeaderLogo" on:click={scrollToTop} />
 			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
 					<a
@@ -292,7 +299,7 @@
 			</div>
 		</div>
 		<div class="header-bar-mobile">
-			<img class="h-[24px]" src={HeaderLogo} alt="header-logo-inferix" />
+			<img class="h-[24px] cursor-pointer" src={HeaderLogo} alt="header-logo-inferix" on:click={scrollToTop}/>
 			<div class="cursor-pointer" role="button" tabindex="0" on:click={() => (isOpen = true)}>
 				<svg
 					width="40"
