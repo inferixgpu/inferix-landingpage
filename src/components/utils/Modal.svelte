@@ -44,10 +44,23 @@
 	}
 
 	.modal-content {
-		width: 60%;
+		width: 760px;
+		height: 240px;
 		border-radius: 20px;
 		background-color: white;
 		padding: 25px;
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	}
+	@media (min-width: 768px) and (max-width: 1023px) {
+		.modal-content {
+			width: 80%;
+			height: auto;
+		}
+	}
+	@media (max-width: 767px) {
+		.modal-content {
+			width: 90%;
+			height: auto;
+		}
 	}
 </style>
