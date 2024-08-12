@@ -1,5 +1,4 @@
 <script lang="ts">
-	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
 	import X from '$images/icons/Twitter.svg';
 	import D from '$images/icons/D.svg';
@@ -193,7 +192,7 @@
 
 <style>
 	.footer-body {
-		@apply flex md:flex-col flex-row justify-center items-center 2xl:mb-[150px] mb-[70px] w-[95%];
+		@apply flex md:flex-col flex-row justify-center items-center 2xl:my-[150px] my-[70px] w-[95%];
 		& > .footer-content {
 			@apply flex md:flex-row flex-col justify-center items-center md:h-[354px] 2xl:w-full max-w-[1250px] gap-0 md:mx-[60px] ml-1;
 			& > .content {
