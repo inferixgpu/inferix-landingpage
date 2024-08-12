@@ -497,8 +497,8 @@
 	<Modal bind:show={downloadShowModal} on:close={closeDownloadModal}>
 		<DownloadFailed />
 	</Modal>
-	<Modal bind:show={showModal} on:close={closeModal}>
-		<SignUpModal />
+	<Modal bind:show={showModal} on:close={closeModal} >
+		<SignUpModal/>
 	</Modal>
 </div>
 

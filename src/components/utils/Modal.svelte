@@ -47,7 +47,7 @@
 		width: 60%;
 		border-radius: 20px;
 		background-color: white;
-		padding: 20px;
+		padding: 25px;
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	}
 </style>
