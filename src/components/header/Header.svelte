@@ -286,6 +286,7 @@
 						role="button"
 						tabindex="0"
 						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
+						target="_blank"
 						id="item-tab-{tab.id}"
 						class="tab-item"
 						aria-label="Read more">{tab.title}</a
@@ -475,6 +476,7 @@
 						role="button"
 						tabindex="0"
 						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
+						target="_blank"
 						class="whitespace-nowrap"
 						aria-label="Read more">{tab.title}</a
 					>
