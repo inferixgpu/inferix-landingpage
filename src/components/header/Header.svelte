@@ -35,6 +35,11 @@
 			href: 'https://dash.inferix.io/'
 		},
 		{ id: 4, title: 'Partners', href: '#partners' },
+		{
+			id: 5,
+			title: 'Docs',
+			href: 'https://docs.inferix.io/'
+		},
 		// {
 		// 	id: 3,
 		// 	title: 'Roadmap',
