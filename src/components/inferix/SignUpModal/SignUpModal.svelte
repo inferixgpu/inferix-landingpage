@@ -52,6 +52,6 @@
 		outline: none !important;
 		border: none !important;
 		height: 54px !important;
-		@apply flex lg:flex-1 focus:outline-none px-[38px];
+		@apply flex lg:flex-1 focus:outline-none px-[38px] text-black;
 	}
 </style>
