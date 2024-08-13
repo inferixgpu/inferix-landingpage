@@ -45,6 +45,9 @@
 		color: black;
 		@apply font-semibold w-full lg:w-[140px];
 	}
+	.subs-btn:hover {
+		opacity: 1;
+	}
 
 	.email-input {
 		border-radius: 47px;
