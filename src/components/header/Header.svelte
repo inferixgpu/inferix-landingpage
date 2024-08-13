@@ -277,7 +277,7 @@
 					<a
 						on:click={() => handleClickTab(tab.id, tab.href)}
 						id="item-tab-{tab.id}"
-						class="tab-item"
+						class="tab-item cursor-pointer"
 						aria-label="Read more">{tab.title}</a
 					>
 				{/each}
@@ -285,7 +285,7 @@
 			<div class="register-button">
 				<a
 					on:click={() => handleClickTab(register.id, register.href)}
-					class="whitespace-nowrap"
+					class="whitespace-nowrap cursor-pointer"
 					aria-label="Read more">{register.title}</a
 				>
 			</div>
@@ -459,7 +459,7 @@
 				<div class="header-tab-mobile tab opacity-60">
 					<a
 						on:click={() => handleClickTab(tab.id, tab.href)}
-						class="whitespace-nowrap"
+						class="whitespace-nowrap cursor-pointer"
 						aria-label="Read more">{tab.title}</a
 					>
 				</div>
