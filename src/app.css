@@ -22,6 +22,7 @@ body {
 	height: 100vh;
 	font-family: 'Outfit', sans-serif;
 	line-height: normal;
+	touch-action: auto;
 }
 
 body > div:first-child,

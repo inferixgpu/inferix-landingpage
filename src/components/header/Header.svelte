@@ -75,43 +75,36 @@
 	function closeModal() {
 		showModal = false;
 	}
-	afterUpdate(() => {
-		if (typeof window !== 'undefined') {
-			if (isOpen) {
-				// Prevent scrolling when the menu is open
-				document.documentElement.style.overflowY = 'hidden';
-				document.addEventListener('touchmove', (e) => e.preventDefault(), {
-					passive: false
-				});
-			} else {
-				// Re-enable scrolling when the menu is closed
-				document.documentElement.style.overflowY = 'auto';
-				document.removeEventListener('touchmove', (e) => e.preventDefault());
-			}
+	
+	function handleClickTab(id: number, href: string) {
+		document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('tab-active'));
+		if (id !== 6) {
+			document.getElementById(`item-tab-${id}`)?.classList.add('tab-active');
 		}
-	});
-	function handleClickTab(e: MouseEvent, id: number, href: string) {
-		let tabItems = document.getElementsByClassName('tab-item');
-		for (let i = 0; i < tabItems.length; i++) {
-			tabItems[i].classList.remove('tab-active');
+
+		if (id === 2 || id === 5) {
+			window.open(href);
+		};
+
+		if (id === 6) {
+			showModal = true;
+			return;
 		}
-		if (id != 6) document.getElementById(`item-tab-${id}`).classList.add('tab-active');
-		if (id === 2 || id === 5) return;
-		if (id === 6) showModal = true;
-		e.preventDefault();
+
+		activeTab = id;
+		const space = (id === 4 || id === 3) ? 150 : (screenSize > 768 ? 100 : 270);
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
-		activeTab = id;
-		const space = id == 4 || id == 3 ? 150 : screenSize > 768 ? 100 : 270;
 
 		if (tab) {
 			window.scrollTo({
 				top: tab.offsetTop - space,
 				behavior: 'smooth'
 			});
-			if (screenSize < 768) isOpen = false;
+			isOpen = false;
 		}
 	}
+
 	function autoPlay() {
 		setTimeout(() => {
 			textIndex = (textIndex + 1) % 2;
@@ -282,11 +275,7 @@
 			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
 					<a
-						href={tab.href}
-						role="button"
-						tabindex="0"
-						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-						target="_blank"
+						on:click={() => handleClickTab(tab.id, tab.href)}
 						id="item-tab-{tab.id}"
 						class="tab-item"
 						aria-label="Read more">{tab.title}</a
@@ -295,10 +284,7 @@
 			</div>
 			<div class="register-button">
 				<a
-					href={register.href}
-					role="button"
-					tabindex="0"
-					on:click={(e) => handleClickTab(e, register.id, register.href)}
+					on:click={() => handleClickTab(register.id, register.href)}
 					class="whitespace-nowrap"
 					aria-label="Read more">{register.title}</a
 				>
@@ -306,7 +292,7 @@
 		</div>
 		<div class="header-bar-mobile">
 			<img class="h-[24px] cursor-pointer" src={HeaderLogo} alt="header-logo-inferix" on:click={scrollToTop}/>
-			<div class="cursor-pointer" role="button" tabindex="0" on:click={() => (isOpen = true)}>
+			<div class="cursor-pointer" on:click={() => (isOpen = true)}>
 				<svg
 					width="40"
 					height="40"
@@ -472,11 +458,7 @@
 			{#each tabs as tab (tab.id)}
 				<div class="header-tab-mobile tab opacity-60">
 					<a
-						href={tab.href}
-						role="button"
-						tabindex="0"
-						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-						target="_blank"
+						on:click={() => handleClickTab(tab.id, tab.href)}
 						class="whitespace-nowrap"
 						aria-label="Read more">{tab.title}</a
 					>
