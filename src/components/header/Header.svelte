@@ -476,7 +476,7 @@
 			</a>
 			<div class="header-tab-mobile tab opacity-60">
 				<a
-					style={'font-weight: 900'}
+					style={'font-weight: 800'}
 					on:click={() => handleClickTab(register.id, register.href)}
 					class="whitespace-nowrap cursor-pointer"
 					aria-label="Read more">{register.title}</a
