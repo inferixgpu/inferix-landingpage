@@ -39,7 +39,7 @@
 			id: 5,
 			title: 'Docs',
 			href: 'https://docs.inferix.io/'
-		},
+		}
 		// {
 		// 	id: 3,
 		// 	title: 'Roadmap',
@@ -53,8 +53,8 @@
 	];
 	const register = {
 		id: 6,
-		title: 'Register',
-		href: '#'
+		title: 'Whitepaper',
+		href: 'https://static.inferix.io/files/inferix-whitepaper.pdf'
 	};
 	const medias = [
 		{ id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X },
@@ -75,24 +75,25 @@
 	function closeModal() {
 		showModal = false;
 	}
-	
+
 	function handleClickTab(id: number, href: string) {
-		document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('tab-active'));
+		document.querySelectorAll('.tab-item').forEach((item) => item.classList.remove('tab-active'));
 		if (id !== 6) {
 			document.getElementById(`item-tab-${id}`)?.classList.add('tab-active');
 		}
 
 		if (id === 2 || id === 5) {
 			window.open(href);
-		};
+		}
 
-		if (id === 6) {
-			showModal = true;
+		if (id === 6 || id == 0) {
+			// showModal = true;
+			window.open(href);
 			return;
 		}
 
 		activeTab = id;
-		const space = (id === 4 || id === 3) ? 150 : (screenSize > 768 ? 100 : 270);
+		const space = id === 4 || id === 3 ? 150 : screenSize > 768 ? 100 : 270;
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
 
@@ -197,11 +198,11 @@
 									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
 								>
 							</div>
-<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
-<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
-<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
-<!--								>-->
-<!--							</div>-->
+							<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
+							<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
+							<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
+							<!--								>-->
+							<!--							</div>-->
 						</div>
 						<div class="transition-item">
 							<div class="flex basis-1/2 justify-center shrink-0">
@@ -219,11 +220,11 @@
 									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
 								>
 							</div>
-<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
-<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
-<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
-<!--								>-->
-<!--							</div>-->
+							<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
+							<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
+							<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
+							<!--								>-->
+							<!--							</div>-->
 						</div>
 					</div>
 				</div>
@@ -247,31 +248,36 @@
 						</div>
 						<div class="flex basis-1/4 justify-center shrink-0">
 							<a
-									href="https://docs.inferix.io/mvp-tutorial"
-									class="inline-flex h-full items-center gap-1"
-									aria-label="Read more"
-							>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+								href="https://docs.inferix.io/mvp-tutorial"
+								class="inline-flex h-full items-center gap-1"
+								aria-label="Read more"
+								>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
 							>
 						</div>
 						<div class="flex basis-1/4 justify-center shrink-0">
 							<a
-									href="https://docs.inferix.io/por-release"
-									class="inline text-rainbow"
-									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
+								href="https://docs.inferix.io/por-release"
+								class="inline text-rainbow"
+								aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
 							>
 						</div>
-<!--						<div class="flex basis-1/3 justify-center shrink-0">-->
-<!--							<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
-<!--								>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
-<!--							>-->
-<!--						</div>-->
+						<!--						<div class="flex basis-1/3 justify-center shrink-0">-->
+						<!--							<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
+						<!--								>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
+						<!--							>-->
+						<!--						</div>-->
 					</div>
 				</div>
 			{/if}
 		{/if}
 
 		<div class="header-bar">
-			<img class="h-[24px] cursor-pointer" src={HeaderLogo} alt="HeaderLogo" on:click={scrollToTop} />
+			<img
+				class="h-[24px] cursor-pointer"
+				src={HeaderLogo}
+				alt="HeaderLogo"
+				on:click={scrollToTop}
+			/>
 			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
 					<a
@@ -291,7 +297,12 @@
 			</div>
 		</div>
 		<div class="header-bar-mobile">
-			<img class="h-[24px] cursor-pointer" src={HeaderLogo} alt="header-logo-inferix" on:click={scrollToTop}/>
+			<img
+				class="h-[24px] cursor-pointer"
+				src={HeaderLogo}
+				alt="header-logo-inferix"
+				on:click={scrollToTop}
+			/>
 			<div class="cursor-pointer" on:click={() => (isOpen = true)}>
 				<svg
 					width="40"
@@ -348,7 +359,14 @@
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
-		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">Available on desktop</div>
+		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">MVP is live on desktop</div>
+		<div
+			class="max-md:hidden"
+			style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;"
+		>
+			MVP Is Live
+		</div>
 		<div
 			class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
 				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 absolute"
@@ -455,6 +473,14 @@
 			>
 				<img src={HeaderLogo} alt="Inferix" class="w-[158px] h-[32px]" />
 			</a>
+			<div class="header-tab-mobile tab opacity-60">
+				<a
+					style={'font-weight: 900'}
+					on:click={() => handleClickTab(register.id, register.href)}
+					class="whitespace-nowrap cursor-pointer"
+					aria-label="Read more">{register.title}</a
+				>
+			</div>
 			{#each tabs as tab (tab.id)}
 				<div class="header-tab-mobile tab opacity-60">
 					<a
@@ -493,8 +519,8 @@
 	<Modal bind:show={downloadShowModal} on:close={closeDownloadModal}>
 		<DownloadFailed />
 	</Modal>
-	<Modal bind:show={showModal} on:close={closeModal} >
-		<SignUpModal/>
+	<Modal bind:show={showModal} on:close={closeModal}>
+		<SignUpModal />
 	</Modal>
 </div>
 
