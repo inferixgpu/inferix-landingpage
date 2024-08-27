@@ -533,9 +533,22 @@
 			@apply text-[16px] font-normal text-white px-2 py-1 whitespace-nowrap text-header-transfer;
 		}
 		& > .register-button {
-			@apply flex justify-center h-[32px] w-[104px] items-center text-black py-4 text-[16px] font-[500];
-			border-radius: 4px;
+			@apply flex justify-center h-[32px]  items-center text-black py-4 text-[16px] font-[500];
+			padding: 0 15px;
+			border-radius: 8px;
 			background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+			&:hover {
+				box-shadow: 0 0 10px #00d6d9;
+				/* &::before {
+					content: '';
+					position: absolute;
+					inset: -5px;
+					transform: translate(10px, 8px);
+					z-index: 0;
+					background: linear-gradient(45deg, #00d6d9 0%, #fcc142 100%);
+					filter: blur(10px);
+				} */
+			}
 		}
 	}
 	.video-overlay-container {
