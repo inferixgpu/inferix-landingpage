@@ -302,7 +302,7 @@
 					<input
 						id="wallet-address-input"
 						type="text"
-						placeholder="Example: io3wfl8zgmdkw6j7yv9ncxenp5f..."
+						placeholder="Example: 0x0..."
 						on:focus={() => handleFocus(1)}
 					/>
 					{#if isNullWallet}
