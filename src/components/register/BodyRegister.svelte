@@ -253,24 +253,24 @@
 {/if}
 
 <div class={nav == 1 ? 'body-register' : 'body-register body-2'}>
-	<!--	<div class="nav-bar">-->
-	<!--		<div-->
-	<!--			role="button"-->
-	<!--			tabindex="0"-->
-	<!--			class={nav == 1 ? 'nav-item nav-item-active' : 'nav-item'}-->
-	<!--			on:click={(ele) => clickNav('registration', ele)}-->
-	<!--		>-->
-	<!--			<div>Registration</div>-->
-	<!--		</div>-->
-	<!--		<div-->
-	<!--			role="button"-->
-	<!--			tabindex="0"-->
-	<!--			class={nav == 2 ? 'nav-item nav-item-active' : 'nav-item'}-->
-	<!--			on:click={(ele) => clickNav('leaderboard', ele)}-->
-	<!--		>-->
-	<!--			<div>Leaderboard</div>-->
-	<!--		</div>-->
-	<!--	</div>-->
+		<div class="nav-bar">
+			<div
+				role="button"
+				tabindex="0"
+				class={nav == 1 ? 'nav-item nav-item-active' : 'nav-item'}
+				on:click={(ele) => clickNav('registration', ele)}
+			>
+				<div>Registration</div>
+			</div>
+			<div
+				role="button"
+				tabindex="0"
+				class={nav == 2 ? 'nav-item nav-item-active' : 'nav-item'}
+				on:click={(ele) => clickNav('leaderboard', ele)}
+			>
+				<div>Leaderboard</div>
+			</div>
+		</div>
 	{#if nav == 1}
 		<div>
 			<div role="button" tabindex="0" class="wallet-register" on:click={() => handleFocus(1)}>

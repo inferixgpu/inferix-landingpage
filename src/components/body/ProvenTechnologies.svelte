@@ -281,7 +281,7 @@
 						<img src={x_color} alt="x_color" />
 					</div>
 				</div>
-				<div style="height: calc(100vh - 10px); width: 100%; padding: 0 !important">
+				<div class="proven-models" style="height: calc(100vh - 10px); width: 100%; padding: 0 !important">
 					<!-- <div class="proven-device">
 						<img src={zerofrozr} alt="zerofrozr" />
 						<img src={fan} alt="fan" />
@@ -582,7 +582,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 60px;
-		position: relative;
+		position: relative;	
+		min-width: 300px;
 	}
 
 	.proven-device {
@@ -773,6 +774,10 @@
 		.proven-infor {
 			flex-direction: column;
 			align-items: center;
+		}
+
+		.proven-models {
+			display: none !important;
 		}
 
 		.proven-img > div:last-child > img:last-child {
