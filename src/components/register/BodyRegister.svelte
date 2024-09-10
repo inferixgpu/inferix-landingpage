@@ -411,8 +411,9 @@
 		<div class="leaderboard">
 			<img src={leaderboard_light} alt="leaderboard-light" />
 			<div class="leaderboard-content">
-				<div>Leaderboard Top 20 #ProQuest</div>
-				<div>Alliance Campaign</div>
+				<div>Leaderborad Top 20</div>
+				<div>Inferix Node Whitelist Program</div>
+				
 				<div>
 					Last Updated: {moment().format(
 						'MM/DD/YYYY, hh:mm:ss A'
@@ -444,13 +445,13 @@
 						on:input={onInputAddress}
 						on:keydown={handleKeydown}
 					/>
-					<div
+					<!-- <div
 						style="width: 18%; min-width: 135px; display: flex; align-items: center; justify-content: flex-end;"
 					>
 						<div style="font-family: 'Roboto Mono', monospace; font-size: 15px;">
 							{enter ? get(searched_addresss, 'point_converted', 'Not found!') : ''}
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>{/if}
@@ -739,7 +740,7 @@
 
 	.leaderboard > .leaderboard-content > .leaderboard-table {
 		max-width: 395px !important;
-		width: 395px;
+		width: 100%;
 		border: none;
 		gap: 0;
 		margin-top: 24px;
@@ -925,7 +926,8 @@
 
 	@media screen and (max-width: 674px) {
 		.leaderboard > .leaderboard-content > .leaderboard-table {
-			width: 350px;
+			max-width: 350px;
+			width: 100%;
 		}
 		.leaderboard > img {
 			width: 250vw;
@@ -973,7 +975,8 @@
 	}
 
 	.search_address {
-		width: 395px;
+		max-width: 395px;
+		width: 100%;
 		padding: 16px;
 		padding-bottom: 0;
 
