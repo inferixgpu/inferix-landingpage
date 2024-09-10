@@ -284,7 +284,7 @@
 					<div>
 						<div class={input_step == 1 ? 'desc-active' : ''}>Wallet Address</div>
 						<div>
-							Enter your wallet ioPay address so we can verify your account on the system (<a
+							Enter your wallet ERC20 address so we can verify your account on the system (<a
 								href="https://youtube.com/shorts/IkZ1jl-pFxc?si=8O3_72m7biKupZX3"
 								class="text-blue-500 hover:underline hover:filter-none"
 								target="_blank"
