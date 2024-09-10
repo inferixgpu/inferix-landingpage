@@ -16,7 +16,7 @@
 	let count = 1;
 	let showModal = false;
 	var nodes = [{ id: 1, value: '' }];
-	let nav = 2;
+	let nav = 1;
 	let data = [];
 	let no_data_found = false;
 	let is_mobile = false;
