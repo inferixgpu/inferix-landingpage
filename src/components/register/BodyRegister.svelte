@@ -412,7 +412,7 @@
 		<div class="leaderboard">
 			<img src={leaderboard_light} alt="leaderboard-light" />
 			<div class="leaderboard-content">
-				<div>Leaderborad Top 20</div>
+				<div>Leaderboard Top 20</div>
 				<div>Inferix Node Whitelist Program</div>
 				
 				<div>
