@@ -445,13 +445,13 @@
 						on:input={onInputAddress}
 						on:keydown={handleKeydown}
 					/>
-					<!-- <div
+					<div
 						style="width: 18%; min-width: 135px; display: flex; align-items: center; justify-content: flex-end;"
 					>
 						<div style="font-family: 'Roboto Mono', monospace; font-size: 15px;">
 							{enter ? get(searched_addresss, 'point_converted', 'Not found!') : ''}
 						</div>
-					</div> -->
+					</div>
 				</div>
 			</div>
 		</div>{/if}
