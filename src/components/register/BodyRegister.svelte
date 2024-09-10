@@ -414,7 +414,7 @@
 				<div>Leaderboard Top 20 #ProQuest</div>
 				<div>Alliance Campaign</div>
 				<div>
-					Last Updated: {moment(new Date('06/15/2024, 11:59:59 PM')).format(
+					Last Updated: {moment().format(
 						'MM/DD/YYYY, hh:mm:ss A'
 					)}
 				</div>
