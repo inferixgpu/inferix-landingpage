@@ -16,7 +16,7 @@
 	let count = 1;
 	let showModal = false;
 	var nodes = [{ id: 1, value: '' }];
-	let nav = 2;
+	let nav = 1;
 	let data = [];
 	let no_data_found = false;
 	let is_mobile = false;
@@ -253,24 +253,24 @@
 {/if}
 
 <div class={nav == 1 ? 'body-register' : 'body-register body-2'}>
-	<!--	<div class="nav-bar">-->
-	<!--		<div-->
-	<!--			role="button"-->
-	<!--			tabindex="0"-->
-	<!--			class={nav == 1 ? 'nav-item nav-item-active' : 'nav-item'}-->
-	<!--			on:click={(ele) => clickNav('registration', ele)}-->
-	<!--		>-->
-	<!--			<div>Registration</div>-->
-	<!--		</div>-->
-	<!--		<div-->
-	<!--			role="button"-->
-	<!--			tabindex="0"-->
-	<!--			class={nav == 2 ? 'nav-item nav-item-active' : 'nav-item'}-->
-	<!--			on:click={(ele) => clickNav('leaderboard', ele)}-->
-	<!--		>-->
-	<!--			<div>Leaderboard</div>-->
-	<!--		</div>-->
-	<!--	</div>-->
+		<div class="nav-bar">
+			<div
+				role="button"
+				tabindex="0"
+				class={nav == 1 ? 'nav-item nav-item-active' : 'nav-item'}
+				on:click={(ele) => clickNav('registration', ele)}
+			>
+				<div>Registration</div>
+			</div>
+			<div
+				role="button"
+				tabindex="0"
+				class={nav == 2 ? 'nav-item nav-item-active' : 'nav-item'}
+				on:click={(ele) => clickNav('leaderboard', ele)}
+			>
+				<div>Leaderboard</div>
+			</div>
+		</div>
 	{#if nav == 1}
 		<div>
 			<div role="button" tabindex="0" class="wallet-register" on:click={() => handleFocus(1)}>
@@ -284,13 +284,14 @@
 					<div>
 						<div class={input_step == 1 ? 'desc-active' : ''}>Wallet Address</div>
 						<div>
-							Enter your wallet ioPay address so we can verify your account on the system (<a
+							Enter your wallet ERC20 address so we can verify your account on the system 
+							<!-- (<a
 								href="https://youtube.com/shorts/IkZ1jl-pFxc?si=8O3_72m7biKupZX3"
 								class="text-blue-500 hover:underline hover:filter-none"
 								target="_blank"
 							>
 								Click to view instructions</a
-							>)
+							>) -->
 						</div>
 					</div>
 				</div>
@@ -302,7 +303,7 @@
 					<input
 						id="wallet-address-input"
 						type="text"
-						placeholder="Example: io3wfl8zgmdkw6j7yv9ncxenp5f..."
+						placeholder="Example: 0x0..."
 						on:focus={() => handleFocus(1)}
 					/>
 					{#if isNullWallet}
@@ -411,10 +412,11 @@
 		<div class="leaderboard">
 			<img src={leaderboard_light} alt="leaderboard-light" />
 			<div class="leaderboard-content">
-				<div>Leaderboard Top 20 #ProQuest</div>
-				<div>Alliance Campaign</div>
+				<div>Leaderboard Top 20</div>
+				<div>Inferix Node Whitelist Program</div>
+				
 				<div>
-					Last Updated: {moment(new Date('06/15/2024, 11:59:59 PM')).format(
+					Last Updated: {moment().format(
 						'MM/DD/YYYY, hh:mm:ss A'
 					)}
 				</div>
@@ -739,7 +741,7 @@
 
 	.leaderboard > .leaderboard-content > .leaderboard-table {
 		max-width: 395px !important;
-		width: 395px;
+		width: 100%;
 		border: none;
 		gap: 0;
 		margin-top: 24px;
@@ -925,7 +927,8 @@
 
 	@media screen and (max-width: 674px) {
 		.leaderboard > .leaderboard-content > .leaderboard-table {
-			width: 350px;
+			max-width: 350px;
+			width: 100%;
 		}
 		.leaderboard > img {
 			width: 250vw;
@@ -973,7 +976,8 @@
 	}
 
 	.search_address {
-		width: 395px;
+		max-width: 395px;
+		width: 100%;
 		padding: 16px;
 		padding-bottom: 0;
 

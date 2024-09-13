@@ -33,6 +33,16 @@
 	import size from 'lodash.size';
 	import dr from '$images/png/dr.png';
 	import { gsap } from 'gsap';
+	import models_fan from '$models/models_fan.glb';
+
+	let modelViewerLoaded = false;
+	onMount(async () => {
+    if (typeof window !== 'undefined') {
+      const modelViewer = await import('@google/model-viewer');
+      modelViewerLoaded = true;
+    }
+  });
+	
 
 	let screenSize: number;
 	let tl = gsap.timeline({ repeat: -1 });
@@ -271,8 +281,8 @@
 						<img src={x_color} alt="x_color" />
 					</div>
 				</div>
-				<div>
-					<div class="proven-device">
+				<div class="proven-models" style="height: calc(100vh - 10px); width: 100%; padding: 0 !important">
+					<!-- <div class="proven-device">
 						<img src={zerofrozr} alt="zerofrozr" />
 						<img src={fan} alt="fan" />
 						<img src={fan} alt="fan" />
@@ -307,19 +317,47 @@
 						<img src={fan_x} alt="fan-x" />
 						<img src={fan_x} alt="fan-x" />
 						<img src={fan_x} alt="fan-x" />
-					</div>
-					<img src={line} alt="line" />
-					<img id="animated_x" src={animated_x} alt="animated-x" />
-					<div id="custom_line_1" />
+					</div> -->
+					<!-- <model-viewer
+          		    	src={models_fan}
+          				alt="model3d"
+						ar-modes="webxr scene-viewer quick-look"
+						camera-controls={false}
+						autoplay
+						disable-zoom
+						disable-tap
+						camera-orbit="5deg 80deg 130%"
+						field-of-view="28deg"
+						style={{ height: "100%" }}
+        			></model-viewer> -->
+
+					{#if modelViewerLoaded}
+					<model-viewer
+					src={models_fan}
+					alt="model3d"
+					ar-modes="webxr scene-viewer quick-look"
+					camera-controls={false}
+					autoplay
+					disable-zoom
+					disable-tap
+					camera-orbit="-40deg 72deg 130%"
+					field-of-view="28deg"
+					style= "height: 100%; width: 100%"
+					>
+					</model-viewer>
+					{/if}
+					<!-- <img src={line} alt="line" /> -->
+					<!-- <img id="animated_x" src={animated_x} alt="animated-x" /> -->
+					<!-- <div id="custom_line_1" />
 					<div id="custom_line_2" />
 					<div id="custom_line_3" />
 					<div id="custom_line_4" />
-					<div id="custom_line_5" />
-					{#if screenSize < 1280}
+					<div id="custom_line_5" /> -->
+					<!-- {#if screenSize < 1280}
 						<img src={line_2_mobile} alt="line_2" />
 					{:else}
 						<img src={line_2} alt="line_2" />
-					{/if}
+					{/if} -->
 				</div>
 			</div>
 			<div>
@@ -544,7 +582,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 60px;
-		position: relative;
+		position: relative;	
+		min-width: 300px;
 	}
 
 	.proven-device {
@@ -735,6 +774,10 @@
 		.proven-infor {
 			flex-direction: column;
 			align-items: center;
+		}
+
+		.proven-models {
+			display: none !important;
 		}
 
 		.proven-img > div:last-child > img:last-child {
