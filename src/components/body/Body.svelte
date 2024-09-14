@@ -82,13 +82,7 @@
 			href: 'https://aethir.com/',
 			is_half: true
 		},
-		{
-			id: 13,
-			title: 'Witnesschain',
-			img: { name: "https://static.wixstatic.com/media/0acb05_c0d489e8ed144cdba367d426ac53500b~mv2.png/v1/fill/w_174,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo-on-black_edited.png", height: '85px', mobile_height: '40px' },
-			href: 'https://www.witnesschain.com/',
-			is_half: true
-		},
+
 		{
 			id: 5,
 			title: 'MetaCity',
@@ -127,7 +121,7 @@
 			href: 'https://www.cudos.org/',
 			is_half: true
 		},
-		
+
 		// {
 		// 	id: 12,
 		// 	title: 'IOPay',
@@ -170,15 +164,6 @@
 			href: 'https://zone9survival.com/'
 		},
 		{
-			id: 100,
-			title: '',
-			img: { name: "", height: '85px', mobile_height: '50px' },
-			href: ''
-		},
-	];
-
-	const partner_more = [
-		{
 			id: 20,
 			title: 'Loxodrome',
 			img: { name: Loxodrome, height: '85px', mobile_height: '40px' },
@@ -191,8 +176,21 @@
 			img: { name: PowerPod, height: '85px', mobile_height: '40px' },
 			href: 'https://www.powerpod.pro/',
 			is_half: true
+		},
+		{
+			id: 13,
+			title: 'Witnesschain',
+			img: {
+				name: 'https://static.wixstatic.com/media/0acb05_c0d489e8ed144cdba367d426ac53500b~mv2.png/v1/fill/w_174,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo-on-black_edited.png',
+				height: '85px',
+				mobile_height: '40px'
+			},
+			href: 'https://www.witnesschain.com/',
+			is_half: true
 		}
 	];
+
+	const partner_more = [];
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
@@ -249,7 +247,7 @@
 				<div class="partner-content">
 					{#each partners as partner (partner.id)}
 						{#if !partner.id}{#if screenSize >= 1024}<div class="col-span-2"></div>{/if}{:else}<a
-								class="{partner.id === 100 ? 'partner-item-none' : 'partner-item'}"
+								class={partner.id === 100 ? 'partner-item-none' : 'partner-item'}
 								href={partner.href}
 								target="_blank"
 								aria-label="Read more"
@@ -348,7 +346,7 @@
 			);
 			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none col-span-2;
 		}
-		
+
 		& > .partner-item-none {
 			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none col-span-2;
 		}
