@@ -283,7 +283,7 @@
 			/>
 			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
-					<div class="relative">
+					<div class="relative flex justify-center">
 						<a
 						on:click={() => handleClickTab(tab.id, tab.href)}
 						id="item-tab-{tab.id}"
