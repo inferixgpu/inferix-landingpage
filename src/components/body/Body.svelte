@@ -79,7 +79,7 @@
 			id: 12,
 			title: 'Aethir',
 			img: { name: Aethir, height: '85px', mobile_height: '40px' },
-			href: '',
+			href: 'https://aethir.com/',
 			is_half: true
 		},
 		{
