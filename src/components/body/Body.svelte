@@ -14,6 +14,7 @@
 	import DeMR from '$images/png/DeMR.svg';
 	import AIxBlock from '$images/png/AIxBlock.png';
 	import Cudos from '$images/png/cudos.png';
+	import Aethir from '$images/png/aethir.png';
 	import IOPay from '$images/png/iopay.svg';
 	import ForesightX from '$images/png/foresightx.png';
 	import FutureMoney from '$images/png/futuremoney.png';
@@ -75,6 +76,13 @@
 			href: 'https://actif3d.com/'
 		},
 		{
+			id: 12,
+			title: 'Aethir',
+			img: { name: Aethir, height: '85px', mobile_height: '40px' },
+			href: '',
+			is_half: true
+		},
+		{
 			id: 5,
 			title: 'MetaCity',
 			img: { name: MetaCity, height: '75px', mobile_height: '40px' },
@@ -85,12 +93,6 @@
 			title: 'Nvidia',
 			img: { name: Nvidia, height: '85px', mobile_height: '52px' },
 			href: 'https://www.nvidia.com/en-us/startups/'
-		},
-		{
-			id: 7,
-			title: 'ZoneNine',
-			img: { name: ZoneNine, height: '85px', mobile_height: '50px' },
-			href: 'https://zone9survival.com/'
 		},
 		{
 			id: 8,
@@ -118,13 +120,14 @@
 			href: 'https://www.cudos.org/',
 			is_half: true
 		},
-		{
-			id: 12,
-			title: 'IOPay',
-			img: { name: IOPay, height: '85px', mobile_height: '40px' },
-			href: 'https://iopay.me/',
-			is_half: true
-		},
+		
+		// {
+		// 	id: 12,
+		// 	title: 'IOPay',
+		// 	img: { name: IOPay, height: '85px', mobile_height: '40px' },
+		// 	href: 'https://iopay.me/',
+		// 	is_half: true
+		// },
 		{
 			id: 16,
 			title: 'Icetea Labs',
@@ -152,7 +155,13 @@
 			img: { name: DePHY, height: '85px', mobile_height: '40px' },
 			href: 'https://dephy.io/',
 			is_half: true
-		}
+		},
+		{
+			id: 7,
+			title: 'ZoneNine',
+			img: { name: ZoneNine, height: '85px', mobile_height: '50px' },
+			href: 'https://zone9survival.com/'
+		},
 	];
 
 	const partner_more = [

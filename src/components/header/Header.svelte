@@ -35,6 +35,7 @@
 			href: 'https://dash.inferix.io/'
 		},
 		{ id: 4, title: 'Partners', href: '#partners' },
+		{ id: 6, title: 'Node Sale', href: 'https://verifier.inferix.io/' },
 		{
 			id: 5,
 			title: 'Docs',
@@ -157,7 +158,8 @@
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 <div class="header-container" style="font-family: Inter">
 	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
-		{#if is_close}
+		<div style="display: none;">
+			{#if is_close}
 			{#if screenSize > 800}
 				<div class="transition-bar">
 					<div
@@ -270,10 +272,11 @@
 				</div>
 			{/if}
 		{/if}
+		</div>
 
 		<div class="header-bar">
 			<img
-				class="h-[24px] cursor-pointer"
+				class="h-[24px] cursor-pointer "
 				src={HeaderLogo}
 				alt="HeaderLogo"
 				on:click={scrollToTop}
@@ -283,8 +286,15 @@
 					<a
 						on:click={() => handleClickTab(tab.id, tab.href)}
 						id="item-tab-{tab.id}"
-						class="tab-item cursor-pointer"
-						aria-label="Read more">{tab.title}</a
+						class="tab-item cursor-pointer relative"
+						aria-label="Read more">{tab.title} {#if tab.id === 6}
+						<span
+						  class="new-tag absolute top-[-6px] right-[-22px] h-[16px] px-[4px] leading-[16px] text-[10px] text-white rounded-[8px_0px] pointer-events-none"
+						  style="background: linear-gradient(90deg, rgb(255, 57, 188), rgb(137, 42, 242));"
+						>
+						  New
+						</span>
+					  {/if}</a
 					>
 				{/each}
 			</div>
