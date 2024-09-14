@@ -1,7 +1,7 @@
 <script>
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
-	import X from '$images/icons/X.svg';
+	import X from '$images/icons/Twitter.svg';
 	import D from '$images/icons/D.svg';
 	import M from '$images/icons/M.svg';
 	import Y from '$images/icons/Ytb.svg';
@@ -20,7 +20,7 @@
 	<div class="flex">
 		<div class="flex justify-between">
 			<a href="https://inferix.io/">
-				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
+				<img src={HeaderLogo} alt="Inferix" loading="lazy" class="w-[152px] h-[32px]" />
 			</a>
 			<p class="font-base font-outfit font -normal mt-4 md:mt-0 text-white whitespace-nowrap">
 				Decentralized GPU Network
@@ -30,7 +30,9 @@
 			class="flex md:gap-10 justify-center gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
 		>
 			{#each medias as media (media.id)}
-				<a target="_blank" href={media.href}><img class="rounded-[50%]" src={media.icon} /></a>
+				<a target="_blank" href={media.href}
+					><img class="rounded-[50%]" src={media.icon} alt={media.name} /></a
+				>
 			{/each}
 		</div>
 	</div>

@@ -30,8 +30,9 @@ const config = {
 			$services: path.resolve('./src/services'),
 			$stores: path.resolve('./src/stores'),
 			$utils: path.resolve('./src/utils'),
-			$constants: path.resolve('./src/constants')
-		}
+			$constants: path.resolve('./src/constants'),
+			$models: path.resolve('./src/assets/models'),
+		},
 	}
 };
 

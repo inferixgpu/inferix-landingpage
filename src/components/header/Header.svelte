@@ -1,31 +1,27 @@
 <script lang="ts">
 	import Close from '$images/icons/Close.svg';
-	import DownloadIcon from '$images/icons/Download.svg';
 	import HeaderLogo from '$images/icons/HeaderLogo.svg';
-	import MobileMenu from '$images/icons/MobileMenu.svg';
-	import IconScreen from '$images/icons/IconScreen.svg';
-	import IconGpu from '$images/icons/IconGpu.svg';
-	import InferixIntro from '$videos/InferixIntroLandingPage.mp4';
-
+	import InferixIntro from '$videos/Earth_8.mp4';
 	import Saos from 'saos';
 	import SignUpModal from '$components/inferix/SignUpModal/SignUpModal.svelte';
 	import DownloadFailed from '$components/inferix/Modals/DownloadFailed.svelte';
-	import {Modal} from 'flowbite-svelte';
-
-	import {afterUpdate, onMount} from 'svelte';
-	import X from '$images/icons/X.svg';
+	import Modal from '$components/utils/Modal.svelte';
+	import { afterUpdate, onMount } from 'svelte';
+	import X from '$images/icons/Twitter.svg';
 	import M from '$images/icons/M.svg';
 	import D from '$images/icons/D.svg';
 	import W from '$images/icons/warpcast.svg';
 	import Y from '$images/icons/Ytb.svg';
+	import buttonGPU from '$images/icons/ButtonGPU.png';
+	import buttonGPUFocus from '$images/icons/ButtonGPUFocus.png';
+	import buttonScreen from '$images/icons/ButtonScreen.png';
+	import buttonScreenFocus from '$images/icons/ButtonScreenFocus.png';
+	import DownloadIcon from '$images/icons/Download.svg';
+	import background_download_1 from '$images/png/background-download-1.png';
+	import background_download_2 from '$images/png/background-download-2.png';
 
 	let textIndex = 0;
-
 	let activeTab = 6;
-
-	const setActiveTab = (tab: number) => {
-		activeTab = tab;
-	};
 
 	const tabs = [
 		{
@@ -38,27 +34,28 @@
 			title: 'GPU Network',
 			href: 'https://dash.inferix.io/'
 		},
-		{
-			id: 3,
-			title: 'Roadmap',
-			href: '#roadmap'
-		},
-		{
-			id: 4,
-			title: 'Team',
-			href: '#team'
-		},
+		{ id: 4, title: 'Partners', href: '#partners' },
 		{
 			id: 5,
 			title: 'Docs',
 			href: 'https://docs.inferix.io/'
-		},
-		{
-			id: 6,
-			title: 'Register',
-			href: '#'
 		}
+		// {
+		// 	id: 3,
+		// 	title: 'Roadmap',
+		// 	href: '#roadmap'
+		// }
+		// {
+		// 	id: 5,
+		// 	title: 'Docs',
+		// 	href: 'https://docs.inferix.io/'
+		// }
 	];
+	const register = {
+		id: 6,
+		title: 'Whitepaper',
+		href: 'https://static.inferix.io/files/inferix-whitepaper.pdf'
+	};
 	const medias = [
 		{ id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X },
 		{ id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M },
@@ -66,65 +63,45 @@
 		{ id: 4, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y },
 		{ id: 5, name: 'Warpcast', href: 'https://warpcast.com/inferixgpu', icon: W }
 	];
-
 	let screenSize: number;
 	let y: number;
-
 	let isOpen = false;
 	let showModal = false;
 	let downloadShowModal = false;
-
-	afterUpdate(() => {
-		if (typeof window !== 'undefined') {
-			if (isOpen) {
-				// Prevent scrolling when the menu is open
-				document.documentElement.style.overflowY = 'hidden';
-				document.addEventListener('touchmove', preventDefaultScroll, {
-					passive: false
-				});
-			} else {
-				// Re-enable scrolling when the menu is closed
-				document.documentElement.style.overflowY = 'auto';
-				document.removeEventListener('touchmove', preventDefaultScroll);
-			}
-		}
-	});
-
-	function preventDefaultScroll(e: TouchEvent) {
-		e.preventDefault();
+	function closeDownloadModal() {
+		downloadShowModal = false;
 	}
 
-	const toggleMenu = () => {
-		isOpen = true;
-	};
-
-	const closeMenu = () => {
-		isOpen = false;
-	};
-
-	function downloadMacOS() {
-		downloadShowModal = true;
+	function closeModal() {
+		showModal = false;
 	}
 
-	function handleClickTab(e: MouseEvent, id: number, href: string) {
-		if (id === 2 || id === 5) return;
-		if (id === 6) {
-			showModal = true;
+	function handleClickTab(id: number, href: string) {
+		document.querySelectorAll('.tab-item').forEach((item) => item.classList.remove('tab-active'));
+		if (id !== 6) {
+			document.getElementById(`item-tab-${id}`)?.classList.add('tab-active');
 		}
 
-		e.preventDefault();
+		if (id === 2 || id === 5) {
+			window.open(href);
+		}
+
+		if (id === 6 || id == 0) {
+			// showModal = true;
+			window.open(href);
+			return;
+		}
+
+		activeTab = id;
+		const space = id === 4 || id === 3 ? 150 : screenSize > 768 ? 100 : 270;
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
-		setActiveTab(id);
-		const space = screenSize > 768 ? 200 : 150;
 
 		if (tab) {
 			window.scrollTo({
-				top: tab.offsetTop - 100,
+				top: tab.offsetTop - space,
 				behavior: 'smooth'
 			});
-		}
-		if (screenSize < 768) {
 			isOpen = false;
 		}
 	}
@@ -135,259 +112,382 @@
 			autoPlay();
 		}, 4000);
 	}
-
-	let is_close = false;
-
-	function scroll() {
-		if (is_close) return;
-		const header = document.getElementById('header');
-		if (window.innerWidth <= 800) {
-			header.style.marginTop = 0;
-			return;
-		}
-		if (window.scrollY > 150) header.style.marginTop = '-40px';
-		else header.style.marginTop = 0;
-	}
-
-	function onCloseGuide() {
-		is_close = true;
-		const header = document.getElementById('header');
-		header.style.marginTop = '-40px';
-	}
-
+	let is_close = true;
 	let forceUpdate = 0;
-
-	function updateUI() {
-		forceUpdate += 1;
-		scroll();
-	}
-
 	onMount(() => {
 		autoPlay();
-
-		window.addEventListener('scroll', scroll);
-		window.addEventListener('resize', updateUI);
+		window.addEventListener('resize', () => (forceUpdate += 1));
 	});
+	let focusGPU = false;
+	function focusButtonGPU(status) {
+		if (screenSize < 768) return;
+		focusGPU = status;
+		const ele = document.querySelector('.item-border-1 > .item-download-1');
+		if (status) {
+			ele.classList.remove('back-leave');
+			ele.classList.add('back-hover');
+		} else {
+			ele.classList.remove('back-hover');
+			ele.classList.add('back-leave');
+		}
+	}
+
+	let focusBtScreen = false;
+	function focusButtonScreen(status) {
+		if (screenSize < 768) return;
+		focusBtScreen = status;
+		const ele = document.querySelector('.item-border-2 > .item-download-2');
+		if (status) {
+			ele.classList.remove('back2-leave');
+			ele.classList.add('back2-hover');
+		} else {
+			ele.classList.remove('back2-hover');
+			ele.classList.add('back2-leave');
+		}
+	}
+
+	function scrollToTop() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
-
-<div class="bg-lightDark relative headerBackground">
-	<div
-		id="header"
-		class={`md:bg-[#141414] flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-40`}
-	>
-
-		{#if screenSize > 800}
-			<div class="link_blog_desktop md:flex lg:gap-8 md:gap-4 text-lg">
-				<div>
-					<div >
-						<span  class="flex items-center">📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
-							>🚀 <span>Proof-of-Rendering Release</span></a
+<div class="header-container" style="font-family: Inter">
+	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
+		{#if is_close}
+			{#if screenSize > 800}
+				<div class="transition-bar">
+					<div
+						class="absolute right-0 top-2 z-30 cursor-pointer"
+						role="button"
+						tabindex="0"
+						on:click={() => (is_close = false)}
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="icon icon-tabler icon-tabler-x svelte-pwodhr"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="#597e8d"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"
+							></path><path d="M6 6l12 12"></path></svg
 						>
 					</div>
-					<div>
-						<span  class="flex items-center">📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial"  class="flex items-center"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] max-[840px]:!w-[35%] !w-[320px] justify-center"
-							>🚀 <span>Proof-of-Rendering Release</span></a
-						>
-					</div>
-				</div>
-				<svg
-					on:click={() => onCloseGuide()}
-					xmlns="http://www.w3.org/2000/svg"
-					class="icon icon-tabler icon-tabler-x"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="#597e8d"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-					<path d="M18 6l-12 12" />
-					<path d="M6 6l12 12" />
-				</svg>
-			</div>
-		{/if}
-		{#if screenSize <= 800}
-			<div class="link_blog md:flex lg:gap-8 md:gap-4 text-lg">
-				<div>
-					<div >
-						<span  class="flex items-center whitespace-nowrap">📌 MVP is live!</span>
-						<a href="https://docs.inferix.io/mvp-tutorial" class="flex items-center whitespace-nowrap"> Read the full blog ⟶</a>
-						<a href="https://docs.inferix.io/por-release" class="flex bg-transparency !items-center !h-[40px] !w-[60%] justify-center whitespace-nowrap px-[10px]"
-						>🚀 <span>Proof-of-Rendering Release</span></a
-						>
-					</div>
-				</div>
-				<svg
-						on:click={() => onCloseGuide()}
-						xmlns="http://www.w3.org/2000/svg"
-						class="icon icon-tabler icon-tabler-x"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="#597e8d"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-					<path d="M18 6l-12 12" />
-					<path d="M6 6l12 12" />
-				</svg>
-			</div>
-		{/if}
-		<div />
-		<div class="container mx-auto md:mb-5 md:px-0 box-border md:pt-0">
-			<nav class="flex justify-between w-auto font-outfit font-normal">
-				<div class="flex md:gap-4 gap-2 md:items-center items-start">
-					<a href="https://inferix.io/">
-						<img src={HeaderLogo} alt="Inferix" class="lg:w-[158px] lg:h-[32px] h-[24px]" />
-					</a>
-				</div>
-				{#if screenSize > 800}
-					<div class="md:flex lg:gap-8 md:gap-4 text-lg">
-						{#each tabs as tab (tab.id)}
-							<div
-								class="header-tab {activeTab === tab.id ? 'active' : 'tab'}"
-								on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-							>
-								<a target="_blank" href={tab.href}>{tab.title}</a>
+					<div class="transition-action">
+						<div class="transition-item">
+							<div class="flex basis-1/2 justify-center shrink-0">
+								<a
+									href="https://docs.inferix.io/mvp-tutorial"
+									class="inline-flex h-full items-center gap-1"
+									aria-label="Read more"
+									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+								>
 							</div>
-						{/each}
+							<div class="flex basis-1/2 justify-center shrink-0">
+								<a
+									href="https://docs.inferix.io/por-release"
+									class="inline text-rainbow"
+									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
+								>
+							</div>
+							<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
+							<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
+							<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
+							<!--								>-->
+							<!--							</div>-->
+						</div>
+						<div class="transition-item">
+							<div class="flex basis-1/2 justify-center shrink-0">
+								<a
+									href="https://docs.inferix.io/mvp-tutorial"
+									class="inline-flex h-full items-center gap-1"
+									aria-label="Read more"
+									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+								>
+							</div>
+							<div class="flex basis-1/2 justify-center shrink-0">
+								<a
+									href="https://docs.inferix.io/por-release"
+									class="inline text-rainbow"
+									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
+								>
+							</div>
+							<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
+							<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
+							<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
+							<!--								>-->
+							<!--							</div>-->
+						</div>
 					</div>
-				{/if}
-				{#if screenSize < 800}
-					<img
-						src={MobileMenu}
-						on:click={toggleMenu}
-						alt="menu"
-						class="md:mb-0 mb-4 cursor-pointer ml-auto w-[24px] h-[24px]"
-					/>
-				{/if}
-			</nav>
+				</div>
+			{:else}
+				<div class="transition-bar-mobile" id="guide-mobile">
+					<div class="transition-action">
+						<div class="flex basis-1/4 justify-center shrink-0">
+							<a
+								href="https://docs.inferix.io/mvp-tutorial"
+								class="inline-flex h-full items-center gap-1"
+								aria-label="Read more"
+								>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+							>
+						</div>
+						<div class="flex basis-1/4 justify-center shrink-0">
+							<a
+								href="https://docs.inferix.io/por-release"
+								class="inline text-rainbow"
+								aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
+							>
+						</div>
+						<div class="flex basis-1/4 justify-center shrink-0">
+							<a
+								href="https://docs.inferix.io/mvp-tutorial"
+								class="inline-flex h-full items-center gap-1"
+								aria-label="Read more"
+								>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+							>
+						</div>
+						<div class="flex basis-1/4 justify-center shrink-0">
+							<a
+								href="https://docs.inferix.io/por-release"
+								class="inline text-rainbow"
+								aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
+							>
+						</div>
+						<!--						<div class="flex basis-1/3 justify-center shrink-0">-->
+						<!--							<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
+						<!--								>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
+						<!--							>-->
+						<!--						</div>-->
+					</div>
+				</div>
+			{/if}
+		{/if}
+
+		<div class="header-bar">
+			<img
+				class="h-[24px] cursor-pointer"
+				src={HeaderLogo}
+				alt="HeaderLogo"
+				on:click={scrollToTop}
+			/>
+			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
+				{#each tabs as tab (tab.id)}
+					<a
+						on:click={() => handleClickTab(tab.id, tab.href)}
+						id="item-tab-{tab.id}"
+						class="tab-item cursor-pointer"
+						aria-label="Read more">{tab.title}</a
+					>
+				{/each}
+			</div>
+			<div class="register-button">
+				<a
+					on:click={() => handleClickTab(register.id, register.href)}
+					class="whitespace-nowrap cursor-pointer"
+					aria-label="Read more">{register.title}</a
+				>
+			</div>
+		</div>
+		<div class="header-bar-mobile">
+			<img
+				class="h-[24px] cursor-pointer"
+				src={HeaderLogo}
+				alt="header-logo-inferix"
+				on:click={scrollToTop}
+			/>
+			<div class="cursor-pointer" on:click={() => (isOpen = true)}>
+				<svg
+					width="40"
+					height="40"
+					viewBox="0 0 40 40"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<rect x="0.5" y="0.5" width="39" height="39" fill="#1A1A1A" />
+					<rect x="0.5" y="0.5" width="39" height="39" stroke="#2A343E" />
+					<rect x="10" y="11" width="20" height="2" fill="#FFF4E9" />
+					<rect x="15.8334" y="19" width="14.1667" height="2" fill="#FFF4E9" />
+					<rect x="12.5" y="27" width="17.5" height="2" fill="#FFF4E9" />
+				</svg>
+			</div>
 		</div>
 	</div>
-	<div class="mx-auto pt-[0px] box-border">
-		<div class="overflow-hidden mx-auto relative">
-			<video autoplay muted loop playsinline class="h-[700px] w-full object-cover">
+	<div class="mx-auto flex flex-col bg-black relative justify-end items-center">
+		<div class="w-full flex justify-center items-center">
+			<div
+				class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto md:mt-[500px] mt-[420px] absolute z-[20]"
+				style={is_close ? '' : 'margin-top: 420px'}
+			>
+				<div class="flex flex-col items-center justify-center" style="padding: 0 15px;">
+					{#if textIndex === 0}
+						<p class="text-[24px] font-[400] opacity-60 text-center">
+							Fastest 3D rendering & federated AI by
+						</p>
+						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
+							<p class="text-[48px] max-md:text-[40px] font-bold text-center">
+								Inferix Decentralized GPU
+							</p>
+						</Saos>
+					{:else}
+						<p class="text-[24px] font-[400] opacity-60 text-center">Low-cost visual computing & AI by</p>
+						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
+							<p class="text-[48px] max-md:text-[40px] font-bold text-center">
+								Inferix Crowdsourced GPU
+							</p>
+						</Saos>
+					{/if}
+				</div>
+			</div>
+		</div>
+
+		<div class="overflow-hidden bg-black mx-auto md:mt-0 -mt-[200px] max-md:opacity-40 relative">
+			<video
+				autoplay
+				muted
+				loop
+				playsinline
+				class="h-[698px] md:w-[1526px] max-md:w-full object-contain mx-auto mt-[250px]"
+			>
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
-			<div style="display: flex" class="video-overlay-container">
-				<div class="text">
-					{#if textIndex === 0}
-						{#if screenSize > 768}
-							<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-								<h1
-									class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold"
-								>
-									Fastest 3D rendering by <br /> <strong>Inferix decentralized GPU</strong>
-								</h1>
-							</Saos>
-						{/if}
-						{#if screenSize < 768}
-							<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-								<h1 style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px">
-									Fastest 3D rendering by<br /> <strong>Inferix decentralized GPU</strong>
-								</h1>
-							</Saos>
-						{/if}
-					{/if}
-					{#if textIndex === 1}
-						{#if screenSize > 768}
-							<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-								<h1
-									class="text-xl md:text-[4.625rem] font-outfit text-center shadow-text font-bold"
-								>
-									Low-cost AI inference by <br /> <strong>Inferix crowdsourced GPU</strong>
-								</h1>
-							</Saos>
-						{/if}
-						{#if screenSize < 768}
-							<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
-								<h1 style="font-size: 40px;font-weight: 700;margin-left: 100px;margin-right: 100px">
-									Low-cost AI inference by<br /> <strong>Inferix crowdsourced GPU</strong>
-								</h1>
-							</Saos>
-						{/if}
-					{/if}
-				</div>
-				<Saos
-					top="200"
-					once
-					animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
+		</div>
+		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">MVP is live on desktop</div>
+		<div
+			class="max-md:hidden"
+			style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;"
+		>
+			MVP Is Live
+		</div>
+		<div
+			class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
+				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 absolute"
+		>
+			<div class="item-border-1">
+				<div
+					role="button"
+					tabindex="0"
+					class="item-download-1 cursor-pointer"
+					on:mouseenter={() => focusButtonGPU(true)}
+					on:mouseleave={() => focusButtonGPU(false)}
 				>
-					<!--                    <p class="font-outfit text-white text-center font-semibold text-sm md:text-2xl shadow-text mt-5 md:mt-[107px]">-->
-					<!--                        Start-->
-					<!--                        free trial</p>-->
-					<div
-						class="flex gap-4 justify-center mt-[40px] md:mt-4 {screenSize > 768
-							? 'flex-row'
-							: 'flex-col'}"
-					>
-						<div class="download-btn">
-							<span><img src={IconScreen} alt="download" /></span>
-							<div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
-								<span>For Designer</span>
-								<div class="flex flex-row gap-5">
-									<a class="download-options" href="https://h3d.me/ifxaddonblenderwin">
-										<img src={DownloadIcon} alt="download" />
-										<span>Windows</span>
-									</a>
-									<a class="download-options" href="#" on:click={() => downloadMacOS()}>
-										<img src={DownloadIcon} alt="download" />
-										<span>MacOS</span>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="download-btn">
-							<span><img src={IconGpu} alt="download" /></span>
-							<div class="items-start flex flex-col gap-[10px] leading-91 w-[153px]">
-								<span>For GPU Owner</span>
-								<div class="flex flex-row gap-5">
-									<a class="download-options" href="https://h3d.me/ifxworkerwin">
-										<img src={DownloadIcon} alt="download" />
-										<span>Windows</span>
-									</a>
-									<a class="download-options" href="#" on:click={() => downloadMacOS()}>
-										<img src={DownloadIcon} alt="download" />
-										<span>MacOS</span>
-									</a>
-								</div>
-							</div>
+					<img src={background_download_1} alt="background" />
+					<div class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:justify-center md:justify-end">
+						<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
+						<div class="flex justify-between max-md:hidden">
+							<a
+								href="https://h3d.me/ifxworkerwin"
+								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+								aria-label="Read more"
+							>
+								<img src={DownloadIcon} alt="DownloadIcon" />
+								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+							</a>
+							<a
+								href="javascript:void(0)"
+								role="button"
+								tabindex="0"
+								on:click={() => (downloadShowModal = true)}
+								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+								aria-label="Read more"
+							>
+								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
+								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+							</a>
 						</div>
 					</div>
-				</Saos>
+
+					<div class="basis-1/3 mt-4">
+						{#if !focusGPU}
+							<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
+						{:else}
+							<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus" />
+						{/if}
+					</div>
+				</div>
+			</div>
+			<div class="item-border-2">
+				<div
+					class="item-download-2 cursor-pointer"
+					on:mouseenter={() => focusButtonScreen(true)}
+					on:mouseleave={() => focusButtonScreen(false)}
+				>
+					<img src={background_download_2} alt="back-download-2" />
+					<div class="basis-1/3 mt-4">
+						{#if !focusBtScreen}
+							<img class="-ml-4" src={buttonScreen} alt="buttonScreen" />
+						{:else}
+							<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus" />
+						{/if}
+					</div>
+					<div
+						class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center"
+					>
+						<p class="flex text-white text-[16px] font-bold justify-start">
+							3D Rendering & AI Inference
+						</p>
+						<div class="flex justify-between max-md:hidden">
+							<a
+								href="https://h3d.me/ifxaddonblenderwin"
+								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+								aria-label="Read more"
+							>
+								<img src={DownloadIcon} alt="DownloadIcon" />
+								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+							</a>
+							<a
+								href="javascript:void(0)"
+								role="button"
+								tabindex="0"
+								on:click={() => (downloadShowModal = true)}
+								class="inline-flex justify-between items-center gap-1 cursor-pointer"
+								aria-label="Read more"
+							>
+								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
+								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<!--    <img-->
-	<!--            src={InferixMobile}-->
-	<!--            alt="InferixMobile"-->
-	<!--            class="md:hidden flex w-[78px] h-[31px] mx-auto mt-[50px] pb-5 box-content"-->
-	<!--    />-->
-	<div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-screen z-40`}>
+	<div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-full z-50`}>
 		<div
-			class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full bg-bg box-border pt-[86px] relative p-[30px]"
+			style="background: #000;"
+			class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full box-border pt-[86px] relative p-[30px]"
 		>
-			<a href="https://inferix.io/" class="absolute top-[20px]" on:click={closeMenu}>
+			<a
+				href="https://inferix.io/"
+				class="absolute top-[20px]"
+				role="button"
+				tabindex="0"
+				on:click={() => (isOpen = false)}
+			>
 				<img src={HeaderLogo} alt="Inferix" class="w-[158px] h-[32px]" />
 			</a>
+			<div class="header-tab-mobile tab opacity-60">
+				<a
+					style={'font-weight: 800'}
+					on:click={() => handleClickTab(register.id, register.href)}
+					class="whitespace-nowrap cursor-pointer"
+					aria-label="Read more">{register.title}</a
+				>
+			</div>
 			{#each tabs as tab (tab.id)}
 				<div class="header-tab-mobile tab opacity-60">
 					<a
-						href={tab.href}
-						on:click={(e) => handleClickTab(e, tab.id, tab.href)}
-						class="whitespace-nowrap">{tab.title}</a
+						on:click={() => handleClickTab(tab.id, tab.href)}
+						class="whitespace-nowrap cursor-pointer"
+						aria-label="Read more">{tab.title}</a
 					>
 				</div>
 			{/each}
@@ -395,7 +495,13 @@
 				{#each medias as media (media.id)}
 					<div>
 						<a target="_blank" href={media.href}
-							><img src={media.icon} class="h-[34px] w-[34px]" /></a
+							><img
+								src={media.icon}
+								alt={media.name}
+								loading="lazy"
+								class="h-[34px] w-[34px]"
+								style="border-radius: 50%;"
+							/></a
 						>
 					</div>
 				{/each}
@@ -404,208 +510,86 @@
 
 		<div
 			class={`${isOpen ? 'block' : 'hidden'} top-4 absolute right-5 cursor-pointer z-20`}
-			on:click={closeMenu}
+			role="button"
+			tabindex="0"
+			on:click={() => (isOpen = false)}
 		>
 			<img src={Close} alt="close icon" />
 		</div>
 	</div>
-	<Modal bind:open={downloadShowModal} defaultClass="!rounded-[20px]">
+	<Modal bind:show={downloadShowModal} on:close={closeDownloadModal}>
 		<DownloadFailed />
 	</Modal>
-	<Modal bind:open={showModal} defaultClass="!rounded-[20px]">
+	<Modal bind:show={showModal} on:close={closeModal}>
 		<SignUpModal />
 	</Modal>
 </div>
 
 <style lang="postcss">
-	#header {
-		margin-top: 0;
-		transition: margin-top 0.3s ease-in-out;
-	}
-
-	#header > div:nth-child(2) {
-		height: 40px;
-	}
-
-	.link_blog_desktop,
-	.link_blog {
-		position: relative;
-		width: 100%;
-		height: 40px;
-		background: linear-gradient(to right, #00d6d9, #00c085);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 10px;
-	}
-
-	.link_blog_desktop > svg,
-	.link_blog > svg {
-		position: absolute;
-		right: 5px;
-		top: 50%;
-		transform: translateY(-50%);
-		cursor: pointer;
-	}
-
-	.link_blog_desktop > div > div > a,
-	.link_blog > div > div > a {
-		color: #000;
-		cursor: pointer;
-	}
-
-	.link_blog_desktop > div > div > a:nth-child(3),
-	.link_blog > div > div > a:nth-child(3) {
-		--tw-brightness: brightness(1);
-	}
-
-	.link_blog_desktop > div > div > a:nth-child(3) > span,
-	.link_blog > div > div > a:nth-child(3) > span {
-		animation: rainbow 2s linear infinite;
-		cursor: pointer;
-
-		&:hover {
-			opacity: 0.8;
+	.header-bar {
+		@apply flex flex-row mx-auto xl:w-[1200px] md:w-[90%] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover max-md:hidden;
+		background-image: url('$images/png/header-register.png');
+		.tab-item {
+			@apply text-[16px] font-normal text-white px-2 py-1 whitespace-nowrap text-header-transfer;
+		}
+		& > .register-button {
+			@apply flex justify-center h-[32px]  items-center text-black py-4 text-[16px] font-[500];
+			padding: 0 15px;
+			border-radius: 8px;
+			background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+			&:hover {
+				box-shadow: 0 0 10px #00d6d9;
+				/* &::before {
+					content: '';
+					position: absolute;
+					inset: -5px;
+					transform: translate(10px, 8px);
+					z-index: 0;
+					background: linear-gradient(45deg, #00d6d9 0%, #fcc142 100%);
+					filter: blur(10px);
+				} */
+			}
 		}
 	}
-
-	.link_blog > div > div > a,
-	.link_blog > div > div > span {
-		font-size: 14px;
-	}
-
-	.link_blog_desktop > div > div > a:not(:nth-child(3)):hover,
-	.link_blog > div > div > a:not(:nth-child(3)):hover {
-		opacity: 0.8;
-	}
-
-	.link_blog_desktop,
-	.link_blog {
-		width: 100vw;
-		position: relative;
-		gap: 0;
-	}
-
-	.link_blog_desktop > div,
-	.link_blog > div {
-		position: relative;
-		display: flex;
-		width: 100vw;
-		animation: tip_move 15s linear infinite;
-	}
-
-	.link_blog_desktop > div:hover,
-	.link_blog > div:hover {
-		animation-play-state: paused;
-	}
-
-	.link_blog_desktop > div > div,
-	.link_blog > div > div {
-		width: 100vw;
-		min-width: 100vw;
-		display: flex;
-		justify-content: center;
-		gap: 5px;
-	}
-
-	.link_blog_desktop > div > div > a:nth-child(3),
-	.link_blog > div > div > a:nth-child(3) {
-		margin-left: calc(calc(100vw) / 4);
-	}
-	@keyframes tip_move {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-100%);
-		}
-	}
-
-	@media screen and (max-width: 800px) {
-		#header {
-			transition: none;
-		}
-
-		#header > div:nth-child(2) {
-			height: 30px;
-		}
-	}
-
 	.video-overlay-container {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
-		@apply overflow-hidden absolute left-0 right-0 top-0 bottom-0 justify-center md:flex justify-center items-center flex-col;
+		@apply overflow-hidden absolute left-0 right-0 top-0 bottom-0 md:flex justify-center items-center flex-col;
 	}
-
 	.shadow-text {
 		filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 	}
-
 	.active {
 		border-radius: 100px;
 		background: var(--4, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		color: #00d6d9;
 	}
-
 	.overlay {
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 	}
-
 	.overlayMobile {
 		transition: left 0.6s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 		overflow: hidden;
 		width: 100%;
 		left: -100%;
 	}
-
 	.overlayMobile.open {
 		left: 0;
 	}
-
 	:global(strong) {
 		color: #00d6d9 !important;
 	}
-
 	.centerPosition {
 		transform: translateX(-50%);
 	}
-
 	.trialButton {
 		filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 		width: 160px;
 		height: 54px;
 	}
-
 	.trialButton:hover {
 		background: rgba(0, 0, 0, 0.69);
 		border-radius: 28px;
 	}
-
-	.download-btn {
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
-		@apply flex flex-row justify-start items-center w-[265px] h-[75px] md:w-[265px] md:h-[75px] drop-shadow text-xs md:text-lg;
-		border-radius: 16px;
-		background: var(--3, #2d2c30);
-		padding: 16px 24px;
-		gap: 24px;
-	}
-
-	.download-btn > span > img {
-		@apply w-[30px] md:w-[40px] h-[30px] md:h-[40px];
-	}
-
-	.download-btn > img {
-		@apply w-[12px] md:w-[14px] h-[12px] md:h-[14px];
-	}
-
-	.download-btn > div > span {
-		color: #fff;
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 20px; /* 125% */
-	}
-
 	.download-options {
 		color: #fff;
 		font-size: 12px;
@@ -615,159 +599,174 @@
 		opacity: 0.6;
 		@apply flex flex-row justify-center items-center gap-1;
 	}
-	h1 {
-		line-height: normal;
+	.header-bar-mobile {
+		@apply md:hidden flex justify-between items-center;
+		border-bottom: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
+		background: rgba(0, 0, 0, 0.2);
+		backdrop-filter: blur(16px);
+		padding: 8px 10px;
 	}
-
-	@media screen and (min-width: 768px) {
-		.header-tab {
-			font-size: 16px;
-			font-weight: 700;
-			line-height: 24px;
-			text-align: left;
-			padding: 12px 16px;
-		}
-
-		#header {
-			background-color: unset;
-		}
-
-		.header-tab.active {
-			display: flex;
-			padding: 12px 16px;
-			align-items: flex-start;
-			border-radius: 100px;
-			color: #08101d;
-			background-color: #00d6d9;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		.header-tab-mobile {
-			font-weight: 600;
-			padding-top: 12px;
-			/*padding: 12px 16px;*/
-		}
-		.header-tab-mobile.active {
-			color: #08101d;
-		}
-		.headerBackground {
-			background-image: url('$images/icons/HeaderBackgroundMobile.svg');
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
-
-		.text {
-			margin-top: 20px;
+	.item-border-1 {
+		@apply relative;
+		.item-download-1 {
+			@apply flex w-[260px] px-5 py-4;
+			align-items: center;
+			border-radius: 20px 0px 0px 20px;
+			position: relative;
+			overflow: hidden;
+			&::before {
+				content: '';
+				background: conic-gradient(transparent 270deg, rgb(0, 192, 133), white, transparent);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				aspect-ratio: 1;
+				width: 100%;
+				//rotate: 0.1turn;
+				//animation: rotate 1s linear infinite forwards;
+			}
+			&::after {
+				content: '';
+				background: inherit;
+				border-radius: inherit;
+				position: absolute;
+				inset: 1px;
+			}
+			&.back-hover::before {
+				animation: rotate 0.3s linear forwards;
+			}
+			&.back-leave::before {
+				animation: revert_rotate 0.3s linear forwards;
+			}
 		}
 	}
-
-	@keyframes -global-slide-up {
-		0% {
-			transform: translateY(100px);
-			opacity: 0;
+	@keyframes rotate {
+		from {
+			transform: translate(-50%, -50%) scale(1.4) rotate(65deg);
 		}
-		100% {
-			transform: translateY(0);
-			opacity: 1;
+
+		to {
+			transform: translate(-50%, -50%) scale(1.4) rotate(-158deg);
 		}
 	}
-
-	@keyframes -global-puff-in-center {
-		0% {
-			transform: scale(1.02) translateY(120px);
-			opacity: 0;
-			text-align: center;
-			filter: blur(4px);
+	@keyframes revert_rotate {
+		from {
+			transform: translate(-50%, -50%) scale(1.4) rotate(-158deg);
 		}
-		100% {
-			transform: scale(1) translateY(0);
-			opacity: 1;
-			text-align: center;
-			filter: blur(0px);
+
+		to {
+			transform: translate(-50%, -50%) scale(1.4) rotate(65deg);
 		}
 	}
-
-	@keyframes -global-h1 {
-		0% {
-			transform: scale(1.1) translateY(120px);
-			opacity: 0;
-			text-align: center;
-			filter: blur(7px);
-		}
-		100% {
-			transform: scale(1) translateY(0);
-			opacity: 1;
-			text-align: center;
-			filter: blur(0px);
-		}
+	.item-download-1 > img:first-child {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: calc(100% - 0.8px);
+		height: calc(100% - 0.8px);
 	}
-
-	@keyframes -global-connector {
-		0% {
-			transform: translateY(-100px);
-			z-index: 0;
-			opacity: 0;
-		}
-		100% {
-			transform: translateY(0);
-			opacity: 1;
-			z-index: 100;
-		}
+	.item-download-1 > div {
+		z-index: 1;
 	}
+	.item-border-2 {
+		@apply relative;
+		.item-download-2 {
+			@apply flex w-[260px] px-5 py-4;
+			align-items: center;
+			border-radius: 0 20px 20px 0;
+			position: relative;
+			overflow: hidden;
 
-	@media screen and (max-width: 768px) {
-		.link_blog_desktop > div > div > a:nth-child(3),
-		.link_blog > div > div > a:nth-child(3) {
-			margin-left: calc(calc(100vw) / 8);
-		}
-	}
+			&::before {
+				content: '';
+				background: conic-gradient(
+					transparent 270deg,
+					transparent,
+					rgb(0, 192, 133),
+					white,
+					transparent
+				);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				aspect-ratio: 1;
+				rotate: 5deg;
+				width: 100%;
+			}
 
-	@media screen and (max-width: 580px) {
-		.link_blog_desktop > div > div > a,
-		.link_blog_desktop > div > div > span,
-		.link_blog > div > div > a,
-		.link_blog > div > div > span {
-			font-size: 14px;
-		}
-		.link_blog_desktop > div > div > a:nth-child(3),
-		.link_blog > div > div > a:nth-child(3) {
-			margin-left: 25px;
+			&::after {
+				content: '';
+				background: inherit;
+				border-radius: inherit;
+				position: absolute;
+				inset: 1px;
+			}
+
+			&.back2-hover::before {
+				animation: rotate2 0.3s linear forwards;
+			}
+
+			&.back2-leave::before {
+				animation: revert_rotate2 0.3s linear forwards;
+			}
 		}
 	}
 
-	@media screen and (max-width: 480px) {
-		.link_blog_desktop > div > div > a,
-		.link_blog_desktop > div > div > span,
-		.link_blog > div > div > a,
-		.link_blog > div > div > span {
-			font-size: 15px;
+	@keyframes rotate2 {
+		from {
+			transform: translate(-50%, -40%) scale(1.4) rotate(10deg);
 		}
 
-		.link_blog_desktop > div > div > a:nth-child(3),
-		.link_blog > div > div > a:nth-child(3) {
-			margin-left: 25px;
+		to {
+			transform: translate(-50%, -50%) scale(1.4) rotate(225deg);
 		}
 	}
 
-	@media screen and (max-width: 380px) {
-		.link_blog_desktop > div > div > a,
-		.link_blog_desktop > div > div > span,
-		.link_blog > div > div > a,
-		.link_blog > div > div > span {
-			font-size: 15px;
+	@keyframes revert_rotate2 {
+		from {
+			transform: translate(-50%, -50%) scale(1.4) rotate(225deg);
 		}
 
-		.link_blog_desktop > div > div > a:nth-child(3),
-		.link_blog > div > div > a:nth-child(3) {
-			margin-left: 19px;
+		to {
+			transform: translate(-50%, -50%) scale(1.4) rotate(10deg);
 		}
 	}
-	.bg-transparency {
-		background: none !important;
+
+	.item-download-2 > img:first-child {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: calc(100% - 0.8px);
+		height: calc(100% - 0.8px);
+		//opacity: 0;
 	}
 
+	.item-download-2 > div {
+		z-index: 1;
+	}
+
+	.text-header-transfer:hover {
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.tab-active {
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	@media screen and (max-width: 640px) {
+		.header-bar {
+			display: none;
+		}
+	}
 	@keyframes rainbow {
 		0% {
 			color: red;
@@ -794,5 +793,126 @@
 
 	.text-rainbow {
 		animation: rainbow 2s linear infinite;
+	}
+
+	@media screen and (max-width: 768px) {
+		.header-container > div:nth-child(2) > div:last-child {
+			gap: 15px;
+		}
+
+		.item-border-1 {
+			@apply relative;
+			.item-download-1 {
+				@apply flex w-[260px] px-5 py-0;
+				align-items: center;
+				background: linear-gradient(
+					270deg,
+					rgba(255, 255, 255, 0.01) 0%,
+					rgba(255, 255, 255, 0.22) 100%
+				);
+				border-radius: 20px 0px 0px 20px;
+			}
+			&:before {
+				opacity: 0.3;
+				content: '';
+				position: absolute;
+				inset: 0;
+				border-radius: 20px 0px 0px 20px;
+				padding: 1px 0px 0px 1px;
+				background-image: linear-gradient(
+					to right bottom,
+					#33ffce 10%,
+					#f5d4ff 25%,
+					#339dff 35%,
+					#000000 40%,
+					rgba(255, 255, 255, 0.2) 70%
+				);
+				-webkit-mask:
+					linear-gradient(#fff 0 0) content-box,
+					linear-gradient(#fff 0 0);
+				-webkit-mask-composite: xor;
+				mask-composite: exclude;
+				pointer-events: none;
+			}
+		}
+
+		.item-border-2 {
+			@apply relative;
+			.item-download-2 {
+				@apply flex w-[260px] px-5 py-0;
+				align-items: center;
+				border-radius: 0 20px 20px 0;
+				background: linear-gradient(
+					270deg,
+					rgba(255, 255, 255, 0.22) 0%,
+					rgba(255, 255, 255, 0) 100%
+				);
+			}
+			&:before {
+				opacity: 0.3;
+				content: '';
+				position: absolute;
+				inset: 0;
+				border-radius: 0 20px 20px 0;
+				padding: 1px 1px 0px 0px;
+				background-image: linear-gradient(
+					to left bottom,
+					#33ffce 10%,
+					#f5d4ff 25%,
+					#339dff 35%,
+					#000000 40%,
+					rgba(255, 255, 255, 0.2) 70%
+				);
+				-webkit-mask:
+					linear-gradient(#fff 0 0) content-box,
+					linear-gradient(#fff 0 0);
+				-webkit-mask-composite: xor;
+				mask-composite: exclude;
+				pointer-events: none;
+			}
+		}
+
+		.header-bar-mobile > div:last-child {
+			width: 35px;
+			height: 35px;
+		}
+
+		.header-bar-mobile > div:last-child > svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.transition-bar {
+		@apply flex gap-[30px] shrink-0 relative;
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+		.transition-action {
+			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap;
+			animation: slide-left 30s linear infinite;
+			&:hover {
+				animation-play-state: paused;
+			}
+			.transition-item {
+				@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
+			}
+		}
+	}
+	.transition-bar-mobile {
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+		.transition-action {
+			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
+			animation: slide-left 10s linear infinite;
+			&:hover {
+				animation-play-state: paused;
+			}
+		}
+	}
+
+	@keyframes slide-left {
+		0% {
+			transform: translateX(0%);
+		}
+		100% {
+			transform: translateX(-110%);
+		}
 	}
 </style>

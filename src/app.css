@@ -12,12 +12,17 @@
 	src: url('$fonts/Pretendard/PretendardVariable.ttf');
 }
 
+html,
+body {
+	width: 100%;
+}
 body {
 	background-color: var(--bg);
 	color: var(--body-text);
 	height: 100vh;
 	font-family: 'Outfit', sans-serif;
 	line-height: normal;
+	touch-action: auto;
 }
 
 body > div:first-child,
@@ -172,4 +177,10 @@ input:focus {
 
 .container-mr {
 	@apply mr-[17.5] md:mr-[50px] xl:mr-[80px] 2xl:mr-[160px];
+}
+
+@media screen and (max-width: 768px) {
+	*::-webkit-scrollbar {
+		width: 0;
+	}
 }

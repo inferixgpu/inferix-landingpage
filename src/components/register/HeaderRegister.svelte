@@ -1,11 +1,11 @@
 <script>
-	import background from '$images/png/header_register.png';
+	import background from '$images/png/header-register.png';
 	import logo from '$images/icons/HeaderLogo.svg';
 </script>
 
 <div class="header-register">
 	<img src={background} alt="background" />
-	<img src={logo} alt="logo" />
+	<a href="/"><img src={logo} alt="logo" /></a>
 </div>
 
 <style lang="postcss">
@@ -24,9 +24,13 @@
 		height: 56px;
 	}
 
-	.header-register > img:last-child {
+	.header-register > a {
 		position: absolute;
 		height: 24px;
+	}
+
+	.header-register > a > img {
+		height: 100%;
 	}
 
 	@media screen and (max-width: 1280px) {
@@ -37,6 +41,10 @@
 	@media screen and (max-width: 1024px) {
 		.header-register {
 			padding: 16px;
+		}
+
+		.header-register > img {
+			border-radius: 16px;
 		}
 	}
 

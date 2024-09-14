@@ -34,9 +34,6 @@
 		background: #000;
 		display: flex;
 		flex-direction: column;
-	}
-
-	.register * {
-		box-sizing: border-box;
+		overflow: hidden;
 	}
 </style>
