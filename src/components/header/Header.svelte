@@ -283,19 +283,23 @@
 			/>
 			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
-					<a
+					<div class="relative">
+						<a
 						on:click={() => handleClickTab(tab.id, tab.href)}
 						id="item-tab-{tab.id}"
-						class="tab-item cursor-pointer relative"
-						aria-label="Read more">{tab.title} {#if tab.id === 6}
-						<span
-						  class="new-tag absolute top-[-6px] right-[-22px] h-[16px] px-[4px] leading-[16px] text-[10px] text-white rounded-[8px_0px] pointer-events-none"
-						  style="background: linear-gradient(90deg, rgb(255, 57, 188), rgb(137, 42, 242));"
+						class="tab-item cursor-pointer"
+						aria-label="Read more">{tab.title}</a
+					>
+					{#if tab.id === 6}
+						<div
+						  class="new-tag absolute top-[-6px] right-[-22px] h-[16px] px-[4px] leading-[16px] text-[10px] hover:text-white text-white rounded-[8px_0px] pointer-events-none"
+						  style="background: linear-gradient(90deg, rgb(255, 57, 188), rgb(137, 42, 242)); color:white !important"
 						>
 						  New
-						</span>
-					  {/if}</a
-					>
+					</div>
+					  {/if}
+					
+					</div>
 				{/each}
 			</div>
 			<div class="register-button">
@@ -496,8 +500,17 @@
 				<div class="header-tab-mobile tab opacity-60">
 					<a
 						on:click={() => handleClickTab(tab.id, tab.href)}
-						class="whitespace-nowrap cursor-pointer"
-						aria-label="Read more">{tab.title}</a
+						class="whitespace-nowrap cursor-pointer relative"
+						aria-label="Read more">{tab.title}
+						{#if tab.id === 6}
+						<div
+						  class="new-tag absolute top-[-6px] right-[-33px] h-[16px] px-[4px] leading-[16px] text-[10px] text-white rounded-[8px_0px] pointer-events-none"
+						  style="background: linear-gradient(90deg, rgb(255, 57, 188), rgb(137, 42, 242)); color:white"
+						>
+						  New
+						</div>
+					  {/if}
+						</a
 					>
 				</div>
 			{/each}
@@ -891,6 +904,10 @@
 			width: 100%;
 			height: 100%;
 		}
+	}
+
+	.new-tag{
+		color: white !important;
 	}
 	.transition-bar {
 		@apply flex gap-[30px] shrink-0 relative;
