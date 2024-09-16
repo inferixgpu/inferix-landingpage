@@ -206,7 +206,7 @@
 				</div>
 				<div class="btn-buy-node">
 					<a
-						on:click={() => window.open('https://static.inferix.io/files/inferix-whitepaper.pdf')}
+						on:click={() => window.open('https://verifier.inferix.io/')}
 						class="whitespace-nowrap cursor-pointer"
 						aria-label="Read more">Buy Now</a
 					>
