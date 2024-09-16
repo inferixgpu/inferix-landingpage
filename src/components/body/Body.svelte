@@ -508,7 +508,10 @@
 
 		.node-sale {
 			padding-top: 0px;
+
 			> div {
+				height: 600px;
+				align-items: flex-start;
 				> div {
 					padding: 24px;
 					height: 480px;
