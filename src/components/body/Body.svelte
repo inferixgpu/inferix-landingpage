@@ -178,7 +178,7 @@
 			is_half: true
 		},
 		{
-			id: 13,
+			id: 22,
 			title: 'Witnesschain',
 			img: {
 				name: 'https://static.wixstatic.com/media/0acb05_c0d489e8ed144cdba367d426ac53500b~mv2.png/v1/fill/w_174,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo-on-black_edited.png',
@@ -256,7 +256,7 @@
 									src={partner.img.name}
 									alt={partner.title}
 									width="152"
-									height="auto"
+									height={partner.id === 22 ? partner.img.height : "auto"}
 									loading="lazy"
 								/>
 							</a>{/if}
@@ -291,7 +291,7 @@
 
 <style lang="postcss">
 	.partner-item:last-child > img {
-		height: 100%;
+		height: auto;
 		width: auto;
 	}
 
