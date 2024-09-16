@@ -645,7 +645,7 @@
 				left: 50%;
 				transform: translate(-50%, -50%);
 				aspect-ratio: 1;
-				width: 100%;
+				width: 90%;
 				//rotate: 0.1turn;
 				//animation: rotate 1s linear infinite forwards;
 			}
