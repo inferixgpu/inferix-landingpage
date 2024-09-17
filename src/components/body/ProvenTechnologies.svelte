@@ -2,20 +2,7 @@
 	import { onMount } from 'svelte';
 	import House3D from '$images/png/House3D_white.svg';
 	import Actif3D from '$images/png/actif3D.svg';
-	import I from '$images/icons/I-uppercase.svg';
-	import I_color from '$images/icons/I-uppercase-color.svg';
-	import n from '$images/icons/n.svg';
-	import n_color from '$images/icons/n-color.svg';
-	import f from '$images/icons/f.svg';
-	import f_color from '$images/icons/f-color.svg';
-	import e from '$images/icons/e.svg';
-	import e_color from '$images/icons/e-color.svg';
-	import r from '$images/icons/r.svg';
-	import r_color from '$images/icons/r-color.svg';
-	import i from '$images/icons/i.svg';
-	import i_color from '$images/icons/i-color.svg';
-	import x from '$images/icons/X.svg';
-	import x_color from '$images/icons/x-color.svg';
+
 	import decentralized_render from '$images/png/decentralized_render.png';
 	import proof_of_rendering from '$images/png/proof_of_rendering.png';
 	import decentralized_3d_data_hub from '$images/png/decentralized_3d_data_hub.png';
@@ -30,19 +17,21 @@
 	import line from '$images/icons/line.svg';
 	import line_2 from '$images/icons/line_2.svg';
 	import line_2_mobile from '$images/icons/line_2_mobile.svg';
+	import icon_br from '$images/png/icon_br.png';
+	import icon_pr from '$images/png/icon_pr.png';
+	import icon_bmw from '$images/png/icon_bmw.png';
+	import icon3d from '$images/png/icon3d.png';
 	import size from 'lodash.size';
-	import dr from '$images/png/dr.png';
 	import { gsap } from 'gsap';
 	import models_fan from '$models/models_fan.glb';
 
 	let modelViewerLoaded = false;
 	onMount(async () => {
-    if (typeof window !== 'undefined') {
-      const modelViewer = await import('@google/model-viewer');
-      modelViewerLoaded = true;
-    }
-  });
-	
+		if (typeof window !== 'undefined') {
+			const modelViewer = await import('@google/model-viewer');
+			modelViewerLoaded = true;
+		}
+	});
 
 	let screenSize: number;
 	let tl = gsap.timeline({ repeat: -1 });
@@ -248,10 +237,10 @@
 <svelte:window bind:innerWidth={screenSize} />
 
 <div class="proven pb-10 bg-cover bg-[url('$images/photos/technologi_background.png')]">
-	<div class="flex w-full proven-container">
+	<div class="proven-container">
 		<div class="proven-infor">
 			<div class="proven-img">
-				<div class="proven-text">
+				<!-- <div class="proven-text">
 					<div class="characters">
 						<img src={I} alt="I_uppercase" />
 						<img src={I_color} alt="I_uppercase_color" />
@@ -280,148 +269,157 @@
 						<img src={x} alt="x" />
 						<img src={x_color} alt="x_color" />
 					</div>
-				</div>
-				<div class="proven-models" style="height: calc(100vh - 10px); width: 100%; padding: 0 !important">
-					<!-- <div class="proven-device">
-						<img src={zerofrozr} alt="zerofrozr" />
-						<img src={fan} alt="fan" />
-						<img src={fan} alt="fan" />
-						<img src={fan} alt="fan" />
-						<img src={fan_x} alt="fan-x" />
-						<img src={fan_x} alt="fan-x" />
-						<img src={fan_x} alt="fan-x" />
-					</div>
-					<div class="proven-device">
-						<img src={zerofrozr} alt="zerofrozr" />
-						<img src={fan} alt="fan" />
-						<img src={fan} alt="fan" />
-						<img src={fan} alt="fan" />
-						<img src={fan_x} alt="fan-x" />
-						<img src={fan_x} alt="fan-x" />
-						<img src={fan_x} alt="fan-x" />
-					</div>
-					<div class="proven-device">
-						<img src={zerofrozr} alt="zerofrozr" />
-						<img src={fan} alt="fan" />
-						<img src={fan} alt="fan" />
-						<img src={fan} alt="fan" />
-						<img src={fan_x} alt="fan-x" />
-						<img src={fan_x} alt="fan-x" />
-						<img src={fan_x} alt="fan-x" />
-					</div>
-					<div class="proven-device">
-						<img src={zerofrozr} alt="zerofrozr" />
-						<img src={fan} alt="fan" />
-						<img src={fan} alt="fan" />
-						<img src={fan} alt="fan" />
-						<img src={fan_x} alt="fan-x" />
-						<img src={fan_x} alt="fan-x" />
-						<img src={fan_x} alt="fan-x" />
-					</div> -->
-					<!-- <model-viewer
-          		    	src={models_fan}
-          				alt="model3d"
-						ar-modes="webxr scene-viewer quick-look"
-						camera-controls={false}
-						autoplay
-						disable-zoom
-						disable-tap
-						camera-orbit="5deg 80deg 130%"
-						field-of-view="28deg"
-						style={{ height: "100%" }}
-        			></model-viewer> -->
-
-					{#if modelViewerLoaded}
-					<model-viewer
-					src={models_fan}
-					alt="model3d"
-					ar-modes="webxr scene-viewer quick-look"
-					camera-controls={false}
-					autoplay
-					disable-zoom
-					disable-tap
-					camera-orbit="-40deg 72deg 130%"
-					field-of-view="28deg"
-					style= "height: 100%; width: 100%"
-					>
-					</model-viewer>
-					{/if}
-					<!-- <img src={line} alt="line" /> -->
-					<!-- <img id="animated_x" src={animated_x} alt="animated-x" /> -->
-					<!-- <div id="custom_line_1" />
-					<div id="custom_line_2" />
-					<div id="custom_line_3" />
-					<div id="custom_line_4" />
-					<div id="custom_line_5" /> -->
-					<!-- {#if screenSize < 1280}
-						<img src={line_2_mobile} alt="line_2" />
-					{:else}
-						<img src={line_2} alt="line_2" />
-					{/if} -->
-				</div>
+				</div> -->
+			
 			</div>
 			<div>
 				<div>
 					<div class="proven-header">
-						<img src={BG_Left} alt="BG-left" />
-						<div><div>Proven Technologies</div></div>
-						<img src={BG_Right} alt="BG-right" />
+						<div class="text-technologies">Technologies</div>
 					</div>
 					<div class="proven-tech">
-						<div id="dr">
-							<img src={dr} alt="background-dr" />
-							<img src={decentralized_render} alt="decentralized-render" />
-							<div>Decentralized Render</div>
+						<div>
+							<div class="box-tech">
+								<div class="text-box">Decentralized Rendering & Federated AI</div>
+								<img width="200px" height="200px" src={icon_br} alt="icon_br" />
+							</div>
+							<div class="box-tech">
+								<div class="text-box">Proof-of-Rendering with FHE</div>
+								<img width="200px" height="200px" src={icon_pr} alt="icon_pr" />
+							</div>
 						</div>
-						<div id="por">
-							<img src={dr} alt="background-dr" />
-							<img src={proof_of_rendering} alt="proof_of_rendering" />
-							<div>Proof of Rendering with FHE</div>
-						</div>
-						<div id="d3dh">
-							<img src={dr} alt="background-dr" />
-							<img src={decentralized_3d_data_hub} alt="decentralized_3d_data_hub" />
-							<div>Decentralized 3D Data Hub</div>
-						</div>
-						<div id="wac">
-							<img src={dr} alt="background-dr" />
-							<img src={webvr_auto_content} alt="webvr_auto_content" />
-							<div>WebVR Auto-content</div>
+						<div>
+							<div class="box-tech">
+								<div class="text-box">BMW & IBME Token Issuance</div>
+								<img width="200px" height="200px" src={icon_bmw} alt="icon_pr" />
+							</div>
+							<div class="box-tech">
+								<div class="text-box">3D/VR Creative Platform</div>
+								<img width="200px" height="200px" src={icon3d} alt="icon_pr" />
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="proven-footer">
-					<div class="proven-video">
-						<video autoplay muted playsinline loop>
-							<source src={ai} type="video/mp4" />
-						</video>
-					</div>
-					<div class="p-4">
-						<img src={House3D} alt="house-3d" />
-						<img src={Actif3D} alt="actif-3d" />
-					</div>
+					<div><img src={House3D} alt="house-3d" /></div>
+					<div><img src={Actif3D} alt="actif-3d" /></div>
 				</div>
 			</div>
 		</div>
 
 		<div class="proven-more-infor">
 			<div>
-				<div class="infor-title">260,000+ User</div>
-				<div class="infor-desc">from Southeast Asia and India</div>
+				<div class="infor-title">260,000+</div>
+				<div>
+					<div class="title-tip">Users</div>
+					<div class="infor-desc">from Southeast Asia and India</div>
+				</div>
 			</div>
 			<div>
-				<div class="infor-title">20,000+ Pro</div>
-				<div class="infor-desc">active professional designers</div>
+				<div class="infor-title">20,000+</div>
+
+				<div>
+					<div class="title-tip">Pro</div>
+					<div class="infor-desc">active professional designers</div>
+				</div>
 			</div>
 			<div>
-				<div class="infor-title">1,000,000+ Designs</div>
-				<div class="infor-desc">design renderings per year using H3D Distributed Rendering</div>
+				<div class="infor-title">1,000,000+</div>
+				<div>
+					<div class="title-tip">Designs</div>
+					<div class="infor-desc">design renderings per year using H3D Distributed Rendering</div>
+				</div>
 			</div>
 			<div>
-				<div class="infor-title">500,000+ 3D Models</div>
-				<div class="infor-desc">of furniture and home accessories already inputted</div>
+				<div class="infor-title">500,000+</div>
+				<div>
+					<div class="title-tip">3D models</div>
+					<div class="infor-desc">of furniture and home accessories already inputted</div>
+				</div>
 			</div>
 		</div>
+
+		<div
+		class="proven-models"
+		style="height: calc(100vh - 10px); width: 100%; padding: 0 !important"
+	>
+		<!-- <div class="proven-device">
+			<img src={zerofrozr} alt="zerofrozr" />
+			<img src={fan} alt="fan" />
+			<img src={fan} alt="fan" />
+			<img src={fan} alt="fan" />
+			<img src={fan_x} alt="fan-x" />
+			<img src={fan_x} alt="fan-x" />
+			<img src={fan_x} alt="fan-x" />
+		</div>
+		<div class="proven-device">
+			<img src={zerofrozr} alt="zerofrozr" />
+			<img src={fan} alt="fan" />
+			<img src={fan} alt="fan" />
+			<img src={fan} alt="fan" />
+			<img src={fan_x} alt="fan-x" />
+			<img src={fan_x} alt="fan-x" />
+			<img src={fan_x} alt="fan-x" />
+		</div>
+		<div class="proven-device">
+			<img src={zerofrozr} alt="zerofrozr" />
+			<img src={fan} alt="fan" />
+			<img src={fan} alt="fan" />
+			<img src={fan} alt="fan" />
+			<img src={fan_x} alt="fan-x" />
+			<img src={fan_x} alt="fan-x" />
+			<img src={fan_x} alt="fan-x" />
+		</div>
+		<div class="proven-device">
+			<img src={zerofrozr} alt="zerofrozr" />
+			<img src={fan} alt="fan" />
+			<img src={fan} alt="fan" />
+			<img src={fan} alt="fan" />
+			<img src={fan_x} alt="fan-x" />
+			<img src={fan_x} alt="fan-x" />
+			<img src={fan_x} alt="fan-x" />
+		</div> -->
+		<!-- <model-viewer
+			  src={models_fan}
+			  alt="model3d"
+			ar-modes="webxr scene-viewer quick-look"
+			camera-controls={false}
+			autoplay
+			disable-zoom
+			disable-tap
+			camera-orbit="5deg 80deg 130%"
+			field-of-view="28deg"
+			style={{ height: "100%" }}
+		></model-viewer> -->
+
+		{#if modelViewerLoaded}
+		<model-viewer
+		src={models_fan}
+		alt="model3d"
+		ar-modes="webxr scene-viewer quick-look"
+		camera-controls={false}
+		autoplay
+		disable-zoom
+		disable-tap
+		camera-orbit="-40deg 72deg 130%"
+		field-of-view="28deg"
+		style= "height: 100%; width: 100%"
+		>
+		</model-viewer>
+		{/if}
+		<!-- <img src={line} alt="line" /> -->
+		<!-- <img id="animated_x" src={animated_x} alt="animated-x" /> -->
+		<!-- <div id="custom_line_1" />
+		<div id="custom_line_2" />
+		<div id="custom_line_3" />
+		<div id="custom_line_4" />
+		<div id="custom_line_5" /> -->
+		<!-- {#if screenSize < 1280}
+			<img src={line_2_mobile} alt="line_2" />
+		{:else}
+			<img src={line_2} alt="line_2" />
+		{/if} -->
+	</div>
 	</div>
 </div>
 
@@ -432,7 +430,24 @@
 	}
 
 	.proven-container {
-		@apply flex flex-col items-center justify-center gap-6;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 40px;
+	}
+
+	.text-box {
+		font-family: Intel;
+		font-weight: 600;
+		font-size: 40px;
+		line-height: 60px;
+	}
+
+	.text-technologies {
+		font-size: 72px;
+		font-weight: 600;
+		font-family: Inter;
 	}
 
 	.proven-container::before {
@@ -444,28 +459,38 @@
 		height: 100%;
 	}
 
-	.proven-infor {
-		//width: 100%;
-		width: 1200px;
-		display: flex;
-		flex-direction: row;
+	.title-tip {
+		font-family: 'Inter', sans-serif;
+		font-size: 40px;
+		font-weight: 500;
+		line-height: 60px;
+		text-align: left;
+		background: linear-gradient(45deg, #00d6d9 0%, #00c085 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
-	.proven-infor > div:first-child {
-		flex: 1;
-	}
-
-	.proven-infor > div:last-child {
-		width: 60%;
+	.box-tech {
+		width: 560px;
+		height: 500px;
+		border: 3px solid transparent;
+		border-image-source: linear-gradient(
+			117.14deg,
+			rgba(0, 214, 217, 0.2) 0%,
+			rgba(0, 192, 133, 0.2) 100%
+		);
+		border-image-slice: 1;
 		display: flex;
 		flex-direction: column;
-		gap: 24px;
-		position: relative;
-	}
-
-	.proven-infor > div:last-child > div:first-child {
-		border: 2px solid rgba(255, 255, 255, 0.05);
-		backdrop-filter: blur(6px);
+		gap: 60px;
+		background: radial-gradient(
+			100% 100% at 0% 0%,
+			rgba(0, 214, 217, 0.2) 0%,
+			rgba(0, 192, 133, 0) 100%
+		);
+		padding: 40px 40px 80px 40px;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.proven-header {
@@ -474,11 +499,16 @@
 		display: flex;
 	}
 
+	.proven-footer {
+		display: flex;
+		justify-content: center;
+		gap: 160px;
+	}
+
 	.proven-header > div {
 		flex: 1;
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		padding: 0 40px;
 	}
 
 	.proven-header > div > div {
@@ -494,9 +524,9 @@
 	.proven-tech {
 		width: 100%;
 		display: flex;
-		flex-direction: column;
 		gap: 23px;
 		padding: 40px;
+		flex-direction: column;
 	}
 
 	.proven-tech > div {
@@ -521,7 +551,7 @@
 		font-weight: 400;
 	}
 
-	.proven-video {
+	/* .proven-video {
 		width: 256px;
 		height: 256px;
 		display: flex;
@@ -539,9 +569,9 @@
 	.proven-infor > div:last-child > div:last-child {
 		display: flex;
 		gap: 24px;
-	}
+	} */
 
-	.proven-infor > div:last-child > div:last-child > div:last-child {
+	/* .proven-infor > div:last-child > div:last-child > div:last-child {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
@@ -554,7 +584,7 @@
 			rgba(255, 255, 255, 0.12) 0%,
 			rgba(255, 255, 255, 0) 100%
 		);
-	}
+	} */
 
 	.proven-text {
 		display: flex;
@@ -582,7 +612,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 60px;
-		position: relative;	
+		position: relative;
 		min-width: 300px;
 	}
 
@@ -649,7 +679,7 @@
 		height: 0;
 		position: absolute;
 		z-index: 10;
-		//background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
 		background: #fff;
 	}
 
@@ -661,30 +691,32 @@
 	}
 
 	.proven-more-infor {
-		width: 1200px;
+		width: 100vw;
+		height: 408px;
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
+		background: radial-gradient(
+			circle at top left,
+			rgba(0, 214, 217, 0.2) -100%,
+			rgba(0, 192, 133, 0) 100%
+		);
+		padding: 40px 40px 80px 40px;
+		margin-bottom: 50px;
 	}
 
 	.proven-more-infor > div {
 		display: flex;
 		flex-direction: column;
-		width: 282px;
-		height: 120px;
-		padding: 16px;
-		border: 1px solid rgba(244, 244, 244, 0.15);
-		background: radial-gradient(
-			100% 100% at 50% 0%,
-			rgba(255, 255, 255, 0.12) 0%,
-			rgba(255, 255, 255, 0) 100%
-		);
+		width: 415px;
+		height: 208ox;
 	}
 
 	.infor-title {
 		color: #fff;
-		font-size: 22px;
-		font-weight: 700;
-		line-height: 50px; /* 227.273% */
+		font-size: 72px;
+		font-weight: 600;
+		line-height: 108px; /* 227.273% */
 	}
 
 	.infor-desc {
@@ -696,9 +728,6 @@
 	}
 
 	@media screen and (max-width: 1280px) {
-		.proven-infor {
-			width: 980px;
-		}
 		.proven-tech {
 			@apply justify-end items-end;
 			& > div {
@@ -723,19 +752,15 @@
 	}
 
 	@media screen and (max-width: 1024px) {
-		.proven-infor {
-			width: 800px;
-		}
-
 		.proven-tech {
 			@apply justify-end items-end pr-0;
 			& > div {
 				@apply w-[85%];
 			}
 		}
-		.proven-footer {
+		/* .proven-footer {
 			@apply !gap-2 mt-[40px];
-		}
+		} */
 		.proven-video {
 			max-width: 235px;
 		}
@@ -746,15 +771,9 @@
 	}
 
 	@media screen and (max-width: 914px) {
-		.proven-infor {
-			width: 90%;
-		}
 	}
 
 	@media screen and (max-width: 800px) {
-		.proven-infor {
-			//width: 100%;
-		}
 		.proven-tech {
 			@apply items-center;
 		}
@@ -770,10 +789,6 @@
 	@media screen and (max-width: 768px) {
 		.proven {
 			padding-top: 0;
-		}
-		.proven-infor {
-			flex-direction: column;
-			align-items: center;
 		}
 
 		.proven-models {
