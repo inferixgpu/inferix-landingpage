@@ -211,8 +211,8 @@
 						aria-label="Read more">Buy Now</a
 					>
 				</div>
-				<img src={node_sale_img} />
 			</div>
+			<img src={node_sale_img} />
 		</div>
 	</div>
 	<div class="innovated">
@@ -320,42 +320,43 @@
 		justify-content: center;
 		align-items: center;
 		padding-top: 250px;
-		padding-bottom: 100px;
 		overflow: hidden;
 
 		> div {
 			width: 1136px;
-			height: 800px;
 			display: flex;
-			justify-content: center;
-			align-items: center;
+			justify-content: space-between;
+			/* align-items: center; */
 			position: relative;
+			background: radial-gradient(
+				100% 100% at 50% 0%,
+				rgba(255, 255, 255, 0.12) 0%,
+				rgba(255, 255, 255, 0) 100%
+			);
 
+			border: 1px solid rgba(244, 244, 244, 0.3);
 			> div {
-				width: 1130px;
-				height: 800px;
-				background: radial-gradient(
-					100% 100% at 0% 0%,
-					rgba(0, 214, 217, 0.2) 0%,
-					rgba(0, 192, 133, 0) 100%
-				);
-				position: absolute;
-				border: 3px solid #00c08533;
-				padding: 48px;
+				width: 50%;
 				display: flex;
 				flex-direction: column;
 				gap: 48px;
+				padding: 48px;
 
 				> .title {
-					font-size: 72px;
+					font-size: 32px;
 					font-weight: 600;
+					line-height: 48px; /* 150% */
+					background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
 				}
 
 				> .content {
-					width: 70%;
-					font-size: 40px;
-					font-weight: 500;
-					line-height: 60px;
+					width: 80%;
+					font-size: 16px;
+					font-weight: 400;
+					line-height: 24px;
 					text-align: left;
 					color: #888888;
 				}
@@ -364,9 +365,9 @@
 					position: relative;
 					z-index: 99;
 					width: fit-content;
-					@apply flex justify-center h-[48px]  items-center text-black py-4 text-[16px] font-[500];
+					@apply flex justify-center h-[32px]  items-center text-black py-4 text-[16px] font-[500];
 					padding: 0 15px;
-					border-radius: 2px;
+					border-radius: 8px;
 					background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 					&:hover {
 						box-shadow: 0 0 10px #00d6d9;
@@ -382,20 +383,16 @@
 					}
 					> a {
 						font-family: Inter;
-						font-size: 20px;
-						font-weight: 700;
+						font-size: 16px;
+						font-weight: 500;
 						line-height: 24px;
 						text-align: left;
 					}
 				}
+			}
 
-				> img {
-					width: 80%;
-					position: absolute;
-					right: 0;
-					bottom: 0;
-					transform: rotate(0deg) translate(25%, 20%);
-				}
+			> img {
+				width: 40%;
 			}
 		}
 	}
@@ -477,26 +474,15 @@
 		}
 	}
 
-	@media screen and (max-width: 1440px) {
+	@media screen and (max-width: 1280px) {
 		.node-sale > div {
-			width: 80%;
-
+			margin: 0 30px;
+			padding: 0;
 			> div {
-				width: 100%;
-				height: 600px;
 				gap: 30px;
-
-				> .title {
-					font-size: 5vw;
-				}
-
-				.content {
-					font-size: 30px;
-				}
-
-				> img {
-					width: 65%;
-				}
+			}
+			> img {
+				width: 50%;
 			}
 		}
 	}
@@ -510,26 +496,15 @@
 			padding-top: 0px;
 
 			> div {
-				height: 600px;
-				align-items: flex-start;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 140px;
 				> div {
+					width: 100%;
 					padding: 24px;
-					height: 480px;
-					.title {
-						font-size: 28px;
-					}
-					.content {
-						width: 100%;
-						font-size: 22px;
-						line-height: 150%;
-					}
-
-					> img {
-						width: 75%;
-						transform: translate(50%, 40%);
-						right: 50%;
-						bottom: 0;
-					}
+				}
+				> img {
+					width: 80%;
 				}
 			}
 		}
