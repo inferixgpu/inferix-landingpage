@@ -179,6 +179,7 @@
 								<div class="flex justify-center shrink-0">
 									<a
 										href="https://docs.inferix.io/verifier-node-guide/verifier-node-sales/how-to-get-whitelisted"
+										target="_blank"
 										class="inline-flex h-full items-center gap-1"
 										aria-label="Read more"
 										>Node Whitelist Campaign - Only 5 days left! <p class="text-black">⟶</p></a
@@ -193,6 +194,7 @@
 							<div class="flex basis-1/4 justify-center shrink-0">
 								<a
 									href="https://docs.inferix.io/verifier-node-guide/verifier-node-sales/how-to-get-whitelisted"
+									target="_blank"
 									class="inline-flex h-full items-center gap-1"
 									aria-label="Read more"
 									>Node Whitelist Campaign - Only 5 days left! <p class="text-black">⟶</p></a
@@ -871,6 +873,8 @@
 		.transition-action {
 			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap;
 			animation: none;
+			color: #000;
+
 			.transition-item {
 				@apply flex flex-row justify-center items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
 			}
@@ -881,6 +885,7 @@
 		.transition-action {
 			@apply flex flex-row justify-center items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
 			animation: none;
+			color: #000;
 
 			&:hover {
 				animation-play-state: paused;
