@@ -376,7 +376,7 @@
 						<div id="por">
 							<img src={dr} alt="background-dr" />
 							<img src={proof_of_rendering} alt="proof_of_rendering" />
-							<div>Proof Of Rendering</div>
+							<div>Proof of Rendering with FHE</div>
 						</div>
 						<div id="d3dh">
 							<img src={dr} alt="background-dr" />

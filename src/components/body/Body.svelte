@@ -14,6 +14,7 @@
 	import DeMR from '$images/png/DeMR.svg';
 	import AIxBlock from '$images/png/AIxBlock.png';
 	import Cudos from '$images/png/cudos.png';
+	import Aethir from '$images/png/aethir.png';
 	import IOPay from '$images/png/iopay.svg';
 	import ForesightX from '$images/png/foresightx.png';
 	import FutureMoney from '$images/png/futuremoney.png';
@@ -28,6 +29,7 @@
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
 	import InferixIntro from '$videos/inferix-intro.mp4';
+	import node_sale_img from '$images/png/node-sale-img.png';
 
 	let screenSize: number;
 
@@ -75,6 +77,14 @@
 			href: 'https://actif3d.com/'
 		},
 		{
+			id: 15,
+			title: 'Aethir',
+			img: { name: Aethir, height: '85px', mobile_height: '40px' },
+			href: 'https://aethir.com/',
+			is_half: true
+		},
+
+		{
 			id: 5,
 			title: 'MetaCity',
 			img: { name: MetaCity, height: '75px', mobile_height: '40px' },
@@ -85,12 +95,6 @@
 			title: 'Nvidia',
 			img: { name: Nvidia, height: '85px', mobile_height: '52px' },
 			href: 'https://www.nvidia.com/en-us/startups/'
-		},
-		{
-			id: 7,
-			title: 'ZoneNine',
-			img: { name: ZoneNine, height: '85px', mobile_height: '50px' },
-			href: 'https://zone9survival.com/'
 		},
 		{
 			id: 8,
@@ -118,13 +122,14 @@
 			href: 'https://www.cudos.org/',
 			is_half: true
 		},
-		{
-			id: 12,
-			title: 'IOPay',
-			img: { name: IOPay, height: '85px', mobile_height: '40px' },
-			href: 'https://iopay.me/',
-			is_half: true
-		},
+
+		// {
+		// 	id: 12,
+		// 	title: 'IOPay',
+		// 	img: { name: IOPay, height: '85px', mobile_height: '40px' },
+		// 	href: 'https://iopay.me/',
+		// 	is_half: true
+		// },
 		{
 			id: 16,
 			title: 'Icetea Labs',
@@ -152,10 +157,13 @@
 			img: { name: DePHY, height: '85px', mobile_height: '40px' },
 			href: 'https://dephy.io/',
 			is_half: true
-		}
-	];
-
-	const partner_more = [
+		},
+		{
+			id: 7,
+			title: 'ZoneNine',
+			img: { name: ZoneNine, height: '85px', mobile_height: '50px' },
+			href: 'https://zone9survival.com/'
+		},
 		{
 			id: 20,
 			title: 'Loxodrome',
@@ -169,13 +177,45 @@
 			img: { name: PowerPod, height: '85px', mobile_height: '40px' },
 			href: 'https://www.powerpod.pro/',
 			is_half: true
+		},
+		{
+			id: 22,
+			title: 'Witnesschain',
+			img: {
+				name: 'https://static.wixstatic.com/media/0acb05_c0d489e8ed144cdba367d426ac53500b~mv2.png/v1/fill/w_174,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo-on-black_edited.png',
+				height: '85px',
+				mobile_height: '40px'
+			},
+			href: 'https://www.witnesschain.com/',
+			is_half: true
 		}
 	];
+
+	const partner_more = [];
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
 <div class="bg-black">
-	<div class="innovated">
+	<div class="node-sale">
+		<div>
+			<div>
+				<div class="title">Node Sale</div>
+				<div class="content">
+					Revolutionizing the Visual Computing Industry with Decentralized GPU and PoR DePIN
+					Verification.
+				</div>
+				<div class="btn-buy-node">
+					<a
+						on:click={() => window.open('https://verifier.inferix.io/')}
+						class="whitespace-nowrap cursor-pointer"
+						aria-label="Read more">Buy Now</a
+					>
+				</div>
+			</div>
+			<img src={node_sale_img} />
+		</div>
+	</div>
+	<div class="innovated" id="about">
 		<div class="innovated-header">
 			<img
 				class="w-[256px] h-[52px] mt-[680px] max-md:w-[185px] max-md:h-[37px]"
@@ -201,7 +241,7 @@
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
-		<div class="innovated-footer" id="about" />
+		<div class="innovated-footer" />
 	</div>
 
 	<ProvenTechnologies />
@@ -227,7 +267,7 @@
 				<div class="partner-content">
 					{#each partners as partner (partner.id)}
 						{#if !partner.id}{#if screenSize >= 1024}<div class="col-span-2"></div>{/if}{:else}<a
-								class="partner-item"
+								class={partner.id === 100 ? 'partner-item-none' : 'partner-item'}
 								href={partner.href}
 								target="_blank"
 								aria-label="Read more"
@@ -236,7 +276,7 @@
 									src={partner.img.name}
 									alt={partner.title}
 									width="152"
-									height="auto"
+									height={partner.id === 22 ? partner.img.height : 'auto'}
 									loading="lazy"
 								/>
 							</a>{/if}
@@ -271,8 +311,90 @@
 
 <style lang="postcss">
 	.partner-item:last-child > img {
-		height: 100%;
+		height: auto;
 		width: auto;
+	}
+
+	.node-sale {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-top: 250px;
+		overflow: hidden;
+
+		> div {
+			width: 1136px;
+			display: flex;
+			justify-content: space-between;
+			/* align-items: center; */
+			position: relative;
+			background: radial-gradient(
+				100% 100% at 50% 0%,
+				rgba(255, 255, 255, 0.12) 0%,
+				rgba(255, 255, 255, 0) 100%
+			);
+
+			border: 1px solid rgba(244, 244, 244, 0.3);
+			> div {
+				width: 50%;
+				display: flex;
+				flex-direction: column;
+				gap: 48px;
+				padding: 48px;
+
+				> .title {
+					font-size: 32px;
+					font-weight: 600;
+					line-height: 48px; /* 150% */
+					background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+
+				> .content {
+					width: 80%;
+					font-size: 16px;
+					font-weight: 400;
+					line-height: 24px;
+					text-align: left;
+					color: #888888;
+				}
+
+				> .btn-buy-node {
+					position: relative;
+					z-index: 99;
+					width: fit-content;
+					@apply flex justify-center h-[32px]  items-center text-black py-4 text-[16px] font-[500];
+					padding: 0 15px;
+					border-radius: 8px;
+					background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+					&:hover {
+						box-shadow: 0 0 10px #00d6d9;
+						/* &::before {
+					content: '';
+					position: absolute;
+					inset: -5px;
+					transform: translate(10px, 8px);
+					z-index: 0;
+					background: linear-gradient(45deg, #00d6d9 0%, #fcc142 100%);
+					filter: blur(10px);
+				} */
+					}
+					> a {
+						font-family: Inter;
+						font-size: 16px;
+						font-weight: 500;
+						line-height: 24px;
+						text-align: left;
+					}
+				}
+			}
+
+			> img {
+				width: 40%;
+			}
+		}
 	}
 
 	.innovated {
@@ -327,6 +449,9 @@
 			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none col-span-2;
 		}
 
+		& > .partner-item-none {
+			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none col-span-2;
+		}
 		& > .partner-item-last {
 			@apply flex col-span-3;
 			justify-content: flex-end;
@@ -349,9 +474,39 @@
 		}
 	}
 
+	@media screen and (max-width: 1280px) {
+		.node-sale > div {
+			margin: 0 30px;
+			padding: 0;
+			> div {
+				gap: 30px;
+			}
+			> img {
+				width: 50%;
+			}
+		}
+	}
+
 	@media screen and (max-width: 768px) {
 		.innovated-header > img {
 			margin-top: 600px;
+		}
+
+		.node-sale {
+			padding-top: 0px;
+
+			> div {
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 140px;
+				> div {
+					width: 100%;
+					padding: 24px;
+				}
+				> img {
+					width: 80%;
+				}
+			}
 		}
 	}
 </style>
