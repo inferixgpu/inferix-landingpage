@@ -149,7 +149,7 @@
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 <div class="header-container" style="font-family: Inter">
 	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
-		<div style="display: none;">
+		<div class="noti-campaign" style="">
 			{#if is_close}
 				{#if screenSize > 800}
 					<div class="transition-bar">
@@ -176,48 +176,14 @@
 						</div>
 						<div class="transition-action">
 							<div class="transition-item">
-								<div class="flex basis-1/2 justify-center shrink-0">
+								<div class="flex justify-center shrink-0">
 									<a
-										href="https://docs.inferix.io/mvp-tutorial"
+										href="https://docs.inferix.io/verifier-node-guide/verifier-node-sales/how-to-get-whitelisted"
 										class="inline-flex h-full items-center gap-1"
 										aria-label="Read more"
-										>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+										>Node Whitelist Campaign - Only 5 days left! <p class="text-black">⟶</p></a
 									>
 								</div>
-								<div class="flex basis-1/2 justify-center shrink-0">
-									<a
-										href="https://docs.inferix.io/por-release"
-										class="inline text-rainbow"
-										aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
-									>
-								</div>
-								<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
-								<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
-								<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
-								<!--								>-->
-								<!--							</div>-->
-							</div>
-							<div class="transition-item">
-								<div class="flex basis-1/2 justify-center shrink-0">
-									<a
-										href="https://docs.inferix.io/mvp-tutorial"
-										class="inline-flex h-full items-center gap-1"
-										aria-label="Read more"
-										>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
-									>
-								</div>
-								<div class="flex basis-1/2 justify-center shrink-0">
-									<a
-										href="https://docs.inferix.io/por-release"
-										class="inline text-rainbow"
-										aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
-									>
-								</div>
-								<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
-								<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
-								<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
-								<!--								>-->
-								<!--							</div>-->
 							</div>
 						</div>
 					</div>
@@ -226,39 +192,12 @@
 						<div class="transition-action">
 							<div class="flex basis-1/4 justify-center shrink-0">
 								<a
-									href="https://docs.inferix.io/mvp-tutorial"
+									href="https://docs.inferix.io/verifier-node-guide/verifier-node-sales/how-to-get-whitelisted"
 									class="inline-flex h-full items-center gap-1"
 									aria-label="Read more"
-									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+									>Node Whitelist Campaign - Only 5 days left! <p class="text-black">⟶</p></a
 								>
 							</div>
-							<div class="flex basis-1/4 justify-center shrink-0">
-								<a
-									href="https://docs.inferix.io/por-release"
-									class="inline text-rainbow"
-									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
-								>
-							</div>
-							<div class="flex basis-1/4 justify-center shrink-0">
-								<a
-									href="https://docs.inferix.io/mvp-tutorial"
-									class="inline-flex h-full items-center gap-1"
-									aria-label="Read more"
-									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
-								>
-							</div>
-							<div class="flex basis-1/4 justify-center shrink-0">
-								<a
-									href="https://docs.inferix.io/por-release"
-									class="inline text-rainbow"
-									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
-								>
-							</div>
-							<!--						<div class="flex basis-1/3 justify-center shrink-0">-->
-							<!--							<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
-							<!--								>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
-							<!--							>-->
-							<!--						</div>-->
 						</div>
 					</div>
 				{/if}
@@ -920,6 +859,29 @@
 		.transition-action {
 			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
 			animation: slide-left 10s linear infinite;
+			&:hover {
+				animation-play-state: paused;
+			}
+		}
+	}
+
+	.noti-campaign .transition-bar {
+		@apply flex gap-[30px] shrink-0 relative;
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+		.transition-action {
+			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap;
+			animation: none;
+			.transition-item {
+				@apply flex flex-row justify-center items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
+			}
+		}
+	}
+	.noti-campaign .transition-bar-mobile {
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+		.transition-action {
+			@apply flex flex-row justify-center items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
+			animation: none;
+
 			&:hover {
 				animation-play-state: paused;
 			}
