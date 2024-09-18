@@ -181,7 +181,7 @@
 										href="https://docs.inferix.io/verifier-node-guide/verifier-node-sales/how-to-get-whitelisted"
 										class="inline-flex h-full items-center gap-1"
 										aria-label="Read more"
-										>Test & Win WL spot! <p class="text-black mt-1">Read the full blog ⟶</p></a
+										>Node Whitelist Campaign - Only 5 days left! <p class="text-black">⟶</p></a
 									>
 								</div>
 							</div>
@@ -195,7 +195,7 @@
 									href="https://docs.inferix.io/verifier-node-guide/verifier-node-sales/how-to-get-whitelisted"
 									class="inline-flex h-full items-center gap-1"
 									aria-label="Read more"
-									>Test & Win WL spot! <p class="text-black mt-1">Read the full blog ⟶</p></a
+									>Node Whitelist Campaign - Only 5 days left! <p class="text-black">⟶</p></a
 								>
 							</div>
 						</div>
