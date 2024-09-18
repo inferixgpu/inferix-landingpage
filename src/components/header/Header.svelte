@@ -182,7 +182,7 @@
 										target="_blank"
 										class="inline-flex h-full items-center gap-1"
 										aria-label="Read more"
-										>Node Whitelist Campaign - Only 5 days left! <p class="text-black">⟶</p></a
+										>Node Whitelist Campaign - <p class="text-black">Only 5 days left! ⟶</p></a
 									>
 								</div>
 							</div>
@@ -197,7 +197,7 @@
 									target="_blank"
 									class="inline-flex h-full items-center gap-1"
 									aria-label="Read more"
-									>Node Whitelist Campaign - Only 5 days left! <p class="text-black">⟶</p></a
+									>Node Whitelist Campaign - <p class="text-black">Only 5 days left! ⟶</p></a
 								>
 							</div>
 						</div>
@@ -873,7 +873,7 @@
 		.transition-action {
 			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap;
 			animation: none;
-			color: #000;
+			color: #fff;
 
 			.transition-item {
 				@apply flex flex-row justify-center items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
@@ -885,7 +885,8 @@
 		.transition-action {
 			@apply flex flex-row justify-center items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
 			animation: none;
-			color: #000;
+			color: #fff;
+			font-size: 14px;
 
 			&:hover {
 				animation-play-state: paused;
