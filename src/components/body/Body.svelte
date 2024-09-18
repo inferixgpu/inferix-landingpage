@@ -26,6 +26,7 @@
 	import PowerPod from '$images/png/powerpod.png';
 
 	import SystemArchitecture from '$components/body/System.svelte';
+	import Map from '$components/body/Map.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
 	import InferixIntro from '$videos/inferix-intro.mp4';
@@ -215,35 +216,8 @@
 			<img src={node_sale_img} />
 		</div>
 	</div>
-	<div class="innovated" id="about">
-		<div class="innovated-header">
-			<img
-				class="w-[256px] h-[52px] mt-[680px] max-md:w-[185px] max-md:h-[37px]"
-				src={innovatedHeader}
-				alt="innovatedHeader"
-			/>
-			<div class="innovated-header-content">
-				<p class="max-sm:hidden">An innovated platform for 3D rendering and AI</p>
-				<p class="max-sm:hidden">inference using crowdsourced GPUs globally</p>
-				<p class="sm:hidden px-[33px]">
-					An innovated platform for 3D rendering and AI inference using crowdsourced GPUs globally
-				</p>
-			</div>
-		</div>
-		<div class="innovated-body">
-			<video
-				autoplay
-				muted
-				loop
-				playsinline
-				class="md:w-[1200px] max-md::w-full object-cover object-center h-[609px]"
-			>
-				<source src={InferixIntro} type="video/mp4" />
-			</video>
-		</div>
-		<div class="innovated-footer" />
-	</div>
-
+	
+	<Map />
 	<ProvenTechnologies />
 	<SystemArchitecture />
 	<Industries />
