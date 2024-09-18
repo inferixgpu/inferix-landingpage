@@ -215,7 +215,7 @@
 			<img src={node_sale_img} />
 		</div>
 	</div>
-	<div class="innovated">
+	<div class="innovated" id="about">
 		<div class="innovated-header">
 			<img
 				class="w-[256px] h-[52px] mt-[680px] max-md:w-[185px] max-md:h-[37px]"
@@ -241,7 +241,7 @@
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
-		<div class="innovated-footer" id="about" />
+		<div class="innovated-footer" />
 	</div>
 
 	<ProvenTechnologies />
