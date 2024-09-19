@@ -41,16 +41,6 @@
 			title: 'Docs',
 			href: 'https://docs.inferix.io/'
 		}
-		// {
-		// 	id: 3,
-		// 	title: 'Roadmap',
-		// 	href: '#roadmap'
-		// }
-		// {
-		// 	id: 5,
-		// 	title: 'Docs',
-		// 	href: 'https://docs.inferix.io/'
-		// }
 	];
 	const register = {
 		id: 6,
@@ -94,9 +84,10 @@
 		}
 
 		activeTab = id;
-		const space = id === 4 || id === 3 ? 150 : screenSize > 768 ? 100 : 270;
+		const space = id === 4 ? 70 : screenSize > 768 ? -120 : 270;
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
+		console.log(tab, 'tab', tab.offsetTop, space);
 
 		if (tab) {
 			window.scrollTo({
@@ -158,125 +149,66 @@
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 <div class="header-container" style="font-family: Inter">
 	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
-		<div style="display: none;">
+		<div class="noti-campaign" style="">
 			{#if is_close}
-			{#if screenSize > 800}
-				<div class="transition-bar">
-					<div
-						class="absolute right-0 top-2 z-30 cursor-pointer"
-						role="button"
-						tabindex="0"
-						on:click={() => (is_close = false)}
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="icon icon-tabler icon-tabler-x svelte-pwodhr"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="#597e8d"
-							fill="none"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"
-							></path><path d="M6 6l12 12"></path></svg
+				{#if screenSize > 800}
+					<div class="transition-bar">
+						<div
+							class="absolute right-0 top-2 z-30 cursor-pointer"
+							role="button"
+							tabindex="0"
+							on:click={() => (is_close = false)}
 						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="icon icon-tabler icon-tabler-x svelte-pwodhr"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="#597e8d"
+								fill="none"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"
+								></path><path d="M6 6l12 12"></path></svg
+							>
+						</div>
+						<div class="transition-action">
+							<div class="transition-item">
+								<div class="flex justify-center shrink-0">
+									<a
+										href="https://docs.inferix.io/verifier-node-guide/verifier-node-sales/how-to-get-whitelisted"
+										target="_blank"
+										class="inline-flex h-full items-center gap-1"
+										aria-label="Read more"
+										>Node Whitelist Campaign - <p class="text-black">Only 5 days left! ⟶</p></a
+									>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="transition-action">
-						<div class="transition-item">
-							<div class="flex basis-1/2 justify-center shrink-0">
+				{:else}
+					<div class="transition-bar-mobile" id="guide-mobile">
+						<div class="transition-action">
+							<div class="flex basis-1/4 justify-center shrink-0">
 								<a
-									href="https://docs.inferix.io/mvp-tutorial"
+									href="https://docs.inferix.io/verifier-node-guide/verifier-node-sales/how-to-get-whitelisted"
+									target="_blank"
 									class="inline-flex h-full items-center gap-1"
 									aria-label="Read more"
-									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
+									>Node Whitelist Campaign - <p class="text-black">Only 5 days left! ⟶</p></a
 								>
 							</div>
-							<div class="flex basis-1/2 justify-center shrink-0">
-								<a
-									href="https://docs.inferix.io/por-release"
-									class="inline text-rainbow"
-									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
-								>
-							</div>
-							<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
-							<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
-							<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
-							<!--								>-->
-							<!--							</div>-->
-						</div>
-						<div class="transition-item">
-							<div class="flex basis-1/2 justify-center shrink-0">
-								<a
-									href="https://docs.inferix.io/mvp-tutorial"
-									class="inline-flex h-full items-center gap-1"
-									aria-label="Read more"
-									>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
-								>
-							</div>
-							<div class="flex basis-1/2 justify-center shrink-0">
-								<a
-									href="https://docs.inferix.io/por-release"
-									class="inline text-rainbow"
-									aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
-								>
-							</div>
-							<!--							<div class="flex basis-1/3 justify-center shrink-0">-->
-							<!--								<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
-							<!--									>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
-							<!--								>-->
-							<!--							</div>-->
 						</div>
 					</div>
-				</div>
-			{:else}
-				<div class="transition-bar-mobile" id="guide-mobile">
-					<div class="transition-action">
-						<div class="flex basis-1/4 justify-center shrink-0">
-							<a
-								href="https://docs.inferix.io/mvp-tutorial"
-								class="inline-flex h-full items-center gap-1"
-								aria-label="Read more"
-								>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
-							>
-						</div>
-						<div class="flex basis-1/4 justify-center shrink-0">
-							<a
-								href="https://docs.inferix.io/por-release"
-								class="inline text-rainbow"
-								aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
-							>
-						</div>
-						<div class="flex basis-1/4 justify-center shrink-0">
-							<a
-								href="https://docs.inferix.io/mvp-tutorial"
-								class="inline-flex h-full items-center gap-1"
-								aria-label="Read more"
-								>📌 MVP is live! <p class="text-black mt-1">Read the full blog ⟶</p></a
-							>
-						</div>
-						<div class="flex basis-1/4 justify-center shrink-0">
-							<a
-								href="https://docs.inferix.io/por-release"
-								class="inline text-rainbow"
-								aria-label="Read more">🚀 <span>Proof-of-Rendering Release</span></a
-							>
-						</div>
-						<!--						<div class="flex basis-1/3 justify-center shrink-0">-->
-						<!--							<a href="https://inferix.io/register" class="inline" aria-label="Read more"-->
-						<!--								>🚀 Alliance Campaign is LIVE - <span class="text-black"> Join now!</span></a-->
-						<!--							>-->
-						<!--						</div>-->
-					</div>
-				</div>
+				{/if}
 			{/if}
-		{/if}
 		</div>
 
 		<div class="header-bar">
 			<img
-				class="h-[24px] cursor-pointer "
+				class="h-[24px] cursor-pointer"
 				src={HeaderLogo}
 				alt="HeaderLogo"
 				on:click={scrollToTop}
@@ -285,20 +217,19 @@
 				{#each tabs as tab (tab.id)}
 					<div class="relative flex justify-center">
 						<a
-						on:click={() => handleClickTab(tab.id, tab.href)}
-						id="item-tab-{tab.id}"
-						class="tab-item cursor-pointer"
-						aria-label="Read more">{tab.title}</a
-					>
-					{#if tab.id === 6}
-						<div
-						  class="new-tag absolute top-[-6px] right-[-22px] h-[16px] px-[4px] leading-[16px] text-[10px] hover:text-white text-white rounded-[8px_0px] pointer-events-none"
-						  style="background: linear-gradient(90deg, rgb(255, 57, 188), rgb(137, 42, 242)); color:white !important"
+							on:click={() => handleClickTab(tab.id, tab.href)}
+							id="item-tab-{tab.id}"
+							class="tab-item cursor-pointer"
+							aria-label="Read more">{tab.title}</a
 						>
-						  New
-					</div>
-					  {/if}
-					
+						{#if tab.id === 6}
+							<div
+								class="new-tag absolute top-[-6px] right-[-22px] h-[16px] px-[4px] leading-[16px] text-[10px] hover:text-white text-white rounded-[8px_0px] pointer-events-none"
+								style="background: linear-gradient(90deg, rgb(255, 57, 188), rgb(137, 42, 242)); color:white !important"
+							>
+								New
+							</div>
+						{/if}
 					</div>
 				{/each}
 			</div>
@@ -351,7 +282,9 @@
 							</p>
 						</Saos>
 					{:else}
-						<p class="text-[24px] font-[400] opacity-60 text-center">Low-cost visual computing & AI by</p>
+						<p class="text-[24px] font-[400] opacity-60 text-center">
+							Low-cost visual computing & AI by
+						</p>
 						<Saos once animation={'h1 0.7s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}>
 							<p class="text-[48px] max-md:text-[40px] font-bold text-center">
 								Inferix Crowdsourced GPU
@@ -501,17 +434,17 @@
 					<a
 						on:click={() => handleClickTab(tab.id, tab.href)}
 						class="whitespace-nowrap cursor-pointer relative"
-						aria-label="Read more">{tab.title}
+						aria-label="Read more"
+						>{tab.title}
 						{#if tab.id === 6}
-						<div
-						  class="new-tag absolute top-[-6px] right-[-33px] h-[16px] px-[4px] leading-[16px] text-[10px] text-white rounded-[8px_0px] pointer-events-none"
-						  style="background: linear-gradient(90deg, rgb(255, 57, 188), rgb(137, 42, 242)); color:white"
-						>
-						  New
-						</div>
-					  {/if}
-						</a
-					>
+							<div
+								class="new-tag absolute top-[-6px] right-[-33px] h-[16px] px-[4px] leading-[16px] text-[10px] text-white rounded-[8px_0px] pointer-events-none"
+								style="background: linear-gradient(90deg, rgb(255, 57, 188), rgb(137, 42, 242)); color:white"
+							>
+								New
+							</div>
+						{/if}
+					</a>
 				</div>
 			{/each}
 			<div class="flex justify-center opacity-60 gap-[20px] w-[100%] mt-[40px]">
@@ -645,7 +578,7 @@
 				left: 50%;
 				transform: translate(-50%, -50%);
 				aspect-ratio: 1;
-				width: 100%;
+				width: 90%;
 				//rotate: 0.1turn;
 				//animation: rotate 1s linear infinite forwards;
 			}
@@ -906,7 +839,7 @@
 		}
 	}
 
-	.new-tag{
+	.new-tag {
 		color: white !important;
 	}
 	.transition-bar {
@@ -928,6 +861,33 @@
 		.transition-action {
 			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
 			animation: slide-left 10s linear infinite;
+			&:hover {
+				animation-play-state: paused;
+			}
+		}
+	}
+
+	.noti-campaign .transition-bar {
+		@apply flex gap-[30px] shrink-0 relative;
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+		.transition-action {
+			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap;
+			animation: none;
+			color: #fff;
+
+			.transition-item {
+				@apply flex flex-row justify-center items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
+			}
+		}
+	}
+	.noti-campaign .transition-bar-mobile {
+		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+		.transition-action {
+			@apply flex flex-row justify-center items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
+			animation: none;
+			color: #fff;
+			font-size: 14px;
+
 			&:hover {
 				animation-play-state: paused;
 			}
