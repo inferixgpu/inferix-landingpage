@@ -24,6 +24,7 @@
 	import DePHY from '$images/png/DePHY.png';
 	import Loxodrome from '$images/png/loxodrome.svg';
 	import PowerPod from '$images/png/powerpod.png';
+	import Shima from '$images/png/shima-capital.png';
 	import Parameter from './Parameter.svelte';
 	import CardItem from './CardItem.svelte';
 	import CardModel from './CardModel.svelte';
@@ -38,6 +39,12 @@
 	let screenSize: number;
 
 	const partners = [
+		{
+			id: 23,
+			title: 'ShimaCapital',
+			img: { name: Shima, height: '85px' },
+			href: 'https://shima.capital/'
+		},
 		{
 			id: 14,
 			title: 'FutureMoney',
@@ -182,6 +189,7 @@
 			href: 'https://www.powerpod.pro/',
 			is_half: true
 		},
+		{ id: '' },
 		{
 			id: 22,
 			title: 'Witnesschain',
@@ -258,6 +266,7 @@
 									width="152"
 									height={partner.id === 22 ? partner.img.height : 'auto'}
 									loading="lazy"
+									style={`${partner.id == 23 && 'max-width: 200%; width: auto; height: 30px;'}`}
 								/>
 							</a>{/if}
 					{/each}
