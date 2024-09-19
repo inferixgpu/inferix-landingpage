@@ -213,7 +213,7 @@
 				alt="HeaderLogo"
 				on:click={scrollToTop}
 			/>
-			<div class="flex justify-center h-[32px] lg:gap-6 md:gap-0 md:mx-[40px]">
+			<div class="flex justify-center h-[32px] lg:gap-10 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
 					<div class="relative flex justify-center">
 						<a
@@ -482,15 +482,16 @@
 
 <style lang="postcss">
 	.header-bar {
-		@apply flex flex-row mx-auto xl:w-[1200px] md:w-[90%] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover max-md:hidden;
-		background-image: url('$images/png/header-register.png');
+		@apply flex flex-row mx-auto w-[100%] h-[100px] my-[12px] items-center justify-between px-[40px] bg-cover max-md:hidden;
+		background: #000;
+		margin-top: 0;
+		border-bottom: 1px solid #333333;
 		.tab-item {
 			@apply text-[16px] font-normal text-white px-2 py-1 whitespace-nowrap text-header-transfer;
 		}
 		& > .register-button {
-			@apply flex justify-center h-[32px]  items-center text-black py-4 text-[16px] font-[500];
-			padding: 0 15px;
-			border-radius: 8px;
+			@apply flex justify-center w-[160px] h-[48px]  items-center text-black py-4 text-[16px] font-[500];
+			padding: 12px 16px;
 			background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 			&:hover {
 				box-shadow: 0 0 10px #00d6d9;
