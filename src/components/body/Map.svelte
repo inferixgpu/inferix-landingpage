@@ -34,6 +34,8 @@
 			}
 		}));
 
+		console.log(features,'features')
+
 		featuresData = new Proxy(
 			{
 				type: 'FeatureCollection',
@@ -54,11 +56,11 @@
 
 		map = new mapboxgl.Map({
 			container: container,
-			style: 'mapbox://styles/mapbox/dark-v11',
-			center: [108.2460, 14.0583],
-			zoom: 3,
-			minZoom: 4,
-			maxZoom: 12
+			style: 'mapbox://styles/saseeme/cm1905mxm028s01pbfbosa6ae',
+			center: [108.246, 14.0583],
+			zoom: 0,
+			minZoom: 0,
+			maxZoom: 10
 		});
 
 		map.on('load', () => {
@@ -94,33 +96,42 @@
 				}
 			});
 
-			function animateOpacity() {
-				let start = null;
-				const duration = 2000; 
+			function pulsingEffect() {
+				const duration = 2000;
+				const delay = 900;
+				const maxRadius = 50;
+				const minRadius = 30;
 				const maxOpacity = 0.6;
-				const minOpacity = 0.3;
+				const minOpacity = 0;
 
-				function step(timestamp) {
+				let start = null;
+
+				function animate(timestamp) {
 					if (!start) start = timestamp;
 					const progress = timestamp - start;
-					const opacity =
-						minOpacity +
-						(maxOpacity - minOpacity) * (Math.sin((progress / duration) * Math.PI * 2) * 0.5 + 0.5);
 
+					let easing = Math.min(progress / duration, 1);
+
+					const radius = minRadius + (maxRadius - minRadius) * easing;
+					const opacity = minOpacity + (maxOpacity - minOpacity) * (1 - Math.abs(1 - easing * 2));
+
+					map.setPaintProperty('cluster-gradient-outer', 'circle-radius', radius);
 					map.setPaintProperty('cluster-gradient-outer', 'circle-opacity', opacity);
 
 					if (progress < duration) {
-						requestAnimationFrame(step);
+						requestAnimationFrame(animate);
 					} else {
-						start = null;
-						requestAnimationFrame(step);
+						setTimeout(() => {
+							start = null;
+							requestAnimationFrame(animate);
+						}, delay);
 					}
 				}
 
-				requestAnimationFrame(step);
+				requestAnimationFrame(animate);
 			}
 
-			animateOpacity();
+			pulsingEffect();
 
 			map.addLayer({
 				id: 'cluster-count',
@@ -182,12 +193,13 @@
 		display: flex;
 		justify-content: center;
 		margin-top: 50px;
+		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 	}
 	div {
 		width: 90%;
 		height: 931px;
 	}
-	.mapboxgl-ctrl-attrib-inner{
-		display:none
+	.mapboxgl-ctrl-attrib-inner {
+		display: none;
 	}
 </style>
