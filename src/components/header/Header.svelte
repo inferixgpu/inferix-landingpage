@@ -339,15 +339,14 @@
 								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
 							</a>
 							<a
-								href="javascript:void(0)"
+								href="https://h3d.me/ifxworkerubuntu"
 								role="button"
 								tabindex="0"
-								on:click={() => (downloadShowModal = true)}
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 								aria-label="Read more"
 							>
 								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+								<p class="text-white font-normal text-[12px] opacity-60">Linux</p>
 							</a>
 						</div>
 					</div>
