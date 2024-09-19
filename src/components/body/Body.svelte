@@ -29,6 +29,7 @@
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
+	import Events from '$components/body/Events.svelte';
 	import InferixIntro from '$videos/inferix-intro.mp4';
 	import node_sale_img from '$images/png/node-sale-img.png';
 
@@ -254,6 +255,7 @@
 
 	<ProvenTechnologies />
 	<SystemArchitecture />
+	<Events />
 	<Industries />
 	<div>
 		<div
