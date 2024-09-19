@@ -24,6 +24,9 @@
 	import DePHY from '$images/png/DePHY.png';
 	import Loxodrome from '$images/png/loxodrome.svg';
 	import PowerPod from '$images/png/powerpod.png';
+	import Parameter from './Parameter.svelte';
+	import CardItem from './CardItem.svelte';
+	import CardModel from './CardModel.svelte';
 
 	import SystemArchitecture from '$components/body/System.svelte';
 	import Map from '$components/body/Map.svelte';
@@ -221,6 +224,9 @@
 	<ProvenTechnologies />
 	<SystemArchitecture />
 	<Industries />
+	<CardItem/>
+	<Parameter/>
+	<CardModel/>
 	<div>
 		<div
 			id="partners"

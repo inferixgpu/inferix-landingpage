@@ -138,6 +138,7 @@
     ];
 </script>
 
+
 <svelte:window bind:innerWidth={screenSize}/>
 
 <div class="bg-[#212023]">
