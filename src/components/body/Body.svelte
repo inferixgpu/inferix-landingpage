@@ -2,6 +2,8 @@
 	import innovatedHeader from '$images/png/inferixInnovateHeader.png';
 	import Saos from 'saos';
 	import Industries from './Indus.svelte';
+	import Parameter from './Parameter.svelte';
+	import CardItem from './CardItem.svelte';
 	import RoadMapDesktop from './RoadMapDesktop.svelte';
 	import Actif3D from '$images/png/actif3D.svg';
 	import House3D from '$images/png/House3D_white.svg';
@@ -229,6 +231,8 @@
 	<ProvenTechnologies />
 	<SystemArchitecture />
 	<Industries />
+	<Parameter/>
+	<CardItem/>
 	<div>
 		<div
 			id="partners"
