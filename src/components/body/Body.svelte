@@ -33,6 +33,7 @@
 	import Map from '$components/body/Map.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
+	import Events from '$components/body/Events.svelte';
 	import InferixIntro from '$videos/inferix-intro.mp4';
 	import node_sale_img from '$images/png/node-sale-img.png';
 
@@ -231,6 +232,7 @@
 	<Map />
 	<ProvenTechnologies />
 	<SystemArchitecture />
+	<Events />
 	<Industries />
 	<CardItem/>
 	<Parameter/>
