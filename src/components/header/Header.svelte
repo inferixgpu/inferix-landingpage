@@ -213,7 +213,7 @@
 				alt="HeaderLogo"
 				on:click={scrollToTop}
 			/>
-			<div class="flex justify-center h-[32px] lg:gap-12 md:gap-0 md:mx-[40px]">
+			<div class="flex justify-center h-[32px] xl:gap-[100px] lg:gap-12 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
 					<div class="relative flex justify-center">
 						<a
