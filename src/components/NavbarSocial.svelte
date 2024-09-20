@@ -3,6 +3,7 @@
     import Medium from '$images/png/medium.png';
     import Discord from '$images/png/discord.png';
     import Youtube from '$images/png/youtube.png';
+    import Warpcast from '$images/icons/warpcast.svg';
   </script>
   
   <style>
@@ -48,6 +49,9 @@
     </a>
     <a href="https://www.youtube.com/@InferixGPU" target="_blank" rel="noopener noreferrer">
       <img src={Youtube} alt="YouTube Icon" />
+    </a>
+    <a href="https://warpcast.com/inferixgpu" target="_blank" rel="noopener noreferrer">
+      <img style="border-radius: 50% " src={Warpcast} alt="Warpcast Icon" />
     </a>
   </div>
   
