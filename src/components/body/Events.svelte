@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	import r3alworld from '$images/png/events/r3alworld.png';
 	import depin_meetup from '$images/png/events/depin_meetup.png';
 	import depin_house from '$images/png/events/depin_house.png';
@@ -64,6 +66,36 @@
 			href: 'https://www.youtube.com/watch?v=ybT9VJKxBNM'
 		}
 	];
+
+	onMount(async () => {
+		addEventScrollRoadmap();
+	});
+
+	let scrolling = false;
+	let startX = 0;
+
+	function addEventScrollRoadmap() {
+		const content = document.getElementById('content-mobile');
+		if (!content) return;
+		content.addEventListener('mousedown', (e) => {
+			scrolling = true;
+			startX = e.pageX + content.scrollLeft;
+		});
+
+		content.addEventListener('mousemove', (e) => {
+			if (!scrolling) return;
+			const x = startX - e.pageX;
+			content.scrollLeft = x;
+		});
+
+		content.addEventListener('mouseup', () => {
+			scrolling = false;
+		});
+
+		content.addEventListener('mouseleave', () => {
+			scrolling = false;
+		});
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
@@ -79,12 +111,24 @@
 			</div>
 		{/each}
 	</div>
+	<div class="content-mobile" id="content-mobile">
+		<div class="moved_events" id="moved_roadmap">
+			{#each EVENTS as event (event.id)}
+				<div class="event-item">
+					<img src={event.img} />
+					<div>{event.time}</div>
+					<div>{event.title}</div>
+					<div><a href={event.href} target="_blank">Viewmore ⟶</a></div>
+				</div>
+			{/each}
+		</div>
+	</div>
 </div>
 
 <style lang="postcss">
 	.events {
 		width: 100%;
-		max-width: 1136px;
+		max-width: 1140px;
 		margin: auto;
 
 		.title {
@@ -101,10 +145,10 @@
 
 		.content {
 			display: flex;
-			justify-content: space-evenly;
+			justify-content: space-between;
 			align-items: center;
 			flex-wrap: wrap;
-			gap: 5px;
+			gap: 16px;
 
 			.event-item {
 				width: 369px;
@@ -119,10 +163,11 @@
 				display: flex;
 				flex-direction: column;
 				padding: 24px;
-				justify-content: space-between;
+				letter-spacing: 0.5px;
 
 				> img {
 					width: 100%;
+					margin-bottom: 24px;
 				}
 
 				> div:nth-child(2) {
@@ -130,9 +175,12 @@
 					font-weight: 600;
 					line-height: 24px;
 					color: #888888;
+					text-transform: uppercase;
+					margin-bottom: 15px;
 				}
 
 				> div:nth-child(3) {
+					flex: 1;
 					font-size: 24px;
 					font-weight: 700;
 				}
@@ -154,13 +202,101 @@
 		}
 	}
 
+	#content-mobile {
+		display: none;
+	}
+
 	@media screen and (max-width: 1280px) {
 		.events {
-			width: 90%;
+			max-width: 1200px;
+			margin: 0;
+			padding: 0 40px;
 
 			.content {
 				.event-item {
 					width: 330px;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 1120px) {
+		.events {
+			.content {
+				.event-item {
+					width: 295px;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		.events > .content {
+			display: none;
+		}
+
+		#content-mobile {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 16px;
+			overflow: scroll hidden;
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+            cursor: default;
+
+			> .moved_events {
+				display: flex;
+				gap: 16px;
+
+				> .event-item {
+					width: 369px;
+					height: 396px;
+					background: radial-gradient(
+						100% 100% at 0% 0%,
+						rgba(0, 214, 217, 0.2) 0%,
+						rgba(0, 192, 133, 0) 100%
+					);
+					border: 3px solid rgba(0, 214, 217, 0.2);
+
+					display: flex;
+					flex-direction: column;
+					padding: 24px;
+					letter-spacing: 0.5px;
+
+					> img {
+						width: 100%;
+						margin-bottom: 24px;
+					}
+
+					> div:nth-child(2) {
+						font-size: 16px;
+						font-weight: 600;
+						line-height: 24px;
+						color: #888888;
+						text-transform: uppercase;
+						margin-bottom: 15px;
+					}
+
+					> div:nth-child(3) {
+						flex: 1;
+						font-size: 24px;
+						font-weight: 700;
+					}
+
+					> div:nth-child(4) {
+						> a {
+							font-size: 16px;
+							font-weight: 600;
+							line-height: 24px;
+							color: #00f3ff;
+							transition: opacity 0.2s ease-in-out;
+
+							&:hover {
+								opacity: 0.8;
+							}
+						}
+					}
 				}
 			}
 		}
