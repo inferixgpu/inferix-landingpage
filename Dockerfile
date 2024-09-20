@@ -16,7 +16,7 @@ COPY --from=build /app/.svelte-kit .
 
 ENV NODE_ENV=production
 
-EXPOSE 3003
+EXPOSE 3000
 CMD ["node", "index.js"]
 
 
