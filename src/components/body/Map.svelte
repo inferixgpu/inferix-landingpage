@@ -1,6 +1,7 @@
 <script>
 	import { onDestroy, setContext } from 'svelte';
 	import { mapboxgl, key } from '../utils/mapboxgl.js';
+	import CONFIG_ENV from '../config/api.ts';
 
 	setContext(key, {
 		getMap: () => map
@@ -12,7 +13,7 @@
 
 	async function fetchWorkersData() {
 		try {
-			const response = await fetch('http://api.inferix.io:8080/api/v3/worker-mgt/workers');
+			const response = await fetch(`${CONFIG_ENV.url}${CONFIG_ENV.api_workers}`);
 			const data = await response.json();
 			workersData = data;
 			transformToGeoJson(workersData);
@@ -34,8 +35,6 @@
 			}
 		}));
 
-		console.log(features,'features')
-
 		featuresData = new Proxy(
 			{
 				type: 'FeatureCollection',
@@ -52,6 +51,9 @@
 	}
 
 	function initMap(container) {
+		if (map) {
+			return;
+		}
 		fetchWorkersData();
 
 		map = new mapboxgl.Map({
@@ -60,16 +62,19 @@
 			center: [108.246, 14.0583],
 			zoom: 0,
 			minZoom: 0,
-			maxZoom: 10
+			maxZoom: 10,
+			renderWorldCopies: false
 		});
 
 		map.on('load', () => {
 			map.addSource('workers', {
 				type: 'geojson',
+				//data: 'https://gist.githubusercontent.com/thedivtagguy/0a07453f2081be9c0f5b6fc2a2681a0f/raw/3c41dbbba93f88a78af1cf13e88443d2eed7d6ec/geodata.geojson',
 				data: featuresData,
 				cluster: true,
 				clusterMaxZoom: 14,
-				clusterRadius: 50
+				clusterRadius: 50,
+				renderWorldCopies: false
 			});
 
 			map.addLayer({
@@ -146,17 +151,65 @@
 			});
 
 			map.addLayer({
-				id: 'unclustered-point',
+				id: 'unclustered-gradient-inner',
 				type: 'circle',
 				source: 'workers',
 				filter: ['!', ['has', 'point_count']],
 				paint: {
-					'circle-color': '#11b4da',
-					'circle-radius': 4,
-					'circle-stroke-width': 1,
-					'circle-stroke-color': '#fff'
+					'circle-color': '#00C085',
+					'circle-radius': ['step', ['get', 'point_count'], 15, 100, 25, 750, 35],
+					'circle-opacity': 1
 				}
 			});
+
+			map.addLayer({
+				id: 'unclustered-gradient-outer',
+				type: 'circle',
+				source: 'workers',
+				filter: ['!', ['has', 'point_count']],
+				paint: {
+					'circle-color': '#00D6D9',
+					'circle-radius': ['step', ['get', 'point_count'], 30, 100, 40, 750, 50],
+					'circle-opacity': 0.6
+				}
+			});
+
+			function pulsingEffectPoint() {
+				const duration = 2000;
+				const delay = 900;
+				const maxRadius = 20;
+				const minRadius = 10;
+				const maxOpacity = 0.6;
+				const minOpacity = 0;
+
+				let start = null;
+
+				function animate(timestamp) {
+					if (!start) start = timestamp;
+					const progress = timestamp - start;
+
+					let easing = Math.min(progress / duration, 1);
+
+					const radius = minRadius + (maxRadius - minRadius) * easing;
+					const opacity = minOpacity + (maxOpacity - minOpacity) * (1 - Math.abs(1 - easing * 2));
+
+					map.setPaintProperty('unclustered-gradient-outer', 'circle-radius', radius);
+					map.setPaintProperty('unclustered-gradient-outer', 'circle-opacity', opacity);
+
+					if (progress < duration) {
+						requestAnimationFrame(animate);
+					} else {
+						setTimeout(() => {
+							start = null;
+							requestAnimationFrame(animate);
+						}, delay);
+					}
+				}
+
+				requestAnimationFrame(animate);
+			}
+
+			pulsingEffectPoint();
 
 			map.on('click', 'cluster-gradient-inner', (e) => {
 				const features = map.queryRenderedFeatures(e.point, {
@@ -183,23 +236,31 @@
 	}
 </script>
 
-<div class="map-all">
-	<div use:initMap></div>
-</div>
+<div use:initMap></div>
 
 <style>
-	.map-all {
-		width: 100vw;
+	div {
+		width: 80%;
+		height: 931px;
+		margin: 0 auto;
+		overflow: hidden;
 		display: flex;
 		justify-content: center;
-		margin-top: 50px;
-		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+		align-items: center;
 	}
-	div {
-		width: 90%;
-		height: 931px;
+
+	@media (max-width: 1440px) {
+		div {
+			height: 700px;
+		}
 	}
-	.mapboxgl-ctrl-attrib-inner {
-		display: none;
+
+	@media (max-width: 600px) {
+		.map-all {
+			margin-top: 0px;
+		}
+		div {
+			height: 203px;
+		}
 	}
 </style>
