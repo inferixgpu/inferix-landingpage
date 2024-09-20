@@ -28,6 +28,7 @@
 	import Parameter from './Parameter.svelte';
 	import CardItem from './CardItem.svelte';
 	import CardModel from './CardModel.svelte';
+	import BackgroundCard from './BackgroundCard.svelte';
 
 	import SystemArchitecture from '$components/body/System.svelte';
 	import Map from '$components/body/Map.svelte';
@@ -237,6 +238,7 @@
 	<CardItem />
 	<Parameter />
 	<CardModel />
+	<BackgroundCard/>
 	<div>
 		<div
 			id="partners"
