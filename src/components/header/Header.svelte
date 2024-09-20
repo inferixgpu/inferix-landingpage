@@ -213,7 +213,7 @@
 				alt="HeaderLogo"
 				on:click={scrollToTop}
 			/>
-			<div class="flex justify-center h-[32px] lg:gap-10 md:gap-0 md:mx-[40px]">
+			<div class="flex justify-center h-[32px] xl:gap-[100px] lg:gap-12 md:gap-0 md:mx-[40px]">
 				{#each tabs as tab (tab.id)}
 					<div class="relative flex justify-center">
 						<a
@@ -490,7 +490,7 @@
 			@apply text-[16px] font-normal text-white px-2 py-1 whitespace-nowrap text-header-transfer;
 		}
 		& > .register-button {
-			@apply flex justify-center w-[160px] h-[48px]  items-center text-black py-4 text-[16px] font-[500];
+			@apply flex justify-center w-[160px] h-[48px]  items-center text-black py-4 text-[16px] font-[700];
 			padding: 12px 16px;
 			background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 			&:hover {
