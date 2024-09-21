@@ -32,7 +32,7 @@
 <svelte:window bind:innerWidth={screenSize} />
 
 <div class="bg-black flex flex-col items-center justify-center w-full">
-	<div class="footer-body">
+	<!-- <div class="footer-body">
 		<div class="flex flex-col gap-[18px] w-full max-md:hidden">
 			<img class="w-full" src={LineRow} alt="LingRow" />
 			<img class="w-full" src={LineRow} alt="LineRow" />
@@ -126,7 +126,7 @@
 			<img src={LineCol} alt="icon" />
 			<img src={LineCol} alt="icon" />
 		</div>
-	</div>
+	</div> -->
 	<div
 		class="max-md:hidden md:h-[120px] max-md:h-[136px] w-full px-[156px] py-[24px] mt-[50px] flex md:flex-row flex-col justify-between bg-[rgb(17,17,17)]"
 	>
