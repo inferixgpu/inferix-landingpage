@@ -569,6 +569,8 @@
 			border-radius: 20px 0px 0px 20px;
 			position: relative;
 			overflow: hidden;
+			min-height: 120px;
+
 			&::before {
 				content: '';
 				background: conic-gradient(transparent 270deg, rgb(0, 192, 133), white, transparent);
@@ -633,6 +635,7 @@
 			border-radius: 0 20px 20px 0;
 			position: relative;
 			overflow: hidden;
+			min-height: 120px;
 
 			&::before {
 				content: '';
