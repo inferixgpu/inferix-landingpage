@@ -29,7 +29,7 @@
         {#each industries as industry, i}
           <div class={`relative group ${getGridArea(i)} lg:w-full lg:h-full`}>
        {#if industry.url !== ""}
-          <img class={`absolute ${industry.location} w-[calc(100%-50px)]`} src={industry.url} alt="X Icon" />
+        <img class={`absolute ${industry.location} w-[calc(100%-50px)] lg:w-fit`} src={industry.url} alt="X Icon" />
         {/if}
           </div>
          
@@ -61,6 +61,13 @@
 
   .mobile-layout {
     display: none;
+  }
+
+  @media (min-width: 1024){
+
+    .img_mobile{
+      width: calc(100%-50px) !important;
+    }
   }
     @media (max-width: 768px) {
   .desktop-grid {

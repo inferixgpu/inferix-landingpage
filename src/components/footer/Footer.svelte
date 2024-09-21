@@ -128,6 +128,7 @@
 		</div>
 	</div> -->
 	<div
+	style="background: #000000"
 		class="bg-[#000000] max-md:hidden md:h-[120px] max-md:h-[136px] w-full px-[156px] py-[24px] flex md:flex-row flex-col justify-between bg-[rgb(17,17,17)]"
 	>
 		<div
@@ -185,7 +186,7 @@
 			{/each}
 		</div>
 	</div>
-	<div class="bg-[#000000] flex h-[32px] w-full bg-[rgb(26,27,27)] items-center justify-center">
+	<div style="background: #000000" class="bg-[#000000] flex h-[32px] w-full bg-[rgb(26,27,27)] items-center justify-center">
 		<p class="text-sm font-normal" style="font-family: Inter">© 2023 Inferix. All rights reserved.</p>
 	</div>
 </div>
