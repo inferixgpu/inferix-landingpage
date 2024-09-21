@@ -48,6 +48,11 @@
 				}
 			}
 		);
+
+		// Lưu featuresData vào localStorage với tên mới
+		localStorage.setItem('myFeaturesData', JSON.stringify(featuresData));
+
+		console.log(featuresData, 'featuresData');
 	}
 
 	function initMap(container) {
@@ -56,6 +61,21 @@
 		}
 		fetchWorkersData();
 
+		function updateClusterRadius() {
+			const isSmallScreen = window.innerWidth < 700;
+			const clusterRadius = isSmallScreen
+				? ['step', ['get', 'point_count'], 10, 100, 20, 750, 30]
+				: ['step', ['get', 'point_count'], 15, 100, 25, 750, 35];
+			const unclusteredRadius = isSmallScreen
+				? ['step', ['get', 'point_count'], 10, 100, 20, 750, 30]
+				: ['step', ['get', 'point_count'], 15, 100, 25, 750, 35];
+
+			map.setPaintProperty('cluster-gradient-inner', 'circle-radius', clusterRadius);
+			map.setPaintProperty('cluster-gradient-outer', 'circle-radius', clusterRadius);
+			map.setPaintProperty('unclustered-gradient-inner', 'circle-radius', unclusteredRadius);
+			map.setPaintProperty('unclustered-gradient-outer', 'circle-radius', unclusteredRadius);
+		}
+
 		map = new mapboxgl.Map({
 			container: container,
 			style: 'mapbox://styles/saseeme/cm1905mxm028s01pbfbosa6ae',
@@ -63,18 +83,32 @@
 			zoom: 0,
 			minZoom: 0,
 			maxZoom: 10,
-			renderWorldCopies: false
+			// 	dragPan: true, // Cho phép kéo bản đồ
+			// maxBounds: [
+			//     [-180, -85], // Giới hạn phía dưới và bên trái
+			//     [180, 85]    // Giới hạn phía trên và bên phải
+			// ]
+			//renderWorldCopies: false
+			// dragPan: false,
+			// maxBounds: customBounds
 		});
 
 		map.on('load', () => {
+			const storedData = localStorage.getItem('myFeaturesData');
+			if (storedData) {
+				featuresData = JSON.parse(storedData);
+				console.log(featuresData)
+			} else {
+				fetchWorkersData();
+			}
 			map.addSource('workers', {
 				type: 'geojson',
 				//data: 'https://gist.githubusercontent.com/thedivtagguy/0a07453f2081be9c0f5b6fc2a2681a0f/raw/3c41dbbba93f88a78af1cf13e88443d2eed7d6ec/geodata.geojson',
 				data: featuresData,
 				cluster: true,
 				clusterMaxZoom: 14,
-				clusterRadius: 50,
-				renderWorldCopies: false
+				clusterRadius: 50
+				// renderWorldCopies: false,
 			});
 
 			map.addLayer({
@@ -96,9 +130,14 @@
 				filter: ['has', 'point_count'],
 				paint: {
 					'circle-color': '#00D6D9',
-					'circle-radius': ['step', ['get', 'point_count'], 30, 100, 40, 750, 50],
+					'circle-radius': ['step', ['get', 'point_count'], 15, 100, 25, 750, 35],
 					'circle-opacity': 0.6
 				}
+			});
+
+			map.on('error', (e) => {
+				console.error('Error from Mapbox:', e.error.message);
+				console.log(data, '22');
 			});
 
 			function pulsingEffect() {
@@ -169,10 +208,12 @@
 				filter: ['!', ['has', 'point_count']],
 				paint: {
 					'circle-color': '#00D6D9',
-					'circle-radius': ['step', ['get', 'point_count'], 30, 100, 40, 750, 50],
+					'circle-radius': ['step', ['get', 'point_count'], 15, 100, 25, 750, 35],
 					'circle-opacity': 0.6
 				}
 			});
+
+			updateClusterRadius();
 
 			function pulsingEffectPoint() {
 				const duration = 2000;
@@ -233,13 +274,32 @@
 				map.getCanvas().style.cursor = '';
 			});
 		});
+		window.addEventListener('resize', updateClusterRadius);
+		onDestroy(() => {
+			window.removeEventListener('resize', updateClusterRadius);
+		});
 	}
 </script>
 
+<!-- <div class="all">
+	<div use:initMap></div>
+</div> -->
 <div use:initMap></div>
 
 <style>
+	.all {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 1000px;
+		height: 931px;
+		overflow: hidden;
+	}
 	div {
+		/* position: absolute; */
+		/* position: absolute;
+		top:0;
+		bottom:0; */
 		width: 80%;
 		height: 931px;
 		margin: 0 auto;
@@ -247,6 +307,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		margin-bottom: 150px;
+		/* background-color: red; */
 	}
 
 	@media (max-width: 1440px) {
