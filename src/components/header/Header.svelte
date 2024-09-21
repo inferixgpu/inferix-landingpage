@@ -336,7 +336,7 @@
 								aria-label="Read more"
 							>
 								<img src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+								<p class="text-white font-normal text-[12px] opacity-60">Windows</p>
 							</a>
 							<a
 								href="https://h3d.me/ifxworkerubuntu"
@@ -387,7 +387,7 @@
 								aria-label="Read more"
 							>
 								<img src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+								<p class="text-white font-normal text-[12px] opacity-60">Windows</p>
 							</a>
 							<a
 								href="javascript:void(0)"
