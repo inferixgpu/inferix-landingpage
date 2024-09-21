@@ -79,9 +79,9 @@
 		map = new mapboxgl.Map({
 			container: container,
 			style: 'mapbox://styles/saseeme/cm1905mxm028s01pbfbosa6ae',
-			center: [108.246, 14.0583],
-			zoom: 0,
-			minZoom: 0,
+			center: [0, 14.0583],
+			zoom: 1.6,
+			minZoom: 1.6,
 			maxZoom: 10,
 			// 	dragPan: true, // Cho phép kéo bản đồ
 			// maxBounds: [
@@ -94,6 +94,7 @@
 		});
 
 		map.on('load', () => {
+			setTimeout(() => {
 			const storedData = localStorage.getItem('myFeaturesData');
 			if (storedData) {
 				featuresData = JSON.parse(storedData);
@@ -273,7 +274,8 @@
 			map.on('mouseleave', 'cluster-gradient-inner', () => {
 				map.getCanvas().style.cursor = '';
 			});
-		});
+		}, 2000); 
+	});
 		window.addEventListener('resize', updateClusterRadius);
 		onDestroy(() => {
 			window.removeEventListener('resize', updateClusterRadius);
