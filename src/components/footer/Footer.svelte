@@ -137,7 +137,7 @@
 			<a href="https://inferix.io/">
 				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
 			</a>
-			<p class="font-base font-outfit font-normal mt-4 md:mt-0 text-white whitespace-nowrap">
+			<p class="font-base font-normal mt-4 md:mt-0 text-white whitespace-nowrap" style="font-family: Inter">
 				Decentralized GPU Network
 			</p>
 		</div>
@@ -166,7 +166,7 @@
 			<a href="https://inferix.io/">
 				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
 			</a>
-			<p class="font-base font-outfit font-normal mt-4 md:mt-0 text-white whitespace-nowrap">
+			<p class="font-base font-normal mt-4 md:mt-0 text-white whitespace-nowrap" style="font-family: Inter">
 				Decentralized GPU Network
 			</p>
 		</div>
@@ -186,7 +186,7 @@
 		</div>
 	</div>
 	<div class="flex h-[32px] w-full bg-[rgb(26,27,27)] items-center justify-center">
-		<p class="font-outfit text-sm font-normal">© 2023 Inferix. All rights reserved.</p>
+		<p class="text-sm font-normal" style="font-family: Inter">© 2023 Inferix. All rights reserved.</p>
 	</div>
 </div>
 
