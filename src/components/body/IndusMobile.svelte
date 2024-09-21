@@ -399,7 +399,6 @@
 
 		.in-mobile-content > div > div > div {
 			position: relative;
-			min-width: calc(calc(calc(100%) - 50px) / 5);
 			height: 361px;
 		}
 
