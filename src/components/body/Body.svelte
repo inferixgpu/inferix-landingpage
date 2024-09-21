@@ -185,6 +185,8 @@
 			href: 'https://loxodrome.xyz/',
 			is_half: true
 		},
+		{ id: '' },
+
 		{
 			id: 21,
 			title: 'PowerPod',
@@ -192,7 +194,6 @@
 			href: 'https://www.powerpod.pro/',
 			is_half: true
 		},
-		{ id: '' },
 		{
 			id: 22,
 			title: 'Witnesschain',
@@ -244,7 +245,7 @@
 	<div>
 		<div
 			id="partners"
-			class="flex pb-0 max-sm:w-full lg:w-[894px] md:flex gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
+			class="flex pb-0 max-sm:w-full lg:w-[1136px] md:flex gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
 		>
 			<Saos
 				once
@@ -429,10 +430,10 @@
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		margin-bottom: 32px;
+		margin: 32px 0;
 	}
 	.partner-content {
-		@apply lg:grid lg:grid-cols-6 flex flex-col gap-6;
+		@apply lg:grid lg:grid-cols-8 flex flex-col gap-6;
 
 		& > .partner-item {
 			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
