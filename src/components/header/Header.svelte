@@ -19,6 +19,8 @@
 	import DownloadIcon from '$images/icons/Download.svg';
 	import background_download_1 from '$images/png/background-download-1.png';
 	import background_download_2 from '$images/png/background-download-2.png';
+	import img_content from '$images/png/img-content-back.png';
+	import begin_content from '$images/png/begin-content-back.png';
 
 	let textIndex = 0;
 	let activeTab = 6;
@@ -303,111 +305,199 @@
 			</div>
 		</div>
 
-		<div class="overflow-hidden bg-black mx-auto md:mt-0 -mt-[200px] max-md:opacity-40 relative">
-			<video
-				autoplay
-				muted
-				loop
-				playsinline
-				class="h-[698px] md:w-[1526px] max-md:w-full object-contain mx-auto mt-[250px]"
-			>
-				<source src={InferixIntro} type="video/mp4" />
-			</video>
-		</div>
-		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">MVP is live on desktop</div>
 		<div
-			class="max-md:hidden"
-			style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;"
+			class="overflow-hidden bg-black mx-auto md:mt-0 -mt-[200px] max-md:opacity-40 relative flex justify-center align-center pt-[250px]"
 		>
-			MVP Is Live
-		</div>
-		<div
-			class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
-				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 absolute"
-		>
-			<div class="item-border-1">
+			<img src={begin_content} class="w-[90%]" />
+			<img src={img_content} class="absolute w-[60%] transform translate-y-[120%]" />
+			<div class="absolute top-[400px] flex-col align-center justify-center">
+				<div class="md:hidden text-[16px font-normal">MVP is live on desktop</div>
 				<div
-					role="button"
-					tabindex="0"
-					class="item-download-1 cursor-pointer"
-					on:mouseenter={() => focusButtonGPU(true)}
-					on:mouseleave={() => focusButtonGPU(false)}
+					class="max-md:hidden"
+					style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
+				-webkit-text-fill-color: transparent; text-align: center;"
 				>
-					<img src={background_download_1} alt="background" />
-					<div class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:justify-center md:justify-end">
-						<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
-						<div class="flex justify-between max-md:hidden">
-							<a
-								href="https://h3d.me/ifxworkerwin"
-								class="inline-flex justify-between items-center gap-1 cursor-pointer"
-								aria-label="Read more"
-							>
-								<img src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
-							</a>
-							<a
-								href="https://h3d.me/ifxworkerubuntu"
-								role="button"
-								tabindex="0"
-								class="inline-flex justify-between items-center gap-1 cursor-pointer"
-								aria-label="Read more"
-							>
-								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">Linux</p>
-							</a>
+					MVP Is Live
+				</div>
+				<!-- <div
+					class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
+				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0"
+				>
+					<div class="item-download">
+						<div
+							role="button"
+							tabindex="0"
+							class="cursor-pointer"
+						>
+							<div class="basis-2/3 flex flexgap-2 max-md:justify-center md:justify-end">
+								<div class="">
+									{#if !focusGPU}
+										<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
+									{:else}
+										<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus" />
+									{/if}
+								</div>
+								<div>
+									<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
+									<div class="flex justify-between max-md:hidden">
+										<a
+											href="https://h3d.me/ifxworkerwin"
+											class="inline-flex justify-between items-center gap-1 cursor-pointer"
+											aria-label="Read more"
+										>
+											<img src={DownloadIcon} alt="DownloadIcon" />
+											<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+										</a>
+										<a
+											href="https://h3d.me/ifxworkerubuntu"
+											role="button"
+											tabindex="0"
+											class="inline-flex justify-between items-center gap-1 cursor-pointer"
+											aria-label="Read more"
+										>
+											<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
+											<p class="text-white font-normal text-[12px] opacity-60">Linux</p>
+										</a>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-
-					<div class="basis-1/3 mt-4">
-						{#if !focusGPU}
-							<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
-						{:else}
-							<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus" />
-						{/if}
+					<div class="item-border-2">
+						<div
+							class="item-download-2 cursor-pointer"
+							on:mouseenter={() => focusButtonScreen(true)}
+							on:mouseleave={() => focusButtonScreen(false)}
+						>
+							<img src={background_download_2} alt="back-download-2" />
+							<div class="basis-1/3 mt-4">
+								{#if !focusBtScreen}
+									<img class="-ml-4" src={buttonScreen} alt="buttonScreen" />
+								{:else}
+									<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus" />
+								{/if}
+							</div>
+							<div
+								class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center"
+							>
+								<p class="flex text-white text-[16px] font-bold justify-start">
+									3D Rendering & AI Inference
+								</p>
+								<div class="flex justify-between max-md:hidden">
+									<a
+										href="https://h3d.me/ifxaddonblenderwin"
+										class="inline-flex justify-between items-center gap-1 cursor-pointer"
+										aria-label="Read more"
+									>
+										<img src={DownloadIcon} alt="DownloadIcon" />
+										<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+									</a>
+									<a
+										href="javascript:void(0)"
+										role="button"
+										tabindex="0"
+										on:click={() => (downloadShowModal = true)}
+										class="inline-flex justify-between items-center gap-1 cursor-pointer"
+										aria-label="Read more"
+									>
+										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
+										<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+									</a>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="item-border-2">
+				</div> -->
 				<div
-					class="item-download-2 cursor-pointer"
-					on:mouseenter={() => focusButtonScreen(true)}
-					on:mouseleave={() => focusButtonScreen(false)}
+					class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
+				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0"
 				>
-					<img src={background_download_2} alt="back-download-2" />
-					<div class="basis-1/3 mt-4">
-						{#if !focusBtScreen}
-							<img class="-ml-4" src={buttonScreen} alt="buttonScreen" />
-						{:else}
-							<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus" />
-						{/if}
+					<div class="item-border-1">
+						<div
+							role="button"
+							tabindex="0"
+							class="item-download-1 cursor-pointer"
+							on:mouseenter={() => focusButtonGPU(true)}
+							on:mouseleave={() => focusButtonGPU(false)}
+						>
+							<img src={background_download_1} alt="background" />
+							<div
+								class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:justify-center md:justify-end"
+							>
+								<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
+								<div class="flex justify-between max-md:hidden">
+									<a
+										href="https://h3d.me/ifxworkerwin"
+										class="inline-flex justify-between items-center gap-1 cursor-pointer"
+										aria-label="Read more"
+									>
+										<img src={DownloadIcon} alt="DownloadIcon" />
+										<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+									</a>
+									<a
+										href="https://h3d.me/ifxworkerubuntu"
+										role="button"
+										tabindex="0"
+										class="inline-flex justify-between items-center gap-1 cursor-pointer"
+										aria-label="Read more"
+									>
+										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
+										<p class="text-white font-normal text-[12px] opacity-60">Linux</p>
+									</a>
+								</div>
+							</div>
+
+							<div class="basis-1/3 mt-4">
+								{#if !focusGPU}
+									<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
+								{:else}
+									<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus" />
+								{/if}
+							</div>
+						</div>
 					</div>
-					<div
-						class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center"
-					>
-						<p class="flex text-white text-[16px] font-bold justify-start">
-							3D Rendering & AI Inference
-						</p>
-						<div class="flex justify-between max-md:hidden">
-							<a
-								href="https://h3d.me/ifxaddonblenderwin"
-								class="inline-flex justify-between items-center gap-1 cursor-pointer"
-								aria-label="Read more"
+					<div class="item-border-2">
+						<div
+							class="item-download-2 cursor-pointer"
+							on:mouseenter={() => focusButtonScreen(true)}
+							on:mouseleave={() => focusButtonScreen(false)}
+						>
+							<img src={background_download_2} alt="back-download-2" />
+							<div class="basis-1/3 mt-4">
+								{#if !focusBtScreen}
+									<img class="-ml-4" src={buttonScreen} alt="buttonScreen" />
+								{:else}
+									<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus" />
+								{/if}
+							</div>
+							<div
+								class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center"
 							>
-								<img src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">Window</p>
-							</a>
-							<a
-								href="javascript:void(0)"
-								role="button"
-								tabindex="0"
-								on:click={() => (downloadShowModal = true)}
-								class="inline-flex justify-between items-center gap-1 cursor-pointer"
-								aria-label="Read more"
-							>
-								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
-							</a>
+								<p class="flex text-white text-[16px] font-bold justify-start">
+									3D Rendering & AI Inference
+								</p>
+								<div class="flex justify-between max-md:hidden">
+									<a
+										href="https://h3d.me/ifxaddonblenderwin"
+										class="inline-flex justify-between items-center gap-1 cursor-pointer"
+										aria-label="Read more"
+									>
+										<img src={DownloadIcon} alt="DownloadIcon" />
+										<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+									</a>
+									<a
+										href="javascript:void(0)"
+										role="button"
+										tabindex="0"
+										on:click={() => (downloadShowModal = true)}
+										class="inline-flex justify-between items-center gap-1 cursor-pointer"
+										aria-label="Read more"
+									>
+										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
+										<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -580,6 +670,22 @@
 				} */
 			}
 		}
+	}
+
+	.item-download {
+		width: 400px;
+		height: 90px;
+		border: 1px solid #ffffff33;
+		background: radial-gradient(
+			50% 100% at 50.15% 0%,
+			rgba(255, 255, 255, 0.3) 0%,
+			rgba(255, 255, 255, 0.1) 100%
+		);
+		padding: 16px 24px;
+		display: flex;
+		gap: 24px;
+		justify-content: center;
+		align-items: center;
 	}
 	.item-border-1 {
 		@apply relative;

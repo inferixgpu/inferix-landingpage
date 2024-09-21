@@ -358,7 +358,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding-top: 250px;
+		padding-top: 50px;
 		padding-bottom: 100px;
 		overflow: hidden;
 		font-family: Inter, sans-serif;
