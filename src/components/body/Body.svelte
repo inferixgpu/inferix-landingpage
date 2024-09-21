@@ -28,6 +28,7 @@
 	import Parameter from './Parameter.svelte';
 	import CardItem from './CardItem.svelte';
 	import CardModel from './CardModel.svelte';
+	import TestName from './TestName.svelte';
 	import BackgroundCard from './BackgroundCard.svelte';
 
 	import SystemArchitecture from '$components/body/System.svelte';
@@ -231,14 +232,15 @@
 	</div>
 
 	<Map />
-	<ProvenTechnologies />
-	<SystemArchitecture />
-	<Events />
-	<Industries />
+	<!-- <ProvenTechnologies /> -->
+	<!-- <SystemArchitecture /> -->
+	<!-- <Industries /> -->
 	<CardItem />
 	<Parameter />
 	<CardModel />
+	<TestName/>
 	<BackgroundCard/>
+	<Events />
 	<div>
 		<div
 			id="partners"
