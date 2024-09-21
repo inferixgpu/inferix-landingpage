@@ -31,7 +31,7 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div class="bg-black flex flex-col items-center justify-center w-full">
+<div style="border-top:1px solid #333333" class="pt-[30px] flex flex-col items-center justify-center w-full bg-[#000000]">
 	<!-- <div class="footer-body">
 		<div class="flex flex-col gap-[18px] w-full max-md:hidden">
 			<img class="w-full" src={LineRow} alt="LingRow" />
@@ -128,11 +128,11 @@
 		</div>
 	</div> -->
 	<div
-		class="max-md:hidden md:h-[120px] max-md:h-[136px] w-full px-[156px] py-[24px] mt-[50px] flex md:flex-row flex-col justify-between bg-[rgb(17,17,17)]"
+		class="bg-[#000000] max-md:hidden md:h-[120px] max-md:h-[136px] w-full px-[156px] py-[24px] flex md:flex-row flex-col justify-between bg-[rgb(17,17,17)]"
 	>
 		<div
 			class="flex md:gap-4 gap-2 md:order-1 order-2 flex-col items-center md:items-start mt-8 md:mt-0"
-			style="background: #111;"
+			style="background: #000000;"
 		>
 			<a href="https://inferix.io/">
 				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
@@ -159,8 +159,8 @@
 		</div>
 	</div>
 	<div
-		class="md:hidden flex flex-col gap-6 justify-center items-center w-full"
-		style="background: #111; padding: 20px 0;"
+		class="bg-[#000000] md:hidden flex flex-col gap-6 justify-center items-center w-full"
+		style="background: #000000; padding: 20px 0;"
 	>
 		<div class="flex flex-col items-center">
 			<a href="https://inferix.io/">
@@ -185,7 +185,7 @@
 			{/each}
 		</div>
 	</div>
-	<div class="flex h-[32px] w-full bg-[rgb(26,27,27)] items-center justify-center">
+	<div class="bg-[#000000] flex h-[32px] w-full bg-[rgb(26,27,27)] items-center justify-center">
 		<p class="text-sm font-normal" style="font-family: Inter">© 2023 Inferix. All rights reserved.</p>
 	</div>
 </div>
@@ -232,7 +232,8 @@
 		gap: 8px;
 		border-radius: 40px;
 		border: 1px solid rgba(173, 173, 173, 0.45);
-		background: rgba(255, 255, 255, 0.1);
+		/* background: rgba(255, 255, 255, 0.1); */
+		background-color: #000000;
 		animation: slideFromLeft 0.7s ease-in-out forwards;
 		& > p {
 			@apply text-white text-[14px] font-normal whitespace-nowrap;
