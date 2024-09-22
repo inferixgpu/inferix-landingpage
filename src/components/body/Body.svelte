@@ -30,6 +30,12 @@
 	import CardModel from './CardModel.svelte';
 	import IndustrieUI from './IndustrieUI.svelte';
 	import BackgroundCard from './BackgroundCard.svelte';
+	import X from '$images/icons/Twitter.svg';
+	import M from '$images/icons/M.svg';
+	import D from '$images/icons/D.svg';
+	import W from '$images/icons/warpcast.svg';
+	import Y from '$images/icons/Ytb.svg';
+	import background_buy_node from '$images/png/background-buy-node.jpg';
 
 	import SystemArchitecture from '$components/body/System.svelte';
 	import Map from '$components/body/Map.svelte';
@@ -41,6 +47,7 @@
 	import Events from '$components/body/Events.svelte';
 	import InferixIntro from '$videos/inferix-intro.mp4';
 	import node_sale_img from '$images/png/node-sale-img.png';
+	import { onMount } from 'svelte';
 
 	let screenSize: number;
 	const partners = [
@@ -209,10 +216,85 @@
 		}
 	];
 	const partner_more = [];
+
+	const medias = [
+		{ id: 1, name: 'Twitter', href: 'https://twitter.com/inferixgpu', icon: X },
+		{ id: 2, name: 'Medium', href: 'https://medium.com/@inferixgpu', icon: M },
+		{ id: 3, name: 'Discord', href: 'https://discord.gg/NJvcWYcB9W', icon: D },
+		{ id: 4, name: 'Youtube', href: 'https://www.youtube.com/@InferixGPU', icon: Y },
+		{ id: 5, name: 'Warpcast', href: 'https://warpcast.com/inferixgpu', icon: W }
+	];
+
+	onMount(() => {
+		setTimeout(() => {
+			isOpen = true;
+		}, 10000);
+	});
+	let isOpen = false;
+
+	function hidePopup() {
+		isOpen = false;
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
 <div class="bg-black">
+	<div class="popup-node-sale" style={isOpen ? 'display: flex' : 'display: none'}>
+		<div class="start-buy md:w-3/5 w-[90%]">
+			<img src={background_buy_node} />
+			<div class="md:p-8 lg:p-12 p-4">
+				<div class="xl:text-[72px] lg:text-[54px] text-[30px]">Start Buy Node</div>
+				<div class="xl:text-[36px] lg:text-[30px] text-[22px]">
+					Download the product to start earning right now!
+				</div>
+				<div class="btn-buy-node">
+					<a
+						on:click={() => window.open('https://verifier.inferix.io/')}
+						class="whitespace-nowrap cursor-pointer"
+						aria-label="Read more">Buy Now</a
+					>
+				</div>
+				<div></div>
+				<div style="flex: 1"></div>
+				<div class="xl:text-[36px] lg:text-[30px] text-[22px]">
+					Don’t miss out – join our community!
+				</div>
+				<div class="flex opacity-60 gap-[20px] w-[100%] mt-[20px]">
+					{#each medias as media (media.id)}
+						<div>
+							<a target="_blank" href={media.href}
+								><img
+									src={media.icon}
+									alt={media.name}
+									loading="lazy"
+									class="h-[34px] w-[34px]"
+									style="border-radius: 50%;"
+								/></a
+							>
+						</div>
+					{/each}
+				</div>
+			</div>
+			<div on:click={hidePopup} class="md:pt-8 md:pr-8 lg:pt-12 lg:pr-12 pt-4 pr-4">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-x"
+					width="40"
+					height="40"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="#ffffff"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path d="M18 6l-12 12" />
+					<path d="M6 6l12 12" />
+				</svg>
+			</div>
+		</div>
+	</div>
 	<div class="node-sale">
 		<div>
 			<div>
@@ -323,6 +405,95 @@
 </div>
 
 <style lang="postcss">
+	.popup-node-sale {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		background: #0000006b;
+		top: 0;
+		left: 0;
+		z-index: 999999;
+		backdrop-filter: blur(5px);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.start-buy {
+			/* width: 60%; */
+			position: relative;
+			display: flex;
+
+			> img {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				z-index: 999998;
+			}
+			> div {
+				position: relative;
+				z-index: 999999;
+				display: flex;
+				flex-direction: column;
+
+				> div:nth-child(1) {
+					font-family: Inter;
+					/* font-size: 72px; */
+					font-weight: 600;
+					line-height: 150%;
+					text-align: left;
+				}
+				> div:nth-child(2) {
+					font-family: Inter;
+					/* font-size: 36px; */
+					font-weight: 500;
+					line-height: 150%;
+					text-align: left;
+					color: #888888;
+					margin-bottom: 20px;
+				}
+
+				> .btn-buy-node {
+					position: relative;
+					z-index: 10;
+					width: fit-content;
+					@apply flex justify-center h-[48px]  items-center text-black py-4 text-[16px] font-[500];
+					padding: 0 15px;
+					border-radius: 2px;
+					background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+					&:hover {
+						box-shadow: 0 0 10px #00d6d9;
+					}
+					> a {
+						font-family: Inter;
+						font-size: 20px;
+						font-weight: 700;
+						line-height: 24px;
+						text-align: left;
+					}
+					margin-bottom: 40px;
+				}
+				> div:nth-child(5) {
+					margin-bottom: 50px;
+				}
+				> div:nth-child(4) {
+					width: 100%;
+					border-top: 1px solid #333333;
+				}
+				> div:nth-child(6) {
+					font-family: Inter;
+					/* font-size: 36px; */
+					font-weight: 500;
+					line-height: 150%;
+					text-align: left;
+					color: #888888;
+				}
+			}
+
+			> div:last-child {
+				cursor: pointer;
+			}
+		}
+	}
 	.partner-item:last-child > img {
 		height: auto;
 		width: auto;
@@ -512,30 +683,6 @@
 
 		& > .partner-item-last:last-child {
 			justify-content: flex-start;
-		}
-	}
-
-	@media screen and (max-width: 1440px) {
-		.node-sale > div {
-			width: 80%;
-
-			> div {
-				width: 100%;
-				height: 600px;
-				gap: 30px;
-
-				> .title {
-					font-size: 5vw;
-				}
-
-				.content {
-					font-size: 30px;
-				}
-
-				> img {
-					width: 65%;
-				}
-			}
 		}
 	}
 
