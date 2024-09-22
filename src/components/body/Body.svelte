@@ -320,6 +320,7 @@
 		padding-top: 250px;
 		padding-bottom: 100px;
 		overflow: hidden;
+		font-family: Inter, sans-serif;
 
 		> div {
 			width: 1136px;
@@ -424,7 +425,7 @@
 		}
 	}
 	.partner-header {
-		@apply xl:text-[72px] lg:text-[56px] text-[32px];
+		@apply font-[Inter] xl:text-[72px] lg:text-[56px] text-[32px];
 		text-align: center;
 		font-weight: 600;
 		line-height: 150%;
