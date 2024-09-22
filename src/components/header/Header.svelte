@@ -12,7 +12,8 @@
 	import D from '$images/icons/D.svg';
 	import W from '$images/icons/warpcast.svg';
 	import Y from '$images/icons/Ytb.svg';
-	import buttonGPU from '$images/icons/ButtonGPU.png';
+	import buttonGPU from '$images/png/gpu-owner.png';
+	import Rendering from '$images/png/3d-rendering.png';
 	import buttonGPUFocus from '$images/icons/ButtonGPUFocus.png';
 	import buttonScreen from '$images/icons/ButtonScreen.png';
 	import buttonScreenFocus from '$images/icons/ButtonScreenFocus.png';
@@ -306,12 +307,17 @@
 		</div>
 
 		<div
-			class="overflow-hidden bg-black mx-auto md:mt-0 -mt-[200px] max-md:opacity-40 relative flex justify-center align-center pt-[250px]"
+			class="overflow-hidden bg-black mx-auto md:mt-0 -mt-[200px] relative flex justify-center align-center max-md:pt-[200px] pt-[250px] max-lg:pb-[100px]"
 		>
-			<img src={begin_content} class="w-[90%]" />
-			<img src={img_content} class="absolute w-[60%] transform translate-y-[120%]" />
-			<div class="absolute top-[400px] flex-col align-center justify-center">
-				<div class="md:hidden text-[16px font-normal">MVP is live on desktop</div>
+			<img src={begin_content} class="w-[90%] max-md:mt-[150px]" />
+			<img
+				src={img_content}
+				class="absolute max-md:w-[100%] w-[60%] transform max-lg:translate-y-[165%] max-md:translate-y-[120%] translate-y-[120%]"
+			/>
+			<div
+				class="absolute max-lg:top-[550px] max-xl:top-[360px] top-[400px] flex-col align-center justify-center"
+			>
+				<div class="md:hidden text-[16px] font-normal">MVP is live on desktop</div>
 				<div
 					class="max-md:hidden"
 					style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
@@ -319,113 +325,22 @@
 				>
 					MVP Is Live
 				</div>
-				<!-- <div
-					class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
-				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0"
+				<div
+					class="flex lg:flex-row flex-col md:mt-[50px] max-md:w-full
+				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 gap-[16px]"
 				>
 					<div class="item-download">
 						<div
 							role="button"
 							tabindex="0"
-							class="cursor-pointer"
+							class="cursor-pointer flex w-[100%] gap-[24px] align-center"
 						>
-							<div class="basis-2/3 flex flexgap-2 max-md:justify-center md:justify-end">
-								<div class="">
-									{#if !focusGPU}
-										<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
-									{:else}
-										<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus" />
-									{/if}
-								</div>
-								<div>
-									<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
-									<div class="flex justify-between max-md:hidden">
-										<a
-											href="https://h3d.me/ifxworkerwin"
-											class="inline-flex justify-between items-center gap-1 cursor-pointer"
-											aria-label="Read more"
-										>
-											<img src={DownloadIcon} alt="DownloadIcon" />
-											<p class="text-white font-normal text-[12px] opacity-60">Window</p>
-										</a>
-										<a
-											href="https://h3d.me/ifxworkerubuntu"
-											role="button"
-											tabindex="0"
-											class="inline-flex justify-between items-center gap-1 cursor-pointer"
-											aria-label="Read more"
-										>
-											<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-											<p class="text-white font-normal text-[12px] opacity-60">Linux</p>
-										</a>
-									</div>
-								</div>
+							<div class="">
+								<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
 							</div>
-						</div>
-					</div>
-					<div class="item-border-2">
-						<div
-							class="item-download-2 cursor-pointer"
-							on:mouseenter={() => focusButtonScreen(true)}
-							on:mouseleave={() => focusButtonScreen(false)}
-						>
-							<img src={background_download_2} alt="back-download-2" />
-							<div class="basis-1/3 mt-4">
-								{#if !focusBtScreen}
-									<img class="-ml-4" src={buttonScreen} alt="buttonScreen" />
-								{:else}
-									<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus" />
-								{/if}
-							</div>
-							<div
-								class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center"
-							>
-								<p class="flex text-white text-[16px] font-bold justify-start">
-									3D Rendering & AI Inference
-								</p>
-								<div class="flex justify-between max-md:hidden">
-									<a
-										href="https://h3d.me/ifxaddonblenderwin"
-										class="inline-flex justify-between items-center gap-1 cursor-pointer"
-										aria-label="Read more"
-									>
-										<img src={DownloadIcon} alt="DownloadIcon" />
-										<p class="text-white font-normal text-[12px] opacity-60">Window</p>
-									</a>
-									<a
-										href="javascript:void(0)"
-										role="button"
-										tabindex="0"
-										on:click={() => (downloadShowModal = true)}
-										class="inline-flex justify-between items-center gap-1 cursor-pointer"
-										aria-label="Read more"
-									>
-										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-										<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
-				<div
-					class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
-				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0"
-				>
-					<div class="item-border-1">
-						<div
-							role="button"
-							tabindex="0"
-							class="item-download-1 cursor-pointer"
-							on:mouseenter={() => focusButtonGPU(true)}
-							on:mouseleave={() => focusButtonGPU(false)}
-						>
-							<img src={background_download_1} alt="background" />
-							<div
-								class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:justify-center md:justify-end"
-							>
+							<div style="flex: 1" class="flex flex-col">
 								<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
-								<div class="flex justify-between max-md:hidden">
+								<div class="flex max-md:hidden">
 									<a
 										href="https://h3d.me/ifxworkerwin"
 										class="inline-flex justify-between items-center gap-1 cursor-pointer"
@@ -442,59 +357,43 @@
 										aria-label="Read more"
 									>
 										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-										<p class="text-white font-normal text-[12px] opacity-60">Linux</p>
+										<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
 									</a>
 								</div>
 							</div>
-
-							<div class="basis-1/3 mt-4">
-								{#if !focusGPU}
-									<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
-								{:else}
-									<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus" />
-								{/if}
-							</div>
 						</div>
 					</div>
-					<div class="item-border-2">
+					<div class="item-download">
 						<div
-							class="item-download-2 cursor-pointer"
-							on:mouseenter={() => focusButtonScreen(true)}
-							on:mouseleave={() => focusButtonScreen(false)}
+							role="button"
+							tabindex="0"
+							class="cursor-pointer flex w-[100%] gap-[24px] align-center"
 						>
-							<img src={background_download_2} alt="back-download-2" />
-							<div class="basis-1/3 mt-4">
-								{#if !focusBtScreen}
-									<img class="-ml-4" src={buttonScreen} alt="buttonScreen" />
-								{:else}
-									<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus" />
-								{/if}
+							<div class="">
+								<img class="ml-4" src={Rendering} alt="3d-rendering" />
 							</div>
-							<div
-								class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center"
-							>
-								<p class="flex text-white text-[16px] font-bold justify-start">
-									3D Rendering & AI Inference
+							<div style="flex: 1" class="flex flex-col">
+								<p class="flex text-white text-[16px] font-bold justify-end">
+									3D Rendering & AI Users
 								</p>
-								<div class="flex justify-between max-md:hidden">
+								<div class="flex max-md:hidden">
 									<a
-										href="https://h3d.me/ifxaddonblenderwin"
+										href="https://h3d.me/ifxworkerwin"
 										class="inline-flex justify-between items-center gap-1 cursor-pointer"
 										aria-label="Read more"
 									>
 										<img src={DownloadIcon} alt="DownloadIcon" />
-										<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+										<p class="text-white font-normal text-[12px] opacity-60">Desktop PC</p>
 									</a>
 									<a
-										href="javascript:void(0)"
+										href="https://a3d.inferix.io/"
 										role="button"
 										tabindex="0"
-										on:click={() => (downloadShowModal = true)}
 										class="inline-flex justify-between items-center gap-1 cursor-pointer"
 										aria-label="Read more"
 									>
 										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-										<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+										<p class="text-white font-normal text-[12px] opacity-60">Web-App</p>
 									</a>
 								</div>
 							</div>
@@ -681,11 +580,26 @@
 			rgba(255, 255, 255, 0.3) 0%,
 			rgba(255, 255, 255, 0.1) 100%
 		);
-		padding: 16px 24px;
+		padding: 0 24px;
 		display: flex;
 		gap: 24px;
 		justify-content: center;
 		align-items: center;
+
+		&:hover {
+			background: radial-gradient(
+				50% 100% at 50.15% 0%,
+				rgba(189, 189, 189, 0.3) 0%,
+				rgba(156, 156, 156, 0.1) 100%
+			);
+		}
+
+		> div {
+			> div:nth-child(2) {
+				align-items: flex-start;
+				justify-content: space-between;
+			}
+		}
 	}
 	.item-border-1 {
 		@apply relative;
@@ -876,9 +790,61 @@
 		animation: rainbow 2s linear infinite;
 	}
 
+	@media screen and (max-width: 1024px) {
+		.header-container {
+			> div:nth-child(2) {
+				> div:nth-child(2) {
+					> div:nth-child(3) {
+						top: 320px;
+					}
+				}
+			}
+		}
+	}
+
 	@media screen and (max-width: 768px) {
 		.header-container > div:nth-child(2) > div:last-child {
 			gap: 15px;
+		}
+
+		.header-container {
+			> div:nth-child(2) {
+				> div:nth-child(2) {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					gap: 0;
+					> img:nth-child(2) {
+						position: relative;
+						transform: none;
+						width: calc(100vw - 48px);
+					}
+					> div:nth-child(3) {
+						top: 500px;
+						width: 100%;
+						padding: 0 24px;
+						display: flex;
+						align-items: center;
+						gap: 16px;
+						margin-bottom: 0;
+
+						> div:nth-child(3) {
+							gap: 16px;
+							margin-bottom: 0;
+						}
+
+						.item-download {
+							width: 100%;
+							height: 92px;
+							> div {
+								> div:nth-child(2) {
+									justify-content: center;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 
 		.item-border-1 {
@@ -1025,6 +991,24 @@
 		}
 		100% {
 			transform: translateX(-110%);
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		.header-container {
+			> div:nth-child(2) {
+				> div:nth-child(2) {
+					gap: 35vw;
+
+					> div:nth-child(3) {
+						top: 550px;
+
+						.item-download {
+							height: 80px;
+						}
+					}
+				}
+			}
 		}
 	}
 </style>
