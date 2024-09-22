@@ -260,7 +260,7 @@
 	<div>
 		<div
 			id="partners"
-			class="flex pb-0 max-sm:w-full lg:max-w-[1136px] md:flex xl:gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
+			class="flex pb-[50px] max-sm:w-full lg:w-[1136px] md:flex xl:gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
 		>
 			<Saos
 				once
@@ -269,7 +269,7 @@
 			>
 				<p class="partner-header">Partner / Investor</p>
 			</Saos>
-			<Saos
+			<div
 				once
 				top="300"
 				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
@@ -311,7 +311,7 @@
 							</a>{/if}
 					{/each}
 				</div>
-			</Saos>
+			</div>
 		</div>
 	</div>
 	<!--{#if screenSize > 768}-->
@@ -572,6 +572,21 @@
 						bottom: 0;
 					}
 				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 515px) {
+		#partners {
+			padding: 0 24px;
+			padding-bottom: 50px;
+			> div:nth-child(2) {
+				width: 100%;
+			}
+		}
+		.partner-content {
+			> .partner-item {
+				width: 100%;
 			}
 		}
 	}
