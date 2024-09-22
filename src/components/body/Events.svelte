@@ -171,7 +171,7 @@
 					rgba(0, 214, 217, 0.2) 0%,
 					rgba(0, 192, 133, 0) 100%
 				);
-				border: 3px solid rgba(0, 214, 217, 0.2);
+				border: 3px solid #02352b;
 
 				display: flex;
 				flex-direction: column;
