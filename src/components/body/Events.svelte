@@ -174,7 +174,7 @@
 					line-height: 24px;
 					color: #888888;
 					text-transform: uppercase;
-					margin-bottom: 15px;
+					margin-bottom: 5px;
 				}
 
 				> div:nth-child(3) {
