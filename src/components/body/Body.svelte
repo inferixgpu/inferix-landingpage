@@ -233,7 +233,7 @@
 		</div>
 	</div>
 
-	<div class="width-text">
+	<div class="width-text" id="about">
 		<div class="text-landing">
 			An innovated platform for 3D rendering and decentralized AI using crowdsourced GPUs globally
 		</div>
@@ -359,7 +359,7 @@
 		justify-content: center;
 		align-items: center;
 		padding-top: 50px;
-		padding-bottom: 100px;
+		padding-bottom: 180px;
 		overflow: hidden;
 		font-family: Inter, sans-serif;
 

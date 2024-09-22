@@ -87,10 +87,9 @@
 		}
 
 		activeTab = id;
-		const space = id === 4 ? 70 : screenSize > 768 ? -120 : 270;
+		const space = id == 1 ? 150 : id === 4 ? 100 : screenSize > 768 ? -120 : 270;
 		const idTab = href.replace('#', '');
 		const tab = document.getElementById(idTab);
-		console.log(tab, 'tab', tab.offsetTop, space);
 
 		if (tab) {
 			window.scrollTo({
@@ -339,15 +338,15 @@
 								<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
 							</div>
 							<div style="flex: 1" class="flex flex-col">
-								<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
-								<div class="flex max-md:hidden">
+								<p class="flex text-white text-[20px] font-bold justify-end">For GPU Owner</p>
+								<div class="flex max-md:hidden gap-[16px]">
 									<a
 										href="https://h3d.me/ifxworkerwin"
 										class="inline-flex justify-between items-center gap-1 cursor-pointer"
 										aria-label="Read more"
 									>
-										<img src={DownloadIcon} alt="DownloadIcon" />
-										<p class="text-white font-normal text-[12px] opacity-60">Window</p>
+										<img src={DownloadIcon} alt="DownloadIcon" width="20px" />
+										<p class="text-white font-normal text-[16px] opacity-60">Windows</p>
 									</a>
 									<a
 										href="https://h3d.me/ifxworkerubuntu"
@@ -356,8 +355,8 @@
 										class="inline-flex justify-between items-center gap-1 cursor-pointer"
 										aria-label="Read more"
 									>
-										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-										<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" width="20px" />
+										<p class="text-white font-normal text-[16px] opacity-60">MacOS</p>
 									</a>
 								</div>
 							</div>
@@ -373,17 +372,17 @@
 								<img class="ml-4" src={Rendering} alt="3d-rendering" />
 							</div>
 							<div style="flex: 1" class="flex flex-col">
-								<p class="flex text-white text-[16px] font-bold justify-end">
+								<p class="flex text-white text-[20px] font-bold justify-end">
 									3D Rendering & AI Users
 								</p>
-								<div class="flex max-md:hidden">
+								<div class="flex max-md:hidden gap-[16px]">
 									<a
 										href="https://h3d.me/ifxworkerwin"
 										class="inline-flex justify-between items-center gap-1 cursor-pointer"
 										aria-label="Read more"
 									>
-										<img src={DownloadIcon} alt="DownloadIcon" />
-										<p class="text-white font-normal text-[12px] opacity-60">Desktop PC</p>
+										<img src={DownloadIcon} alt="DownloadIcon" width="20px" />
+										<p class="text-white font-normal text-[16px] opacity-60">Desktop PC</p>
 									</a>
 									<a
 										href="https://a3d.inferix.io/"
@@ -392,8 +391,8 @@
 										class="inline-flex justify-between items-center gap-1 cursor-pointer"
 										aria-label="Read more"
 									>
-										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-										<p class="text-white font-normal text-[12px] opacity-60">Web-App</p>
+										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" width="20px" />
+										<p class="text-white font-normal text-[16px] opacity-60">Web-App</p>
 									</a>
 								</div>
 							</div>
