@@ -13,7 +13,7 @@
   </script>
   
   <div class="flex-col text-white py-12 justify-center">
-    <div class="flex justify-center w-full">
+    <div class="hidden md:flex justify-center w-full">
         <div class="w-[500px] h-[800px]">
             {#if modelViewerLoaded}
                         <model-viewer

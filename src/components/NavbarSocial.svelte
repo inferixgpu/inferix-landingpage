@@ -20,6 +20,7 @@
       border-radius: 24px;
       margin-right: 32px;
       z-index: 99999;
+      backdrop-filter: blur(4px);
     }
     
     .fixed-menu a {
