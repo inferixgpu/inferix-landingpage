@@ -474,6 +474,49 @@
 		}
 	}
 
+	@media screen and (max-width: 1243px) {
+		.partner-content {
+		@apply lg:grid lg:grid-cols-6 flex flex-col gap-6;
+
+		& > .partner-item {
+			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
+			background: var(
+				--123,
+				radial-gradient(
+					100% 100% at 50% 0%,
+					rgba(255, 255, 255, 0.12) 0%,
+					rgba(255, 255, 255, 0) 100%
+				)
+			);
+			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none col-span-2;
+		}
+
+		& > .partner-item-none {
+			@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none col-span-2;
+		}
+		& > .partner-item-last {
+			@apply flex col-span-3;
+			justify-content: flex-end;
+			div {
+				border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
+				background: var(
+					--123,
+					radial-gradient(
+						100% 100% at 50% 0%,
+						rgba(255, 255, 255, 0.12) 0%,
+						rgba(255, 255, 255, 0) 100%
+					)
+				);
+				@apply flex items-center justify-center h-[80px] w-[282px] px-[64px] py-4 cursor-pointer !filter-none;
+			}
+		}
+
+		& > .partner-item-last:last-child {
+			justify-content: flex-start;
+		}
+		}
+	}
+
 	@media screen and (max-width: 1440px) {
 		.node-sale > div {
 			width: 80%;
