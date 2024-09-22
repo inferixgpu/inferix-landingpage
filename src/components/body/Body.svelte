@@ -360,7 +360,7 @@
 
 				> .btn-buy-node {
 					position: relative;
-					z-index: 99;
+					z-index: 10;
 					width: fit-content;
 					@apply flex justify-center h-[48px]  items-center text-black py-4 text-[16px] font-[500];
 					padding: 0 15px;
