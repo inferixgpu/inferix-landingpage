@@ -65,8 +65,8 @@
 			container: container,
 			style: 'mapbox://styles/saseeme/cm1905mxm028s01pbfbosa6ae',
 			center: [0, 14.0583],
-			zoom: 1.6,
-			minZoom: 1.6,
+			zoom: 1.1,
+			minZoom: 1.1,
 			maxZoom: 10,
 			// 	dragPan: true, // Cho phép kéo bản đồ
 			// maxBounds: [
@@ -282,7 +282,7 @@
 		top:0;
 		bottom:0; */
 		width: 80%;
-		height: 931px;
+		height: 700px;
 		margin: 0 auto;
 		overflow: hidden;
 		display: flex;
@@ -291,4 +291,5 @@
 		margin-bottom: 150px;
 		/* background-color: red; */
 	}
+
 </style>

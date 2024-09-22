@@ -33,6 +33,9 @@
 
 	import SystemArchitecture from '$components/body/System.svelte';
 	import Map from '$components/body/Map.svelte';
+	import MapLaptop from '$components/body/MapLaptop.svelte';
+	import MapMobile from '$components/body/MapMobile.svelte';
+	import MapTablet from '$components/body/MapTablet.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
 	import Events from '$components/body/Events.svelte';
@@ -230,7 +233,21 @@
 		</div>
 	</div>
 
-	<Map />
+	<div class="width-text">
+		<div class="text-landing">
+			An innovated platform for 3D rendering and decentralized AI using crowdsourced GPUs globally
+		</div>
+	</div>
+
+	{#if screenSize > 1440}
+		<Map />
+	{:else if screenSize > 1024}
+		<MapLaptop />
+	{:else if screenSize > 768}
+		<MapTablet />
+	{:else}
+		<MapMobile />
+	{/if}
 	<!-- <ProvenTechnologies /> -->
 	<!-- <SystemArchitecture /> -->
 	<!-- <Industries /> -->
@@ -309,6 +326,32 @@
 	.partner-item:last-child > img {
 		height: auto;
 		width: auto;
+	}
+
+	.width-text {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 50px;
+	}
+
+	.text-landing {
+		font-size: 64px;
+		width: 1136px;
+		font-family: Inter;
+		font-weight: 500;
+		line-height: 80px;
+		background: linear-gradient(45deg, #00d6d9 0%, #00c085 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-align: center;
+	}
+
+	@media (max-width: 1339px) {
+		.text-landing {
+			font-size: 56px;
+			width: 784px;
+		}
 	}
 
 	.node-sale {
@@ -499,6 +542,12 @@
 	@media screen and (max-width: 768px) {
 		.innovated-header > img {
 			margin-top: 600px;
+		}
+
+		.text-landing {
+			font-size: 32px;
+			width: 345px;
+			line-height: 48px;
 		}
 
 		.node-sale {

@@ -51,8 +51,6 @@
 
 		// Lưu featuresData vào localStorage với tên mới
 		localStorage.setItem('myFeaturesData', JSON.stringify(featuresData));
-
-		console.log(featuresData, 'featuresData');
 	}
 
 	function initMap(container) {
@@ -65,8 +63,8 @@
 			container: container,
 			style: 'mapbox://styles/saseeme/cm1905mxm028s01pbfbosa6ae',
 			center: [0, 14.0583],
-			zoom: 1.6,
-			minZoom: 1.6,
+			zoom: 0,
+			minZoom: 0,
 			maxZoom: 10,
 			// 	dragPan: true, // Cho phép kéo bản đồ
 			// maxBounds: [
@@ -104,7 +102,7 @@
 				filter: ['has', 'point_count'],
 				paint: {
 					'circle-color': '#00C085',
-					'circle-radius': ['step', ['get', 'point_count'], 15, 100, 25, 750, 35],
+					'circle-radius': ['step', ['get', 'point_count'], 8, 100, 18, 750, 28],
 					'circle-opacity': 1
 				}
 			});
@@ -116,14 +114,13 @@
 				filter: ['has', 'point_count'],
 				paint: {
 					'circle-color': '#00D6D9',
-					'circle-radius': ['step', ['get', 'point_count'], 15, 100, 25, 750, 35],
+					'circle-radius': ['step', ['get', 'point_count'], 8, 100, 18, 750, 28],
 					'circle-opacity': 0.6
 				}
 			});
 
 			map.on('error', (e) => {
 				console.error('Error from Mapbox:', e.error.message);
-				console.log(data, '22');
 			});
 
 			function pulsingEffect() {
@@ -171,7 +168,7 @@
 				layout: {
 					'text-field': '{point_count_abbreviated}',
 					'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-					'text-size': 12
+					'text-size': 10
 				}
 			});
 
@@ -182,7 +179,7 @@
 				filter: ['!', ['has', 'point_count']],
 				paint: {
 					'circle-color': '#00C085',
-					'circle-radius': ['step', ['get', 'point_count'], 15, 100, 25, 750, 35],
+					'circle-radius': ['step', ['get', 'point_count'], 5, 100, 15, 750, 25],
 					'circle-opacity': 1
 				}
 			});
@@ -194,7 +191,7 @@
 				filter: ['!', ['has', 'point_count']],
 				paint: {
 					'circle-color': '#00D6D9',
-					'circle-radius': ['step', ['get', 'point_count'], 15, 100, 25, 750, 35],
+					'circle-radius': ['step', ['get', 'point_count'], 5, 100, 15, 750, 25],
 					'circle-opacity': 0.6
 				}
 			});
@@ -282,7 +279,7 @@
 		top:0;
 		bottom:0; */
 		width: 80%;
-		height: 931px;
+		height: 203px;
 		margin: 0 auto;
 		overflow: hidden;
 		display: flex;
@@ -291,4 +288,5 @@
 		margin-bottom: 150px;
 		/* background-color: red; */
 	}
+
 </style>
