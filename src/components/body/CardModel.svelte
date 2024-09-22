@@ -40,9 +40,9 @@
         </div>
       </div>
       <div class="px-[24px] mx-auto block sm:hidden"  style="font-family: Inter">
-        <h2 class="text-[32px] md:text-[55px] lg:text-[72px] font-bold text-left md:text-center md:pl-[46px] mb-8">DePIN Verification</h2>
-        <h2 class="text-[32px] md:text-[55px] lg:text-[72px] font-bold text-left md:text-center md:pl-[46px] mb-8">with Proof - of -</h2>
-        <h2 class="text-[32px] md:text-[55px] lg:text-[72px] font-bold text-left md:text-center md:pl-[46px] mb-8">Rendering and FHE</h2>
+        <h2 class="text-[32px] md:text-[55px] lg:text-[72px] font-bold text-left md:text-center md:pl-[46px] leading-[48px]">DePIN Verification</h2>
+        <h2 class="text-[32px] md:text-[55px] lg:text-[72px] font-bold text-left md:text-center md:pl-[46px] leading-[48px]">with Proof - of -</h2>
+        <h2 class="text-[32px] md:text-[55px] lg:text-[72px] font-bold text-left md:text-center md:pl-[46px] leading-[48px]">Rendering and FHE</h2>
         <div class="w-full flex justify-center">
             <img src={ParameterProject} alt={""} class="w-full h-full max-w-[1136px] max-h-[663px]" />
         </div>

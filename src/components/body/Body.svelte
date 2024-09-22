@@ -260,7 +260,7 @@
 	<div>
 		<div
 			id="partners"
-			class="flex pb-[50px] max-sm:w-full lg:w-[1136px] md:flex xl:gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
+			class="flex pb-[50px] max-sm:w-full lg:max-w-[1136px] md:flex xl:gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
 		>
 			<Saos
 				once
