@@ -27,11 +27,64 @@
 	function focusButtonJoin(status) {
 		focusButtonJoinNow = status;
 	}
+
+	const tabs = [
+		{
+			id: 1,
+			title: 'About',
+			href: '#about'
+		},
+		{
+			id: 2,
+			title: 'GPU Network',
+			href: 'https://dash.inferix.io/'
+		},
+		{ id: 4, title: 'Partners', href: '#partners' },
+		{ id: 6, title: 'Node Sale', href: 'https://verifier.inferix.io/' },
+		{
+			id: 5,
+			title: 'Docs',
+			href: 'https://docs.inferix.io/'
+		}
+	];
+
+	function handleClickTab(id: number, href: string) {
+		document.querySelectorAll('.tab-item').forEach((item) => item.classList.remove('tab-active'));
+		if (id !== 6) {
+			document.getElementById(`item-tab-${id}`)?.classList.add('tab-active');
+		}
+
+		if (id === 2 || id === 5) {
+			window.open(href);
+		}
+
+		if (id === 6 || id == 0) {
+			// showModal = true;
+			window.open(href);
+			return;
+		}
+
+		activeTab = id;
+		const space = id == 1 ? 150 : id === 4 ? 100 : screenSize > 768 ? -120 : 270;
+		const idTab = href.replace('#', '');
+		const tab = document.getElementById(idTab);
+
+		if (tab) {
+			window.scrollTo({
+				top: tab.offsetTop - space,
+				behavior: 'smooth'
+			});
+			isOpen = false;
+		}
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<div style="border-top:1px solid #333333" class="pt-[30px] flex flex-col items-center justify-center w-full bg-[#000000]">
+<div
+	style="border-top:1px solid #333333"
+	class="pt-[30px] flex flex-col items-center justify-center w-full bg-[#000000]"
+>
 	<!-- <div class="footer-body">
 		<div class="flex flex-col gap-[18px] w-full max-md:hidden">
 			<img class="w-full" src={LineRow} alt="LingRow" />
@@ -128,7 +181,7 @@
 		</div>
 	</div> -->
 	<div
-	style="background: #000000"
+		style="background: #000000"
 		class="bg-[#000000] max-md:hidden md:h-[120px] max-md:h-[136px] w-full px-[156px] py-[24px] flex md:flex-row flex-col justify-between bg-[rgb(17,17,17)]"
 	>
 		<div
@@ -138,7 +191,10 @@
 			<a href="https://inferix.io/">
 				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
 			</a>
-			<p class="font-base font-normal mt-4 md:mt-0 text-white whitespace-nowrap" style="font-family: Inter">
+			<p
+				class="font-base font-normal mt-4 md:mt-0 text-white whitespace-nowrap"
+				style="font-family: Inter"
+			>
 				Decentralized GPU Network
 			</p>
 		</div>
@@ -167,7 +223,10 @@
 			<a href="https://inferix.io/">
 				<img src={HeaderLogo} alt="Inferix" class="w-[152px] h-[32px]" />
 			</a>
-			<p class="font-base font-normal mt-4 md:mt-0 text-white whitespace-nowrap" style="font-family: Inter">
+			<p
+				class="font-base font-normal mt-4 md:mt-0 text-white whitespace-nowrap"
+				style="font-family: Inter"
+			>
 				Decentralized GPU Network
 			</p>
 		</div>
@@ -185,9 +244,37 @@
 				</div>
 			{/each}
 		</div>
+		<div
+			style="background: #000;"
+			class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full box-border pt-[16px] relative p-[30px]"
+		>
+			{#each tabs as tab (tab.id)}
+				<div class="header-tab-mobile tab opacity-60">
+					<a
+						on:click={() => handleClickTab(tab.id, tab.href)}
+						class="whitespace-nowrap cursor-pointer relative"
+						aria-label="Read more"
+						>{tab.title}
+						{#if tab.id === 6}
+							<div
+								class="new-tag absolute top-[-6px] right-[-33px] h-[16px] px-[4px] leading-[16px] text-[10px] text-white rounded-[8px_0px] pointer-events-none"
+								style="background: linear-gradient(90deg, rgb(255, 57, 188), rgb(137, 42, 242)); color:white"
+							>
+								New
+							</div>
+						{/if}
+					</a>
+				</div>
+			{/each}
+		</div>
 	</div>
-	<div style="background: #000000" class="bg-[#000000] flex h-[32px] w-full bg-[rgb(26,27,27)] items-center justify-center">
-		<p class="text-[12px] text-[#888888] font-normal" style="font-family: Inter">© 2023 Inferix. All rights reserved.</p>
+	<div
+		style="background: #000000"
+		class="bg-[#000000] flex h-[32px] w-full bg-[rgb(26,27,27)] items-center justify-center"
+	>
+		<p class="text-[12px] text-[#888888] font-normal" style="font-family: Inter">
+			© 2023 Inferix. All rights reserved.
+		</p>
 	</div>
 </div>
 
