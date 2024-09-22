@@ -19,17 +19,29 @@
 			title: 'R3al World at ETHDenver',
 			time: 'Feb 2024',
 			img: r3alworld,
-			href: 'https://www.youtube.com/watch?v=PjISsxUgWbU'
+			href: 'https://x.com/InferixGPU/status/1763027628666286199'
 		},
-		{ id: 2, title: 'VietNam DePIN Meetup', time: 'Apr 2024', img: depin_meetup, href: '' },
+		{
+			id: 2,
+			title: 'VietNam DePIN Meetup',
+			time: 'Apr 2024',
+			img: depin_meetup,
+			href: 'https://x.com/InferixGPU/status/1784508015988932962'
+		},
 		{
 			id: 3,
 			title: 'R3al World DePIN House at Consensus2024',
 			time: 'May 2024',
 			img: depin_house,
-			href: ''
+			href: 'https://x.com/InferixGPU/status/1796107569347387890'
 		},
-		{ id: 4, title: 'VietNam DePIN Happy Hour', time: 'JUN 2024', img: depin_hh, href: '' },
+		{
+			id: 4,
+			title: 'VietNam DePIN Happy Hour',
+			time: 'JUN 2024',
+			img: depin_hh,
+			href: 'https://x.com/InferixGPU/status/1800132006959038688'
+		},
 		{
 			id: 5,
 			title: 'R3al World DePIN House EthCC',
