@@ -260,7 +260,7 @@
 	<div>
 		<div
 			id="partners"
-			class="flex pb-[50px] max-sm:w-full lg:w-[1136px] md:flex xl:gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
+			class="flex pb-[50px] max-sm:w-full lg:w-[1170px] md:flex xl:gap-[48px] flex-col mx-auto justify-center items-center md:pb-[150px] mt-[20px] md:mt-[10px]"
 		>
 			<Saos
 				once
@@ -475,7 +475,7 @@
 		margin: 32px 0;
 	}
 	.partner-content {
-		@apply lg:grid lg:grid-cols-4 xl:grid-cols-8 flex flex-col gap-6;
+		@apply lg:grid lg:grid-cols-4 xl:grid-cols-8 flex flex-col gap-[16px];
 
 		& > .partner-item {
 			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
