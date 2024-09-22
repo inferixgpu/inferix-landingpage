@@ -100,7 +100,7 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 <div class="events">
-	<div class="title">Events</div>
+	<div class="title">Events & Spaces</div>
 	<div class="content">
 		{#each EVENTS as event (event.id)}
 			<div class="event-item">
@@ -132,14 +132,11 @@
 		margin: auto;
 
 		.title {
-			text-align: center;
-			font-size: 32px;
+			text-align: left;
+			font-size: 72px;
 			font-weight: 600;
-			line-height: 48px;
-			background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
-			background-clip: text;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
+			line-height: 108px;
+			color: #ffffff;
 			margin-bottom: 40px;
 		}
 
@@ -231,8 +228,14 @@
 	}
 
 	@media screen and (max-width: 1024px) {
-		.events > .content {
-			display: none;
+		.events {
+			.title {
+				font-size: 56px;
+				line-height: 84px;
+			}
+			> .content {
+				display: none;
+			}
 		}
 
 		#content-mobile {
@@ -306,6 +309,10 @@
 	@media screen and (max-width: 768px) {
 		.events {
 			padding: 0 10px;
+			.title {
+				font-size: 32px;
+				line-height: 48px;
+			}
 
 			#content-mobile {
 				> .moved_events {
