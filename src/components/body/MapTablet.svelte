@@ -65,7 +65,8 @@
 			container: container,
 			style: 'mapbox://styles/mapbox/dark-v10',
 			center: [0, 14.0583],
-			maxZoom: 10
+			maxZoom: 10,
+			zoom:1,
 		});
 
 		map.on('load', () => {
