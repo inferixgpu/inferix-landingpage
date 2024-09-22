@@ -318,15 +318,8 @@
 			>
 				<div class="md:hidden text-[16px] font-normal">MVP is live on desktop</div>
 				<div
-					class="max-md:hidden"
-					style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
-				-webkit-text-fill-color: transparent; text-align: center;"
-				>
-					MVP Is Live
-				</div>
-				<div
 					class="flex lg:flex-row flex-col md:mt-[50px] max-md:w-full
-				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 gap-[16px]"
+				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] gap-[16px]"
 				>
 					<div class="item-download">
 						<div
