@@ -182,7 +182,7 @@
 										target="_blank"
 										class="inline-flex h-full items-center gap-1"
 										aria-label="Read more"
-										>Node Whitelist Campaign - <p class="text-black">Only 5 days left! ⟶</p></a
+										>Node Whitelist Campaign - <p class="text-black">Only 3 days left! ⟶</p></a
 									>
 								</div>
 							</div>
