@@ -239,13 +239,13 @@
 	<CardItem />
 	<Parameter />
 	<CardModel />
-	<IndustrieUI/>
-	<BackgroundCard/>
 	<Events />
+	<IndustrieUI />
+	<BackgroundCard />
 	<div>
 		<div
 			id="partners"
-			class="flex pb-0 max-sm:w-full lg:w-[1136px] md:flex gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
+			class="flex pb-0 max-sm:w-full lg:w-[1136px] md:flex xl:gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
 		>
 			<Saos
 				once
@@ -261,7 +261,9 @@
 			>
 				<div class="partner-content">
 					{#each partners as partner (partner.id)}
-						{#if !partner.id}{#if screenSize >= 1024}<div class="col-span-2"></div>{/if}{:else}<a
+						{#if !partner.id}{#if screenSize >= 1024}<div
+									class="col-span-2 max-xl:hidden"
+								></div>{/if}{:else}<a
 								class={partner.id === 100 ? 'partner-item-none' : 'partner-item'}
 								href={partner.href}
 								target="_blank"
@@ -422,18 +424,15 @@
 		}
 	}
 	.partner-header {
-		@apply max-md:!text-[24px] !text-[32px];
+		@apply xl:text-[72px] lg:text-[56px] text-[32px];
 		text-align: center;
 		font-weight: 600;
-		line-height: 48px; /* 150% */
-		background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
+		line-height: 150%;
+		color: #ffffff;
 		margin: 32px 0;
 	}
 	.partner-content {
-		@apply lg:grid lg:grid-cols-8 flex flex-col gap-6;
+		@apply lg:grid lg:grid-cols-4 xl:grid-cols-8 flex flex-col gap-6;
 
 		& > .partner-item {
 			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
