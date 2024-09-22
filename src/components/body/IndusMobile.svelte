@@ -6,437 +6,57 @@
 	import In5 from '$images/png/industries/5.jpg';
 
 	let screenSize: number;
+	let images = [In1, In2, In3, In4, In5];
+	let currentX: number = 0;
+	let imageWidth: number = 300; 
+	let imageSpacing: number = 24;
+	let speed: number = 2;
+
+
+	function moveSlider() {
+		currentX -= speed; 
+
+		if (currentX <= -(images.length * (imageWidth + imageSpacing))) {
+			currentX = 0;
+		}
+
+		requestAnimationFrame(moveSlider);
+	}
+
+	moveSlider();
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
 
-	<div>
-		<div class="in-mobile h-[400px] md:h-[400px]">
-			<div class="in-mobile-content">
-				<div>
-					<div class="moved-in">
-						<div>
-							<img src={In1} alt="in1" loading="lazy" />
-						</div>
-						<div>
-							<img src={In2} alt="in1" loading="lazy" />
-
-						</div>
-						<div>
-							<img src={In3} alt="in1" loading="lazy" />
-
-						</div>
-						<div>
-							<img src={In4} alt="in1" loading="lazy" />
-						</div>
-						<div>
-							<img src={In5} alt="in1" loading="lazy" />
-						</div>
-						<div>
-							<img src={In1} alt="in1" />
-						</div>
-						<div>
-							<img src={In2} alt="in1" />
-						</div>
-						<div>
-							<img src={In3} alt="in1" />
-						</div>
-						<div>
-							<img src={In4} alt="in1" />
-						</div>
-						<div>
-							<img src={In5} alt="in1" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-<style lang="postcss">
-	.industry {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: relative;
-	}
-
-	.industry > div:first-child {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		z-index: 1;
-	}
-
-	.industry-content {
-		position: absolute;
-		top: 131px;
-
-		left: calc(calc(calc(100%) - 1199px) / 2 154);
-		width: 894px;
-		height: 861px;
-		display: flex;
-	}
-
-	.industry-content > div {
-		width: 282px;
-		padding: 1px;
-	}
-
-	.industry-content > div:first-child {
-		padding: 10px 0 113px;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.industry-content > div:first-child > div:first-child {
-		& > div {
-			text-align: center;
-			font-size: 32px;
-			font-weight: 600;
-			line-height: 48px; /* 150% */
-			background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
-			background-clip: text;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			transform: translate(-68px, -14px);
-		}
-	}
-
-	.industry-content > div:first-child > div:nth-child(2) {
-		margin-top: 35px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		overflow: hidden;
-		height: 269px;
-
-		& > video {
-			height: calc(calc(100%) - 2px);
-		}
-	}
-
-	.industry-content > div:first-child > div:last-child {
-		margin-top: 24px;
-	}
-
-	.in-images {
+<style>
+	.slider-container {
 		width: 100%;
-		height: 362px;
-		position: relative;
-		border: 1px solid rgba(244, 244, 244, 0.3);
-
-		& > img {
-			width: 100%;
-			height: 100%;
-		}
-
-		& > div {
-			width: 100%;
-			height: 69px;
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			background: linear-gradient(
-				180deg,
-				rgba(49, 91, 91, 0) -1.11%,
-				rgba(49, 86, 91, 0.44) 23.83%,
-				#31595b 99.56%
-			);
-			stroke-width: 1px;
-			stroke: rgba(255, 255, 255, 0);
-			backdrop-filter: blur(10px);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			border-top: 1px solid rgba(255, 255, 255, 0.3);
-
-			& > div {
-				color: #fff;
-				font-feature-settings:
-					'clig' off,
-					'liga' off;
-				font-size: 16px;
-				font-weight: 600;
-				line-height: 36px; /* 225% */
-			}
-		}
-	}
-
-	.industry-content > div:nth-child(2) {
-		padding: 93px 0 0 0;
-		margin-left: 24px;
-		display: flex;
-		flex-direction: column;
-		gap: 24px;
-	}
-
-	.industry-content > div:nth-child(3) {
-		margin-left: 23px;
-		margin-top: -1px;
-		width: 283px;
-		display: flex;
-		flex-direction: column;
-		gap: 24px;
-	}
-	.div-room {
 		overflow: hidden;
-	}
-	@keyframes textMove {
-		0% {
-			/* left: 0; */
-			transform: translateX(200%);
-		}
-		100% {
-			/* left: -100%; */
-			transform: translateX(-200%);
-		}
+		position: relative;
 	}
 
-	.in-mobile-content {
-		& > div:nth-child(2) {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			& > video {
-				width: calc(calc(100%)-2px);
-			}
-		}
+	.slider {
+		display: flex;
+		white-space: nowrap;
 	}
 
-	@media screen and (max-width: 1380px) and (min-width: 1280px) {
-		.industry-content {
-			left: calc(calc(100vw - 160px) / 1199 * 153);
-			top: calc(calc(100vw - 160px) / 1199 * 131);
-		}
-		.industry-content > div {
-			width: calc(calc(100vw - 160px) / 1199 * 282);
-		}
-
-		.industry-content > div:nth-child(1) > div:nth-child(2) {
-			margin-top: calc(calc(100vw - 160px) / 1199 * 33);
-			height: calc(calc(100vw - 160px) / 1199 * 269);
-		}
-
-		.industry-content > div:nth-child(1) > div:nth-child(3) {
-			margin-top: calc(calc(100vw - 160px) / 1199 * 24);
-		}
-
-		.industry-content > div:nth-child(2) {
-			margin-left: calc(calc(100vw - 160px) / 1199 * 24);
-			padding-top: calc(calc(100vw - 160px) / 1199 * 93);
-			gap: calc(calc(100vw - 160px) / 1199 * 24);
-		}
-
-		.industry-content > div:nth-child(3) {
-			margin-left: calc(calc(100vw - 160px) / 1199 * 24);
-			gap: calc(calc(100vw - 160px) / 1199 * 24);
-			width: calc(calc(100vw - 160px) / 1199 * 282);
-		}
+	.slider img {
+		width: 300px;
+		height: auto;
+		flex-shrink: 0;
+		margin-right: 24px;
 	}
-
-	@media screen and (max-width: 1280px) {
-		.industry-content {
-			width: calc(calc(100%) * 895 / 1199);
-			left: calc(calc(100%) / 1199 * 153);
-			top: calc(calc(100%) / 1199 * 131);
-			height: 100%;
-		}
-		.industry-content > div:first-child {
-			width: calc(calc(100%) / 894 * 282);
-			height:;
-			padding-top: calc(calc(100%) / 894 * 13);
-			padding-bottom: 0;
-		}
-
-		.industry-content > div:nth-child(1) > div:nth-child(1) {
-			height: calc(calc(100%) / 1112 * 57);
-
-			& > div {
-				font-size: 32px;
-				transform: translate(-60px, -14px);
-			}
-		}
-
-		.industry-content > div:nth-child(1) > div:nth-child(2) {
-			margin-top: calc(calc(100%) / 282 * 25);
-			height: calc(calc(100%) / 1112 * 257);
-		}
-
-		.industry-content > div:nth-child(1) > div:nth-child(3) {
-			margin-top: calc(calc(100%) / 282 * 24);
-			height: calc(calc(100%) / 1112 * 350);
-		}
-
-		.industry-content > div:nth-child(2) {
-			width: calc(calc(100%) / 894 * 282);
-			margin-left: calc(calc(100%) / 894 * 24);
-			padding-top: calc(calc(100%) / 894 * 97);
-			gap: 0;
-		}
-
-		.industry-content > div:nth-child(2) > div:nth-child(1) {
-			height: calc(calc(100%) / 1112 * 376);
-		}
-
-		.industry-content > div:nth-child(2) > div:nth-child(2) {
-			margin-top: calc(calc(100%) / 282 * 24);
-			height: calc(calc(100%) / 1112 * 375);
-		}
-
-		.industry-content > div:nth-child(3) {
-			padding-top: 4px;
-			margin-left: calc(calc(100%) / 894 * 22);
-			flex: 1;
-			height: 100%;
-			gap: 0;
-		}
-
-		.industry-content > div:nth-child(3) > div:nth-child(1) {
-			height: calc(calc(100%) / 1112 * 347);
-
-			& > div {
-				height: calc(calc(100%) / 363 * 65);
-			}
-		}
-
-		.industry-content > div:nth-child(3) > div:nth-child(2) {
-			margin-top: calc(calc(100%) / 282 * 24);
-			height: calc(calc(100%) / 1112 * 345);
-
-			& > div {
-				height: calc(calc(100%) / 363 * 65);
-			}
-		}
-
-		.industry-content > div > div > div {
-			height: calc(calc(100%) / 397 * 75);
-		}
-
-		.industry-content > div:first-child > div:first-child > div:first-child {
-			height: auto;
-		}
-	}
-
-	@media screen and (max-width: 1024px) {
-		.industry-content {
-			top: calc(calc(100%) / 1100 * 117);
-		}
-		.industry-content > div:nth-child(3) {
-			margin-left: calc(calc(100%) / 894 * 23);
-		}
-		.industry-content > div:nth-child(1) > div:first-child > div {
-			font-size: 24px;
-			transform: translate(-28px, -17px);
-		}
-
-		.industry-content > div:nth-child(1) > div:nth-child(2) {
-			height: calc(calc(100vw) / 1199 * 225);
-			margin-top: calc(calc(100vw) / 1199 * 24);
-		}
-		.industry-content > div:nth-child(1) > div:nth-child(3) {
-			margin-top: calc(calc(100vw) / 1199 * 20);
-		}
-	}
-
-	@media screen and (max-width: 960px) {
-		.industry-content > div > div > div > div {
-			font-size: 14px;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		.in-mobile {
-			display: flex;
-			justify-content: center;
-			position: relative;
-			overflow-x: hidden;
-			/* margin-bottom: -150px; */
-		}
-
-		.industry-content {
-			height: fit-content;
-		}
-		.in-mobile > div:nth-child(2) {
-			position: absolute;
-			top: 78px;
-			text-align: center;
-			font-size: 24px;
-			font-weight: 600;
-			line-height: 48px; /* 200% */
-			background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
-			background-clip: text;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-		.in-mobile-content {
-			position: absolute;
-			/* top: calc(calc(100%) / 759 * 119); */
-			/* left: calc(calc(50%) + 1px); */
-			/* transform: translate(-50%, 0); */
-			/* width: 280px; */
-			width: 100%;
-		}
-
-		.in-mobile-content > div:first-child {
-			width: 100%;
-			height: 361px;
-			display: flex;
-			overflow: hidden;
-		}
-
-		.in-mobile-content > div:last-child {
-			margin-top: 24px;
-		}
-		.in-mobile-content > div:first-child > div {
-			min-width: calc(calc(300%) + 50px);
-			height: 396px;
-			display: flex;
-			gap: 10px;
-			animation: moved 10s linear infinite;
-		}
-
-		.in-mobile-content > div > div > div {
-			position: relative;
-			height: 361px;
-		}
-
-		.in-mobile-content > div > div > div > img {
-			width: 283px;
-		}
-
-		.in-mobile-content > div > div > div > div {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-		}
-
-		.moved-in > div > div {
-			width: 100%;
-			height: 40px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			background: linear-gradient(
-				180deg,
-				rgba(49, 91, 91, 0) -1.11%,
-				rgba(49, 86, 91, 0.44) 23.83%,
-				#31595b 99.56%
-			);
-			stroke-width: 1px;
-			stroke: rgba(255, 255, 255, 0);
-			backdrop-filter: blur(10px);
-		}
-		@keyframes moved {
-			0% {
-				transform: translateX(0);
-			}
-			100% {
-				transform: translateX(-100%);
-			}
-		}
-	}
-	
-
 </style>
+
+<div class="slider-container">
+	<div
+		class="slider"
+		style="transform: translateX({currentX}px);"
+	>
+		{#each images as image (image)}
+			<img src={image} alt="Industry Image" />
+		{/each}
+		{#each images as image (image)}
+		{/each}
+	</div>
+</div>
