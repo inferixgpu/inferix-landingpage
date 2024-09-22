@@ -554,8 +554,8 @@
 			padding-top: 0px;
 			> div {
 				> div {
-					padding: 24px;
-					height: 480px;
+					padding: 8px 16px;
+					height: 500px;
 					.title {
 						font-size: 28px;
 					}
