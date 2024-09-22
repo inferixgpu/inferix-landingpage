@@ -339,7 +339,7 @@
 					rgba(0, 192, 133, 0) 100%
 				);
 				position: absolute;
-				border: 3px solid #00c08533;
+				border: 3px solid #003935;
 				padding: 48px;
 				display: flex;
 				flex-direction: column;
