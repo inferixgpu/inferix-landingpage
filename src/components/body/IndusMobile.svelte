@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import In1 from '$images/png/industries/1.jpg';
 	import In2 from '$images/png/industries/2.jpg';
 	import In3 from '$images/png/industries/3.jpg';
@@ -8,10 +9,14 @@
 	let screenSize: number;
 	let images = [In1, In2, In3, In4, In5];
 	let currentX: number = 0;
-	let imageWidth: number = 300; 
+	let imageWidth: number = 300;
 	let imageSpacing: number = 24;
 	let speed: number = 2;
+	let imagesLoaded: number = 0;
 
+	onMount(() => {
+		moveSlider();
+	});
 
 	function moveSlider() {
 		currentX -= speed; 
@@ -23,7 +28,12 @@
 		requestAnimationFrame(moveSlider);
 	}
 
-	moveSlider();
+	function onImageLoad() {
+		imagesLoaded += 1;
+		if (imagesLoaded === images.length) {
+			moveSlider();
+		}
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
@@ -49,14 +59,12 @@
 </style>
 
 <div class="slider-container">
-	<div
-		class="slider"
-		style="transform: translateX({currentX}px);"
-	>
+	<div class="slider" style="transform: translateX({currentX}px);">
 		{#each images as image (image)}
-			<img src={image} alt="Industry Image" />
+			<img src={image} alt="Industry Image" on:load={onImageLoad} />
 		{/each}
 		{#each images as image (image)}
+			<img src={image} alt="Industry Image" on:load={onImageLoad} />
 		{/each}
 	</div>
 </div>
