@@ -63,19 +63,9 @@
 
 		map = new mapboxgl.Map({
 			container: container,
-			style: 'mapbox://styles/saseeme/cm1905mxm028s01pbfbosa6ae',
+			style: 'mapbox://styles/mapbox/dark-v10',
 			center: [0, 14.0583],
-			zoom: 1.1,
-			minZoom: 1.1,
-			maxZoom: 10,
-			// 	dragPan: true, // Cho phép kéo bản đồ
-			// maxBounds: [
-			//     [-180, -85], // Giới hạn phía dưới và bên trái
-			//     [180, 85]    // Giới hạn phía trên và bên phải
-			// ]
-			//renderWorldCopies: false
-			// dragPan: false,
-			// maxBounds: customBounds
+			maxZoom: 10
 		});
 
 		map.on('load', () => {
