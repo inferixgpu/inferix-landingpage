@@ -107,6 +107,7 @@
 				<img src={event.img} />
 				<div>{event.time}</div>
 				<div>{event.title}</div>
+				<div style="flex: 1;"></div>
 				<div><a href={event.href} target="_blank">Viewmore ⟶</a></div>
 			</div>
 		{/each}
@@ -118,6 +119,7 @@
 					<img src={event.img} />
 					<div>{event.time}</div>
 					<div>{event.title}</div>
+					<div style="flex: 1;"></div>
 					<div><a href={event.href} target="_blank">Viewmore ⟶</a></div>
 				</div>
 			{/each}
@@ -128,7 +130,7 @@
 <style lang="postcss">
 	.events {
 		width: 100%;
-		max-width: 1140px;
+		max-width: 1180px;
 		margin: auto;
 		font-family: Inter, sans-serif;
 
@@ -149,7 +151,7 @@
 			gap: 16px;
 
 			.event-item {
-				width: 369px;
+				width: 380px;
 				height: 396px;
 				background: radial-gradient(
 					100% 100% at 0% 0%,
@@ -178,12 +180,15 @@
 				}
 
 				> div:nth-child(3) {
-					flex: 1;
 					font-size: 24px;
 					font-weight: 700;
+					display: -webkit-box;
+					-webkit-box-orient: vertical;
+					-webkit-line-clamp: 2;
+					overflow: hidden;
 				}
 
-				> div:nth-child(4) {
+				> div:nth-child(5) {
 					> a {
 						font-size: 16px;
 						font-weight: 600;
