@@ -187,7 +187,7 @@
 		</div>
 	</div>
 	<div style="background: #000000" class="bg-[#000000] flex h-[32px] w-full bg-[rgb(26,27,27)] items-center justify-center">
-		<p class="text-sm font-normal" style="font-family: Inter">© 2023 Inferix. All rights reserved.</p>
+		<p class="text-[12px] text-[#888888] font-normal" style="font-family: Inter">© 2023 Inferix. All rights reserved.</p>
 	</div>
 </div>
 
