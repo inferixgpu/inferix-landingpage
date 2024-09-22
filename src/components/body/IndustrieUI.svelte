@@ -23,7 +23,7 @@
     }
   </script>
   
-  <div class=" text-white py-8 max-w-[1136px] mx-auto">
+  <div class=" text-white pb-8 pt-[200px] max-w-[1136px] mx-auto industries">
     <h2 class="font-[Inter] text-[32px] md:text-[72px] font-bold text-left top-[-130px] px-3 lg:px-0 mb-[40px]">Industries</h2>
       <div class="desktop-grid grid grid-areas-industries gap-10 md:auto-rows-[400px] lg:auto-rows-[500px] max-w-[1136px] mx-auto">
         {#each industries as industry, i}
@@ -81,6 +81,13 @@
 			width: calc(100%-50px) !important;
 		}
 	}
+
+  @media (max-width: 1187px) {
+		.industries {
+			padding: 0 24px !important;
+		}
+	}
+
 	@media (max-width: 768px) {
 		.desktop-grid {
 			display: none !important;
