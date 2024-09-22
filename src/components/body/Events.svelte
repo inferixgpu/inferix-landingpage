@@ -145,6 +145,7 @@
 		max-width: 1180px;
 		margin: auto;
 		font-family: Inter, sans-serif;
+		margin-top: 190px;
 
 		.title {
 			text-align: left;
