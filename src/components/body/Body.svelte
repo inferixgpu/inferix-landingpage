@@ -343,11 +343,11 @@
 				padding: 48px;
 				display: flex;
 				flex-direction: column;
-				gap: 48px;
 
 				> .title {
 					font-size: 72px;
 					font-weight: 600;
+					line-height: 150%;
 				}
 
 				> .content {
@@ -357,6 +357,7 @@
 					line-height: 60px;
 					text-align: left;
 					color: #888888;
+					margin-bottom: 48px;
 				}
 
 				> .btn-buy-node {
