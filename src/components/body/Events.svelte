@@ -142,7 +142,7 @@
 <style lang="postcss">
 	.events {
 		width: 100%;
-		max-width: 1180px;
+		max-width: 1136px;
 		margin: auto;
 		font-family: Inter, sans-serif;
 		margin-top: 190px;
@@ -164,7 +164,7 @@
 			gap: 16px;
 
 			.event-item {
-				width: 380px;
+				width: 368px;
 				height: 396px;
 				background: radial-gradient(
 					100% 100% at 0% 0%,
