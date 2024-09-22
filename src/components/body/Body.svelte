@@ -40,7 +40,6 @@
 	import node_sale_img from '$images/png/node-sale-img.png';
 
 	let screenSize: number;
-
 	const partners = [
 		{
 			id: 23,
@@ -206,7 +205,6 @@
 			is_half: true
 		}
 	];
-
 	const partner_more = [];
 </script>
 
