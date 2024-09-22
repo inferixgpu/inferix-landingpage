@@ -248,6 +248,14 @@
 				alt="header-logo-inferix"
 				on:click={scrollToTop}
 			/>
+			<div style="flex: 1"></div>
+			<div class="register-button">
+				<a
+					on:click={() => handleClickTab(register.id, register.href)}
+					class="whitespace-nowrap cursor-pointer"
+					aria-label="Read more">{register.title}</a
+				>
+			</div>
 			<div class="cursor-pointer" on:click={() => (isOpen = true)}>
 				<svg
 					width="40"
@@ -420,14 +428,6 @@
 			>
 				<img src={HeaderLogo} alt="Inferix" class="w-[158px] h-[32px]" />
 			</a>
-			<div class="header-tab-mobile tab opacity-60">
-				<a
-					style={'font-weight: 800'}
-					on:click={() => handleClickTab(register.id, register.href)}
-					class="whitespace-nowrap cursor-pointer"
-					aria-label="Read more">{register.title}</a
-				>
-			</div>
 			{#each tabs as tab (tab.id)}
 				<div class="header-tab-mobile tab opacity-60">
 					<a
@@ -556,11 +556,30 @@
 		@apply flex flex-row justify-center items-center gap-1;
 	}
 	.header-bar-mobile {
-		@apply md:hidden flex justify-between items-center;
+		@apply md:hidden flex items-center;
 		border-bottom: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
 		background: rgba(0, 0, 0, 0.2);
 		backdrop-filter: blur(16px);
-		padding: 8px 10px;
+		padding: 24px;
+
+		> .register-button {
+			@apply flex justify-center w-[113px] h-[100%]  items-center text-black py-4 text-[16px] font-[700];
+			padding: 8px 16px;
+			background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
+			margin-right: 16px;
+			&:hover {
+				box-shadow: 0 0 10px #00d6d9;
+				/* &::before {
+					content: '';
+					position: absolute;
+					inset: -5px;
+					transform: translate(10px, 8px);
+					z-index: 0;
+					background: linear-gradient(45deg, #00d6d9 0%, #fcc142 100%);
+					filter: blur(10px);
+				} */
+			}
+		}
 	}
 	.item-border-1 {
 		@apply relative;
