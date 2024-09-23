@@ -296,8 +296,8 @@
 		</div>
 	</div>
 	<div class="node-sale">
-		<div class="xl:w-[100%] w-[80%]">
-			<div class="w-[100%]">
+		<div class="xl:w-[100%] w-[80%] xl:h-[650px] h-[550px]">
+			<div class="w-[100%] xl:h-[650px] h-[550px]">
 				<div class="title xl:text-[72px] lg:text-[56px] text-[32px]">Node Sale</div>
 				<div class="content xl:text-[40px] lg:text-[36px] text-[30px]">
 					Revolutionizing the Visual Computing Industry with Decentralized GPU and PoR DePIN
@@ -310,7 +310,10 @@
 						aria-label="Read more">Buy Now</a
 					>
 				</div>
-				<img src={node_sale_img} />
+				<img
+					src={node_sale_img}
+					class="transform lg:translate-x-[25%] lg:translate-y-[20%] translate-x-[16%] translate-y-[20%]"
+				/>
 			</div>
 		</div>
 	</div>
@@ -538,7 +541,6 @@
 		> div {
 			/* width: 100%; */
 			max-width: 1136px;
-			height: 650px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -546,7 +548,6 @@
 
 			> div {
 				max-width: 1130px;
-				height: 650px;
 				background: radial-gradient(
 					100% 100% at 0% 0%,
 					rgba(0, 214, 217, 0.2) 0%,
@@ -607,7 +608,6 @@
 					position: absolute;
 					right: 0;
 					bottom: 0;
-					transform: rotate(0deg) translate(25%, 20%);
 				}
 			}
 		}
@@ -715,7 +715,7 @@
 
 					> img {
 						width: 75%;
-						transform: translate(50%, 40%);
+						transform: translate(50%, 25%);
 						right: 50%;
 						bottom: 0;
 					}
