@@ -25,7 +25,7 @@ import Actif3D from '$images/png/actif3D.svg';
       <h2 class="absolute text-[48px] md:text-[72px] font-bold text-left top-[-100px] pl-6 xl:px-0">Technologies</h2>
       {#each technologies as tech, index}
         <div class="px-6 sm:px- bg-[radial-gradient(at_top_left,_#00D6D933_20%,_#00C08500)] hover:bg-gray-700 w-full lg:max-w-[560px] h-auto pt-6 pb-10 sm:w-full md:w-full lg:w-full flex flex-col-reverse items-center justify-center text-center border-[3px] mb-6 lg:mb-0"
-             style="border-image: linear-gradient(90deg, #00D6D933 20%, #00C08533 80%) 1; position: relative; lg:{index > 1 ? 'top: -8px;' : ''}">
+             style="border: 3px solid #003935; position: relative; lg:{index > 1 ? 'top: -8px;' : ''}">
           <img src={tech.icon} alt={tech.title} class="mt-10 w-20 h-20 sm:w-40 sm:h-40" />
           <div class="w-full">
             <h3 style="font-family: Inter" class="text-[24px] text-left sm:text-[24px] md:text-[24px] lg:text-[40px] font-semibold mb-4">{@html tech.title}</h3>
