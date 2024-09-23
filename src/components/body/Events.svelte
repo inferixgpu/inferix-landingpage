@@ -224,26 +224,20 @@
 
 	@media screen and (max-width: 1280px) {
 		.events {
-			max-width: 1200px;
-			margin: 0;
+			width: 100%;
+			/* max-width: 1200px; */
+			margin: 0 auto;
 			padding: 0 40px;
 
 			.content {
 				.event-item {
-					width: 330px;
+					width: calc((calc(100%) - 38px) / 3);
 				}
 			}
 		}
 	}
 
 	@media screen and (max-width: 1120px) {
-		.events {
-			.content {
-				.event-item {
-					width: 295px;
-				}
-			}
-		}
 	}
 
 	@media screen and (max-width: 1024px) {
