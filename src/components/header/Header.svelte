@@ -184,7 +184,10 @@
 										target="_blank"
 										class="inline-flex h-full items-center gap-1"
 										aria-label="Read more"
-										>Node Whitelist Campaign - <p class="text-black">Only 5 days left! ⟶</p></a
+										>Node Whitelist Campaign - <p class="text-black">
+											Only {new Date('2024/09/25 00:00:00').getDay() - new Date().getDay()} days left!
+											⟶
+										</p></a
 									>
 								</div>
 							</div>
@@ -199,7 +202,10 @@
 									target="_blank"
 									class="inline-flex h-full items-center gap-1"
 									aria-label="Read more"
-									>Node Whitelist Campaign - <p class="text-black">Only 5 days left! ⟶</p></a
+									>Node Whitelist Campaign - <p class="text-black">
+										Only {new Date('2024/09/25 00:00:00').getDay() - new Date().getDay()} days left!
+										⟶
+									</p></a
 								>
 							</div>
 						</div>
