@@ -296,10 +296,10 @@
 		</div>
 	</div>
 	<div class="node-sale">
-		<div>
-			<div>
-				<div class="title">Node Sale</div>
-				<div class="content">
+		<div class="xl:w-[100%] w-[80%]">
+			<div class="w-[100%]">
+				<div class="title xl:text-[72px] lg:text-[56px] text-[32px]">Node Sale</div>
+				<div class="content xl:text-[40px] lg:text-[36px] text-[30px]">
 					Revolutionizing the Visual Computing Industry with Decentralized GPU and PoR DePIN
 					Verification.
 				</div>
@@ -536,7 +536,8 @@
 		font-family: Inter, sans-serif;
 
 		> div {
-			width: 1136px;
+			/* width: 100%; */
+			max-width: 1136px;
 			height: 650px;
 			display: flex;
 			justify-content: center;
@@ -544,7 +545,7 @@
 			position: relative;
 
 			> div {
-				width: 1130px;
+				max-width: 1130px;
 				height: 650px;
 				background: radial-gradient(
 					100% 100% at 0% 0%,
@@ -558,16 +559,15 @@
 				flex-direction: column;
 
 				> .title {
-					font-size: 72px;
+					/* font-size: 72px; */
 					font-weight: 600;
 					line-height: 150%;
 				}
 
 				> .content {
 					width: 70%;
-					font-size: 40px;
 					font-weight: 500;
-					line-height: 60px;
+					line-height: 150%;
 					text-align: left;
 					color: #888888;
 					margin-bottom: 48px;
