@@ -314,7 +314,7 @@
 				class="absolute max-md:w-[100%] w-[60%] transform max-lg:translate-y-[165%] max-md:translate-y-[120%] translate-y-[120%]"
 			/>
 			<div
-				class="absolute max-lg:top-[550px] max-xl:top-[360px] top-[400px] flex-col align-center justify-center"
+				class="absolute max-lg:top-[550px] max-xl:top-[360px] top-[420px] flex-col align-center justify-center"
 			>
 				<div class="md:hidden text-[16px] font-normal">MVP is live on desktop</div>
 				<div
