@@ -358,7 +358,7 @@
 			>
 				<div class="partner-content">
 					{#each partners as partner (partner.id)}
-						{#if !partner.id}{#if screenSize >= 1024}<div
+						{#if !partner.id}{#if screenSize >= 768}<div
 									class="col-span-2 max-xl:hidden"
 								></div>{/if}{:else}<a
 								class={partner.id === 100 ? 'partner-item-none' : 'partner-item'}
@@ -647,7 +647,7 @@
 		margin: 32px 0;
 	}
 	.partner-content {
-		@apply lg:grid lg:grid-cols-4 xl:grid-cols-8 flex flex-col gap-[16px];
+		@apply md:grid md:grid-cols-4 xl:grid-cols-8 flex flex-col gap-[16px];
 
 		& > .partner-item {
 			border: 1px solid var(--stroke-2, rgba(244, 244, 244, 0.3));
