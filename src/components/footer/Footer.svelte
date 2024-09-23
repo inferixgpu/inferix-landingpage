@@ -182,7 +182,7 @@
 	</div> -->
 	<div
 		style="background: #000000"
-		class="bg-[#000000] max-md:hidden md:h-[120px] max-md:h-[136px] w-full px-[156px] py-[24px] flex md:flex-row flex-col justify-between bg-[rgb(17,17,17)]"
+		class="bg-[#000000] max-md:hidden md:h-[120px] max-md:h-[136px] w-full lg:px-[156px] px-[100px] py-[24px] flex md:flex-row flex-col justify-between bg-[rgb(17,17,17)]"
 	>
 		<div
 			class="flex md:gap-4 gap-2 md:order-1 order-2 flex-col items-center md:items-start mt-8 md:mt-0"
@@ -199,7 +199,7 @@
 			</p>
 		</div>
 		<div
-			class="flex flex-row md:gap-10 justify-center items-start gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
+			class="flex flex-row justify-center items-start lg:gap-10 gap-8 font-bold mt-2 md:mt-0 w-fit font-outfit md:text-lg text-base md:order-2 order-1 mediaContainer"
 		>
 			{#each medias as media (media.id)}
 				<div
