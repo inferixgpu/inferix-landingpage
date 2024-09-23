@@ -242,7 +242,7 @@
 	<div class="popup-node-sale" style={isOpen ? 'display: flex' : 'display: none'}>
 		<div class="start-buy md:w-3/5 w-[90%]">
 			<img src={background_buy_node} />
-			<div class="md:p-8 lg:p-12 p-4">
+			<div class="md:p-8 lg:p-12 p-4 w-[100%]">
 				<div class="xl:text-[72px] lg:text-[54px] text-[30px]">Start Buy Node</div>
 				<div class="xl:text-[36px] lg:text-[30px] text-[22px]">
 					Download the product to start earning right now!
@@ -275,7 +275,7 @@
 					{/each}
 				</div>
 			</div>
-			<div on:click={hidePopup} class="md:pt-8 md:pr-8 lg:pt-12 lg:pr-12 pt-4 pr-4">
+			<div on:click={hidePopup} class="md:top-8 md:right-8 lg:top-12 lg:right-12 top-4 right-4">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					class="icon icon-tabler icon-tabler-x"
@@ -342,7 +342,7 @@
 	<div>
 		<div
 			id="partners"
-      class="flex pb-[50px] max-sm:w-full lg:max-w-[1170px] md:flex xl:gap-[48px] flex-col mx-auto justify-center items-center md:pb-[150px] mt-[20px] md:mt-[10px]"
+			class="flex pb-[50px] max-sm:w-full lg:max-w-[1170px] md:flex xl:gap-[48px] flex-col mx-auto justify-center items-center md:pb-[150px] mt-[20px] md:mt-[10px]"
 		>
 			<Saos
 				once
@@ -491,6 +491,7 @@
 
 			> div:last-child {
 				cursor: pointer;
+				position: absolute;
 			}
 		}
 	}
