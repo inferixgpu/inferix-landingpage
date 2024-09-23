@@ -48,11 +48,7 @@
 				}
 			}
 		);
-
-		// Lưu featuresData vào localStorage với tên mới
 		localStorage.setItem('myFeaturesData', JSON.stringify(featuresData));
-
-		console.log(featuresData, 'featuresData');
 	}
 
 	function initMap(container) {
@@ -74,7 +70,6 @@
 			const storedData = localStorage.getItem('myFeaturesData');
 			if (storedData) {
 				featuresData = JSON.parse(storedData);
-				console.log(featuresData)
 			} else {
 				fetchWorkersData();
 			}
@@ -114,7 +109,6 @@
 
 			map.on('error', (e) => {
 				console.error('Error from Mapbox:', e.error.message);
-				console.log(data, '22');
 			});
 
 			function pulsingEffect() {

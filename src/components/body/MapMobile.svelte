@@ -48,8 +48,6 @@
 				}
 			}
 		);
-
-		// Lưu featuresData vào localStorage với tên mới
 		localStorage.setItem('myFeaturesData', JSON.stringify(featuresData));
 	}
 
@@ -72,7 +70,6 @@
 			const storedData = localStorage.getItem('myFeaturesData');
 			if (storedData) {
 				featuresData = JSON.parse(storedData);
-				console.log(featuresData)
 			} else {
 				fetchWorkersData();
 			}
