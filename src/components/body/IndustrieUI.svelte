@@ -111,7 +111,7 @@
 
 	@media (max-width: 1187px) {
 		.industries {
-			padding: 0 24px !important;
+			padding: 48px 24px 0 24px !important;
 		}
 	}
 

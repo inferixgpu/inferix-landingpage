@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import In1 from '$images/png/industries/1.jpg';
-	import In2 from '$images/png/industries/2.jpg';
-	import In3 from '$images/png/industries/3.jpg';
-	import In4 from '$images/png/industries/4.jpg';
-	import In5 from '$images/png/industries/5.jpg';
+	import In1 from '$images/png/industries_v1.png';
+	import In2 from '$images/png/industries_v2.png';
+	import In3 from '$images/png/industries_v3.png';
+	import In4 from '$images/png/industries_v4.png';
+	import In5 from '$images/png/industries_v5.png';
 
 	let screenSize: number;
 	let images = [In1, In2, In3, In4, In5];
