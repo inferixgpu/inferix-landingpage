@@ -240,10 +240,10 @@
 <svelte:window bind:innerWidth={screenSize} />
 <div class="bg-black">
 	<div class="popup-node-sale" style={isOpen ? 'display: flex' : 'display: none'}>
-		<div class="start-buy md:w-3/5 w-[90%]">
+		<div class="start-buy md:w-3/5 w-[90%] max-w-[1136px]">
 			<img src={background_buy_node} />
 			<div class="md:p-8 lg:p-12 p-4 w-[100%]">
-				<div class="xl:text-[72px] lg:text-[54px] text-[30px]">Start Buy Node</div>
+				<div class="xl:text-[72px] lg:text-[54px] text-[30px]">Start Buy Node!</div>
 				<div class="xl:text-[36px] lg:text-[30px] text-[22px]">
 					Download the product to start earning right now!
 				</div>
