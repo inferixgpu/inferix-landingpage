@@ -349,7 +349,7 @@
 										aria-label="Read more"
 									>
 										<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" width="20px" />
-										<p class="text-white font-normal text-[16px] opacity-60">MacOS</p>
+										<p class="text-white font-normal text-[16px] opacity-60">Linux</p>
 									</a>
 								</div>
 							</div>
@@ -379,6 +379,7 @@
 									</a>
 									<a
 										href="https://a3d.inferix.io/"
+										target="_blank"
 										role="button"
 										tabindex="0"
 										class="inline-flex justify-between items-center gap-1 cursor-pointer"
