@@ -46,7 +46,7 @@
 </script>
 
 <div class=" text-white pb-8 pt-[200px] max-w-[1136px] mx-auto industries">
-	<h2 class="font-[Inter] text-[32px] md:text-[72px] font-bold text-left top-[-130px] mb-[40px]">
+	<h2 class="font-[Inter] text-[32px] md:text-[56px] xl:text-[72px] font-bold text-left top-[-130px] mb-[40px]">
 		Industries
 	</h2>
 	<div
@@ -111,7 +111,7 @@
 
 	@media (max-width: 1187px) {
 		.industries {
-			padding: 48px 24px 0 24px !important;
+			padding: 48px 40px 0 40px !important;
 		}
 	}
 

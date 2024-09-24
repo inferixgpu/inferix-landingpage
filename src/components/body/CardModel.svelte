@@ -33,8 +33,8 @@
         </div>
     </div>
     <div class="container mx-auto hidden sm:block"  style="font-family: Inter">
-        <h2 class="text-[32px] md:text-[55px] lg:text-[72px] font-bold text-center mb-8">DePIN Verification with</h2>
-        <h2 class="text-[32px] md:text-[55px] lg:text-[72px] font-bold text-center mb-8">Proof - of - Rendering and FHE</h2>
+        <h2 class="text-[32px] md:text-[56px] xl:text-[72px] font-bold text-center lg:mb-0 xl:mb-8">DePIN Verification with</h2>
+        <h2 class="text-[32px] md:text-[56px] xl:text-[72px] font-bold text-center mb-8">Proof - of - Rendering and FHE</h2>
         <div class="w-full flex justify-center">
             <img src={ParameterProject} alt={""} class="w-full h-full max-w-[1136px] max-h-[663px]" />
         </div>

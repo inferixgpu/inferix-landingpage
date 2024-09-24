@@ -8,7 +8,7 @@
 </script>
 
 <div class="bg-[radial-gradient(at_top_left,_#00D6D933_20%,_#00C08500)] items-center min-h-[400px] text-white py-12 flex justify-center">
-  <div style="font-family: Inter" class="w-full px-6 md:px-6 sm:px-6 lg:px-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 sm:gap-4 lg:gap-8 items-stretch">
+  <div style="font-family: Inter" class="w-full px-6 md:px-10 sm:px-6 lg:px-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 sm:gap-4 lg:gap-8 items-stretch">
     {#each stats as stat, i}
       <div class="text-left w-full {i !== stats.length - 1 ? 'mb-16' : ''} md:mb-6 md:mb-0 flex flex-col">
         <h3 class="text-[40px] sm:text-[36px] md:text-[56px] lg:text-[40px] xl:text-[50px] 2xl:text-[72px] font-bold leading-[48px] lg:leading-[108px]">{stat.value}</h3>
