@@ -148,7 +148,7 @@
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 <div class="header-container" style="font-family: Inter">
-	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
+	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50 md:px-[40px]">
 		<div style="display: none;">
 			{#if is_close}
 				{#if screenSize > 800}
@@ -488,7 +488,7 @@
 
 <style lang="postcss">
 	.header-bar {
-		@apply flex flex-row mx-auto xl:w-[1200px] md:w-[90%] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover max-md:hidden;
+		@apply flex flex-row mx-auto xl:w-[1200px] md:w-[100%] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover max-md:hidden;
 		background-image: url('$images/png/header-register.png');
 		.tab-item {
 			@apply text-[16px] font-normal text-white px-2 py-1 whitespace-nowrap text-header-transfer;
