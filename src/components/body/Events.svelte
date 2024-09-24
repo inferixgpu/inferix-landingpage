@@ -112,7 +112,7 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 <div class="events">
-	<div class="title">Event & Spaces</div>
+	<div class="title text-[32px]">Event & Spaces</div>
 	<div class="content">
 		{#each EVENTS as event (event.id)}
 			<div class="event-item">
@@ -142,17 +142,19 @@
 <style lang="postcss">
 	.events {
 		width: 100%;
-		max-width: 1136px;
+		max-width: 1200px;
 		margin: auto;
 		font-family: Inter, sans-serif;
 		margin-top: 190px;
 
 		.title {
-			text-align: left;
-			font-size: 72px;
+			text-align: center;
 			font-weight: 600;
-			line-height: 108px;
-			color: #ffffff;
+			line-height: 150%;
+			background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #fff 100%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
 			margin-bottom: 40px;
 		}
 
@@ -164,7 +166,7 @@
 			gap: 16px;
 
 			.event-item {
-				width: 368px;
+				width: 388px;
 				height: 396px;
 				background: radial-gradient(
 					100% 100% at 0% 0%,
@@ -185,16 +187,17 @@
 
 				> div:nth-child(2) {
 					font-size: 16px;
-					font-weight: 600;
-					line-height: 24px;
+					font-weight: 500;
+					line-height: 150%;
 					color: #888888;
 					text-transform: uppercase;
 					margin-bottom: 5px;
 				}
 
 				> div:nth-child(3) {
-					font-size: 24px;
+					font-size: 22px;
 					font-weight: 700;
+					line-height: 150%;
 					display: -webkit-box;
 					-webkit-box-orient: vertical;
 					-webkit-line-clamp: 2;
@@ -204,8 +207,8 @@
 				> div:nth-child(5) {
 					> a {
 						font-size: 16px;
-						font-weight: 600;
-						line-height: 24px;
+						font-weight: 500;
+						line-height: 150%;
 						color: #00f3ff;
 						transition: opacity 0.2s ease-in-out;
 
@@ -243,8 +246,6 @@
 	@media screen and (max-width: 1024px) {
 		.events {
 			.title {
-				font-size: 56px;
-				line-height: 84px;
 			}
 			> .content {
 				display: none;
@@ -289,7 +290,6 @@
 					> div:nth-child(2) {
 						font-size: 16px;
 						font-weight: 600;
-						line-height: 24px;
 						color: #888888;
 						text-transform: uppercase;
 						margin-bottom: 15px;
@@ -297,11 +297,11 @@
 
 					> div:nth-child(3) {
 						flex: 1;
-						font-size: 24px;
+						font-size: 22px;
 						font-weight: 700;
 					}
 
-					> div:nth-child(4) {
+					> div:nth-child(5) {
 						> a {
 							font-size: 16px;
 							font-weight: 600;
@@ -323,15 +323,14 @@
 		.events {
 			padding: 0 24px;
 			.title {
-				font-size: 32px;
 				line-height: 48px;
 			}
 
 			#content-mobile {
 				> .moved_events {
 					> .event-item {
-						width: 340px;
-						height: 368px;
+						width: 325px;
+						height: 360px;
 						> img {
 							margin-bottom: 15px;
 						}
@@ -339,7 +338,7 @@
 						> div:nth-child(2) {
 							font-size: 14px;
 							font-weight: 600;
-							line-height: 21px;
+							line-height: 150%;
 							color: #888888;
 							text-transform: uppercase;
 							margin-bottom: 10px;
@@ -351,7 +350,7 @@
 							font-weight: 700;
 						}
 
-						> div:nth-child(4) {
+						> div:nth-child(5) {
 							> a {
 								font-size: 14px;
 								font-weight: 600;
