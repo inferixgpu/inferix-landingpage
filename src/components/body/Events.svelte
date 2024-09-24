@@ -112,7 +112,7 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 <div class="events">
-	<div class="title">Events & Spaces</div>
+	<div class="title">Event & Spaces</div>
 	<div class="content">
 		{#each EVENTS as event (event.id)}
 			<div class="event-item">
@@ -274,7 +274,7 @@
 						rgba(0, 214, 217, 0.2) 0%,
 						rgba(0, 192, 133, 0) 100%
 					);
-					border: 3px solid rgba(0, 214, 217, 0.2);
+					border: 3px solid #02352b;
 
 					display: flex;
 					flex-direction: column;
@@ -321,7 +321,7 @@
 
 	@media screen and (max-width: 768px) {
 		.events {
-			padding: 0 10px;
+			padding: 0 24px;
 			.title {
 				font-size: 32px;
 				line-height: 48px;
