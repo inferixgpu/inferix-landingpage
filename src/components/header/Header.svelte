@@ -301,7 +301,7 @@
 			</div>
 		</div>
 
-		<div class="overflow-hidden bg-black mx-auto md:mt-[-180px] -mt-[200px] max-md:opacity-40 relative">
+		<div class="overflow-hidden bg-black mx-auto md:mt-[-150px] -mt-[200px] max-md:opacity-40 relative">
 			<video
 				autoplay
 				muted
@@ -314,7 +314,7 @@
 		</div>
 		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">MVP is live on desktop</div>
 		<div
-			class="max-md:hidden mt-[-20px] z-[999]"
+			class="max-md:hidden mt-[-120px] z-[999]"
 			style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;"
 		>
