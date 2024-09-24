@@ -16,7 +16,7 @@
 	let count = 1;
 	let showModal = false;
 	var nodes = [{ id: 1, value: '' }];
-	let nav = 1;
+	let nav = 2;
 	let data = [];
 	let no_data_found = false;
 	let is_mobile = false;
@@ -253,7 +253,7 @@
 {/if}
 
 <div class={nav == 1 ? 'body-register' : 'body-register body-2'}>
-		<div class="nav-bar">
+	<!-- <div class="nav-bar">
 			<div
 				role="button"
 				tabindex="0"
@@ -270,7 +270,7 @@
 			>
 				<div>Leaderboard</div>
 			</div>
-		</div>
+		</div> -->
 	{#if nav == 1}
 		<div>
 			<div role="button" tabindex="0" class="wallet-register" on:click={() => handleFocus(1)}>
@@ -284,7 +284,7 @@
 					<div>
 						<div class={input_step == 1 ? 'desc-active' : ''}>Wallet Address</div>
 						<div>
-							Enter your wallet ERC20 address so we can verify your account on the system 
+							Enter your wallet ERC20 address so we can verify your account on the system
 							<!-- (<a
 								href="https://youtube.com/shorts/IkZ1jl-pFxc?si=8O3_72m7biKupZX3"
 								class="text-blue-500 hover:underline hover:filter-none"
@@ -414,11 +414,11 @@
 			<div class="leaderboard-content">
 				<div>Leaderboard Top 20</div>
 				<div>Inferix Node Whitelist Program</div>
-				
+
 				<div>
-					Last Updated: {moment().format(
-						'MM/DD/YYYY, hh:mm:ss A'
-					)}
+					<!-- Last Updated: {moment().format('MM/DD/YYYY, hh:mm:ss A')} -->
+					This campaign is ending at: 09/23/2024, 09:30:00 PM. All running points you received after
+					this time will not be used.
 				</div>
 
 				<div class="leaderboard-table">
