@@ -12,7 +12,7 @@
     onMount(() => {
       setTimeout(() => {
         showModal = true;
-      }, 1000);
+      }, 10000);
     });
   
     const closeModal = () => {

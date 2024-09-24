@@ -274,7 +274,7 @@
 	<div class="mx-auto flex flex-col bg-black relative justify-end items-center">
 		<div class="w-full flex justify-center items-center">
 			<div
-				class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto md:mt-[500px] mt-[420px] absolute z-[20]"
+				class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto md:mt-[450px] mt-[420px] absolute z-[20]"
 				style={is_close ? '' : 'margin-top: 420px'}
 			>
 				<div class="flex flex-col items-center justify-center" style="padding: 0 15px;">
@@ -301,7 +301,7 @@
 			</div>
 		</div>
 
-		<div class="overflow-hidden bg-black mx-auto md:mt-0 -mt-[200px] max-md:opacity-40 relative">
+		<div class="overflow-hidden bg-black mx-auto md:mt-[-180px] -mt-[200px] max-md:opacity-40 relative">
 			<video
 				autoplay
 				muted
@@ -314,14 +314,14 @@
 		</div>
 		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">MVP is live on desktop</div>
 		<div
-			class="max-md:hidden"
+			class="max-md:hidden mt-[-20px] z-[999]"
 			style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;"
 		>
 			MVP Is Live
 		</div>
 		<div
-			class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
+			class="bg-red flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
 				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 absolute"
 		>
 			<div class="item-border-1">
