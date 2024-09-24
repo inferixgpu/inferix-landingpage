@@ -21,7 +21,7 @@
   </script>
   
   {#if showModal}
-    <div style="font-family: Inter; backdrop-filter: blur(5px);" class="fixed inset-0 flex items-center justify-center w-full z-[999]">
+    <div style="font-family: Inter; backdrop-filter: blur(5px);" class="fixed inset-0 flex items-center justify-center w-full z-[99999]">
       <div class="relative max-w-[872px] w-full p-[2px] rounded-lg bg-[#000000] mx-4 sm:mx-10">
 
         <div class="absolute inset-0 rounded-lg border-[2px] border-transparent" 
