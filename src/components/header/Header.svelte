@@ -19,6 +19,8 @@
 	import DownloadIcon from '$images/icons/Download.svg';
 	import background_download_1 from '$images/png/background-download-1.png';
 	import background_download_2 from '$images/png/background-download-2.png';
+	import gpu from '$images/icons/gpu.png';
+	import rendering from '$images/icons/rendering.png';
 
 	let textIndex = 0;
 	let activeTab = 6;
@@ -320,11 +322,11 @@
 			style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;"
 		>
-			MVP Is Live
+			Available on desktop and Web
 		</div>
 		<div
-			class="bg-red flex md:flex-row flex-col md:mt-[50px] md:w-[660px] max-md:w-full h-[104px]
-				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 absolute"
+			class="bg-red md:flex-row flex flex-col md:mt-[50px] md:w-[660px] max-md:w-full h-[104px]
+				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-1 absolute"
 		>
 			<div class="item-border-1">
 				<div
@@ -414,7 +416,16 @@
 					</div>
 				</div>
 			</div>
+			<div class="item-mobile-1">
+				<div>For GPU Owner</div>
+				<img src={gpu} />
+			</div>
+			<div class="item-mobile-2">
+				<img src={rendering} />
+				<div>3D Rendering & AI USers</div>
+			</div>
 		</div>
+		<div class="md:hidden flex"></div>
 	</div>
 	<div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-full z-50`}>
 		<div
@@ -572,7 +583,7 @@
 		padding: 8px 10px;
 	}
 	.item-border-1 {
-		@apply relative;
+		@apply relative md:flex hidden;
 		.item-download-1 {
 			@apply flex w-[320px] px-5 py-4;
 			align-items: center;
@@ -638,7 +649,7 @@
 		z-index: 1;
 	}
 	.item-border-2 {
-		@apply relative;
+		@apply relative md:flex hidden;
 		.item-download-2 {
 			@apply flex w-[320px] px-5 py-4;
 			align-items: center;
@@ -700,6 +711,53 @@
 
 		to {
 			transform: translate(-50%, -50%) scale(1.4) rotate(10deg);
+		}
+	}
+
+	.item-mobile-1,
+	.item-mobile-2 {
+		@apply md:hidden flex w-[245px] h-[70px] items-center;
+		padding: 0 16px;
+		border: 2px solid #383e3d;
+		> div {
+			flex: 1;
+			font-family: Inter;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 20px;
+			text-align: left;
+			text-transform: uppercase;
+		}
+		> img {
+			width: 86px;
+			height: 86px;
+			margin-top: 18px;
+		}
+	}
+
+	.item-mobile-1 {
+		background: linear-gradient(
+			270deg,
+			rgba(255, 255, 255, 0) 12.56%,
+			rgba(255, 255, 255, 0.08) 46.03%
+		);
+		border-radius: 20px 20px 0 0;
+		border-bottom: none;
+		> img {
+			margin-right: -20px;
+		}
+	}
+
+	.item-mobile-2 {
+		background: linear-gradient(
+			270deg,
+			rgba(255, 255, 255, 0.1) 57.6%,
+			rgba(255, 255, 255, 0) 91.06%
+		);
+		border-radius: 0 0 20px 20px;
+		border-top: none;
+		> img {
+			margin-left: -20px;
 		}
 	}
 
