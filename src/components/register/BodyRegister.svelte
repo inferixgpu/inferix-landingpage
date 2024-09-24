@@ -16,7 +16,7 @@
 	let count = 1;
 	let showModal = false;
 	var nodes = [{ id: 1, value: '' }];
-	let nav = 1;
+	let nav = 2;
 	let data = [];
 	let no_data_found = false;
 	let is_mobile = false;
@@ -253,7 +253,7 @@
 {/if}
 
 <div class={nav == 1 ? 'body-register' : 'body-register body-2'}>
-		<div class="nav-bar">
+		<!-- <div class="nav-bar">
 			<div
 				role="button"
 				tabindex="0"
@@ -270,7 +270,7 @@
 			>
 				<div>Leaderboard</div>
 			</div>
-		</div>
+		</div> -->
 	{#if nav == 1}
 		<div>
 			<div role="button" tabindex="0" class="wallet-register" on:click={() => handleFocus(1)}>
@@ -416,9 +416,9 @@
 				<div>Inferix Node Whitelist Program</div>
 				
 				<div>
-					Last Updated: {moment().format(
+					This campaign is ending at: {moment(new Date("09/23/2024, 9:30:00 PM")).format(
 						'MM/DD/YYYY, hh:mm:ss A'
-					)}
+					)}. All running points you received after this time will not be used.
 				</div>
 
 				<div class="leaderboard-table">
