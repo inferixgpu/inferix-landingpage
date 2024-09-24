@@ -274,6 +274,9 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		margin-top: -250px;
+        position: relative;
+        z-index: 99;
 		/*margin-bottom: 100px;*/
 		/* background-color: red; */
 	}

@@ -273,7 +273,9 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		/* margin-bottom: 150px; */
+        position: relative;
+        z-index: 99;
+		margin-top: -200px;
 		/* background-color: red; */
 	}
 

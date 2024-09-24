@@ -264,7 +264,12 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		/* margin-bottom: 150px; */
+        position: relative;
+        z-index: 99;
+        position: relative;
+        z-index: 99;
+		margin-top: -100px;
+		margin-bottom: 100px;
 		/* background-color: red; */
 	}
 </style>

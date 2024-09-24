@@ -270,10 +270,13 @@
 		width: 80%;
 		height: 203px;
 		margin: 0 auto;
+        position: relative;
+        z-index: 99;
 		overflow: hidden;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		margin-top: -300px;
 		/* margin-bottom: 150px; */
 		/* background-color: red; */
 	}
