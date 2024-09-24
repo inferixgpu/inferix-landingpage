@@ -1,6 +1,6 @@
 <script>
 	import { onDestroy, setContext } from 'svelte';
-	import { mapboxgl, key } from '../utils/mapboxgl.js';
+	import { mapbox, key } from '../utils/mapbox.js';
 	import CONFIG_ENV from '../config/api.ts';
 
 	setContext(key, {
@@ -57,7 +57,7 @@
 		}
 		fetchWorkersData();
 
-		map = new mapboxgl.Map({
+		map = new mapbox.Map({
 			container: container,
 			style: 'mapbox://styles/mapbox/dark-v10',
 			center: [0, 14.0583],
