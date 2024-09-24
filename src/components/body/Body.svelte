@@ -518,6 +518,10 @@
 			margin-top: 600px;
 		}
 
+		.innovated-header-content{
+			font-size: 24px !important;
+		}
+
 		.node-sale {
 			padding-top: 0px;
 
