@@ -149,7 +149,7 @@
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 <div class="header-container" style="font-family: Inter">
 	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
-		<div class="noti-campaign" style="">
+		<div style="display: none;">
 			{#if is_close}
 				{#if screenSize > 800}
 					<div class="transition-bar">
