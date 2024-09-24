@@ -301,7 +301,9 @@
 			</div>
 		</div>
 
-		<div class="overflow-hidden bg-black mx-auto md:mt-[-150px] -mt-[200px] max-md:opacity-40 relative">
+		<div
+			class="overflow-hidden bg-black mx-auto md:mt-[-150px] -mt-[200px] max-md:opacity-40 relative"
+		>
 			<video
 				autoplay
 				muted
@@ -321,7 +323,7 @@
 			MVP Is Live
 		</div>
 		<div
-			class="bg-red flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
+			class="bg-red flex md:flex-row flex-col md:mt-[50px] md:w-[660px] max-md:w-full h-[104px]
 				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 absolute"
 		>
 			<div class="item-border-1">
@@ -334,7 +336,9 @@
 				>
 					<img src={background_download_1} alt="background" />
 					<div class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:justify-center md:justify-end">
-						<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
+						<p class="flex text-white text-[16px] font-bold justify-end xl:leading-[350%]">
+							For GPU Owner
+						</p>
 						<div class="flex justify-between max-md:hidden">
 							<a
 								href="https://h3d.me/ifxworkerwin"
@@ -375,16 +379,16 @@
 					<img src={background_download_2} alt="back-download-2" />
 					<div class="basis-1/3 mt-4">
 						{#if !focusBtScreen}
-							<img class="-ml-4" src={buttonScreen} alt="buttonScreen" />
+							<img class="-ml-4 h-[88px]" src={buttonScreen} alt="buttonScreen" />
 						{:else}
-							<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus" />
+							<img class="-ml-4 h-[88px]" src={buttonScreenFocus} alt="buttonScreenFocus" />
 						{/if}
 					</div>
 					<div
 						class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center"
 					>
 						<p class="flex text-white text-[16px] font-bold justify-start">
-							3D Rendering & AI Inference
+							3D Rendering & AI Users
 						</p>
 						<div class="flex justify-between max-md:hidden">
 							<a
@@ -393,18 +397,18 @@
 								aria-label="Read more"
 							>
 								<img src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">Windows</p>
+								<p class="text-white font-normal text-[12px] opacity-60">Desktop PC</p>
 							</a>
 							<a
-								href="javascript:void(0)"
+								href="https://a3d.inferix.io/"
+								target="_blank"
 								role="button"
 								tabindex="0"
-								on:click={() => (downloadShowModal = true)}
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 								aria-label="Read more"
 							>
 								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+								<p class="text-white font-normal text-[12px] opacity-60">Web-App</p>
 							</a>
 						</div>
 					</div>
@@ -570,7 +574,7 @@
 	.item-border-1 {
 		@apply relative;
 		.item-download-1 {
-			@apply flex w-[260px] px-5 py-4;
+			@apply flex w-[320px] px-5 py-4;
 			align-items: center;
 			border-radius: 20px 0px 0px 20px;
 			position: relative;
@@ -636,7 +640,7 @@
 	.item-border-2 {
 		@apply relative;
 		.item-download-2 {
-			@apply flex w-[260px] px-5 py-4;
+			@apply flex w-[320px] px-5 py-4;
 			align-items: center;
 			border-radius: 0 20px 20px 0;
 			position: relative;
