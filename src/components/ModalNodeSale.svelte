@@ -1,0 +1,74 @@
+<script>
+    import X from '$images/png/x.png';
+    import Medium from '$images/png/medium.png';
+    import Discord from '$images/png/discord.png';
+    import Youtube from '$images/png/youtube.png';
+    import Close from '$images/png/close-icon.png';
+    import Warpcast from '$images/icons/warpcast.svg';
+    
+    let showModal = false;
+    import { onMount } from 'svelte';
+  
+    onMount(() => {
+      setTimeout(() => {
+        showModal = true;
+      }, 1000);
+    });
+  
+    const closeModal = () => {
+      showModal = false;
+    };
+  </script>
+  
+  {#if showModal}
+    <div style="font-family: Inter; backdrop-filter: blur(5px);" class="fixed inset-0 flex items-center justify-center w-full z-[999]">
+      <div class="relative max-w-[872px] w-full p-[2px] rounded-lg bg-[#000000]">
+
+        <div class="absolute inset-0 rounded-lg border-[2px] border-transparent" 
+          style="background: linear-gradient(45deg, #00D6D9, #00C085); 
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
+          -webkit-mask-composite: destination-out; mask-composite: exclude;">
+        </div>
+  
+        <div 
+          class="p-12 rounded-lg shadow-lg relative z-10"
+          style="background: radial-gradient(88.61% 141.42% at 0% 0%, rgba(0, 214, 217, 0.20) 0%, rgba(0, 192, 133, 0.00) 100%); backdrop-filter: blur(13px)">
+          
+          <div class="flex justify-between">
+              <div>
+                  <div class="text-[54px] leading-[108px] font-semibold text-[#FFF]">Start Buying Node!</div>
+                  <div class="mb-[32px] font-medium leading-[60px] text-[20px] text-[#888]">Download the product to start earning right now!</div>
+              </div>
+              <img class="w-[48px] h-[48px] ml-2 cursor-pointer" src={Close} alt="X Icon" on:click={closeModal} />
+          </div>
+          <button
+            on:click={() => window.open('https://verifier.inferix.io/')}
+            style="background: linear-gradient(45deg, #00D6D9 0%, #00C085 100%);"
+            class="px-4 py-3 h-[56px] w-[160px] text-[#08101D] text-[20px]"
+          >
+            Buy Now
+          </button>
+          <div class="w-full h-[1px] bg-[#333] my-8"></div>
+          <div class="mb-[32px] font-medium leading-[60px] text-[20px] text-[#888] mb-[40px]">Don’t miss out – join our community!</div>
+          <div class="flex gap-10">
+              <a href="https://x.com/inferixgpu" target="_blank" rel="noopener noreferrer">
+                <img class="w-[50px] h-[50px]" src={X} alt="X Icon" />
+              </a>
+              <a href="https://medium.com/@inferixgpu" target="_blank" rel="noopener noreferrer">
+                <img class="w-[50px] h-[50px]" src={Medium} alt="Medium Icon" />
+              </a>
+              <a href="https://discord.com/invite/NJvcWYcB9W" target="_blank" rel="noopener noreferrer">
+                <img class="w-[50px] h-[50px]" src={Discord} alt="Discord Icon" />
+              </a>
+              <a href="https://www.youtube.com/@InferixGPU" target="_blank" rel="noopener noreferrer">
+                <img class="w-[50px] h-[50px]" src={Youtube} alt="YouTube Icon" />
+              </a>
+              <a href="https://warpcast.com/inferixgpu" target="_blank" rel="noopener noreferrer">
+                <img class="w-[50px] h-[50px]" style="border-radius: 50% " src={Warpcast} alt="Warpcast Icon" />
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  {/if}
+  
