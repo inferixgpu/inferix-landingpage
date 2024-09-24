@@ -316,7 +316,9 @@
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
-		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">MVP is live on desktop</div>
+		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">
+			Available on desktop and Web
+		</div>
 		<div
 			class="max-md:hidden mt-[-120px] z-[999]"
 			style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
