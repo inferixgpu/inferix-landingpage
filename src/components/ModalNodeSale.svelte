@@ -71,7 +71,7 @@
 				</button>
 				<div class="w-full h-[1px] bg-[#333] my-4 md:my-8"></div>
 				<div
-					class="mb-[32px] font-medium leading-[60px] text-[16px] lg:text-[20px] text-[#888] mb-[12px] md:mb-[40px]"
+					class="mb-[32px] font-medium leading-[40px] md:leading-[60px] text-[16px] lg:text-[20px] text-[#888] mb-[12px] md:mb-[40px]"
 				>
 					Don’t miss out – join our community!
 				</div>
