@@ -369,7 +369,7 @@
 						{#if !focusGPU}
 							<img class="ml-4" src={buttonGPU} alt="buttonGPU" />
 						{:else}
-							<img class="ml-4" src={buttonGPUFocus} alt="buttonGPUFocus" />
+							<img class="ml-4 w-[88px] h-[88px]" src={buttonGPUFocus} alt="buttonGPUFocus" />
 						{/if}
 					</div>
 				</div>
@@ -600,7 +600,7 @@
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%) scale(1.4) rotate(65deg);
 				aspect-ratio: 1;
 				width: 90%;
 				//rotate: 0.1turn;
