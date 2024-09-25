@@ -2,9 +2,13 @@
 	import Header from '$components/header/Header.svelte';
 	import Body from '$components/body/Body.svelte';
 	import Footer from '$components/footer/Footer.svelte';
+	import NavbarSocial from '$components/NavbarSocial.svelte';
+	import ModalNodeSale from '$components/ModalNodeSale.svelte';
 </script>
 
 <div class="">
+	<ModalNodeSale/>
+	<NavbarSocial/>
 	<Header />
 	<Body />
 	<Footer />

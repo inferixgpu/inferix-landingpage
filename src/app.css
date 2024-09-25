@@ -184,3 +184,12 @@ input:focus {
 		width: 0;
 	}
 }
+
+.circle_cluster {
+    border-radius: 50%;
+    background: #00D6D9;
+}
+
+.mapboxgl-ctrl-attrib-inner{
+	display:none
+}

@@ -29,8 +29,13 @@
 	import SystemArchitecture from '$components/body/System.svelte';
 	import RoadMapMobile from '$components/body/RoadMapMobile.svelte';
 	import ProvenTechnologies from '$components/body/ProvenTechnologies.svelte';
+	import Events from '$components/body/Events.svelte';
 	import InferixIntro from '$videos/inferix-intro.mp4';
 	import node_sale_img from '$images/png/node-sale-img.png';
+	import Map from '$components/body/Map.svelte';
+	import MapLaptop from '$components/body/MapLaptop.svelte';
+	import MapMobile from '$components/body/MapMobile.svelte';
+	import MapTablet from '$components/body/MapTablet.svelte';
 
 	let screenSize: number;
 
@@ -238,7 +243,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="innovated-body">
+		<!-- <div class="innovated-body">
 			<video
 				autoplay
 				muted
@@ -248,12 +253,24 @@
 			>
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
-		</div>
+		</div> -->
+
+		{#if screenSize > 1440}
+			<Map />
+		{:else if screenSize > 1024}
+			<MapLaptop />
+		{:else if screenSize > 768}
+			<MapTablet />
+		{:else}
+			<MapMobile />
+		{/if}
+
 		<div class="innovated-footer" />
 	</div>
 
 	<ProvenTechnologies />
 	<SystemArchitecture />
+	<Events />
 	<Industries />
 	<div>
 		<div
@@ -499,6 +516,10 @@
 	@media screen and (max-width: 768px) {
 		.innovated-header > img {
 			margin-top: 600px;
+		}
+
+		.innovated-header-content{
+			font-size: 24px !important;
 		}
 
 		.node-sale {

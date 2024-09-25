@@ -19,6 +19,8 @@
 	import DownloadIcon from '$images/icons/Download.svg';
 	import background_download_1 from '$images/png/background-download-1.png';
 	import background_download_2 from '$images/png/background-download-2.png';
+	import gpu from '$images/icons/gpu.png';
+	import rendering from '$images/icons/rendering.png';
 
 	let textIndex = 0;
 	let activeTab = 6;
@@ -148,7 +150,7 @@
 
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 <div class="header-container" style="font-family: Inter">
-	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50">
+	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50 md:px-[40px]">
 		<div style="display: none;">
 			{#if is_close}
 				{#if screenSize > 800}
@@ -274,7 +276,7 @@
 	<div class="mx-auto flex flex-col bg-black relative justify-end items-center">
 		<div class="w-full flex justify-center items-center">
 			<div
-				class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto md:mt-[500px] mt-[420px] absolute z-[20]"
+				class="flex flex-col gap-4 md:w-[750px] max-md:w-full h-[141px] mx-auto md:mt-[450px] mt-[420px] absolute z-[20]"
 				style={is_close ? '' : 'margin-top: 420px'}
 			>
 				<div class="flex flex-col items-center justify-center" style="padding: 0 15px;">
@@ -301,7 +303,9 @@
 			</div>
 		</div>
 
-		<div class="overflow-hidden bg-black mx-auto md:mt-0 -mt-[200px] max-md:opacity-40 relative">
+		<div
+			class="overflow-hidden bg-black mx-auto md:mt-[-150px] -mt-[200px] max-md:opacity-40 relative"
+		>
 			<video
 				autoplay
 				muted
@@ -312,17 +316,19 @@
 				<source src={InferixIntro} type="video/mp4" />
 			</video>
 		</div>
-		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">MVP is live on desktop</div>
+		<div class="md:hidden absolute mb-[300px] text-[16px font-normal">
+			Available on desktop and Web
+		</div>
 		<div
-			class="max-md:hidden"
+			class="max-md:hidden mt-[-120px] z-[999]"
 			style="font-size: 32px; font-weight: 600; background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 8.85%, #FFFFFF 100%); -webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;"
 		>
-			MVP Is Live
+			Available on desktop and Web
 		</div>
 		<div
-			class="flex md:flex-row flex-col md:mt-[50px] md:w-[560px] max-md:w-full h-[104px]
-				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-0 absolute"
+			class="bg-red md:flex-row flex flex-col md:mt-[50px] md:w-[660px] max-md:w-full h-[104px]
+				items-center mx-auto justify-between z-40 md:-mb-[150px] max-md:mb-[180px] max-md:gap-1 absolute"
 		>
 			<div class="item-border-1">
 				<div
@@ -334,7 +340,9 @@
 				>
 					<img src={background_download_1} alt="background" />
 					<div class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:justify-center md:justify-end">
-						<p class="flex text-white text-[16px] font-bold justify-end">For GPU Owner</p>
+						<p class="flex text-white text-[16px] font-bold justify-end xl:leading-[350%]">
+							For GPU Owner
+						</p>
 						<div class="flex justify-between max-md:hidden">
 							<a
 								href="https://h3d.me/ifxworkerwin"
@@ -375,16 +383,16 @@
 					<img src={background_download_2} alt="back-download-2" />
 					<div class="basis-1/3 mt-4">
 						{#if !focusBtScreen}
-							<img class="-ml-4" src={buttonScreen} alt="buttonScreen" />
+							<img class="-ml-4 h-[88px]" src={buttonScreen} alt="buttonScreen" />
 						{:else}
-							<img class="-ml-4" src={buttonScreenFocus} alt="buttonScreenFocus" />
+							<img class="-ml-4 h-[88px]" src={buttonScreenFocus} alt="buttonScreenFocus" />
 						{/if}
 					</div>
 					<div
 						class="basis-2/3 flex flex-col gap-2 h-[64px] max-md:items-center max-md:justify-center"
 					>
 						<p class="flex text-white text-[16px] font-bold justify-start">
-							3D Rendering & AI Inference
+							3D Rendering & AI Users
 						</p>
 						<div class="flex justify-between max-md:hidden">
 							<a
@@ -393,24 +401,33 @@
 								aria-label="Read more"
 							>
 								<img src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">Windows</p>
+								<p class="text-white font-normal text-[12px] opacity-60">Desktop PC</p>
 							</a>
 							<a
-								href="javascript:void(0)"
+								href="https://a3d.inferix.io/"
+								target="_blank"
 								role="button"
 								tabindex="0"
-								on:click={() => (downloadShowModal = true)}
 								class="inline-flex justify-between items-center gap-1 cursor-pointer"
 								aria-label="Read more"
 							>
 								<img class="object-cover" src={DownloadIcon} alt="DownloadIcon" />
-								<p class="text-white font-normal text-[12px] opacity-60">MacOS</p>
+								<p class="text-white font-normal text-[12px] opacity-60">Web-App</p>
 							</a>
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="item-mobile-1">
+				<div>For GPU Owner</div>
+				<img src={gpu} />
+			</div>
+			<div class="item-mobile-2">
+				<img src={rendering} />
+				<div>3D Rendering & AI USers</div>
+			</div>
 		</div>
+		<div class="md:hidden flex"></div>
 	</div>
 	<div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-full z-50`}>
 		<div
@@ -488,7 +505,7 @@
 
 <style lang="postcss">
 	.header-bar {
-		@apply flex flex-row mx-auto xl:w-[1200px] md:w-[90%] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover max-md:hidden;
+		@apply flex flex-row mx-auto xl:w-[1200px] md:w-[100%] my-[12px] items-center justify-between px-4 h-[56px] rounded-[16px] bg-cover max-md:hidden;
 		background-image: url('$images/png/header-register.png');
 		.tab-item {
 			@apply text-[16px] font-normal text-white px-2 py-1 whitespace-nowrap text-header-transfer;
@@ -568,9 +585,9 @@
 		padding: 8px 10px;
 	}
 	.item-border-1 {
-		@apply relative;
+		@apply relative md:flex hidden;
 		.item-download-1 {
-			@apply flex w-[260px] px-5 py-4;
+			@apply flex w-[320px] px-5 py-4;
 			align-items: center;
 			border-radius: 20px 0px 0px 20px;
 			position: relative;
@@ -634,9 +651,9 @@
 		z-index: 1;
 	}
 	.item-border-2 {
-		@apply relative;
+		@apply relative md:flex hidden;
 		.item-download-2 {
-			@apply flex w-[260px] px-5 py-4;
+			@apply flex w-[320px] px-5 py-4;
 			align-items: center;
 			border-radius: 0 20px 20px 0;
 			position: relative;
@@ -696,6 +713,53 @@
 
 		to {
 			transform: translate(-50%, -50%) scale(1.4) rotate(10deg);
+		}
+	}
+
+	.item-mobile-1,
+	.item-mobile-2 {
+		@apply md:hidden flex w-[245px] h-[70px] items-center;
+		padding: 0 16px;
+		border: 2px solid #383e3d;
+		> div {
+			flex: 1;
+			font-family: Inter;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 20px;
+			text-align: left;
+			text-transform: uppercase;
+		}
+		> img {
+			width: 86px;
+			height: 86px;
+			margin-top: 18px;
+		}
+	}
+
+	.item-mobile-1 {
+		background: linear-gradient(
+			270deg,
+			rgba(255, 255, 255, 0) 12.56%,
+			rgba(255, 255, 255, 0.08) 46.03%
+		);
+		border-radius: 20px 20px 0 0;
+		border-bottom: none;
+		> img {
+			margin-right: -20px;
+		}
+	}
+
+	.item-mobile-2 {
+		background: linear-gradient(
+			270deg,
+			rgba(255, 255, 255, 0.1) 57.6%,
+			rgba(255, 255, 255, 0) 91.06%
+		);
+		border-radius: 0 0 20px 20px;
+		border-top: none;
+		> img {
+			margin-left: -20px;
 		}
 	}
 
