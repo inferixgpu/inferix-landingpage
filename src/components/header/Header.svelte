@@ -42,6 +42,11 @@
 			id: 5,
 			title: 'Docs',
 			href: 'https://docs.inferix.io/'
+		},
+		{
+			id: 7,
+			title: 'Blog',
+			href: 'https://medium.com/@inferixgpu'
 		}
 	];
 	const register = {
@@ -75,7 +80,7 @@
 			document.getElementById(`item-tab-${id}`)?.classList.add('tab-active');
 		}
 
-		if (id === 2 || id === 5) {
+		if (id === 2 || id === 5 || id == 7) {
 			window.open(href);
 		}
 
