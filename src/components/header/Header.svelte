@@ -151,7 +151,7 @@
 <svelte:window bind:innerWidth={screenSize} bind:scrollY={y} />
 <div class="header-container" style="font-family: Inter">
 	<div id="header" class="flex flex-col fixed top-0 md:pb-0 pb-4 w-full z-50 md:px-[40px]">
-		<div style="display: none;">
+		<div>
 			{#if is_close}
 				{#if screenSize > 800}
 					<div class="transition-bar">
@@ -180,16 +180,31 @@
 							<div class="transition-item">
 								<div class="flex justify-center shrink-0">
 									<a
-										href="https://docs.inferix.io/verifier-node-guide/verifier-node-sales/how-to-get-whitelisted"
+										href="https://verifier.inferix.io/"
 										target="_blank"
 										class="inline-flex h-full items-center gap-1"
 										aria-label="Read more"
-										>Node Whitelist Campaign - <p class="text-black">
-											Only {new Date('2024/09/25 00:00:00').getDay() - new Date().getDay()} days left!
-											⟶
-										</p></a
+										>Node Sales is Live ⟶</a
 									>
 								</div>
+<!--								<div class="flex justify-center shrink-0">-->
+<!--									<a-->
+<!--											href="https://verifier.inferix.io/"-->
+<!--											target="_blank"-->
+<!--											class="inline-flex h-full items-center gap-1"-->
+<!--											aria-label="Read more"-->
+<!--									>Node Sales is Live</a-->
+<!--									>-->
+<!--								</div>-->
+<!--								<div class="flex justify-center shrink-0">-->
+<!--									<a-->
+<!--											href="https://verifier.inferix.io/"-->
+<!--											target="_blank"-->
+<!--											class="inline-flex h-full items-center gap-1"-->
+<!--											aria-label="Read more"-->
+<!--									>Node Sales is Live</a-->
+<!--									>-->
+<!--								</div>-->
 							</div>
 						</div>
 					</div>
@@ -198,14 +213,11 @@
 						<div class="transition-action">
 							<div class="flex basis-1/4 justify-center shrink-0">
 								<a
-									href="https://docs.inferix.io/verifier-node-guide/verifier-node-sales/how-to-get-whitelisted"
-									target="_blank"
-									class="inline-flex h-full items-center gap-1"
-									aria-label="Read more"
-									>Node Whitelist Campaign - <p class="text-black">
-										Only {new Date('2024/09/25 00:00:00').getDay() - new Date().getDay()} days left!
-										⟶
-									</p></a
+										href="https://verifier.inferix.io/"
+										target="_blank"
+										class="inline-flex h-full items-center gap-1"
+										aria-label="Read more"
+								>Node Sales is Live ⟶</a
 								>
 							</div>
 						</div>
@@ -915,11 +927,11 @@
 		color: white !important;
 	}
 	.transition-bar {
-		@apply flex gap-[30px] shrink-0 relative;
+		@apply flex justify-center gap-[30px] shrink-0 relative md:w-[100vw] md:-ml-[40px];
 		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		.transition-action {
-			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap;
-			animation: slide-left 30s linear infinite;
+			@apply flex flex-row justify-between items-center  h-[40px] shrink-0 whitespace-nowrap;
+			/*animation: slide-left 30s linear infinite;*/
 			&:hover {
 				animation-play-state: paused;
 			}
@@ -929,10 +941,11 @@
 		}
 	}
 	.transition-bar-mobile {
+		@apply flex justify-center md:w-[100vw] md:-ml-[40px];
 		background: var(--12, linear-gradient(45deg, #00d6d9 0%, #00c085 100%));
 		.transition-action {
-			@apply flex flex-row justify-between items-center w-full h-[40px] shrink-0 whitespace-nowrap gap-[30px];
-			animation: slide-left 10s linear infinite;
+			@apply flex flex-row justify-between items-center h-[40px] shrink-0 whitespace-nowrap gap-[30px];
+			/*animation: slide-left 10s linear infinite;*/
 			&:hover {
 				animation-play-state: paused;
 			}
