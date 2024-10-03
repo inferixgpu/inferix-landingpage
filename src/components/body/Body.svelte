@@ -226,6 +226,7 @@
 				</div>
 			</div>
 			<img src={node_sale_img} />
+			<div><div>Sold Out</div></div>
 		</div>
 	</div>
 	<div class="innovated" id="about">
@@ -420,6 +421,28 @@
 			> img {
 				width: 40%;
 			}
+			> div:last-child {
+				width: 410px;
+				height: 90px;
+				position: absolute;
+				top: 50%;
+				right: 5%;
+				transform: translate(0, -50%);
+				background: #3e3e3e33;
+				backdrop-filter: blur(13px);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border: 1px solid #5c5c5c;
+				border-radius: 12px;
+				> div {
+					font-family: Inter;
+					font-size: 32px;
+					font-weight: 700;
+					text-align: center;
+					color: #00d0c1;
+				}
+			}
 		}
 	}
 
@@ -510,6 +533,9 @@
 			> img {
 				width: 50%;
 			}
+			> div:last-child {
+				width: 360px;
+			}
 		}
 	}
 
@@ -518,7 +544,7 @@
 			margin-top: 600px;
 		}
 
-		.innovated-header-content{
+		.innovated-header-content {
 			font-size: 24px !important;
 		}
 
@@ -535,6 +561,18 @@
 				}
 				> img {
 					width: 80%;
+				}
+
+				> div:last-child {
+					width: 80%;
+					height: 20vw;
+					max-height: 90px;
+					right: 50%;
+					transform: translate(50%, 100%);
+
+					> div {
+						font-size: 5vw;
+					}
 				}
 			}
 		}
