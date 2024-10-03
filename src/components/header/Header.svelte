@@ -363,7 +363,7 @@
 		</div>
 		<div class="md:hidden flex"></div>
 	</div>
-	<div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-full z-50`}>
+	<div class={`${isOpen ? 'open' : 'close'} overlayMobile fixed inset-0 h-full z-[99999]`}>
 		<div
 			style="background: #000;"
 			class="flex gap-[20px] flex-col text-[20px] font-[600] items-start w-full h-full box-border pt-[86px] relative p-[30px]"
