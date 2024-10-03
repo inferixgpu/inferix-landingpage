@@ -7,8 +7,7 @@
 </script>
 
 <div class="">
-	<ModalNodeSale/>
-	<NavbarSocial/>
+	<NavbarSocial />
 	<Header />
 	<Body />
 	<Footer />
