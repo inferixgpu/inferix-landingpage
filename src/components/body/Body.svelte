@@ -270,20 +270,18 @@
 	</div>
 
 	<ProvenTechnologies />
-	<SystemArchitecture />
 	<Events />
-	<Industries />
 	<div>
 		<div
 			id="partners"
-			class="flex pb-0 max-sm:w-full lg:w-[894px] md:flex gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[10px]"
+			class="flex pb-0 max-sm:w-full lg:w-[894px] md:flex gap-[48px] flex-col mx-auto justify-center items-center md:pb-[60px] mt-[20px] md:mt-[70px]"
 		>
 			<Saos
 				once
 				top="200"
 				animation={'puff-in-center 0.5s cubic-bezier(0.35, 0.5, 0.65, 0.95) both'}
 			>
-				<p class="partner-header">Partner / Investor</p>
+				<p class="partner-header">Partners / Investors</p>
 			</Saos>
 			<Saos
 				once
